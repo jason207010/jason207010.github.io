@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/categories/spring/</link>
+    <description>Recent content in Spring on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 14 Jul 2017 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://jason207010.github.io/categories/spring/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>《Spring实战》笔记</title>
+      <link>http://jason207010.github.io/post/reading-spring-in-action-notes/</link>
+      <pubDate>Fri, 14 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/reading-spring-in-action-notes/</guid>
+      <description>Bean的生命周期 Spring Bean 装配Bean 隐式自动装配 基于annotation方式 @Configuration @ComponentScan public class AppConfig {} 基于XML方式 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xmlns:context=&amp;quot;http://www.springframework.org/schema/context&amp;quot; xmlns:aop=&amp;quot;http://www.springframework.org/schema/aop&amp;quot; xsi:schemaLocation=&amp;quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd &amp;quot;&amp;gt; &amp;lt;context:component-scan base-package=&amp;quot;com&amp;quot;/&amp;gt; &amp;lt;/beans&amp;gt; 显式装配</description>
+    </item>
+    
+    <item>
+      <title>Spring MVC 开发指南（基于XML）</title>
+      <link>http://jason207010.github.io/post/javaweb-sring-mvc-development-guide/</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/javaweb-sring-mvc-development-guide/</guid>
+      <description>编辑web.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;web-app version=&amp;quot;3.0&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/javaee&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&amp;quot;&amp;gt; &amp;lt;!--spring mvc begin--&amp;gt; &amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt;spring&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;org.springframework.web.servlet.DispatcherServlet&amp;lt;/servlet-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;classpath:spring-mvc.xml&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt; &amp;lt;/servlet&amp;gt; &amp;lt;servlet-mapping&amp;gt; &amp;lt;servlet-name&amp;gt;spring&amp;lt;/servlet-name&amp;gt; &amp;lt;url-pattern&amp;gt;*.do&amp;lt;/url-pattern&amp;gt; &amp;lt;/servlet-mapping&amp;gt; &amp;lt;!--spring mvc end--&amp;gt; &amp;lt;!--encoding begin--&amp;gt; &amp;lt;!--编码过滤器，防止出现乱码--&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;filter-name&amp;gt;encodingFilter&amp;lt;/filter-name&amp;gt; &amp;lt;filter-class&amp;gt;org.springframework.web.filter.CharacterEncodingFilter&amp;lt;/filter-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;encoding&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;UTF-8&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Spring Security开发指南（基于XML）</title>
+      <link>http://jason207010.github.io/post/javaweb-spring-security-development-guide/</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/javaweb-spring-security-development-guide/</guid>
+      <description>配置web.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;web-app version=&amp;quot;3.0&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/javaee&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&amp;quot;&amp;gt; &amp;lt;!--spring mvc begin--&amp;gt; &amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt;spring&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;org.springframework.web.servlet.DispatcherServlet&amp;lt;/servlet-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt; &amp;lt;!--spring mvc的配置需要单独配置--&amp;gt; &amp;lt;param-value&amp;gt;classpath:spring-mvc.xml&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt; &amp;lt;/servlet&amp;gt; &amp;lt;servlet-mapping&amp;gt; &amp;lt;servlet-name&amp;gt;spring&amp;lt;/servlet-name&amp;gt; &amp;lt;url-pattern&amp;gt;*.do&amp;lt;/url-pattern&amp;gt; &amp;lt;/servlet-mapping&amp;gt; &amp;lt;!--spring mvc end--&amp;gt; &amp;lt;!--encoding begin--&amp;gt; &amp;lt;!--编码过滤器</description>
+    </item>
+    
+    <item>
+      <title>Spring Validator注解</title>
+      <link>http://jason207010.github.io/post/javaweb-spring-validator-annotation/</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/javaweb-spring-validator-annotation/</guid>
+      <description>验证注解 验证的数据类型 说明 @AssertFalse Boolean,boolean 验证注解的元素值是false @AssertTrue Boolean,boolean 验证注解的元素值是true @NotNull 任意类型 验证注解的元素值不是null @Null 任意类型 验证</description>
+    </item>
+    
+    <item>
+      <title>基于Spring Security、JPA的RBAC模型（一）理论部分</title>
+      <link>http://jason207010.github.io/post/rbac-model-part-1/</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/rbac-model-part-1/</guid>
+      <description>RBAC 以角色为基础的访问控制（英语：Role-based access control, RBAC），是资讯安全领域中，一种较新且广为使用的访问控制机制，其不同于强制访问控制</description>
+    </item>
+    
+    <item>
+      <title>基于Spring Security、JPA的RBAC模型（二）代码部分</title>
+      <link>http://jason207010.github.io/post/rbac-model-part-2/</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/rbac-model-part-2/</guid>
+      <description>JPA实体设计 用户实体 @Entity @Table(name = &amp;quot;`user`&amp;quot;) public class User implements Serializable , UserDetails { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = &amp;quot;`id`&amp;quot;) private Long id; @Column(name = &amp;quot;`name`&amp;quot;) private String name; @Column(name = &amp;quot;`password`&amp;quot;) private String password; @Column(name = &amp;quot;`enable`&amp;quot;) private Boolean enable; @Column(name = &amp;quot;`img_path`&amp;quot;) private String imgPath; @ManyToMany(fetch = FetchType.EAGER) @JoinTable(name = &amp;quot;`user_role`&amp;quot; , joinColumns = @JoinColumn(name = &amp;quot;`user_id`&amp;quot;) ,</description>
+    </item>
+    
+  </channel>
+</rss>

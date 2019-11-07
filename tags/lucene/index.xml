@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lucene on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/tags/lucene/</link>
+    <description>Recent content in Lucene on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 12 Jul 2017 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://jason207010.github.io/tags/lucene/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lucene开发指南</title>
+      <link>http://jason207010.github.io/post/javaweb-lucene-development-guide/</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/javaweb-lucene-development-guide/</guid>
+      <description>写索引，使用多个索引文件 package com.web.service; import com.web.common.Page; import com.web.config.Config; import com.web.entity.WebPageEntity; import com.web.lucene.Indexer; import com.web.lucene.SearchResult; import com.web.lucene.Searcher; import com.web.util.ConverseUtil; import org.apache.lucene.document.*; import org.apache.lucene.index.Term; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.stereotype.Service; /** * @author jason 2015-07-22-14:59 * @since v1.0 */ @Service(&amp;quot;LuceneServiceImpl&amp;quot;) public class LuceneServiceImpl implements LuceneService { @Autowired private Indexer indexer; @Autowired private Config config; @Autowired private Searcher searcher; @Override public void saveOrUpdate(WebPageEntity entity) {</description>
+    </item>
+    
+  </channel>
+</rss>

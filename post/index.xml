@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/post/</link>
+    <description>Recent content in Posts on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://jason207010.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Emacs Hugo搭建博客</title>
+      <link>http://jason207010.github.io/post/emacs-hugo-blog/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/emacs-hugo-blog/</guid>
+      <description>安装hugo hugo 官网 Hugo是由Go语言实现的静态网站生成器 brew install hugo Emacs 安装 ox-hugo 插件 ox-hugo 官网 ox-hugo 是 org mode 转换为 hugo markdown 源文件的导出工具 安装 M-x package-install Ret ox-hugo Ret 配置 vi ~/.emacs (with-eval-after-load</description>
+    </item>
+    
+    <item>
+      <title>零碎知识点汇总</title>
+      <link>http://jason207010.github.io/post/java-misc/</link>
+      <pubDate>Mon, 30 Sep 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/java-misc/</guid>
+      <description>Java Servlet、Filter 的 url-pattern 匹配规则 精确匹配 @WebServlet(urlPatterns = &amp;quot;/test&amp;quot;) public class TestServlet extends HttpServlet { } 扩展名匹配 @WebServlet(urlPatterns = &amp;quot;*.do&amp;quot;) public class TestServlet extends HttpServlet { } 路径匹配 @WebServlet(urlPatterns = &amp;quot;/test/*&amp;quot;) public class TestServlet extends HttpServlet { } 任意url匹</description>
+    </item>
+    
+    <item>
+      <title>Homebrew使用指南</title>
+      <link>http://jason207010.github.io/post/homebrew-user-guide/</link>
+      <pubDate>Thu, 20 Jun 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/homebrew-user-guide/</guid>
+      <description>安装Homebrew 获取安装脚本 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install &amp;gt; install 修改安装脚本源为中科大的源 BREW_REPO = &amp;quot;https://github.com/Homebrew/brew&amp;quot;.freeze 改为： BREW_REPO = &amp;quot;https://mirrors.ustc.edu.cn/brew.git&amp;quot;.freeze 安装 /usr/bin/ruby install 修改软件包源为中科大的源 Homebrew 源代码仓库 cd &amp;quot;$(brew --repo)&amp;quot; git remote</description>
+    </item>
+    
+    <item>
+      <title>Github SSH配置</title>
+      <link>http://jason207010.github.io/post/git-set-up-github-ssh-key/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/git-set-up-github-ssh-key/</guid>
+      <description>生成SSH公钥和私钥 ssh-keygen -t rsa -C jason@mail.com 提示保存位置时直接回车，使用默认保存路径即可。提示输入密码时直接回车，不用密码，这样做的好处是省去clone和</description>
+    </item>
+    
+    <item>
+      <title>Github 加速clone设置</title>
+      <link>http://jason207010.github.io/post/git-github-clone-speed-up/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/git-github-clone-speed-up/</guid>
+      <description>修改host 查询Github IP地址 通过https://www.ipaddress.com查询github.com和github.globa</description>
+    </item>
+    
+    <item>
+      <title>JDBC批量插入、更新开发指南</title>
+      <link>http://jason207010.github.io/post/java-jdbc-batch-development-guide/</link>
+      <pubDate>Mon, 17 Jun 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/java-jdbc-batch-development-guide/</guid>
+      <description>概述 JAVA提供java.sql.Statement#executeBatch()方法帮助开发者实现批量插入、更新及删除等操作，但MySQL</description>
+    </item>
+    
+    <item>
+      <title>Java Instrument热更新开发指南</title>
+      <link>http://jason207010.github.io/post/java-instrument-development-guide/</link>
+      <pubDate>Fri, 14 Dec 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/java-instrument-development-guide/</guid>
+      <description>项目源码 https://github.com/JasonChanBest/instrument 相关参数 参数 参数值 操作系统 macOS JAVA版本 1.8 项目构建工具 Gradle 项目jar包 instrument-1.0.jar 概念 Instrumentation是JavaSE 5的新特性，</description>
+    </item>
+    
+    <item>
+      <title>Gradle 开发指南</title>
+      <link>http://jason207010.github.io/post/gradle-development-guide/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/gradle-development-guide/</guid>
+      <description>概述 Gradle 提供了: 一个像 Ant 一样的非常灵活的通用构建工具 一种可切换的, 像 maven 一样的基于合约构建的框架 支持强大的多工程构建 支持强大的依赖管理(基于 ApacheIvy )</description>
+    </item>
+    
+    <item>
+      <title>Git使用指南</title>
+      <link>http://jason207010.github.io/post/git-user-guide/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/git-user-guide/</guid>
+      <description>简介 Git是分布式版本控制软件 命令 git init git init [directory] 释义 创建一个空 Git 仓库或者重新初始化一个已存在的仓库 示例 git init my-project git clone git clone [--verbose | -v] [--progress] [--origin | -o &amp;lt;origin&amp;gt;] [--branch | -b &amp;lt;branch&amp;gt;] [--depth &amp;lt;depth&amp;gt;]</description>
+    </item>
+    
+    <item>
+      <title>Emacs使用指南</title>
+      <link>http://jason207010.github.io/post/emacs-user-guide/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/emacs-user-guide/</guid>
+      <description>文件操作 快捷键 释义 C-x C-f 打开文件 C-x C-s 保存文件 C-x C-w 存为新文件 C-x C-c 退出Emacs 窗口操作 快捷键 释义 C-x 0 关闭本窗口 C-x 1 只留下一个窗口 C-x 2 垂直均分窗口</description>
+    </item>
+    
+    <item>
+      <title>JetBrains Crack 使用指南</title>
+      <link>http://jason207010.github.io/post/jetbrains-crack-user-guide/</link>
+      <pubDate>Tue, 11 Sep 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/jetbrains-crack-user-guide/</guid>
+      <description>破解 IntelliJ IDEA 软件版本 软件/操作系统 Mac OS Sierra 10.12.6 IntelliJ IDEA 2018.2.3 (Ultimate Edition) JetbrainsCrack-3.1-release-enc.jar 破解方法 复制 JetbrainsCrack-3.1-release-enc.jar cp JetbrainsCrack-3.1-release-enc.jar /Applications/IntelliJ\ IDEA.app/Contents/lib/ 编辑 idea.vmoptions 文件 vi /Applications/IntelliJ\ IDEA.app/Contents/bin/idea.vmoptions 追加内容 -javaagent:../lib/JetbrainsCrack-3.1-release-enc.jar 打开 IntelliJ IDEA.app 输入激活码 ThisCrackLicenseId-{ &amp;quot;licenseId&amp;quot;:&amp;quot;ThisCrackLicenseId&amp;quot;, &amp;quot;lice</description>
+    </item>
+    
+    <item>
+      <title>Elasticsearch 开发指南</title>
+      <link>http://jason207010.github.io/post/elasticsearch-development-guide/</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/elasticsearch-development-guide/</guid>
+      <description>基础概念 准实时（Near Realtime） Elasticsearch 是一个准实时搜索平台，一个文档从索引到可搜索有一定的延时，通常是 1 秒</description>
+    </item>
+    
+    <item>
+      <title>Logstash 开发指南</title>
+      <link>http://jason207010.github.io/post/logstash-development-guide/</link>
+      <pubDate>Thu, 19 Jul 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/logstash-development-guide/</guid>
+      <description>关于Logstash Logstash 是开源的服务器端数据处理管道，能够同时从多个来源采集数据、转换数据，然后将数据发送到您最喜欢的 “存储库” 中。 Logst</description>
+    </item>
+    
+    <item>
+      <title>《Netty实战》笔记</title>
+      <link>http://jason207010.github.io/post/reading-netty-in-action/</link>
+      <pubDate>Sat, 10 Mar 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/reading-netty-in-action/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SLF4J开发指南（基于LOG4J 1.x）</title>
+      <link>http://jason207010.github.io/post/java-slf4j-log4j-development-guide/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/java-slf4j-log4j-development-guide/</guid>
+      <description>使用maven构建 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.slf4j&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;slf4j-log4j12&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.7.25&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 此时会自动引入3个依赖jar包 包名 log4j-1.2.17.jar slf4j-api-1.7.25.jar slf4j-log4j12-1.7.25.jar 配置 log4j默认使用classpath目录下log4j.xml或log</description>
+    </item>
+    
+    <item>
+      <title>SLF4J开发指南（基于LOG4J 2.x）</title>
+      <link>http://jason207010.github.io/post/java-slf4j-log4j2-development-guide/</link>
+      <pubDate>Mon, 22 Jan 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/java-slf4j-log4j2-development-guide/</guid>
+      <description>使用maven构建 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.logging.log4j&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;log4j-slf4j-impl&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.10.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 此时会自动引入4个依赖jar包 包名 log4j-api-2.9.1.jar log4j-core-2.9.1.jar log4j-slf4j-impl-2.9.1.jar slf4j-api-1.7.25.jar 配置 log4j 2.x默认使用classpath目录下log4j2.xml或lo</description>
+    </item>
+    
+    <item>
+      <title>《深入理解Java虚拟机》笔记</title>
+      <link>http://jason207010.github.io/post/reading-understanding-the-jvm-notes/</link>
+      <pubDate>Mon, 11 Sep 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/reading-understanding-the-jvm-notes/</guid>
+      <description>Java内存区域与内存溢出异常 运行时内存区域 程序计数器 程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟</description>
+    </item>
+    
+    <item>
+      <title>Java JMS开发指南</title>
+      <link>http://jason207010.github.io/post/java-jms-development-guide/</link>
+      <pubDate>Wed, 16 Aug 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/java-jms-development-guide/</guid>
+      <description>概念 Java消息服务（Java Message Service，JMS）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用</description>
+    </item>
+    
+    <item>
+      <title>Java RMI开发指南</title>
+      <link>http://jason207010.github.io/post/java-rmi-development-guide/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/java-rmi-development-guide/</guid>
+      <description>编写服务接口 接口必须继承Remote接口，接口方法必须抛出RemoteException public interface Service extends Remote { void service(String args) throws RemoteException; } 编写服务接口实现类 服务接口实</description>
+    </item>
+    
+    <item>
+      <title>PlantUML mode使用指南</title>
+      <link>http://jason207010.github.io/post/emacs-plantuml-mode-user-guide/</link>
+      <pubDate>Fri, 14 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/emacs-plantuml-mode-user-guide/</guid>
+      <description>搭建运行环境 安装JAVA 安装Graphviz 下载地址 安装PlantUML 下载plantuml.jar到本地即可，如下载到C:\Users\J</description>
+    </item>
+    
+  </channel>
+</rss>

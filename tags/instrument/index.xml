@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Instrument on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/tags/instrument/</link>
+    <description>Recent content in Instrument on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 14 Dec 2018 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://jason207010.github.io/tags/instrument/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Java Instrument热更新开发指南</title>
+      <link>http://jason207010.github.io/post/java-instrument-development-guide/</link>
+      <pubDate>Fri, 14 Dec 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/java-instrument-development-guide/</guid>
+      <description>项目源码 https://github.com/JasonChanBest/instrument 相关参数 参数 参数值 操作系统 macOS JAVA版本 1.8 项目构建工具 Gradle 项目jar包 instrument-1.0.jar 概念 Instrumentation是JavaSE 5的新特性，</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/categories/hugo/</link>
+    <description>Recent content in Hugo on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://jason207010.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Emacs Hugo搭建博客</title>
+      <link>http://jason207010.github.io/post/emacs-hugo-blog/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/emacs-hugo-blog/</guid>
+      <description>安装hugo hugo 官网 Hugo是由Go语言实现的静态网站生成器 brew install hugo Emacs 安装 ox-hugo 插件 ox-hugo 官网 ox-hugo 是 org mode 转换为 hugo markdown 源文件的导出工具 安装 M-x package-install Ret ox-hugo Ret 配置 vi ~/.emacs (with-eval-after-load</description>
+    </item>
+    
+  </channel>
+</rss>

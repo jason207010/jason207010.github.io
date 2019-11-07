@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RMI on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/categories/rmi/</link>
+    <description>Recent content in RMI on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 14 Aug 2017 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://jason207010.github.io/categories/rmi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Java RMI开发指南</title>
+      <link>http://jason207010.github.io/post/java-rmi-development-guide/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/java-rmi-development-guide/</guid>
+      <description>编写服务接口 接口必须继承Remote接口，接口方法必须抛出RemoteException public interface Service extends Remote { void service(String args) throws RemoteException; } 编写服务接口实现类 服务接口实</description>
+    </item>
+    
+  </channel>
+</rss>

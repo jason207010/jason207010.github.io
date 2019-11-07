@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/tags/git/</link>
+    <description>Recent content in Git on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 18 Jun 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://jason207010.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Github SSH配置</title>
+      <link>http://jason207010.github.io/post/git-set-up-github-ssh-key/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/git-set-up-github-ssh-key/</guid>
+      <description>生成SSH公钥和私钥 ssh-keygen -t rsa -C jason@mail.com 提示保存位置时直接回车，使用默认保存路径即可。提示输入密码时直接回车，不用密码，这样做的好处是省去clone和</description>
+    </item>
+    
+    <item>
+      <title>Github 加速clone设置</title>
+      <link>http://jason207010.github.io/post/git-github-clone-speed-up/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/git-github-clone-speed-up/</guid>
+      <description>修改host 查询Github IP地址 通过https://www.ipaddress.com查询github.com和github.globa</description>
+    </item>
+    
+    <item>
+      <title>Git使用指南</title>
+      <link>http://jason207010.github.io/post/git-user-guide/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/git-user-guide/</guid>
+      <description>简介 Git是分布式版本控制软件 命令 git init git init [directory] 释义 创建一个空 Git 仓库或者重新初始化一个已存在的仓库 示例 git init my-project git clone git clone [--verbose | -v] [--progress] [--origin | -o &amp;lt;origin&amp;gt;] [--branch | -b &amp;lt;branch&amp;gt;] [--depth &amp;lt;depth&amp;gt;]</description>
+    </item>
+    
+  </channel>
+</rss>

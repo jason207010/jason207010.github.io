@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hadoop on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/categories/hadoop/</link>
+    <description>Recent content in Hadoop on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 11 Jul 2017 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://jason207010.github.io/categories/hadoop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hadoop开发环境配置</title>
+      <link>http://jason207010.github.io/post/hadoop-set-up-hadoop-development-environment/</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/hadoop-set-up-hadoop-development-environment/</guid>
+      <description>主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 环境变量配置（两台机器都要配置） 编辑/etc</description>
+    </item>
+    
+    <item>
+      <title>Hbase开发环境配置</title>
+      <link>http://jason207010.github.io/post/hadoop-set-up-hbase-development-environment/</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/hadoop-set-up-hbase-development-environment/</guid>
+      <description>主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 Zookeeper 3.4.8 Hbase 1.1.4 依赖环境 安装Hbase必须先安装配置</description>
+    </item>
+    
+    <item>
+      <title>Pig开发指南</title>
+      <link>http://jason207010.github.io/post/hadoop-pig-development-guide/</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/hadoop-pig-development-guide/</guid>
+      <description>准备数据 下载sample.txt $ cat sample.txt 1950 0 1 1950 22 1 1950 -11 1 1949 111 1 1949 78 1 复制数据到HDFS hadoop fs -copyFromLocal sample.txt /home/jason/ 编写Pig Lantin脚本test.pig，</description>
+    </item>
+    
+    <item>
+      <title>Pig开发环境配置</title>
+      <link>http://jason207010.github.io/post/hadoop-set-up-pig-development-environment/</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/hadoop-set-up-pig-development-environment/</guid>
+      <description>软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 Pig 0.15.0 依赖环境 安装Pig必须先安装配置好JAVA、Hadoop 环境变量配置 编辑/etc/profile文件 #pig环境</description>
+    </item>
+    
+    <item>
+      <title>Zookeeper开发环境配置</title>
+      <link>http://jason207010.github.io/post/hadoop-set-up-zookeeper-development-environment/</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/hadoop-set-up-zookeeper-development-environment/</guid>
+      <description>主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Zookeeper 3.4.8 环境变量配置（所有机器都要配置） 编辑/etc</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Java Instrument热更新开发指南 - Jason&#39;s Blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#F2F2F2" />
+<meta name="msapplication-navbutton-color" content="#F2F2F2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#F2F2F2">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Jason Chan" />
+  <meta name="description" content="项目源码 https://github.com/JasonChanBest/instrument 相关参数 参数 参数值 操作系统 macOS JAVA版本 1.8 项目构建工具 Gradle 项目jar包 instrument-1.0.jar 概念 Instrumentation是JavaSE 5的新特性，" />
+
+  <meta name="keywords" content="Jason, Blog, Java" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6" />
+
+
+<link rel="canonical" href="http://jason207010.github.io/post/java-instrument-development-guide/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.c46a42ce792a79cb6def5a2a3a73217c67a29f17d9246844f99f485fc89bc552.css" integrity="sha256-xGpCznkqectt71oqOnMhfGeinxfZJGhE&#43;Z9IX8ibxVI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="Java Instrument热更新开发指南" />
+<meta property="og:description" content="项目源码 https://github.com/JasonChanBest/instrument 相关参数 参数 参数值 操作系统 macOS JAVA版本 1.8 项目构建工具 Gradle 项目jar包 instrument-1.0.jar 概念 Instrumentation是JavaSE 5的新特性，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jason207010.github.io/post/java-instrument-development-guide/" />
+<meta property="article:published_time" content="2018-12-14T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2018-12-14T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="Java Instrument热更新开发指南">
+<meta itemprop="description" content="项目源码 https://github.com/JasonChanBest/instrument 相关参数 参数 参数值 操作系统 macOS JAVA版本 1.8 项目构建工具 Gradle 项目jar包 instrument-1.0.jar 概念 Instrumentation是JavaSE 5的新特性，">
+
+
+<meta itemprop="datePublished" content="2018-12-14T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-12-14T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="1932">
+
+
+
+<meta itemprop="keywords" content="Java,Instrument," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java Instrument热更新开发指南"/>
+<meta name="twitter:description" content="项目源码 https://github.com/JasonChanBest/instrument 相关参数 参数 参数值 操作系统 macOS JAVA版本 1.8 项目构建工具 Gradle 项目jar包 instrument-1.0.jar 概念 Instrumentation是JavaSE 5的新特性，"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-102395900-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Jason's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://github.com/jason207010" rel="noopener" target="_blank">
+              Github
+              
+              <i class="iconfont">
+                <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M623.36 272.96 473.216 423.04C467.2 429.056 467.072 438.656 472.896 444.416c0 0-6.72-6.656 1.6 1.6C496.064 467.648 528.64 500.224 528.64 500.224 534.464 506.048 544 505.856 550.016 499.904l150.08-150.144 67.328 66.432c9.024 8.96 27.456 4.544 30.4-8.96 19.968-92.608 46.656-227.52 46.656-227.52 6.848-34.496-16.192-56.704-49.92-49.92 0 0-134.656 26.816-227.328 46.784C560.32 178.048 556.352 182.272 554.752 187.136c-3.2 6.208-3.008 14.208 3.776 20.992L623.36 272.96z"></path>
+  <path d="M841.152 457.152c-30.528 0-54.784 24.512-54.784 54.656l0 274.752L237.696 786.56 237.696 237.696l206.016 0c6.656 0 10.752 0 13.248 0C487.68 237.696 512 213.184 512 182.848 512 152.32 487.36 128 456.96 128L183.04 128C153.216 128 128 152.576 128 182.848c0 3.136 0.256 6.272 0.768 9.28C128.256 195.136 128 198.272 128 201.408l0 639.488c0 0.064 0 0.192 0 0.256 0 0.128 0 0.192 0 0.32 0 30.528 24.512 54.784 54.784 54.784l646.976 0c6.592 0 9.728 0 11.712 0 28.736 0 52.928-22.976 54.464-51.968C896 843.264 896 842.304 896 841.344l0-20.352L896 561.408 896 512.128C896 481.792 871.424 457.152 841.152 457.152z"></path>
+</svg>
+
+              </i>
+            </a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Jason's Blog
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://github.com/jason207010" rel="noopener" target="_blank">
+              Github
+              
+              <i class="iconfont">
+                <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M623.36 272.96 473.216 423.04C467.2 429.056 467.072 438.656 472.896 444.416c0 0-6.72-6.656 1.6 1.6C496.064 467.648 528.64 500.224 528.64 500.224 534.464 506.048 544 505.856 550.016 499.904l150.08-150.144 67.328 66.432c9.024 8.96 27.456 4.544 30.4-8.96 19.968-92.608 46.656-227.52 46.656-227.52 6.848-34.496-16.192-56.704-49.92-49.92 0 0-134.656 26.816-227.328 46.784C560.32 178.048 556.352 182.272 554.752 187.136c-3.2 6.208-3.008 14.208 3.776 20.992L623.36 272.96z"></path>
+  <path d="M841.152 457.152c-30.528 0-54.784 24.512-54.784 54.656l0 274.752L237.696 786.56 237.696 237.696l206.016 0c6.656 0 10.752 0 13.248 0C487.68 237.696 512 213.184 512 182.848 512 152.32 487.36 128 456.96 128L183.04 128C153.216 128 128 152.576 128 182.848c0 3.136 0.256 6.272 0.768 9.28C128.256 195.136 128 198.272 128 201.408l0 639.488c0 0.064 0 0.192 0 0.256 0 0.128 0 0.192 0 0.32 0 30.528 24.512 54.784 54.784 54.784l646.976 0c6.592 0 9.728 0 11.712 0 28.736 0 52.928-22.976 54.464-51.968C896 843.264 896 842.304 896 841.344l0-20.352L896 561.408 896 512.128C896 481.792 871.424 457.152 841.152 457.152z"></path>
+</svg>
+
+              </i>
+            </a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Java Instrument热更新开发指南</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-12-14" class="post-time">
+          2018-12-14
+        </time>
+        <div class="post-category">
+            <a href="http://jason207010.github.io/categories/java/"> Java </a>
+            <a href="http://jason207010.github.io/categories/instrument/"> Instrument </a>
+            
+          </div>
+        <span class="more-meta"> 约 1932 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#项目源码">项目源码</a></li>
+<li><a href="#相关参数">相关参数</a></li>
+<li><a href="#概念">概念</a></li>
+<li><a href="#核心api">核心API</a></li>
+<li><a href="#项目结构">项目结构</a></li>
+<li><a href="#开发步骤">开发步骤</a>
+<ul>
+<li><a href="#步骤一-构建项目">步骤一、构建项目</a></li>
+<li><a href="#步骤二-编写代理类">步骤二、编写代理类</a></li>
+<li><a href="#步骤三-监控-dot-class文件-并重新加载类">步骤三、监控.class文件，并重新加载类</a></li>
+<li><a href="#步骤四-定义manifest-dot-mf文件">步骤四、定义MANIFEST.MF文件</a></li>
+<li><a href="#步骤五-编写测试类">步骤五、编写测试类</a></li>
+<li><a href="#步骤六-编写启动类">步骤六、编写启动类</a></li>
+<li><a href="#步骤七-打包项目">步骤七、打包项目</a></li>
+<li><a href="#步骤八-运行项目">步骤八、运行项目</a></li>
+<li><a href="#步骤九-热更新">步骤九、热更新</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h2 id="项目源码">项目源码</h2>
+
+<p><a href="https://github.com/JasonChanBest/instrument">https://github.com/JasonChanBest/instrument</a></p>
+
+<h2 id="相关参数">相关参数</h2>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数值</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>操作系统</td>
+<td>macOS</td>
+</tr>
+
+<tr>
+<td>JAVA版本</td>
+<td>1.8</td>
+</tr>
+
+<tr>
+<td>项目构建工具</td>
+<td>Gradle</td>
+</tr>
+
+<tr>
+<td>项目jar包</td>
+<td>instrument-1.0.jar</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="概念">概念</h2>
+
+<blockquote>
+<p>Instrumentation是JavaSE 5的新特性，使用Instrumentation，开发者可以构建一个独立于应用程序的代理程序（Agent），用来监测和协助运行在 JVM 上的程序，甚至能够替换和修改某些类的定义。有了这样的功能，开发者就可以实现更为灵活的运行时虚拟机监控和Java类操作了，这样的特性实际上提供了一种虚拟机级别支持的 AOP 实现方式，使得开发者无需对 JDK 做任何升级和改动，就可以实现某些 AOP 的功能了。在JavaSE 6里面，instrumentation包被赋予了更强大的功能：启动后的 instrument、本地代码（native code）instrument，以及动态改变 classpath 等等。这些改变，意味着 Java 具有了更强的动态控制、解释能力，它使得 Java 语言变得更加灵活多变。</p>
+</blockquote>
+
+<h2 id="核心api">核心API</h2>
+
+<pre><code class="language-java">com.sun.tools.attach.VirtualMachine.loadAgent();
+java.lang.instrument.Instrumentation.redefineClasses();
+</code></pre>
+
+<h2 id="项目结构">项目结构</h2>
+
+<pre><code class="language-text">.
+├── build.gradle
+├── libs
+│   └── tools.jar
+├── settings.gradle
+└── src
+    └── main
+        └── java
+            └── com
+                └── instrument
+                    ├── AgentMain.java
+                    ├── Bootstrap.java
+                    ├── ClassMonitor.java
+                    ├── Echo.java
+                    └── SimpleClassLoader.java
+</code></pre>
+
+<h2 id="开发步骤">开发步骤</h2>
+
+<h3 id="步骤一-构建项目">步骤一、构建项目</h3>
+
+<p>本项目使用Gradle构建，其中引入commons-io用于读取.class文件，com.sun.tools.attach.VirtualMachine类在$JAVA_HOME/lib/tools.jar中，把这个jar文件复制到项目libs目录下</p>
+
+<pre><code class="language-text">build.gradle
+</code></pre>
+
+<pre><code class="language-java">apply plugin:'java'
+apply plugin:'idea'
+
+group 'com.instrument'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    //使用阿里云的Maven仓库
+    maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+}
+
+dependencies {
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    compile files('libs/tools.jar')
+}
+jar {
+    manifest {
+    attributes &quot;Agent-Class&quot;:&quot;com.instrument.AgentMain&quot;,&quot;Premain-Class&quot;:&quot;com.instrument.AgentMain&quot;,&quot;Can-Redefine-Classes&quot;:&quot;true&quot;
+    }
+}
+//打包，同时导出所有依赖jar包
+task release(type: Copy)
+release.dependsOn build
+release {
+    from configurations.runtime
+    into 'build/libs'
+    doLast {
+    mkdir('build/libs/class')
+    }
+}
+</code></pre>
+
+<h3 id="步骤二-编写代理类">步骤二、编写代理类</h3>
+
+<p>在agentmain方法中，接收我们通过VirtualMachine传进来的.class文件路径，通过自定义的SimpleClassLoader从这个.class文件取得Class对象，进而得知要热更新的类名，有了类名就可以通过Class.forName获取原先已经加载在JVM中的类，然后用Instrumentation.redefineClasses热更新这个类</p>
+
+<pre><code class="language-java">package com.instrument;
+
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.lang.instrument.ClassDefinition;
+import java.lang.instrument.Instrumentation;
+
+public class AgentMain {
+    /**
+     * 这是instrument开发规范规定的固定格式的方法，
+     * 当调用{@link com.sun.tools.attach.VirtualMachine#loadAgent(String, String)}时，
+     * jdk会自动调用到这个方法
+     * 第一个参数为VirtualMachine传过来的参数，我们在调用VirtualMachine#loadAgent方法时
+     * 传进来的是.class文件路径，所以这里接收到的也是.class文件路径
+     */
+    public static void agentmain(String classFilePath, Instrumentation instrumentation) {
+    try {
+        byte[] bytes = FileUtils.readFileToByteArray(new File(classFilePath));
+        Class&lt;?&gt; clazz = new SimpleClassLoader().getClass(bytes);
+        //重新加载类，实现热更新，注意这里通过Class.forName取得原来已经加载在JVM晨的类，然后热更新它
+        instrumentation.redefineClasses(new ClassDefinition(Class.forName(clazz.getName()), bytes));
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }
+
+    /**
+     * 这是instrument开发规范规定的固定格式的方法，当java程序启动时，会自动调用到这个方法
+     */
+    public static void premain(String args, Instrumentation instrumentation){
+    }
+}
+</code></pre>
+
+<h3 id="步骤三-监控-dot-class文件-并重新加载类">步骤三、监控.class文件，并重新加载类</h3>
+
+<pre><code class="language-java">package com.instrument;
+
+import com.sun.tools.attach.AttachNotSupportedException;
+import com.sun.tools.attach.VirtualMachine;
+import org.apache.commons.io.filefilter.FileFilterUtils;
+import org.apache.commons.io.monitor.FileAlterationListenerAdaptor;
+import org.apache.commons.io.monitor.FileAlterationMonitor;
+import org.apache.commons.io.monitor.FileAlterationObserver;
+import java.io.File;
+import java.io.IOException;
+import java.lang.instrument.Instrumentation;
+import java.lang.management.ManagementFactory;
+import java.util.concurrent.TimeUnit;
+
+public class ClassMonitor implements Runnable {
+
+    private VirtualMachine vm;
+
+    public void watch() throws IOException, AttachNotSupportedException {
+    //取得当前java进程id
+    String pid = ManagementFactory.getRuntimeMXBean().getName().split(&quot;@&quot;)[0];
+    vm = VirtualMachine.attach(pid);
+    new Thread(this).start();
+    }
+
+    @Override
+    public void run() {
+    long interval = TimeUnit.SECONDS.toMillis(5);
+    //运行java程序的目录
+    String userDir = System.getProperty(&quot;user.dir&quot;);
+    //要替换的class类文件放在class文件夹中，用FileAlterationMonitor监控该文件夹是否有新的class类文件添加进来
+    //如果有则重新加载这个类
+    String path = new StringBuilder().append(userDir).append(File.separator).append(&quot;class&quot;).toString();
+    String jarFilePath = new StringBuilder(userDir).append(File.separator).append(&quot;instrument-1.0.jar&quot;).toString();
+    FileAlterationObserver observer = new FileAlterationObserver(path, FileFilterUtils.suffixFileFilter(&quot;class&quot;));
+    observer.addListener(new FileAlterationListenerAdaptor() {
+        @Override
+        public void onFileCreate(File file) {
+        try {
+            System.out.printf(&quot;监控到新的class类文件%s\r\n&quot;, file.getName());
+            /**加载代理，把.class文件路径传给{@link AgentMain#agentmain(String, Instrumentation)}**/
+            vm.loadAgent(jarFilePath, file.getPath());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        }
+    });
+    FileAlterationMonitor monitor = new FileAlterationMonitor(interval, observer);
+    try {
+        monitor.start();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }
+}
+</code></pre>
+
+<h3 id="步骤四-定义manifest-dot-mf文件">步骤四、定义MANIFEST.MF文件</h3>
+
+<p>由于项目使用Gradle构建，可以直接通过build.gradle配置生成这个MANIFEST.MF文件</p>
+
+<pre><code class="language-text">build.gradle
+</code></pre>
+
+<pre><code class="language-java">jar {
+    manifest {
+    attributes &quot;Agent-Class&quot;:&quot;com.instrument.AgentMain&quot;,&quot;Premain-Class&quot;:&quot;com.instrument.AgentMain&quot;,&quot;Can-Redefine-Classes&quot;:&quot;true&quot;
+    }
+}
+</code></pre>
+
+<h3 id="步骤五-编写测试类">步骤五、编写测试类</h3>
+
+<p>每隔3秒打印1+1=3，这个结果明显是错的，所以我们稍候通过热更新的方式修复这个BUG，使之打印出1+1=2</p>
+
+<pre><code class="language-java">package com.instrument;
+
+public class Echo implements Runnable {
+
+    public void start() {
+    new Thread(this).start();
+    }
+
+    @Override
+    public void run() {
+    while (true) {
+        echo();
+        try {
+        Thread.sleep(3000L);
+        } catch (InterruptedException e) {
+        e.printStackTrace();
+        }
+    }
+    }
+
+    public void echo() {
+    System.out.println(&quot;1+1=3&quot;);
+    }
+}
+</code></pre>
+
+<h3 id="步骤六-编写启动类">步骤六、编写启动类</h3>
+
+<pre><code class="language-java">package com.instrument;
+
+import com.sun.tools.attach.AttachNotSupportedException;
+import java.io.IOException;
+
+public class Bootstrap {
+    public static void main(String[] args) throws IOException, AttachNotSupportedException {
+    new Echo().start();
+    new ClassMonitor().watch();
+    }
+}
+</code></pre>
+
+<h3 id="步骤七-打包项目">步骤七、打包项目</h3>
+
+<pre><code class="language-shell">gradle release
+</code></pre>
+
+<p>打包得到的项目结构为</p>
+
+<pre><code class="language-text">.
+├── class
+├── commons-io-2.6.jar
+├── instrument-1.0.jar
+└── tools.jar
+</code></pre>
+
+<h3 id="步骤八-运行项目">步骤八、运行项目</h3>
+
+<p>注意这里通过*-javaagent:instrument-1.0.jar*参数指定代理jar</p>
+
+<pre><code class="language-shell">java -javaagent:instrument-1.0.jar -cp instrument-1.jar:commons-io-2.6.jar:tools.jar com.instrument.Bootstrap
+</code></pre>
+
+<p>此时控制台会不停地打印1+1=3</p>
+
+<h3 id="步骤九-热更新">步骤九、热更新</h3>
+
+<p>修改Echo类</p>
+
+<pre><code class="language-java">public void echo() {
+    System.out.println(&quot;1+1=2&quot;);
+}
+</code></pre>
+
+<p>编译这个类得到Echo.class文件，把这个文件放到运行目录下的class文件夹中，此时程序自动检测到时文件变化并重新加载类，结果如下
+<img src="/ox-hugo/Java-Instrument-Development-Guide-1.png" alt="" /></p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content"><a href="http://jason207010.github.io/post/java-instrument-development-guide/">Jason Chan</a>
+      </span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2018-12-14
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://jason207010.github.io/tags/java/">Java</a>
+          <a href="http://jason207010.github.io/tags/instrument/">Instrument</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/java-jdbc-batch-development-guide/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">JDBC批量插入、更新开发指南</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/gradle-development-guide/">
+            <span class="next-text nav-default">Gradle 开发指南</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="http://github.com/jason207010" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://jason207010.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Jason Chan
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
