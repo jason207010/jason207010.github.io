@@ -1079,15 +1079,19 @@ source ~/.bash_profile
 
 &lt;h3 id=&#34;查询github-ip地址&#34;&gt;查询Github IP地址&lt;/h3&gt;
 
-&lt;p&gt;通过&lt;a href=&#34;https://www.ipaddress.com&#34;&gt;https://www.ipaddress.com&lt;/a&gt;查询github.com和github.global.ssl.fastly.net的IP地址&lt;/p&gt;
+&lt;p&gt;通过&lt;a href=&#34;https://www.ipaddress.com&#34;&gt;https://www.ipaddress.com&lt;/a&gt;查询 github.com、github.global.ssl.fastly.net、assets-cdn.github.com 的IP地址&lt;/p&gt;
 
 &lt;h3 id=&#34;修改host文件&#34;&gt;修改host文件&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-Shell&#34;&gt;vi /etc/hosts
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;192.30.253.112 github.com
-151.101.185.194 github.global.ssl.fastly.net
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;140.82.114.4		github.com
+199.232.5.194		github.global.ssl.fastly.net
+185.199.108.153		assets-cdn.github.com
+185.199.109.153		assets-cdn.github.com
+185.199.110.153		assets-cdn.github.com
+185.199.111.153		assets-cdn.github.com
 &lt;/code&gt;&lt;/pre&gt;
 </description>
       
