@@ -124,7 +124,7 @@ source ~/.bash_profile
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;vi ~/.yarnrc
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;registry=https://registry.npm.taobao.org
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;registry &amp;quot;https://registry.npm.taobao.org&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 </description>
       
