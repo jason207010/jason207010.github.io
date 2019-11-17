@@ -63,7 +63,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://jason207010.github.io/" />
 
-<meta property="og:updated_time" content="2019-10-19T00:00:00&#43;08:00"/>
+<meta property="og:updated_time" content="2019-11-17T00:00:00&#43;08:00"/>
 
 <meta itemprop="name" content="Jason&#39;s Blog">
 <meta itemprop="description" content="Welcome to Jason&#39;s blog.">
@@ -334,6 +334,79 @@ if (!doNotTrack) {
     
   
   
+  
+    <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/post/rbac-model-part-2/">基于Spring Security、JPA的RBAC模型（二）代码部分</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2017-07-12" class="post-time">
+        2017-07-12
+      </time>
+      <div class="post-category">
+          <a href="http://jason207010.github.io/categories/javaweb/"> JavaWeb </a>
+          <a href="http://jason207010.github.io/categories/spring/"> Spring </a>
+          
+        </div>
+      <span class="more-meta"> 约 1902 字 </span>
+      <span class="more-meta"> 预计阅读 4 分钟 </span>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      JPA实体设计 用户实体 @Entity @Table(name = &quot;`user`&quot;) public class User implements Serializable , UserDetails { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = &quot;`id`&quot;) private Long id; @Column(name = &quot;`name`&quot;) private String name; @Column(name = &quot;`password`&quot;) private String password; @Column(name = &quot;`enable`&quot;) private Boolean enable; @Column(name = &quot;`img_path`&quot;) private String imgPath; @ManyToMany(fetch = FetchType.EAGER) @JoinTable(name = &quot;`user_role`&quot; , joinColumns = @JoinColumn(name = &quot;`user_id`&quot;) ,
+    </div>
+    <div class="read-more">
+      <a href="/post/rbac-model-part-2/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+  
+    <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/post/hadoop-set-up-hadoop-development-environment/">Hadoop开发环境配置</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2017-07-11" class="post-time">
+        2017-07-11
+      </time>
+      <div class="post-category">
+          <a href="http://jason207010.github.io/categories/hadoop/"> Hadoop </a>
+          
+        </div>
+      <span class="more-meta"> 约 608 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 环境变量配置（两台机器都要配置） 编辑/etc
+    </div>
+    <div class="read-more">
+      <a href="/post/hadoop-set-up-hadoop-development-environment/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
   
     <article class="post bg-white">
   <header class="post-header">

@@ -6,10 +6,37 @@
     <description>Recent content in Categories on Jason&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="http://jason207010.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mirror</title>
+      <link>http://jason207010.github.io/categories/mirror/</link>
+      <pubDate>Sun, 17 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/categories/mirror/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maven</title>
+      <link>http://jason207010.github.io/categories/maven/</link>
+      <pubDate>Sat, 16 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/categories/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reading</title>
+      <link>http://jason207010.github.io/categories/reading/</link>
+      <pubDate>Sat, 16 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/categories/reading/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Emacs</title>
@@ -156,38 +183,11 @@
     </item>
     
     <item>
-      <title>Reading</title>
-      <link>http://jason207010.github.io/categories/reading/</link>
-      <pubDate>Mon, 11 Sep 2017 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/categories/reading/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>JMS</title>
       <link>http://jason207010.github.io/categories/jms/</link>
       <pubDate>Wed, 16 Aug 2017 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/categories/jms/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RMI</title>
-      <link>http://jason207010.github.io/categories/rmi/</link>
-      <pubDate>Mon, 14 Aug 2017 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/categories/rmi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spring</title>
-      <link>http://jason207010.github.io/categories/spring/</link>
-      <pubDate>Fri, 14 Jul 2017 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/categories/spring/</guid>
       <description></description>
     </item>
     

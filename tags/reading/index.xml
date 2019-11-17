@@ -6,10 +6,19 @@
     <description>Recent content in Reading on Jason&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 11 Sep 2017 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="http://jason207010.github.io/tags/reading/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>《Maven实战》笔记</title>
+      <link>http://jason207010.github.io/post/maven%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 16 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/maven%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</guid>
+      <description>继承与聚合 继承 可继承的 POM 元素 groupId：项目组ID，项目坐标的核心元素。 version：项目版本，项目坐标的核心元素。 descripti</description>
+    </item>
     
     <item>
       <title>《深入理解Java虚拟机》笔记</title>

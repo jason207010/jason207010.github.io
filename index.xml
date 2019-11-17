@@ -6,10 +6,202 @@
     <description>Recent content on Jason&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2019 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="http://jason207010.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>中国镜像加速</title>
+      <link>http://jason207010.github.io/post/%E4%B8%AD%E5%9B%BD%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/</link>
+      <pubDate>Sun, 17 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/%E4%B8%AD%E5%9B%BD%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;python&#34;&gt;Python&lt;/h2&gt;
+
+&lt;h3 id=&#34;pip-镜像源&#34;&gt;pip 镜像源&lt;/h3&gt;
+
+&lt;h4 id=&#34;中科大镜像源&#34;&gt;中科大镜像源&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;恢复默认源&#34;&gt;恢复默认源&lt;/h4&gt;
+
+&lt;p&gt;清空 ~/.config/pip/pip.conf&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;vi ~/.config/pip/pip.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;homebrew&#34;&gt;Homebrew&lt;/h2&gt;
+
+&lt;h3 id=&#34;homebrew-1&#34;&gt;Homebrew&lt;/h3&gt;
+
+&lt;h4 id=&#34;中科大镜像源-1&#34;&gt;中科大镜像源&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cd &amp;quot;$(brew --repo)&amp;quot;
+git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;恢复官方源&#34;&gt;恢复官方源&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cd &amp;quot;$(brew --repo)&amp;quot;
+git remote set-url origin https://github.com/Homebrew/brew.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;homebrew-core&#34;&gt;Homebrew Core&lt;/h3&gt;
+
+&lt;h4 id=&#34;中科大镜像源-2&#34;&gt;中科大镜像源&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot;
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;恢复官方源-1&#34;&gt;恢复官方源&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot;
+git remote set-url origin https://github.com/Homebrew/homebrew-core
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;homebrew-cask&#34;&gt;Homebrew Cask&lt;/h3&gt;
+
+&lt;h4 id=&#34;中科大镜像源-3&#34;&gt;中科大镜像源&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cd &amp;quot;$(brew --repo)&amp;quot;/Library/Taps/homebrew/homebrew-cask
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;恢复官方源-2&#34;&gt;恢复官方源&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cd &amp;quot;$(brew --repo)&amp;quot;/Library/Taps/homebrew/homebrew-cask
+git remote set-url origin https://github.com/Homebrew/homebrew-cask
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;homebrew-bottles&#34;&gt;Homebrew Bottles&lt;/h3&gt;
+
+&lt;h4 id=&#34;中科大镜像源-4&#34;&gt;中科大镜像源&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;echo &#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&#39; &amp;gt;&amp;gt; ~/.bash_profile
+source ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;maven&#34;&gt;Maven&lt;/h2&gt;
+
+&lt;h3 id=&#34;阿里云镜像源&#34;&gt;阿里云镜像源&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;vi ~/.m2/settings.xml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;mirrors&amp;gt;
+  &amp;lt;mirror&amp;gt;
+      &amp;lt;id&amp;gt;aliyunmaven&amp;lt;/id&amp;gt;
+      &amp;lt;mirrorOf&amp;gt;*&amp;lt;/mirrorOf&amp;gt;
+      &amp;lt;name&amp;gt;阿里云公共仓库&amp;lt;/name&amp;gt;
+      &amp;lt;url&amp;gt;https://maven.aliyun.com/repository/public&amp;lt;/url&amp;gt;
+  &amp;lt;/mirror&amp;gt;
+&amp;lt;/mirrors&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>《Maven实战》笔记</title>
+      <link>http://jason207010.github.io/post/maven%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 16 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/maven%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;继承与聚合&#34;&gt;继承与聚合&lt;/h2&gt;
+
+&lt;h3 id=&#34;继承&#34;&gt;继承&lt;/h3&gt;
+
+&lt;h4 id=&#34;可继承的-pom-元素&#34;&gt;可继承的 POM 元素&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;groupId：项目组ID，项目坐标的核心元素。&lt;/li&gt;
+&lt;li&gt;version：项目版本，项目坐标的核心元素。&lt;/li&gt;
+&lt;li&gt;description：项目的描述信息。&lt;/li&gt;
+&lt;li&gt;organization：项目的组织信息。&lt;/li&gt;
+&lt;li&gt;inceptionYear：项目的创始年份。&lt;/li&gt;
+&lt;li&gt;url：项目的URL地址。&lt;/li&gt;
+&lt;li&gt;developers：项目的开发者信息。&lt;/li&gt;
+&lt;li&gt;contributors：项目的贡献者信息。&lt;/li&gt;
+&lt;li&gt;distributionManagement：项目的部署配置。&lt;/li&gt;
+&lt;li&gt;issueManagement：项目的缺陷跟踪系统信息。&lt;/li&gt;
+&lt;li&gt;ciManagement：项目的持续集成系统信息。&lt;/li&gt;
+&lt;li&gt;scm：项目的版本控制系统信息。&lt;/li&gt;
+&lt;li&gt;mailingLists：项目的邮件列表信息。&lt;/li&gt;
+&lt;li&gt;properties：自定义的Maven属性。&lt;/li&gt;
+&lt;li&gt;dependencies：项目的依赖配置。&lt;/li&gt;
+&lt;li&gt;dependencyManagement：项目的依赖管理配置。&lt;/li&gt;
+&lt;li&gt;repositories：项目的仓库配置。&lt;/li&gt;
+&lt;li&gt;build：包括项目的源码目录配置、输出目录配置、插件配置、插件管理配置等。&lt;/li&gt;
+&lt;li&gt;reporting：包括项目的报告输出目录配置、报告插件配置等。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;依赖管理&#34;&gt;依赖管理&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Maven提供的dependencyManagement元素既能让子模块继承到父模块的依赖配置，又能保证子模块依赖使用的灵活性。在dependencyManagement元素下的依赖声明不会引入实际的依赖，不过它能够约束dependencies下的依赖使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+
+&amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
+  xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+
+  &amp;lt;groupId&amp;gt;com.example&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;maven-demo&amp;lt;/artifactId&amp;gt;
+  &amp;lt;packaging&amp;gt;pom&amp;lt;/packaging&amp;gt;
+  &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
+    &amp;lt;modules&amp;gt;
+    &amp;lt;module&amp;gt;module-one&amp;lt;/module&amp;gt;
+    &amp;lt;/modules&amp;gt;
+
+    &amp;lt;name&amp;gt;maven-demo&amp;lt;/name&amp;gt;
+
+  &amp;lt;properties&amp;gt;
+    &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
+    &amp;lt;junit.version&amp;gt;4.11&amp;lt;/junit.version&amp;gt;
+  &amp;lt;/properties&amp;gt;
+
+  &amp;lt;dependencyManagement&amp;gt;
+    &amp;lt;dependencies&amp;gt;
+      &amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;${junit.version}&amp;lt;/version&amp;gt;
+    &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+      &amp;lt;/dependency&amp;gt;
+    &amp;lt;/dependencies&amp;gt;
+  &amp;lt;/dependencyManagement&amp;gt;
+
+  &amp;lt;build&amp;gt;
+    &amp;lt;pluginManagement&amp;gt;
+      &amp;lt;plugins&amp;gt;
+    &amp;lt;plugin&amp;gt;
+      &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;3.8.0&amp;lt;/version&amp;gt;
+    &amp;lt;/plugin&amp;gt;
+    &amp;lt;plugin&amp;gt;
+      &amp;lt;artifactId&amp;gt;maven-jar-plugin&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;3.0.2&amp;lt;/version&amp;gt;
+    &amp;lt;/plugin&amp;gt;
+      &amp;lt;/plugins&amp;gt;
+    &amp;lt;/pluginManagement&amp;gt;
+  &amp;lt;/build&amp;gt;
+&amp;lt;/project&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>Emacs Hugo搭建博客</title>
@@ -9036,133 +9228,6 @@ G1收集器之所以能建立可预测的停顿时间模型，是因为它可以
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Java RMI开发指南</title>
-      <link>http://jason207010.github.io/post/java-rmi-development-guide/</link>
-      <pubDate>Mon, 14 Aug 2017 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/post/java-rmi-development-guide/</guid>
-      
-        <description>
-
-&lt;h2 id=&#34;编写服务接口&#34;&gt;编写服务接口&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;接口必须继承Remote接口，接口方法必须抛出RemoteException&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Service extends Remote {
-    void service(String args) throws RemoteException;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;编写服务接口实现类&#34;&gt;编写服务接口实现类&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;服务接口实现类必须继承UnicastRemoteObject&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class ServiceImpl extends UnicastRemoteObject implements Service {
-
-    protected ServiceImpl() throws RemoteException {
-    }
-
-    @Override
-    public void service(String args) throws RemoteException {
-    System.out.printf(&amp;quot;args:%s\r\n&amp;quot;, args);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;编写服务端&#34;&gt;编写服务端&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Server {
-    public static void main(String[] args) throws Exception{
-    Service service = new ServiceImpl();
-    Registry registry = LocateRegistry.createRegistry(1099);
-    registry.bind(&amp;quot;service&amp;quot;, service);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;编写客户端&#34;&gt;编写客户端&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Client {
-    public static void main(String[] args) throws Exception{
-    Registry registry = LocateRegistry.getRegistry(&amp;quot;127.0.0.1&amp;quot;, 1099);
-    Service service = (Service) registry.lookup(&amp;quot;service&amp;quot;);
-    service.service(&amp;quot;hello world!&amp;quot;);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>PlantUML mode使用指南</title>
-      <link>http://jason207010.github.io/post/emacs-plantuml-mode-user-guide/</link>
-      <pubDate>Fri, 14 Jul 2017 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/post/emacs-plantuml-mode-user-guide/</guid>
-      
-        <description>
-
-&lt;h2 id=&#34;搭建运行环境&#34;&gt;搭建运行环境&lt;/h2&gt;
-
-&lt;h3 id=&#34;安装java&#34;&gt;安装JAVA&lt;/h3&gt;
-
-&lt;h3 id=&#34;安装graphviz&#34;&gt;安装Graphviz&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.graphviz.org/Download..php&#34;&gt;下载地址&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;安装plantuml&#34;&gt;安装PlantUML&lt;/h3&gt;
-
-&lt;p&gt;下载plantuml.jar到本地即可，如下载到C:\Users\Jason\AppData\Roaming，&lt;a href=&#34;http://plantuml.com/download&#34;&gt;下载地址&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;修改-dot-emacs配置文件&#34;&gt;修改.emacs配置文件&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;;使org mode的代码块能支持plantuml语言
-(add-to-list
-  &#39;org-src-lang-modes &#39;(&amp;quot;plantuml&amp;quot; . plantuml))
-
-;指定plantuml.jar文件的位置
-(setq org-plantuml-jar-path
-      (expand-file-name &amp;quot;C:\\Users\\Jason\\AppData\\Roaming\\plantuml.jar&amp;quot;))
-;使org mode代码块中能够编译plantuml生成图片
-(org-babel-do-load-languages
-  &#39;org-babel-load-languages
-  &#39;(
-    (plantuml . t)
-    ))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;在org-mode中编写plantuml&#34;&gt;在org mode中编写plantuml&lt;/h2&gt;
-
-&lt;h3 id=&#34;编码&#34;&gt;编码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;Jim --&amp;gt; Lucy:How are you?
-Lucy --&amp;gt; Jim:I am fine.
-Jim --&amp;gt; Bob:Hello.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;编译&#34;&gt;编译&lt;/h3&gt;
-
-&lt;p&gt;把光标移至代码块中按C-c C-c
-此时可以看到在img目录下生成了图片&lt;/p&gt;
-
-
-
-&lt;div class=&#34;box&#34;&gt;
-&lt;figure  itemprop=&#34;associatedMedia&#34;
-  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
-    &lt;div class=&#34;img&#34;&gt;
-      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/Emacs-PlantUML-Mode-User-Guide.png&#34; /&gt;
-    &lt;/div&gt;
-    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/Emacs-PlantUML-Mode-User-Guide.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
-  &lt;/figure&gt;
-&lt;/div&gt;
-
 </description>
       
     </item>

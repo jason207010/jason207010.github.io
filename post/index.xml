@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Jason&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="http://jason207010.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>中国镜像加速</title>
+      <link>http://jason207010.github.io/post/%E4%B8%AD%E5%9B%BD%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/</link>
+      <pubDate>Sun, 17 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/%E4%B8%AD%E5%9B%BD%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/</guid>
+      <description>Python pip 镜像源 中科大镜像源 pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple 恢复默认源 清空 ~/.config/pip/pip.conf vi ~/.config/pip/pip.conf Homebrew Homebrew 中科大镜像源 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git 恢复官方源 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://github.com/Homebrew/brew.git Homebrew Core 中科大镜像源 cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot; git remote set-url origin</description>
+    </item>
+    
+    <item>
+      <title>《Maven实战》笔记</title>
+      <link>http://jason207010.github.io/post/maven%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 16 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/maven%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</guid>
+      <description>继承与聚合 继承 可继承的 POM 元素 groupId：项目组ID，项目坐标的核心元素。 version：项目版本，项目坐标的核心元素。 descripti</description>
+    </item>
     
     <item>
       <title>Emacs Hugo搭建博客</title>
@@ -171,24 +189,6 @@
       
       <guid>http://jason207010.github.io/post/java-jms-development-guide/</guid>
       <description>概念 Java消息服务（Java Message Service，JMS）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用</description>
-    </item>
-    
-    <item>
-      <title>Java RMI开发指南</title>
-      <link>http://jason207010.github.io/post/java-rmi-development-guide/</link>
-      <pubDate>Mon, 14 Aug 2017 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/post/java-rmi-development-guide/</guid>
-      <description>编写服务接口 接口必须继承Remote接口，接口方法必须抛出RemoteException public interface Service extends Remote { void service(String args) throws RemoteException; } 编写服务接口实现类 服务接口实</description>
-    </item>
-    
-    <item>
-      <title>PlantUML mode使用指南</title>
-      <link>http://jason207010.github.io/post/emacs-plantuml-mode-user-guide/</link>
-      <pubDate>Fri, 14 Jul 2017 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/post/emacs-plantuml-mode-user-guide/</guid>
-      <description>搭建运行环境 安装JAVA 安装Graphviz 下载地址 安装PlantUML 下载plantuml.jar到本地即可，如下载到C:\Users\J</description>
     </item>
     
   </channel>
