@@ -1027,6 +1027,36 @@ source ~/.bash_profile
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;根据提示设置密码，远程登录等&lt;/p&gt;
+
+&lt;h2 id=&#34;homebrew-软件安装目录&#34;&gt;Homebrew 软件安装目录&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;/usr/local/Cellar
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;homebrew-软件安装后执行文件所在目录&#34;&gt;Homebrew 软件安装后执行文件所在目录&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;/usr/local/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;设置-homebrew-安装软件为默认程序&#34;&gt;设置 Homebrew 安装软件为默认程序&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;vi ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;# 默认 emacs
+alias emacs=/usr/local/bin/emacs
+# 默认 vi
+alias vi=/usr/local/bin/vi
+# 默认 vim
+alias vim=/usr/local/bin/vim
+# 默认 python
+alias python=/usr/local/bin/python3
+# 默认 pip
+alias pip=/usr/local/bin/pip3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;source ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
 </description>
       
     </item>

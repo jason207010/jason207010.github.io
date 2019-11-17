@@ -72,7 +72,7 @@
 
 <meta itemprop="datePublished" content="2019-06-20T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-06-20T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="939">
+<meta itemprop="wordCount" content="1008">
 
 
 
@@ -349,8 +349,8 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/homebrew/"> Homebrew </a>
             
           </div>
-        <span class="more-meta"> 约 939 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span class="more-meta"> 约 1008 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         
         
@@ -411,6 +411,9 @@ if (!doNotTrack) {
 <li><a href="#启动mysql服务">启动MySQL服务</a></li>
 <li><a href="#安全设置">安全设置</a></li>
 </ul></li>
+<li><a href="#homebrew-软件安装目录">Homebrew 软件安装目录</a></li>
+<li><a href="#homebrew-软件安装后执行文件所在目录">Homebrew 软件安装后执行文件所在目录</a></li>
+<li><a href="#设置-homebrew-安装软件为默认程序">设置 Homebrew 安装软件为默认程序</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -829,6 +832,36 @@ source ~/.bash_profile
 </code></pre>
 
 <p>根据提示设置密码，远程登录等</p>
+
+<h2 id="homebrew-软件安装目录">Homebrew 软件安装目录</h2>
+
+<pre><code class="language-text">/usr/local/Cellar
+</code></pre>
+
+<h2 id="homebrew-软件安装后执行文件所在目录">Homebrew 软件安装后执行文件所在目录</h2>
+
+<pre><code class="language-text">/usr/local/bin
+</code></pre>
+
+<h2 id="设置-homebrew-安装软件为默认程序">设置 Homebrew 安装软件为默认程序</h2>
+
+<pre><code class="language-shell">vi ~/.bash_profile
+</code></pre>
+
+<pre><code class="language-text"># 默认 emacs
+alias emacs=/usr/local/bin/emacs
+# 默认 vi
+alias vi=/usr/local/bin/vi
+# 默认 vim
+alias vim=/usr/local/bin/vim
+# 默认 python
+alias python=/usr/local/bin/python3
+# 默认 pip
+alias pip=/usr/local/bin/pip3
+</code></pre>
+
+<pre><code class="language-shell">source ~/.bash_profile
+</code></pre>
 
     </div>
 
