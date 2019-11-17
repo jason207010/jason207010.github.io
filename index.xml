@@ -205,10 +205,10 @@ source ~/.bash_profile
     
     <item>
       <title>Emacs Hugo搭建博客</title>
-      <link>http://jason207010.github.io/post/emacs-hugo-blog/</link>
+      <link>http://jason207010.github.io/post/emacs-hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sat, 19 Oct 2019 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/emacs-hugo-blog/</guid>
+      <guid>http://jason207010.github.io/post/emacs-hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
       
         <description>
 
@@ -317,10 +317,10 @@ cp themes/jane/exampleSite/config.toml ./
     
     <item>
       <title>零碎知识点汇总</title>
-      <link>http://jason207010.github.io/post/java-misc/</link>
+      <link>http://jason207010.github.io/post/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/</link>
       <pubDate>Mon, 30 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-misc/</guid>
+      <guid>http://jason207010.github.io/post/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/</guid>
       
         <description>
 
@@ -589,11 +589,11 @@ cnpm install express
     </item>
     
     <item>
-      <title>Homebrew使用指南</title>
-      <link>http://jason207010.github.io/post/homebrew-user-guide/</link>
+      <title>Homebrew 使用指南</title>
+      <link>http://jason207010.github.io/post/homebrew-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
       <pubDate>Thu, 20 Jun 2019 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/homebrew-user-guide/</guid>
+      <guid>http://jason207010.github.io/post/homebrew-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
       
         <description>
 
@@ -1010,11 +1010,11 @@ source ~/.bash_profile
     </item>
     
     <item>
-      <title>Github SSH配置</title>
-      <link>http://jason207010.github.io/post/git-set-up-github-ssh-key/</link>
+      <title>Github SSH 配置</title>
+      <link>http://jason207010.github.io/post/github-ssh-%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/git-set-up-github-ssh-key/</guid>
+      <guid>http://jason207010.github.io/post/github-ssh-%E9%85%8D%E7%BD%AE/</guid>
       
         <description>
 
@@ -1045,11 +1045,11 @@ source ~/.bash_profile
     </item>
     
     <item>
-      <title>Github 加速clone设置</title>
-      <link>http://jason207010.github.io/post/git-github-clone-speed-up/</link>
+      <title>Github 加速 clone 设置</title>
+      <link>http://jason207010.github.io/post/github-%E5%8A%A0%E9%80%9F-clone-%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/git-github-clone-speed-up/</guid>
+      <guid>http://jason207010.github.io/post/github-%E5%8A%A0%E9%80%9F-clone-%E8%AE%BE%E7%BD%AE/</guid>
       
         <description>
 
@@ -1072,11 +1072,11 @@ source ~/.bash_profile
     </item>
     
     <item>
-      <title>JDBC批量插入、更新开发指南</title>
-      <link>http://jason207010.github.io/post/java-jdbc-batch-development-guide/</link>
+      <title>JDBC 批量插入、更新开发指南</title>
+      <link>http://jason207010.github.io/post/jdbc-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-jdbc-batch-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/jdbc-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       
         <description>
 
@@ -1205,11 +1205,11 @@ public class JdbcBatch {
     </item>
     
     <item>
-      <title>Java Instrument热更新开发指南</title>
-      <link>http://jason207010.github.io/post/java-instrument-development-guide/</link>
+      <title>Java Instrument 热更新开发指南</title>
+      <link>http://jason207010.github.io/post/java-instrument-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Fri, 14 Dec 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-instrument-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/java-instrument-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       
         <description>
 
@@ -1520,10 +1520,10 @@ public class Bootstrap {
     
     <item>
       <title>Gradle 开发指南</title>
-      <link>http://jason207010.github.io/post/gradle-development-guide/</link>
+      <link>http://jason207010.github.io/post/gradle-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Thu, 13 Dec 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/gradle-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/gradle-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       
         <description>
 
@@ -1834,11 +1834,11 @@ processResources {
     </item>
     
     <item>
-      <title>Git使用指南</title>
-      <link>http://jason207010.github.io/post/git-user-guide/</link>
+      <title>Git 使用指南</title>
+      <link>http://jason207010.github.io/post/git-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/git-user-guide/</guid>
+      <guid>http://jason207010.github.io/post/git-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
       
         <description>
 
@@ -2689,11 +2689,11 @@ git stash clear
     </item>
     
     <item>
-      <title>Emacs使用指南</title>
-      <link>http://jason207010.github.io/post/emacs-user-guide/</link>
+      <title>Emacs 使用指南</title>
+      <link>http://jason207010.github.io/post/emacs-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/emacs-user-guide/</guid>
+      <guid>http://jason207010.github.io/post/emacs-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
       
         <description>
 
@@ -4246,10 +4246,10 @@ I   #+INCLUDE: line
     
     <item>
       <title>JetBrains Crack 使用指南</title>
-      <link>http://jason207010.github.io/post/jetbrains-crack-user-guide/</link>
+      <link>http://jason207010.github.io/post/jetbrains-crack-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/jetbrains-crack-user-guide/</guid>
+      <guid>http://jason207010.github.io/post/jetbrains-crack-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
       
         <description>
 
@@ -4400,10 +4400,10 @@ I   #+INCLUDE: line
     
     <item>
       <title>Elasticsearch 开发指南</title>
-      <link>http://jason207010.github.io/post/elasticsearch-development-guide/</link>
+      <link>http://jason207010.github.io/post/elasticsearch-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/elasticsearch-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/elasticsearch-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       
         <description>
 
@@ -4418,10 +4418,10 @@ I   #+INCLUDE: line
     
     <item>
       <title>Logstash 开发指南</title>
-      <link>http://jason207010.github.io/post/logstash-development-guide/</link>
+      <link>http://jason207010.github.io/post/logstash-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Thu, 19 Jul 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/logstash-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/logstash-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       
         <description>
 
@@ -7075,22 +7075,22 @@ filter {
     </item>
     
     <item>
-      <title>《Netty实战》笔记</title>
-      <link>http://jason207010.github.io/post/reading-netty-in-action/</link>
+      <title>《Netty 实战》笔记</title>
+      <link>http://jason207010.github.io/post/netty-%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sat, 10 Mar 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/reading-netty-in-action/</guid>
+      <guid>http://jason207010.github.io/post/netty-%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</guid>
       
         <description></description>
       
     </item>
     
     <item>
-      <title>SLF4J开发指南（基于LOG4J 1.x）</title>
-      <link>http://jason207010.github.io/post/java-slf4j-log4j-development-guide/</link>
+      <title>SLF4J 开发指南（基于 LOG4J 1.x）</title>
+      <link>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-1.x/</link>
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-slf4j-log4j-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-1.x/</guid>
       
         <description>
 
@@ -7468,11 +7468,11 @@ LOGGER.error(&amp;quot;{}&amp;quot;, &amp;quot;hello world!&amp;quot;);
     </item>
     
     <item>
-      <title>SLF4J开发指南（基于LOG4J 2.x）</title>
-      <link>http://jason207010.github.io/post/java-slf4j-log4j2-development-guide/</link>
+      <title>SLF4J 开发指南（基于LOG4J 2.x）</title>
+      <link>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-2.x/</link>
       <pubDate>Mon, 22 Jan 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-slf4j-log4j2-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-2.x/</guid>
       
         <description>
 
@@ -8519,11 +8519,11 @@ public class MyTest {
     </item>
     
     <item>
-      <title>《深入理解Java虚拟机》笔记</title>
-      <link>http://jason207010.github.io/post/reading-understanding-the-jvm-notes/</link>
+      <title>《深入理解 Java 虚拟机》笔记</title>
+      <link>http://jason207010.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-java-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Sep 2017 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/reading-understanding-the-jvm-notes/</guid>
+      <guid>http://jason207010.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-java-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%94%E8%AE%B0/</guid>
       
         <description>
 
@@ -8974,11 +8974,11 @@ G1收集器之所以能建立可预测的停顿时间模型，是因为它可以
     </item>
     
     <item>
-      <title>Java JMS开发指南</title>
-      <link>http://jason207010.github.io/post/java-jms-development-guide/</link>
+      <title>Java JMS 开发指南</title>
+      <link>http://jason207010.github.io/post/java-jms-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Wed, 16 Aug 2017 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-jms-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/java-jms-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       
         <description>
 

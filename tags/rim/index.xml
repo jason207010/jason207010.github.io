@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Java RMI开发指南</title>
-      <link>http://jason207010.github.io/post/java-rmi-development-guide/</link>
+      <title>Java RMI 开发指南</title>
+      <link>http://jason207010.github.io/post/java-rmi-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-rmi-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/java-rmi-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       <description>编写服务接口 接口必须继承Remote接口，接口方法必须抛出RemoteException public interface Service extends Remote { void service(String args) throws RemoteException; } 编写服务接口实现类 服务接口实</description>
     </item>
     

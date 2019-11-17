@@ -13,91 +13,91 @@
     
     <item>
       <title>零碎知识点汇总</title>
-      <link>http://jason207010.github.io/post/java-misc/</link>
+      <link>http://jason207010.github.io/post/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/</link>
       <pubDate>Mon, 30 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-misc/</guid>
+      <guid>http://jason207010.github.io/post/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/</guid>
       <description>Java Servlet、Filter 的 url-pattern 匹配规则 精确匹配 @WebServlet(urlPatterns = &amp;quot;/test&amp;quot;) public class TestServlet extends HttpServlet { } 扩展名匹配 @WebServlet(urlPatterns = &amp;quot;*.do&amp;quot;) public class TestServlet extends HttpServlet { } 路径匹配 @WebServlet(urlPatterns = &amp;quot;/test/*&amp;quot;) public class TestServlet extends HttpServlet { } 任意url匹</description>
     </item>
     
     <item>
-      <title>JDBC批量插入、更新开发指南</title>
-      <link>http://jason207010.github.io/post/java-jdbc-batch-development-guide/</link>
+      <title>JDBC 批量插入、更新开发指南</title>
+      <link>http://jason207010.github.io/post/jdbc-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-jdbc-batch-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/jdbc-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       <description>概述 JAVA提供java.sql.Statement#executeBatch()方法帮助开发者实现批量插入、更新及删除等操作，但MySQL</description>
     </item>
     
     <item>
-      <title>Java Instrument热更新开发指南</title>
-      <link>http://jason207010.github.io/post/java-instrument-development-guide/</link>
+      <title>Java Instrument 热更新开发指南</title>
+      <link>http://jason207010.github.io/post/java-instrument-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Fri, 14 Dec 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-instrument-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/java-instrument-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       <description>项目源码 https://github.com/JasonChanBest/instrument 相关参数 参数 参数值 操作系统 macOS JAVA版本 1.8 项目构建工具 Gradle 项目jar包 instrument-1.0.jar 概念 Instrumentation是JavaSE 5的新特性，</description>
     </item>
     
     <item>
-      <title>《Netty实战》笔记</title>
-      <link>http://jason207010.github.io/post/reading-netty-in-action/</link>
+      <title>《Netty 实战》笔记</title>
+      <link>http://jason207010.github.io/post/netty-%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sat, 10 Mar 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/reading-netty-in-action/</guid>
+      <guid>http://jason207010.github.io/post/netty-%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>SLF4J开发指南（基于LOG4J 1.x）</title>
-      <link>http://jason207010.github.io/post/java-slf4j-log4j-development-guide/</link>
+      <title>SLF4J 开发指南（基于 LOG4J 1.x）</title>
+      <link>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-1.x/</link>
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-slf4j-log4j-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-1.x/</guid>
       <description>使用maven构建 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.slf4j&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;slf4j-log4j12&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.7.25&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 此时会自动引入3个依赖jar包 包名 log4j-1.2.17.jar slf4j-api-1.7.25.jar slf4j-log4j12-1.7.25.jar 配置 log4j默认使用classpath目录下log4j.xml或log</description>
     </item>
     
     <item>
-      <title>SLF4J开发指南（基于LOG4J 2.x）</title>
-      <link>http://jason207010.github.io/post/java-slf4j-log4j2-development-guide/</link>
+      <title>SLF4J 开发指南（基于LOG4J 2.x）</title>
+      <link>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-2.x/</link>
       <pubDate>Mon, 22 Jan 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-slf4j-log4j2-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-2.x/</guid>
       <description>使用maven构建 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.logging.log4j&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;log4j-slf4j-impl&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.10.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 此时会自动引入4个依赖jar包 包名 log4j-api-2.9.1.jar log4j-core-2.9.1.jar log4j-slf4j-impl-2.9.1.jar slf4j-api-1.7.25.jar 配置 log4j 2.x默认使用classpath目录下log4j2.xml或lo</description>
     </item>
     
     <item>
-      <title>《深入理解Java虚拟机》笔记</title>
-      <link>http://jason207010.github.io/post/reading-understanding-the-jvm-notes/</link>
+      <title>《深入理解 Java 虚拟机》笔记</title>
+      <link>http://jason207010.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-java-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Sep 2017 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/reading-understanding-the-jvm-notes/</guid>
+      <guid>http://jason207010.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-java-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%94%E8%AE%B0/</guid>
       <description>Java内存区域与内存溢出异常 运行时内存区域 程序计数器 程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟</description>
     </item>
     
     <item>
-      <title>Java JMS开发指南</title>
-      <link>http://jason207010.github.io/post/java-jms-development-guide/</link>
+      <title>Java JMS 开发指南</title>
+      <link>http://jason207010.github.io/post/java-jms-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Wed, 16 Aug 2017 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-jms-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/java-jms-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       <description>概念 Java消息服务（Java Message Service，JMS）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用</description>
     </item>
     
     <item>
-      <title>Java RMI开发指南</title>
-      <link>http://jason207010.github.io/post/java-rmi-development-guide/</link>
+      <title>Java RMI 开发指南</title>
+      <link>http://jason207010.github.io/post/java-rmi-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-rmi-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/java-rmi-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       <description>编写服务接口 接口必须继承Remote接口，接口方法必须抛出RemoteException public interface Service extends Remote { void service(String args) throws RemoteException; } 编写服务接口实现类 服务接口实</description>
     </item>
     
     <item>
-      <title>JPA开发指南</title>
-      <link>http://jason207010.github.io/post/javaweb-jpa-development-guide/</link>
+      <title>JPA 开发指南</title>
+      <link>http://jason207010.github.io/post/jpa-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/javaweb-jpa-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/jpa-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       <description>设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &#39;网址的CRC32&#39;, `url` LONGTEXT COMMENT &#39;网址&#39;, `vice_url` LONGTEXT COMMENT &#39;AJAX请求网址&#39;, `title` LONGTEXT COMMENT &#39;标题&#39;, `content` LONGTEXT COMMENT &#39;网页文字内容&#39;</description>
     </item>
     

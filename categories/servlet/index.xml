@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Servlet 3.0 web.xml配置</title>
-      <link>http://jason207010.github.io/post/javaweb-servlet3.0-web.xml-configuration/</link>
+      <title>Servlet 3.0 web.xml 配置</title>
+      <link>http://jason207010.github.io/post/servlet-3.0-web.xml-%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/javaweb-servlet3.0-web.xml-configuration/</guid>
+      <guid>http://jason207010.github.io/post/servlet-3.0-web.xml-%E9%85%8D%E7%BD%AE/</guid>
       <description>&amp;lt;web-app xmlns=&amp;quot;http://xmlns.jcp.org/xml/ns/javaee&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&amp;quot; version=&amp;quot;3.1&amp;quot;&amp;gt; &amp;lt;/web-app&amp;gt;</description>
     </item>
     

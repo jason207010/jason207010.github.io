@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>JPA开发指南</title>
-      <link>http://jason207010.github.io/post/javaweb-jpa-development-guide/</link>
+      <title>JPA 开发指南</title>
+      <link>http://jason207010.github.io/post/jpa-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/javaweb-jpa-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/jpa-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       <description>设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &#39;网址的CRC32&#39;, `url` LONGTEXT COMMENT &#39;网址&#39;, `vice_url` LONGTEXT COMMENT &#39;AJAX请求网址&#39;, `title` LONGTEXT COMMENT &#39;标题&#39;, `content` LONGTEXT COMMENT &#39;网页文字内容&#39;</description>
     </item>
     

@@ -13,10 +13,10 @@
     
     <item>
       <title>Elasticsearch 开发指南</title>
-      <link>http://jason207010.github.io/post/elasticsearch-development-guide/</link>
+      <link>http://jason207010.github.io/post/elasticsearch-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/elasticsearch-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/elasticsearch-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       <description>基础概念 准实时（Near Realtime） Elasticsearch 是一个准实时搜索平台，一个文档从索引到可搜索有一定的延时，通常是 1 秒</description>
     </item>
     

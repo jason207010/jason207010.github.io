@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>JDBC批量插入、更新开发指南</title>
-      <link>http://jason207010.github.io/post/java-jdbc-batch-development-guide/</link>
+      <title>JDBC 批量插入、更新开发指南</title>
+      <link>http://jason207010.github.io/post/jdbc-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0800</pubDate>
       
-      <guid>http://jason207010.github.io/post/java-jdbc-batch-development-guide/</guid>
+      <guid>http://jason207010.github.io/post/jdbc-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       <description>概述 JAVA提供java.sql.Statement#executeBatch()方法帮助开发者实现批量插入、更新及删除等操作，但MySQL</description>
     </item>
     
