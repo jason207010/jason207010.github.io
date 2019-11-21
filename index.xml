@@ -66,7 +66,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;digest&lt;/td&gt;
-&lt;td&gt;镜像数字签名，使用 docker images &amp;ndash;digests 查看&lt;/td&gt;
+&lt;td&gt;镜像数字签名，使用 docker images &amp;ndash;&amp;ndash;digests 查看&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -395,6 +395,60 @@ COPY *.xml config/
 &lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;ARG CENTOS_VERSION=latest
 FROM centos:$CENTOS_VERSION
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;docker-cli&#34;&gt;Docker CLI&lt;/h2&gt;
+
+&lt;h3 id=&#34;docker-run&#34;&gt;docker run&lt;/h3&gt;
+
+&lt;p&gt;从指定镜像运行一个容器&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-12&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-4&#34;&gt;参数&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数名&lt;/th&gt;
+&lt;th&gt;速记&lt;/th&gt;
+&lt;th&gt;默认值&lt;/th&gt;
+&lt;th&gt;释义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;&amp;ndash;add-host&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;添加主机IP映射（host:ip）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;attach&lt;/td&gt;
+&lt;td&gt;-a&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;附着到 STDIN，STDOUT 或 STDERR&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;cidfile&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;将容器 ID 写到文件&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;cpus&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;CPU 数量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
       
     </item>

@@ -72,7 +72,7 @@
 
 <meta itemprop="datePublished" content="2019-11-20T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-20T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1143">
+<meta itemprop="wordCount" content="1228">
 
 
 
@@ -349,7 +349,7 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/docker/"> Docker </a>
             
           </div>
-        <span class="more-meta"> 约 1143 字 </span>
+        <span class="more-meta"> 约 1228 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         
@@ -436,6 +436,14 @@ if (!doNotTrack) {
 <li><a href="#示例-11">示例</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#docker-cli">Docker CLI</a>
+<ul>
+<li><a href="#docker-run">docker run</a>
+<ul>
+<li><a href="#用法-12">用法</a></li>
+<li><a href="#参数-4">参数</a></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -492,7 +500,7 @@ if (!doNotTrack) {
 
 <tr>
 <td>digest</td>
-<td>镜像数字签名，使用 docker images &ndash;digests 查看</td>
+<td>镜像数字签名，使用 docker images &ndash;&ndash;digests 查看</td>
 </tr>
 </tbody>
 </table>
@@ -821,6 +829,60 @@ COPY *.xml config/
 <pre><code class="language-go">ARG CENTOS_VERSION=latest
 FROM centos:$CENTOS_VERSION
 </code></pre>
+
+<h2 id="docker-cli">Docker CLI</h2>
+
+<h3 id="docker-run">docker run</h3>
+
+<p>从指定镜像运行一个容器</p>
+
+<h4 id="用法-12">用法</h4>
+
+<pre><code class="language-shell">docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+</code></pre>
+
+<h4 id="参数-4">参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>速记</th>
+<th>默认值</th>
+<th>释义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>&ndash;&ndash;add-host</td>
+<td></td>
+<td></td>
+<td>添加主机IP映射（host:ip）</td>
+</tr>
+
+<tr>
+<td>&ndash;attach</td>
+<td>-a</td>
+<td></td>
+<td>附着到 STDIN，STDOUT 或 STDERR</td>
+</tr>
+
+<tr>
+<td>&ndash;cidfile</td>
+<td></td>
+<td></td>
+<td>将容器 ID 写到文件</td>
+</tr>
+
+<tr>
+<td>&ndash;cpus</td>
+<td></td>
+<td></td>
+<td>CPU 数量</td>
+</tr>
+</tbody>
+</table>
 
     </div>
 
