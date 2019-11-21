@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>中国镜像加速 - Jason&#39;s Blog</title>
+  <title>Docker 开发指南 - Jason&#39;s Blog</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Jason Chan" />
-  <meta name="description" content="Python pip 镜像源 中科大镜像源 pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple 恢复默认源 清空 ~/.config/pip/pip.conf vi ~/.config/pip/pip.conf Homebrew Homebrew 中科大镜像源 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git 恢复官方源 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://github.com/Homebrew/brew.git Homebrew Core 中科大镜像源 cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot; git remote set-url origin" />
+  <meta name="description" content="Dockerfile Dockerfile 指令必须大写 FROM FROM 指令初始化一个新的构建阶段，同时为后续指令指定一个基本镜像，因此，一个合法的 Dockerfile 必须以 FROM 指令开始 用法 FROM &amp;lt;image&amp;gt; [AS &amp;lt;name&amp;gt;] 或 FROM &amp;lt;image&amp;gt;[:&amp;lt;tag&amp;gt;] [AS &amp;lt;name&amp;gt;] 或 FROM" />
 
   <meta name="keywords" content="Jason, Blog, Java" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.55.6" />
 
 
-<link rel="canonical" href="http://jason207010.github.io/post/%E4%B8%AD%E5%9B%BD%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/" />
+<link rel="canonical" href="http://jason207010.github.io/post/docker-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" />
 
 
 
@@ -59,27 +59,27 @@
 
 
 
-<meta property="og:title" content="中国镜像加速" />
-<meta property="og:description" content="Python pip 镜像源 中科大镜像源 pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple 恢复默认源 清空 ~/.config/pip/pip.conf vi ~/.config/pip/pip.conf Homebrew Homebrew 中科大镜像源 cd &quot;$(brew --repo)&quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git 恢复官方源 cd &quot;$(brew --repo)&quot; git remote set-url origin https://github.com/Homebrew/brew.git Homebrew Core 中科大镜像源 cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot; git remote set-url origin" />
+<meta property="og:title" content="Docker 开发指南" />
+<meta property="og:description" content="Dockerfile Dockerfile 指令必须大写 FROM FROM 指令初始化一个新的构建阶段，同时为后续指令指定一个基本镜像，因此，一个合法的 Dockerfile 必须以 FROM 指令开始 用法 FROM &lt;image&gt; [AS &lt;name&gt;] 或 FROM &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;] 或 FROM" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://jason207010.github.io/post/%E4%B8%AD%E5%9B%BD%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/" />
-<meta property="article:published_time" content="2019-11-17T00:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-11-17T00:00:00&#43;08:00"/>
+<meta property="og:url" content="http://jason207010.github.io/post/docker-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" />
+<meta property="article:published_time" content="2019-11-20T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2019-11-20T00:00:00&#43;08:00"/>
 
-<meta itemprop="name" content="中国镜像加速">
-<meta itemprop="description" content="Python pip 镜像源 中科大镜像源 pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple 恢复默认源 清空 ~/.config/pip/pip.conf vi ~/.config/pip/pip.conf Homebrew Homebrew 中科大镜像源 cd &quot;$(brew --repo)&quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git 恢复官方源 cd &quot;$(brew --repo)&quot; git remote set-url origin https://github.com/Homebrew/brew.git Homebrew Core 中科大镜像源 cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot; git remote set-url origin">
-
-
-<meta itemprop="datePublished" content="2019-11-17T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-11-17T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="202">
+<meta itemprop="name" content="Docker 开发指南">
+<meta itemprop="description" content="Dockerfile Dockerfile 指令必须大写 FROM FROM 指令初始化一个新的构建阶段，同时为后续指令指定一个基本镜像，因此，一个合法的 Dockerfile 必须以 FROM 指令开始 用法 FROM &lt;image&gt; [AS &lt;name&gt;] 或 FROM &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;] 或 FROM">
 
 
+<meta itemprop="datePublished" content="2019-11-20T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-20T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="1143">
 
-<meta itemprop="keywords" content="Mirror," />
+
+
+<meta itemprop="keywords" content="Docker," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="中国镜像加速"/>
-<meta name="twitter:description" content="Python pip 镜像源 中科大镜像源 pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple 恢复默认源 清空 ~/.config/pip/pip.conf vi ~/.config/pip/pip.conf Homebrew Homebrew 中科大镜像源 cd &quot;$(brew --repo)&quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git 恢复官方源 cd &quot;$(brew --repo)&quot; git remote set-url origin https://github.com/Homebrew/brew.git Homebrew Core 中科大镜像源 cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot; git remote set-url origin"/>
+<meta name="twitter:title" content="Docker 开发指南"/>
+<meta name="twitter:description" content="Dockerfile Dockerfile 指令必须大写 FROM FROM 指令初始化一个新的构建阶段，同时为后续指令指定一个基本镜像，因此，一个合法的 Dockerfile 必须以 FROM 指令开始 用法 FROM &lt;image&gt; [AS &lt;name&gt;] 或 FROM &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;] 或 FROM"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -339,18 +339,18 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">中国镜像加速</h1>
+      <h1 class="post-title">Docker 开发指南</h1>
       
       <div class="post-meta">
-        <time datetime="2019-11-17" class="post-time">
-          2019-11-17
+        <time datetime="2019-11-20" class="post-time">
+          2019-11-20
         </time>
         <div class="post-category">
-            <a href="http://jason207010.github.io/categories/mirror/"> Mirror </a>
+            <a href="http://jason207010.github.io/categories/docker/"> Docker </a>
             
           </div>
-        <span class="more-meta"> 约 202 字 </span>
-          <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <span class="more-meta"> 约 1143 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         
         
@@ -369,49 +369,71 @@ if (!doNotTrack) {
 <ul>
 <li>
 <ul>
-<li><a href="#python">Python</a>
+<li><a href="#dockerfile">Dockerfile</a>
 <ul>
-<li><a href="#pip-镜像源">pip 镜像源</a>
+<li><a href="#from">FROM</a>
 <ul>
-<li><a href="#中科大镜像源">中科大镜像源</a></li>
-<li><a href="#恢复默认源">恢复默认源</a></li>
+<li><a href="#用法">用法</a></li>
+<li><a href="#参数">参数</a></li>
+<li><a href="#示例">示例</a></li>
 </ul></li>
+<li><a href="#run">RUN</a>
+<ul>
+<li><a href="#用法-1">用法</a></li>
+<li><a href="#示例-1">示例</a></li>
 </ul></li>
-<li><a href="#homebrew">Homebrew</a>
+<li><a href="#cmd">CMD</a>
 <ul>
-<li><a href="#homebrew-1">Homebrew</a>
-<ul>
-<li><a href="#中科大镜像源-1">中科大镜像源</a></li>
-<li><a href="#恢复官方源">恢复官方源</a></li>
+<li><a href="#用法-2">用法</a></li>
+<li><a href="#示例-2">示例</a></li>
 </ul></li>
-<li><a href="#homebrew-core">Homebrew Core</a>
+<li><a href="#label">LABEL</a>
 <ul>
-<li><a href="#中科大镜像源-2">中科大镜像源</a></li>
-<li><a href="#恢复官方源-1">恢复官方源</a></li>
+<li><a href="#用法-3">用法</a></li>
+<li><a href="#示例-3">示例</a></li>
 </ul></li>
-<li><a href="#homebrew-cask">Homebrew Cask</a>
+<li><a href="#expose">EXPOSE</a>
 <ul>
-<li><a href="#中科大镜像源-3">中科大镜像源</a></li>
-<li><a href="#恢复官方源-2">恢复官方源</a></li>
+<li><a href="#用法-4">用法</a></li>
+<li><a href="#参数-1">参数</a></li>
+<li><a href="#示例-4">示例</a></li>
 </ul></li>
-<li><a href="#homebrew-bottles">Homebrew Bottles</a>
+<li><a href="#env">ENV</a>
 <ul>
-<li><a href="#中科大镜像源-4">中科大镜像源</a></li>
+<li><a href="#用法-5">用法</a></li>
+<li><a href="#示例-5">示例</a></li>
 </ul></li>
+<li><a href="#add">ADD</a>
+<ul>
+<li><a href="#用法-6">用法</a></li>
+<li><a href="#参数-2">参数</a></li>
+<li><a href="#示例-6">示例</a></li>
 </ul></li>
-<li><a href="#maven">Maven</a>
+<li><a href="#copy">COPY</a>
 <ul>
-<li><a href="#阿里云镜像源">阿里云镜像源</a></li>
+<li><a href="#用法-7">用法</a></li>
+<li><a href="#示例-7">示例</a></li>
 </ul></li>
-<li><a href="#node-dot-js">Node.js</a>
+<li><a href="#entrypoint">ENTRYPOINT</a>
 <ul>
-<li><a href="#npm-镜像源">npm 镜像源</a>
-<ul>
-<li><a href="#淘宝镜像源">淘宝镜像源</a></li>
+<li><a href="#用法-8">用法</a></li>
+<li><a href="#示例-8">示例</a></li>
 </ul></li>
-<li><a href="#yarn-镜像源">yarn 镜像源</a>
+<li><a href="#volume">VOLUME</a>
 <ul>
-<li><a href="#淘宝镜像源-1">淘宝镜像源</a></li>
+<li><a href="#用法-9">用法</a></li>
+<li><a href="#参数-3">参数</a></li>
+<li><a href="#示例-9">示例</a></li>
+</ul></li>
+<li><a href="#workdir">WORKDIR</a>
+<ul>
+<li><a href="#用法-10">用法</a></li>
+<li><a href="#示例-10">示例</a></li>
+</ul></li>
+<li><a href="#arg">ARG</a>
+<ul>
+<li><a href="#用法-11">用法</a></li>
+<li><a href="#示例-11">示例</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -424,111 +446,380 @@ if (!doNotTrack) {
     <div class="post-content">
       
 
-<h2 id="python">Python</h2>
+<h2 id="dockerfile">Dockerfile</h2>
 
-<h3 id="pip-镜像源">pip 镜像源</h3>
+<p>Dockerfile 指令必须大写</p>
 
-<h4 id="中科大镜像源">中科大镜像源</h4>
+<h3 id="from">FROM</h3>
 
-<pre><code class="language-shell">pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple
+<p>FROM 指令初始化一个新的构建阶段，同时为后续指令指定一个基本镜像，因此，一个合法的 Dockerfile 必须以 FROM 指令开始</p>
+
+<h4 id="用法">用法</h4>
+
+<pre><code class="language-text">FROM &lt;image&gt; [AS &lt;name&gt;]
 </code></pre>
 
-<h4 id="恢复默认源">恢复默认源</h4>
+<p>或</p>
 
-<p>清空 ~/.config/pip/pip.conf</p>
-
-<pre><code class="language-shell">vi ~/.config/pip/pip.conf
+<pre><code class="language-text">FROM &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;]
 </code></pre>
 
-<h2 id="homebrew">Homebrew</h2>
+<p>或</p>
 
-<h3 id="homebrew-1">Homebrew</h3>
-
-<h4 id="中科大镜像源-1">中科大镜像源</h4>
-
-<pre><code class="language-shell">cd &quot;$(brew --repo)&quot;
-git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+<pre><code class="language-text">FROM &lt;image&gt;[@&lt;digest&gt;] [AS &lt;name&gt;]
 </code></pre>
 
-<h4 id="恢复官方源">恢复官方源</h4>
+<h4 id="参数">参数</h4>
 
-<pre><code class="language-shell">cd &quot;$(brew --repo)&quot;
-git remote set-url origin https://github.com/Homebrew/brew.git
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>释义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>image</td>
+<td>镜像名</td>
+</tr>
+
+<tr>
+<td>tag</td>
+<td>镜像标签</td>
+</tr>
+
+<tr>
+<td>digest</td>
+<td>镜像数字签名，使用 docker images &ndash;digests 查看</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="示例">示例</h4>
+
+<pre><code class="language-text">ARG CENTOS_VERSION=latest
+FROM centos:${CENTOS_VERSION}
 </code></pre>
 
-<h3 id="homebrew-core">Homebrew Core</h3>
+<h3 id="run">RUN</h3>
 
-<h4 id="中科大镜像源-2">中科大镜像源</h4>
+<p>RUN 指令用来指定容器构建时要运行的命令，这些命令是在容器内执行的</p>
 
-<pre><code class="language-shell">cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;
-git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+<h4 id="用法-1">用法</h4>
+
+<pre><code class="language-text">RUN &lt;command&gt;
 </code></pre>
 
-<h4 id="恢复官方源-1">恢复官方源</h4>
+<p>或</p>
 
-<pre><code class="language-shell">cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;
-git remote set-url origin https://github.com/Homebrew/homebrew-core
+<pre><code class="language-text">RUN [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]
 </code></pre>
 
-<h3 id="homebrew-cask">Homebrew Cask</h3>
+<h4 id="示例-1">示例</h4>
 
-<h4 id="中科大镜像源-3">中科大镜像源</h4>
-
-<pre><code class="language-shell">cd &quot;$(brew --repo)&quot;/Library/Taps/homebrew/homebrew-cask
-git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+<pre><code class="language-text">RUN [&quot;/bin/bash&quot;,&quot;-c&quot;,&quot;echo runing &gt; log.txt&quot;]
 </code></pre>
 
-<h4 id="恢复官方源-2">恢复官方源</h4>
-
-<pre><code class="language-shell">cd &quot;$(brew --repo)&quot;/Library/Taps/homebrew/homebrew-cask
-git remote set-url origin https://github.com/Homebrew/homebrew-cask
+<pre><code class="language-text">RUN echo runing &gt;&gt; log-1.txt
 </code></pre>
 
-<h3 id="homebrew-bottles">Homebrew Bottles</h3>
+<h3 id="cmd">CMD</h3>
 
-<h4 id="中科大镜像源-4">中科大镜像源</h4>
+<p>CMD 指令用来指定容器启动时的命令，这和 docker run 命令非常类似，如果 docker run 指定了执行命令，将会覆盖 CMD 指令的命令。</p>
 
-<pre><code class="language-shell">echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' &gt;&gt; ~/.bash_profile
-source ~/.bash_profile
+<p>这些命令是在容器内执行的，一个 Dockerfile 只能有一个 CMD 指令，如果有多个，则只执行最后一个</p>
+
+<pre><code class="language-text">CMD /bin/bash
 </code></pre>
 
-<h2 id="maven">Maven</h2>
+<p>等价于</p>
 
-<h3 id="阿里云镜像源">阿里云镜像源</h3>
-
-<pre><code class="language-shell">vi ~/.m2/settings.xml
+<pre><code class="language-shell">docker run -t -i centos /bin/bash
 </code></pre>
 
-<pre><code class="language-xml">&lt;mirrors&gt;
-  &lt;mirror&gt;
-      &lt;id&gt;aliyunmaven&lt;/id&gt;
-      &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
-      &lt;name&gt;阿里云公共仓库&lt;/name&gt;
-      &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt;
-  &lt;/mirror&gt;
-&lt;/mirrors&gt;
+<h4 id="用法-2">用法</h4>
+
+<pre><code class="language-text">CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]
 </code></pre>
 
-<h2 id="node-dot-js">Node.js</h2>
+<p>或</p>
 
-<h3 id="npm-镜像源">npm 镜像源</h3>
-
-<h4 id="淘宝镜像源">淘宝镜像源</h4>
-
-<pre><code class="language-shell">vi ~/.npmrc
+<pre><code class="language-text">CMD [&quot;param1&quot;,&quot;param2&quot;]
 </code></pre>
 
-<pre><code class="language-text">registry=https://registry.npm.taobao.org
+<p>或</p>
+
+<pre><code class="language-text">CMD command param1 param2
 </code></pre>
 
-<h3 id="yarn-镜像源">yarn 镜像源</h3>
+<h4 id="示例-2">示例</h4>
 
-<h4 id="淘宝镜像源-1">淘宝镜像源</h4>
-
-<pre><code class="language-shell">vi ~/.yarnrc
+<pre><code class="language-text">CMD /bin/bash
 </code></pre>
 
-<pre><code class="language-text">registry &quot;https://registry.npm.taobao.org&quot;
+<h3 id="label">LABEL</h3>
+
+<p>LABEL 指令为镜像添加元数据，可通过 docker inspect 命令查看</p>
+
+<h4 id="用法-3">用法</h4>
+
+<pre><code class="language-text">LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...
+</code></pre>
+
+<h4 id="示例-3">示例</h4>
+
+<pre><code class="language-text">LABEL label1=label1 label2=&quot;this is lable2&quot;
+</code></pre>
+
+<h3 id="expose">EXPOSE</h3>
+
+<p>EXPOSE 指令用于声明容器将暴露的端口及协议类型，实际上并未发布端口，它充当构建镜像的人员与运行容器的人员之间的一种文档类型，运行容器时使用 docker run -p 来映射容器端口和宿主端口的绑定</p>
+
+<p>可以使用 docker inspect 命令查看镜像暴露的端口</p>
+
+<h4 id="用法-4">用法</h4>
+
+<pre><code class="language-text">EXPOSE &lt;port&gt; [&lt;port&gt;/&lt;protocol&gt;...]
+</code></pre>
+
+<h4 id="参数-1">参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>释义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>port</td>
+<td>端口</td>
+</tr>
+
+<tr>
+<td>protocol</td>
+<td>通信协议，TCP 或 UDT，默认TCP</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="示例-4">示例</h4>
+
+<pre><code class="language-text">EXPOSE 8080
+</code></pre>
+
+<h3 id="env">ENV</h3>
+
+<p>ENV 指令用于设置环境变量，可以使用 docker inspect 命令查看镜像设置的环境变量</p>
+
+<pre><code class="language-text">ENV key1=value1 key2=value2
+</code></pre>
+
+<p>等价于</p>
+
+<pre><code class="language-text">docker run --env key1=value1 --env key2=value2
+</code></pre>
+
+<h4 id="用法-5">用法</h4>
+
+<pre><code class="language-text">ENV &lt;key&gt; &lt;value&gt;
+</code></pre>
+
+<p>或</p>
+
+<pre><code class="language-text">ENV &lt;key&gt;=&lt;value&gt; ...
+</code></pre>
+
+<h4 id="示例-5">示例</h4>
+
+<pre><code class="language-text">ENV hello world
+</code></pre>
+
+<h3 id="add">ADD</h3>
+
+<p>ADD 指令复制宿主上的文件，或远程文件到容器中，如果源文件是压缩文件（identity, gzip, bzip2 或 xz 格式），ADD 指令会将源文件解压到目标位置</p>
+
+<p>ADD 指令不支持身份验证，如果远程文件受身份验证保护，应该使用 RUN wget 或 RUN curl 指令</p>
+
+<p>如果源文件路径，或目标路径包含特殊字符，需要使用 Go 语言的转文规则来转换</p>
+
+<p>如果目标路径以 / 结尾，则默认为目录路径，如果目标目录不存在，ADD 指令会自动创建目录</p>
+
+<h4 id="用法-6">用法</h4>
+
+<pre><code class="language-text">ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
+</code></pre>
+
+<p>或</p>
+
+<pre><code class="language-text">ADD [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
+</code></pre>
+
+<h4 id="参数-2">参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>释义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>chown</td>
+<td>指定文件的用户和用户组</td>
+</tr>
+
+<tr>
+<td>src</td>
+<td>源文件，如果是相对路径，则是对应当前构建上下文目录的相对路径</td>
+</tr>
+
+<tr>
+<td></td>
+<td>源文件路径也可以是远程文件地址</td>
+</tr>
+
+<tr>
+<td></td>
+<td>源文件路径支持通配符，使用 Go 语言的 filepath.Match 规则来匹配</td>
+</tr>
+
+<tr>
+<td>dest</td>
+<td>目标路径，可以是绝对路径，也可以是相对于工作目录的相对路径</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="示例-6">示例</h4>
+
+<pre><code class="language-text">ADD demo.jar /home
+ADD *.xml config/
+</code></pre>
+
+<h3 id="copy">COPY</h3>
+
+<p>COPY 指令与 ADD 指令相似，但 COPY 指令不会将压缩文件解压缩</p>
+
+<h4 id="用法-7">用法</h4>
+
+<pre><code class="language-text">COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
+</code></pre>
+
+<p>或</p>
+
+<pre><code class="language-text">COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
+</code></pre>
+
+<h4 id="示例-7">示例</h4>
+
+<pre><code class="language-text">COPY demo.jar /home
+COPY *.xml config/
+</code></pre>
+
+<h3 id="entrypoint">ENTRYPOINT</h3>
+
+<p>ENTRYPOINT 指令与 CMD 指令类似，用来指定容器启动时执行的命令，与 CMD 不同的是 ENTRYPOINT 指定的命令不会被 docker run 覆盖</p>
+
+<h4 id="用法-8">用法</h4>
+
+<pre><code class="language-text">ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]
+</code></pre>
+
+<p>或</p>
+
+<pre><code class="language-text">ENTRYPOINT command param1 param2
+</code></pre>
+
+<h4 id="示例-8">示例</h4>
+
+<pre><code class="language-text">CMD /bin/bash
+</code></pre>
+
+<h3 id="volume">VOLUME</h3>
+
+<p>VOLUME 指令将指定目录挂载为卷，由于 VOLUME 指令不能指定宿主目录，所以挂载卷为宿主 /var/lib/docker/volumes 目录下一个随机名目录</p>
+
+<p>可以通过 docker run -v ~/data:/home/data 来指定宿主挂载目录</p>
+
+<p>挂载卷的好处是容器产生的动态数据可以存储到挂载卷中，这样容器不存储数据，数据都存储在宿主机器上</p>
+
+<p>可以通过 docker inspect 命令查看容器挂载卷</p>
+
+<h4 id="用法-9">用法</h4>
+
+<pre><code class="language-text">VOLUME [&quot;&lt;path&gt;&quot;, &quot;&lt;path&gt;&quot;...]
+</code></pre>
+
+<p>或</p>
+
+<pre><code class="language-text">VOLUME &lt;path&gt;
+</code></pre>
+
+<h4 id="参数-3">参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>释义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>path</td>
+<td>要挂载的容器中的目录</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="示例-9">示例</h4>
+
+<pre><code class="language-text">VOLUME [&quot;/home/data&quot;]
+</code></pre>
+
+<h3 id="workdir">WORKDIR</h3>
+
+<p>WORKDIR 指令指定容器的工作目录</p>
+
+<h4 id="用法-10">用法</h4>
+
+<pre><code class="language-text">WORKDIR &lt;path&gt;
+</code></pre>
+
+<h4 id="示例-10">示例</h4>
+
+<pre><code class="language-text">WORKDIR /home
+</code></pre>
+
+<h3 id="arg">ARG</h3>
+
+<p>ARG 指令定义一个变量</p>
+
+<pre><code class="language-text">ARG CENTOS_VERSION=latest
+</code></pre>
+
+<p>等价于</p>
+
+<pre><code class="language-shell">docker build --build-arg CENTOS_VERSION=latest
+</code></pre>
+
+<h4 id="用法-11">用法</h4>
+
+<pre><code class="language-text">ARG &lt;name&gt;[=&lt;default value&gt;]
+</code></pre>
+
+<h4 id="示例-11">示例</h4>
+
+<pre><code class="language-text">ARG CENTOS_VERSION=latest
+FROM centos:$CENTOS_VERSION
 </code></pre>
 
     </div>
@@ -538,13 +829,13 @@ source ~/.bash_profile
 <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content"><a href="http://jason207010.github.io/post/%E4%B8%AD%E5%9B%BD%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/">Jason Chan</a>
+    <span class="item-content"><a href="http://jason207010.github.io/post/docker-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">Jason Chan</a>
       </span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2019-11-17
+      2019-11-20
       
     </span>
   </p>
@@ -561,29 +852,16 @@ source ~/.bash_profile
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://jason207010.github.io/tags/mirror/">Mirror</a>
+          <a href="http://jason207010.github.io/tags/docker/">Docker</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/docker-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">Docker 开发指南</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
         
-          <a class="next" href="/post/maven%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/">
-            <span class="next-text nav-default">《Maven实战》笔记</span>
+          <a class="next" href="/post/%E4%B8%AD%E5%9B%BD%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/">
+            <span class="next-text nav-default">中国镜像加速</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">

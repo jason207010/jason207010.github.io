@@ -6,10 +6,398 @@
     <description>Recent content on Jason&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 17 Nov 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Nov 2019 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="http://jason207010.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker 开发指南</title>
+      <link>http://jason207010.github.io/post/docker-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Wed, 20 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/docker-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h2&gt;
+
+&lt;p&gt;Dockerfile 指令必须大写&lt;/p&gt;
+
+&lt;h3 id=&#34;from&#34;&gt;FROM&lt;/h3&gt;
+
+&lt;p&gt;FROM 指令初始化一个新的构建阶段，同时为后续指令指定一个基本镜像，因此，一个合法的 Dockerfile 必须以 FROM 指令开始&lt;/p&gt;
+
+&lt;h4 id=&#34;用法&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;FROM &amp;lt;image&amp;gt; [AS &amp;lt;name&amp;gt;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;FROM &amp;lt;image&amp;gt;[:&amp;lt;tag&amp;gt;] [AS &amp;lt;name&amp;gt;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;FROM &amp;lt;image&amp;gt;[@&amp;lt;digest&amp;gt;] [AS &amp;lt;name&amp;gt;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数&#34;&gt;参数&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数名&lt;/th&gt;
+&lt;th&gt;释义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;image&lt;/td&gt;
+&lt;td&gt;镜像名&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;tag&lt;/td&gt;
+&lt;td&gt;镜像标签&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;digest&lt;/td&gt;
+&lt;td&gt;镜像数字签名，使用 docker images &amp;ndash;digests 查看&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;示例&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ARG CENTOS_VERSION=latest
+FROM centos:${CENTOS_VERSION}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;run&#34;&gt;RUN&lt;/h3&gt;
+
+&lt;p&gt;RUN 指令用来指定容器构建时要运行的命令，这些命令是在容器内执行的&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-1&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;RUN &amp;lt;command&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;RUN [&amp;quot;executable&amp;quot;, &amp;quot;param1&amp;quot;, &amp;quot;param2&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-1&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;RUN [&amp;quot;/bin/bash&amp;quot;,&amp;quot;-c&amp;quot;,&amp;quot;echo runing &amp;gt; log.txt&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;RUN echo runing &amp;gt;&amp;gt; log-1.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;cmd&#34;&gt;CMD&lt;/h3&gt;
+
+&lt;p&gt;CMD 指令用来指定容器启动时的命令，这和 docker run 命令非常类似，如果 docker run 指定了执行命令，将会覆盖 CMD 指令的命令。&lt;/p&gt;
+
+&lt;p&gt;这些命令是在容器内执行的，一个 Dockerfile 只能有一个 CMD 指令，如果有多个，则只执行最后一个&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;CMD /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;等价于&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -t -i centos /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;用法-2&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;CMD [&amp;quot;executable&amp;quot;,&amp;quot;param1&amp;quot;,&amp;quot;param2&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;CMD [&amp;quot;param1&amp;quot;,&amp;quot;param2&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;CMD command param1 param2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-2&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;CMD /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;label&#34;&gt;LABEL&lt;/h3&gt;
+
+&lt;p&gt;LABEL 指令为镜像添加元数据，可通过 docker inspect 命令查看&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-3&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;LABEL &amp;lt;key&amp;gt;=&amp;lt;value&amp;gt; &amp;lt;key&amp;gt;=&amp;lt;value&amp;gt; &amp;lt;key&amp;gt;=&amp;lt;value&amp;gt; ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-3&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;LABEL label1=label1 label2=&amp;quot;this is lable2&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;expose&#34;&gt;EXPOSE&lt;/h3&gt;
+
+&lt;p&gt;EXPOSE 指令用于声明容器将暴露的端口及协议类型，实际上并未发布端口，它充当构建镜像的人员与运行容器的人员之间的一种文档类型，运行容器时使用 docker run -p 来映射容器端口和宿主端口的绑定&lt;/p&gt;
+
+&lt;p&gt;可以使用 docker inspect 命令查看镜像暴露的端口&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-4&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;EXPOSE &amp;lt;port&amp;gt; [&amp;lt;port&amp;gt;/&amp;lt;protocol&amp;gt;...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-1&#34;&gt;参数&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数名&lt;/th&gt;
+&lt;th&gt;释义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;port&lt;/td&gt;
+&lt;td&gt;端口&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;protocol&lt;/td&gt;
+&lt;td&gt;通信协议，TCP 或 UDT，默认TCP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;示例-4&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;EXPOSE 8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;env&#34;&gt;ENV&lt;/h3&gt;
+
+&lt;p&gt;ENV 指令用于设置环境变量，可以使用 docker inspect 命令查看镜像设置的环境变量&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ENV key1=value1 key2=value2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;等价于&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;docker run --env key1=value1 --env key2=value2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;用法-5&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ENV &amp;lt;key&amp;gt; &amp;lt;value&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ENV &amp;lt;key&amp;gt;=&amp;lt;value&amp;gt; ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-5&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ENV hello world
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;add&#34;&gt;ADD&lt;/h3&gt;
+
+&lt;p&gt;ADD 指令复制宿主上的文件，或远程文件到容器中，如果源文件是压缩文件（identity, gzip, bzip2 或 xz 格式），ADD 指令会将源文件解压到目标位置&lt;/p&gt;
+
+&lt;p&gt;ADD 指令不支持身份验证，如果远程文件受身份验证保护，应该使用 RUN wget 或 RUN curl 指令&lt;/p&gt;
+
+&lt;p&gt;如果源文件路径，或目标路径包含特殊字符，需要使用 Go 语言的转文规则来转换&lt;/p&gt;
+
+&lt;p&gt;如果目标路径以 / 结尾，则默认为目录路径，如果目标目录不存在，ADD 指令会自动创建目录&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-6&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ADD [--chown=&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;] &amp;lt;src&amp;gt;... &amp;lt;dest&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ADD [--chown=&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;] [&amp;quot;&amp;lt;src&amp;gt;&amp;quot;,... &amp;quot;&amp;lt;dest&amp;gt;&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-2&#34;&gt;参数&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数名&lt;/th&gt;
+&lt;th&gt;释义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;chown&lt;/td&gt;
+&lt;td&gt;指定文件的用户和用户组&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;src&lt;/td&gt;
+&lt;td&gt;源文件，如果是相对路径，则是对应当前构建上下文目录的相对路径&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;源文件路径也可以是远程文件地址&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;源文件路径支持通配符，使用 Go 语言的 filepath.Match 规则来匹配&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;dest&lt;/td&gt;
+&lt;td&gt;目标路径，可以是绝对路径，也可以是相对于工作目录的相对路径&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;示例-6&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ADD demo.jar /home
+ADD *.xml config/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;copy&#34;&gt;COPY&lt;/h3&gt;
+
+&lt;p&gt;COPY 指令与 ADD 指令相似，但 COPY 指令不会将压缩文件解压缩&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-7&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;COPY [--chown=&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;] &amp;lt;src&amp;gt;... &amp;lt;dest&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;COPY [--chown=&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;] [&amp;quot;&amp;lt;src&amp;gt;&amp;quot;,... &amp;quot;&amp;lt;dest&amp;gt;&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-7&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;COPY demo.jar /home
+COPY *.xml config/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;entrypoint&#34;&gt;ENTRYPOINT&lt;/h3&gt;
+
+&lt;p&gt;ENTRYPOINT 指令与 CMD 指令类似，用来指定容器启动时执行的命令，与 CMD 不同的是 ENTRYPOINT 指定的命令不会被 docker run 覆盖&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-8&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ENTRYPOINT [&amp;quot;executable&amp;quot;, &amp;quot;param1&amp;quot;, &amp;quot;param2&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ENTRYPOINT command param1 param2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-8&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;CMD /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;volume&#34;&gt;VOLUME&lt;/h3&gt;
+
+&lt;p&gt;VOLUME 指令将指定目录挂载为卷，由于 VOLUME 指令不能指定宿主目录，所以挂载卷为宿主 /var/lib/docker/volumes 目录下一个随机名目录&lt;/p&gt;
+
+&lt;p&gt;可以通过 docker run -v ~/data:/home/data 来指定宿主挂载目录&lt;/p&gt;
+
+&lt;p&gt;挂载卷的好处是容器产生的动态数据可以存储到挂载卷中，这样容器不存储数据，数据都存储在宿主机器上&lt;/p&gt;
+
+&lt;p&gt;可以通过 docker inspect 命令查看容器挂载卷&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-9&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;VOLUME [&amp;quot;&amp;lt;path&amp;gt;&amp;quot;, &amp;quot;&amp;lt;path&amp;gt;&amp;quot;...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;VOLUME &amp;lt;path&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-3&#34;&gt;参数&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数名&lt;/th&gt;
+&lt;th&gt;释义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;path&lt;/td&gt;
+&lt;td&gt;要挂载的容器中的目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;示例-9&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;VOLUME [&amp;quot;/home/data&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;workdir&#34;&gt;WORKDIR&lt;/h3&gt;
+
+&lt;p&gt;WORKDIR 指令指定容器的工作目录&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-10&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;WORKDIR &amp;lt;path&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-10&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;WORKDIR /home
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;arg&#34;&gt;ARG&lt;/h3&gt;
+
+&lt;p&gt;ARG 指令定义一个变量&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ARG CENTOS_VERSION=latest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;等价于&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker build --build-arg CENTOS_VERSION=latest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;用法-11&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ARG &amp;lt;name&amp;gt;[=&amp;lt;default value&amp;gt;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-11&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;ARG CENTOS_VERSION=latest
+FROM centos:$CENTOS_VERSION
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>中国镜像加速</title>
@@ -9025,265 +9413,6 @@ G1收集器之所以能建立可预测的停顿时间模型，是因为它可以
 &lt;blockquote&gt;
 &lt;p&gt;Java内存模型规定了所有的变量都存储在主内存（Main Memory）中。每条线程还有自己的工作内存（Working Memory），线程的工作内存中保存了被该线程使用到的变量的主内存副本拷贝，线程对变量的所有操作（读取、赋值等）都必须在工作内存中进行，而不能直接读写主内存中的变量。不同的线程之间也无法直接访问对方工作内存中的变量，线程间变量值的传递均需要通过主内存来完成。&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Java JMS 开发指南</title>
-      <link>http://jason207010.github.io/post/java-jms-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
-      <pubDate>Wed, 16 Aug 2017 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/post/java-jms-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
-      
-        <description>
-
-&lt;h2 id=&#34;概念&#34;&gt;概念&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Java消息服务（Java Message Service，JMS）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;jms元素&#34;&gt;JMS元素&lt;/h2&gt;
-
-&lt;p&gt;JMS由以下元素组成。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;JMS提供者&lt;/strong&gt; 连接面向消息中间件的，JMS接口的一个实现。提供者可以是Java平台的JMS实现，也可以是非Java平台的面向消息中间件的适配器。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;JMS客户&lt;/strong&gt; 生产或消费消息的基于Java的应用程序或对象。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;JMS生产者&lt;/strong&gt; 创建并发送消息的JMS客户。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;JMS消费者&lt;/strong&gt; 接收消息的JMS客户。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;JMS消息&lt;/strong&gt; 包括可以在JMS客户之间传递的数据的对象&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;JMS队列&lt;/strong&gt; 一个容纳那些被发送的等待阅读的消息的区域。队列暗示，这些消息将按照顺序发送。一旦一个消息被阅读，该消息将被从队列中移走。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;JMS主题&lt;/strong&gt; 一种支持发送消息给多个订阅者的机制。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;jms模型&#34;&gt;JMS模型&lt;/h2&gt;
-
-&lt;p&gt;Java消息服务应用程序结构支持两种模型：&lt;/p&gt;
-
-&lt;h3 id=&#34;点对点或队列模型&#34;&gt;点对点或队列模型&lt;/h3&gt;
-
-&lt;p&gt;在点对点或队列模型下，一个生产者向一个特定的队列发布消息，一个消费者从该队列中读取消息。这里，生产者知道消费者的队列，并直接将消息发送到消费者的队列。这种模式被概括为：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;只有一个消费者将获得消息&lt;/li&gt;
-&lt;li&gt;生产者不需要在接收者消费该消息期间处于运行状态，接收者也同样不需要在消息发送时处于运行状态。&lt;/li&gt;
-&lt;li&gt;每一个成功处理的消息都由接收者签收&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;发布-订阅模型&#34;&gt;发布/订阅模型&lt;/h3&gt;
-
-&lt;p&gt;发布者／订阅者模型支持向一个特定的消息主题发布消息。0或多个订阅者可能对接收来自特定消息主题的消息感兴趣。在这种模型下，发布者和订阅者彼此不知道对方。这种模式好比是匿名公告板。这种模式被概括为：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;多个消费者可以获得消息&lt;/li&gt;
-&lt;li&gt;在发布者和订阅者之间存在时间依赖性。发布者需要建立一个订阅（subscription），以便客户能够购订阅。订阅者必须保持持续的活动状态以接收消息，除非订阅者建立了持久的订阅。在那种情况下，在订阅者未连接时发布的消息将在订阅者重新连接时重新发布。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;实例&#34;&gt;实例&lt;/h2&gt;
-
-&lt;h3 id=&#34;队列模式&#34;&gt;队列模式&lt;/h3&gt;
-
-&lt;h4 id=&#34;服务端&#34;&gt;服务端&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;创建连接工厂&lt;/li&gt;
-&lt;li&gt;从连接工厂创建连接&lt;/li&gt;
-&lt;li&gt;从连接创建会话&lt;/li&gt;
-&lt;li&gt;从会话创建队列&lt;/li&gt;
-&lt;li&gt;从会话创建生产者，并传入队列&lt;/li&gt;
-&lt;li&gt;由生产者发送消息&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!--listend--&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Server {
-    public static void main(String args[]) {
-
-    Connection connection = null;
-    Session session = null;
-    try {
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(&amp;quot;tcp://127.0.0.1:61616&amp;quot;);
-        connection = connectionFactory.createConnection();
-        connection.start();
-        session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-        Queue queue = session.createQueue(&amp;quot;MyQueue&amp;quot;);
-        MessageProducer producer = session.createProducer(queue);
-        TextMessage message = session.createTextMessage();
-        message.setText(&amp;quot;Hello World!&amp;quot;);
-        producer.send(message);
-    } catch (JMSException e) {
-        e.printStackTrace();
-    } finally {
-        if(session != null) {
-        try {
-            session.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-        if(connection != null) {
-        try {
-            connection.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-    }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;客户端&#34;&gt;客户端&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;创建连接工厂&lt;/li&gt;
-&lt;li&gt;从连接工厂创建连接&lt;/li&gt;
-&lt;li&gt;从连接创建会话&lt;/li&gt;
-&lt;li&gt;从会话创建队列&lt;/li&gt;
-&lt;li&gt;从会话创建消费者，并传入队列&lt;/li&gt;
-&lt;li&gt;由消费者接收消息&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!--listend--&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Client {
-    public static void main(String args[]) {
-
-    Connection connection = null;
-    Session session = null;
-    try {
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(&amp;quot;tcp://127.0.0.1:61616&amp;quot;);
-        connection = connectionFactory.createConnection();
-        connection.start();
-        session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-        Queue queue = session.createQueue(&amp;quot;MyQueue&amp;quot;);
-        MessageConsumer consumer = session.createConsumer(queue);
-        Message message = consumer.receive();
-        System.out.println(message.toString());
-    } catch (JMSException e) {
-        e.printStackTrace();
-    } finally {
-        if(session != null) {
-        try {
-            session.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-        if(connection != null) {
-        try {
-            connection.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-    }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;发布-订阅模式&#34;&gt;发布/订阅模式&lt;/h3&gt;
-
-&lt;h4 id=&#34;服务端-1&#34;&gt;服务端&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;创建连接工厂&lt;/li&gt;
-&lt;li&gt;从连接工厂创建连接&lt;/li&gt;
-&lt;li&gt;从连接创建会话&lt;/li&gt;
-&lt;li&gt;从会话创建主题&lt;/li&gt;
-&lt;li&gt;从会话创建发布者，并传入主题&lt;/li&gt;
-&lt;li&gt;由发布者发送消息&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!--listend--&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Server {
-    public static void main(String args[]) {
-    TopicConnection connection = null;
-    TopicSession session = null;
-    try {
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(&amp;quot;tcp://127.0.0.1:61616&amp;quot;);
-        connection = connectionFactory.createTopicConnection();
-        connection.start();
-        session = connection.createTopicSession(false, Session.AUTO_ACKNOWLEDGE);
-        Topic topic = session.createTopic(&amp;quot;MyTopic&amp;quot;);
-        TopicPublisher publisher = session.createPublisher(topic);
-        TextMessage message = session.createTextMessage();
-        message.setText(&amp;quot;Hello World!&amp;quot;);
-        publisher.send(message);
-    } catch (JMSException e) {
-        e.printStackTrace();
-    } finally {
-        if(session != null) {
-        try {
-            session.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-        if(connection != null) {
-        try {
-            connection.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-
-    }
-    }
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;客户端-1&#34;&gt;客户端&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;创建连接工厂&lt;/li&gt;
-&lt;li&gt;从连接工厂创建连接&lt;/li&gt;
-&lt;li&gt;从连接创建会话&lt;/li&gt;
-&lt;li&gt;从会话创建主题&lt;/li&gt;
-&lt;li&gt;从会话创建订阅者，并传入主题&lt;/li&gt;
-&lt;li&gt;由订阅者接收消息&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!--listend--&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Client {
-    public static void main(String args[]) {
-    TopicConnection connection = null;
-    TopicSession session = null;
-    try {
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(&amp;quot;tcp://127.0.0.1:61616&amp;quot;);
-        connection = connectionFactory.createTopicConnection();
-        connection.start();
-        session = connection.createTopicSession(false, Session.AUTO_ACKNOWLEDGE);
-        Topic topic = session.createTopic(&amp;quot;MyTopic&amp;quot;);
-        TopicSubscriber subscriber = session.createSubscriber(topic);
-        Message message = subscriber.receive();
-        System.out.println(message.toString());
-    } catch (JMSException e) {
-        e.printStackTrace();
-    } finally {
-        if(session != null) {
-        try {
-            session.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-        if(connection != null) {
-        try {
-            connection.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-    }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
 </description>
       
     </item>
