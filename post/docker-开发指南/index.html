@@ -72,7 +72,7 @@
 
 <meta itemprop="datePublished" content="2019-11-20T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-20T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1228">
+<meta itemprop="wordCount" content="1442">
 
 
 
@@ -349,7 +349,7 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/docker/"> Docker </a>
             
           </div>
-        <span class="more-meta"> 约 1228 字 </span>
+        <span class="more-meta"> 约 1442 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         
@@ -834,7 +834,9 @@ FROM centos:$CENTOS_VERSION
 
 <h3 id="docker-run">docker run</h3>
 
-<p>从指定镜像运行一个容器</p>
+<p>从指定镜像运行一个容器，Docker在隔离的容器中运行进程，容器是在主机上运行的进程，主机可以是本地主机，也可以是远程主机</p>
+
+<p>容器进程是独立的，因为它具有自己的文件系统，自己的网络以及独立于主机的独立的进程树</p>
 
 <h4 id="用法-12">用法</h4>
 
@@ -843,6 +845,22 @@ FROM centos:$CENTOS_VERSION
 
 <h4 id="参数-4">参数</h4>
 
+<ul>
+<li><p>&ndash;detach | -d</p>
+
+<p>在后台运行容器，未指定该参数时默认为前台运行容器，可以使用 docker attach 命令重新附着到容器上</p>
+
+<p>示例：</p>
+
+<pre><code class="language-shell">docker run -d -i -t --rm --name demo jason/demo
+</code></pre>
+
+<ul>
+<li>&ndash;add-host <a href="host:ip">host:ip</a></li>
+</ul>
+
+<p>添加主机到 IP 的映射</p>
+
 <table>
 <thead>
 <tr>
@@ -850,6 +868,7 @@ FROM centos:$CENTOS_VERSION
 <th>速记</th>
 <th>默认值</th>
 <th>释义</th>
+<th>示例</th>
 </tr>
 </thead>
 
@@ -859,30 +878,99 @@ FROM centos:$CENTOS_VERSION
 <td></td>
 <td></td>
 <td>添加主机IP映射（host:ip）</td>
+<td></td>
 </tr>
 
 <tr>
-<td>&ndash;attach</td>
-<td>-a</td>
+<td>&ndash;&ndash;attach</td>
+<td>&ndash;a</td>
 <td></td>
 <td>附着到 STDIN，STDOUT 或 STDERR</td>
+<td></td>
 </tr>
 
 <tr>
-<td>&ndash;cidfile</td>
+<td>&ndash;&ndash;cidfile</td>
 <td></td>
 <td></td>
 <td>将容器 ID 写到文件</td>
+<td></td>
 </tr>
 
 <tr>
-<td>&ndash;cpus</td>
+<td>&ndash;&ndash;cpus</td>
 <td></td>
 <td></td>
 <td>CPU 数量</td>
+<td></td>
+</tr>
+
+<tr>
+<td>&ndash;&ndash;detach</td>
+<td>&ndash;d</td>
+<td></td>
+<td>在后台运行容器</td>
+<td></td>
+</tr>
+
+<tr>
+<td>&ndash;&ndash;dns</td>
+<td></td>
+<td></td>
+<td>设置容器 DNS</td>
+<td></td>
+</tr>
+
+<tr>
+<td>&ndash;&ndash;dns-opt</td>
+<td></td>
+<td></td>
+<td>DNS 选项</td>
+<td></td>
+</tr>
+
+<tr>
+<td>&ndash;&ndash;dns-option</td>
+<td></td>
+<td></td>
+<td>DNS 选项</td>
+<td></td>
+</tr>
+
+<tr>
+<td>&ndash;&ndash;entrypoint</td>
+<td></td>
+<td></td>
+<td>设置容器启动时执行命令</td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>覆盖 Dockerfile 默认 ENTRYPOINT 指令</td>
+<td></td>
+</tr>
+
+<tr>
+<td>&ndash;&ndash;env</td>
+<td>&ndash;e</td>
+<td></td>
+<td>设置容器环境变量</td>
+<td></td>
+</tr>
+
+<tr>
+<td>&ndash;&ndash;expose</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
-</table>
+</table></li>
+</ul>
 
     </div>
 

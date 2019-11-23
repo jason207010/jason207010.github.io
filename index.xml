@@ -400,7 +400,9 @@ FROM centos:$CENTOS_VERSION
 
 &lt;h3 id=&#34;docker-run&#34;&gt;docker run&lt;/h3&gt;
 
-&lt;p&gt;从指定镜像运行一个容器&lt;/p&gt;
+&lt;p&gt;从指定镜像运行一个容器，Docker在隔离的容器中运行进程，容器是在主机上运行的进程，主机可以是本地主机，也可以是远程主机&lt;/p&gt;
+
+&lt;p&gt;容器进程是独立的，因为它具有自己的文件系统，自己的网络以及独立于主机的独立的进程树&lt;/p&gt;
 
 &lt;h4 id=&#34;用法-12&#34;&gt;用法&lt;/h4&gt;
 
@@ -409,6 +411,22 @@ FROM centos:$CENTOS_VERSION
 
 &lt;h4 id=&#34;参数-4&#34;&gt;参数&lt;/h4&gt;
 
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&amp;ndash;detach | -d&lt;/p&gt;
+
+&lt;p&gt;在后台运行容器，未指定该参数时默认为前台运行容器，可以使用 docker attach 命令重新附着到容器上&lt;/p&gt;
+
+&lt;p&gt;示例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -d -i -t --rm --name demo jason/demo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ndash;add-host &lt;a href=&#34;host:ip&#34;&gt;host:ip&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;添加主机到 IP 的映射&lt;/p&gt;
+
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -416,6 +434,7 @@ FROM centos:$CENTOS_VERSION
 &lt;th&gt;速记&lt;/th&gt;
 &lt;th&gt;默认值&lt;/th&gt;
 &lt;th&gt;释义&lt;/th&gt;
+&lt;th&gt;示例&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 
@@ -425,30 +444,99 @@ FROM centos:$CENTOS_VERSION
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;添加主机IP映射（host:ip）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&amp;ndash;attach&lt;/td&gt;
-&lt;td&gt;-a&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&amp;ndash;attach&lt;/td&gt;
+&lt;td&gt;&amp;ndash;a&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;附着到 STDIN，STDOUT 或 STDERR&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&amp;ndash;cidfile&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&amp;ndash;cidfile&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;将容器 ID 写到文件&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&amp;ndash;cpus&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&amp;ndash;cpus&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;CPU 数量&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;&amp;ndash;detach&lt;/td&gt;
+&lt;td&gt;&amp;ndash;d&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;在后台运行容器&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;&amp;ndash;dns&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;设置容器 DNS&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;&amp;ndash;dns-opt&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;DNS 选项&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;&amp;ndash;dns-option&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;DNS 选项&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;&amp;ndash;entrypoint&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;设置容器启动时执行命令&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;覆盖 Dockerfile 默认 ENTRYPOINT 指令&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;&amp;ndash;env&lt;/td&gt;
+&lt;td&gt;&amp;ndash;e&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;设置容器环境变量&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;&amp;ndash;expose&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;/table&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
       
     </item>
