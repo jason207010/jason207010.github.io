@@ -412,7 +412,7 @@ FROM centos:$CENTOS_VERSION
 &lt;h4 id=&#34;参数-4&#34;&gt;参数&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&amp;ndash;detach | -d&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\-\-detach | \-d&lt;/p&gt;
 
 &lt;p&gt;在后台运行容器，未指定该参数时默认为前台运行容器，可以使用 docker attach 命令重新附着到容器上&lt;/p&gt;
 
