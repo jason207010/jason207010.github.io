@@ -313,7 +313,7 @@ COPY *.xml config/
 
 &lt;h4 id=&#34;示例-8&#34;&gt;示例&lt;/h4&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;CMD /bin/bash
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;ENTRYPOINT /bin/bash
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;volume&#34;&gt;VOLUME&lt;/h3&gt;
@@ -412,130 +412,304 @@ FROM centos:$CENTOS_VERSION
 &lt;h4 id=&#34;参数-4&#34;&gt;参数&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;\-\-detach | \-d&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;detach&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--detach | -d
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;在后台运行容器，未指定该参数时默认为前台运行容器，可以使用 docker attach 命令重新附着到容器上&lt;/p&gt;
 
-&lt;p&gt;示例：&lt;/p&gt;
+&lt;p&gt;示例&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -d -i -t --rm --name demo jason/demo
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -d -i -t --rm centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;add-host&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--add-host &amp;lt;host:ip&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;修改容器 /etc/hosts 文件，添加主机到 IP 的映射&lt;/p&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -d -i -t --rm --add-host google.com:127.0.0.1 centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;attach&lt;/p&gt;
+
+&lt;p&gt;附着到容器的 STDIN、STDOUT、STDERR 等输入输出流，attach 参数不能与 detach 参数同时使用&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--attach | -a &amp;lt;stream&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --attach stdout centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;ndash;cidfile&lt;/p&gt;
+
+&lt;p&gt;把容器 ID 打印到指定文件中&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--cidfile &amp;lt;cidfile&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --cidfile cidfile centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;cpus&lt;/p&gt;
+
+&lt;p&gt;设置容器 CPU 数量&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--cpus &amp;lt;count&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --cpus 1 centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;dns&lt;/p&gt;
+
+&lt;p&gt;修改 /etc/resolv.conf 文件，设置容器 DNS 服务器&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--dns &amp;lt;dns&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --dns 1.1.1.1 --dns 8.8.8.8 centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;entrypoint&lt;/p&gt;
+
+&lt;p&gt;覆盖容器默认的 entrypoint&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--dns &amp;lt;dns&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --entrypoint /bin/bash centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;env&lt;/p&gt;
+
+&lt;p&gt;设置容器环境变量&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--env | -e &amp;lt;key=value&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --env hello=world centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;hostname&lt;/p&gt;
+
+&lt;p&gt;修改 /etc/hostname，设置容器主机名&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--hostname  -h &amp;lt;hostname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --hostname jason-pc centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ip&lt;/p&gt;
+
+&lt;p&gt;设置容器 IP 地址&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--ip &amp;lt;ip&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --hostname jason-pc centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;label&lt;/p&gt;
+
+&lt;p&gt;设置容器元数据&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--label | -l &amp;lt;key=value&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --label hello=world centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;link&lt;/p&gt;
+
+&lt;p&gt;链接另一个容器，从而可以与另一个容器通信&lt;/p&gt;
+
+&lt;p&gt;link 参数会自动修改 /etc/hosts，添加另一个容器的 host 到 ip 映射&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--link &amp;lt;container&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --link nexus centos
+
+curl http://nexus:8081
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;memory&lt;/p&gt;
+
+&lt;p&gt;设置容器内存大小&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--memory | -m &amp;lt;number g | m | k | b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --memory 1g centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;name&lt;/p&gt;
+
+&lt;p&gt;设置容器名称&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--name &amp;lt;name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --name centos centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;publish&lt;/p&gt;
+
+&lt;p&gt;publish 参数将容器端口绑定到宿主端口，通过宿主端口可以访问到容器端口&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--publish | -p &amp;lt;host-port&amp;gt;:&amp;lt;container-port&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --publish 80:80 centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;restart&lt;/p&gt;
+
+&lt;p&gt;设置容器退出时重启策略，默认策略为 no&lt;/p&gt;
+
+&lt;p&gt;restart 参数不能与 rm 参数同时使用&lt;/p&gt;
+
+&lt;p&gt;可先参数值为：&lt;/p&gt;
+
 &lt;ul&gt;
-&lt;li&gt;&amp;ndash;add-host &lt;a href=&#34;host:ip&#34;&gt;host:ip&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;no 不重启&lt;/li&gt;
+&lt;li&gt;aways 总是重启&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;添加主机到 IP 的映射&lt;/p&gt;
+&lt;p&gt;-on-failure 容器以非 0 状态码退出时重启，可以指定尝试重启的最大次数&lt;/p&gt;
 
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;参数名&lt;/th&gt;
-&lt;th&gt;速记&lt;/th&gt;
-&lt;th&gt;默认值&lt;/th&gt;
-&lt;th&gt;释义&lt;/th&gt;
-&lt;th&gt;示例&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
+&lt;p&gt;用法&lt;/p&gt;
 
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;ndash;&amp;ndash;add-host&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;添加主机IP映射（host:ip）&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--restart [no | always | on-failure[:max-retries]]
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&amp;ndash;&amp;ndash;attach&lt;/td&gt;
-&lt;td&gt;&amp;ndash;a&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;附着到 STDIN，STDOUT 或 STDERR&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;示例&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&amp;ndash;&amp;ndash;cidfile&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;将容器 ID 写到文件&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --restart always centos
+exit 0
+docker ps -a
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&amp;ndash;&amp;ndash;cpus&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;CPU 数量&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;li&gt;&lt;p&gt;rm&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&amp;ndash;&amp;ndash;detach&lt;/td&gt;
-&lt;td&gt;&amp;ndash;d&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;在后台运行容器&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;容器退出时自动删除容器&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&amp;ndash;&amp;ndash;dns&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;设置容器 DNS&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;用法&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&amp;ndash;&amp;ndash;dns-opt&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;DNS 选项&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--rm
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&amp;ndash;&amp;ndash;dns-option&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;DNS 选项&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;示例&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&amp;ndash;&amp;ndash;entrypoint&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;设置容器启动时执行命令&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;覆盖 Dockerfile 默认 ENTRYPOINT 指令&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;li&gt;&lt;p&gt;tty&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&amp;ndash;&amp;ndash;env&lt;/td&gt;
-&lt;td&gt;&amp;ndash;e&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;设置容器环境变量&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;开启 TTY&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&amp;ndash;&amp;ndash;expose&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;/li&gt;
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--tty | -t
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;volume&lt;/p&gt;
+
+&lt;p&gt;挂载卷，将宿主指定目录挂载到容器指定目录，这样对宿主目录下文件的操作就是对容器目录下文件的操作&lt;/p&gt;
+
+&lt;p&gt;通过挂载卷，即使容器退出，或删除，容器的文件依然存在宿主机器上&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--volume | -v &amp;lt;host-dir&amp;gt;:&amp;lt;container-dir&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;volume&lt;/p&gt;
+
+&lt;p&gt;设置容器工作目录&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--workdir | -w &amp;lt;dir&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --workdir /home centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       

@@ -72,7 +72,7 @@
 
 <meta itemprop="datePublished" content="2019-11-20T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-20T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1442">
+<meta itemprop="wordCount" content="2053">
 
 
 
@@ -349,8 +349,8 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/docker/"> Docker </a>
             
           </div>
-        <span class="more-meta"> 约 1442 字 </span>
-          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span class="more-meta"> 约 2053 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
 
         
         
@@ -747,7 +747,7 @@ COPY *.xml config/
 
 <h4 id="示例-8">示例</h4>
 
-<pre><code class="language-go">CMD /bin/bash
+<pre><code class="language-go">ENTRYPOINT /bin/bash
 </code></pre>
 
 <h3 id="volume">VOLUME</h3>
@@ -846,130 +846,304 @@ FROM centos:$CENTOS_VERSION
 <h4 id="参数-4">参数</h4>
 
 <ul>
-<li><p>\-\-detach | \-d</p>
+<li><p>detach</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--detach | -d
+</code></pre>
 
 <p>在后台运行容器，未指定该参数时默认为前台运行容器，可以使用 docker attach 命令重新附着到容器上</p>
 
-<p>示例：</p>
+<p>示例</p>
 
-<pre><code class="language-shell">docker run -d -i -t --rm --name demo jason/demo
+<pre><code class="language-shell">docker run -d -i -t --rm centos
+</code></pre></li>
+
+<li><p>add-host</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--add-host &lt;host:ip&gt;
 </code></pre>
 
+<p>修改容器 /etc/hosts 文件，添加主机到 IP 的映射</p>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -d -i -t --rm --add-host google.com:127.0.0.1 centos
+</code></pre></li>
+
+<li><p>attach</p>
+
+<p>附着到容器的 STDIN、STDOUT、STDERR 等输入输出流，attach 参数不能与 detach 参数同时使用</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--attach | -a &lt;stream&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --attach stdout centos
+</code></pre></li>
+
+<li><p>&ndash;cidfile</p>
+
+<p>把容器 ID 打印到指定文件中</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--cidfile &lt;cidfile&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --cidfile cidfile centos
+</code></pre></li>
+
+<li><p>cpus</p>
+
+<p>设置容器 CPU 数量</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--cpus &lt;count&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --cpus 1 centos
+</code></pre></li>
+
+<li><p>dns</p>
+
+<p>修改 /etc/resolv.conf 文件，设置容器 DNS 服务器</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--dns &lt;dns&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --dns 1.1.1.1 --dns 8.8.8.8 centos
+</code></pre></li>
+
+<li><p>entrypoint</p>
+
+<p>覆盖容器默认的 entrypoint</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--dns &lt;dns&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --entrypoint /bin/bash centos
+</code></pre></li>
+
+<li><p>env</p>
+
+<p>设置容器环境变量</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--env | -e &lt;key=value&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --env hello=world centos
+</code></pre></li>
+
+<li><p>hostname</p>
+
+<p>修改 /etc/hostname，设置容器主机名</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--hostname  -h &lt;hostname&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --hostname jason-pc centos
+</code></pre></li>
+
+<li><p>ip</p>
+
+<p>设置容器 IP 地址</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--ip &lt;ip&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --hostname jason-pc centos
+</code></pre></li>
+
+<li><p>label</p>
+
+<p>设置容器元数据</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--label | -l &lt;key=value&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --label hello=world centos
+</code></pre></li>
+
+<li><p>link</p>
+
+<p>链接另一个容器，从而可以与另一个容器通信</p>
+
+<p>link 参数会自动修改 /etc/hosts，添加另一个容器的 host 到 ip 映射</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--link &lt;container&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --link nexus centos
+
+curl http://nexus:8081
+</code></pre></li>
+
+<li><p>memory</p>
+
+<p>设置容器内存大小</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--memory | -m &lt;number g | m | k | b&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --memory 1g centos
+</code></pre></li>
+
+<li><p>name</p>
+
+<p>设置容器名称</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--name &lt;name&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --name centos centos
+</code></pre></li>
+
+<li><p>publish</p>
+
+<p>publish 参数将容器端口绑定到宿主端口，通过宿主端口可以访问到容器端口</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--publish | -p &lt;host-port&gt;:&lt;container-port&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm --publish 80:80 centos
+</code></pre></li>
+
+<li><p>restart</p>
+
+<p>设置容器退出时重启策略，默认策略为 no</p>
+
+<p>restart 参数不能与 rm 参数同时使用</p>
+
+<p>可先参数值为：</p>
+
 <ul>
-<li>&ndash;add-host <a href="host:ip">host:ip</a></li>
+<li>no 不重启</li>
+<li>aways 总是重启</li>
 </ul>
 
-<p>添加主机到 IP 的映射</p>
+<p>-on-failure 容器以非 0 状态码退出时重启，可以指定尝试重启的最大次数</p>
 
-<table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>速记</th>
-<th>默认值</th>
-<th>释义</th>
-<th>示例</th>
-</tr>
-</thead>
+<p>用法</p>
 
-<tbody>
-<tr>
-<td>&ndash;&ndash;add-host</td>
-<td></td>
-<td></td>
-<td>添加主机IP映射（host:ip）</td>
-<td></td>
-</tr>
+<pre><code class="language-shell">--restart [no | always | on-failure[:max-retries]]
+</code></pre>
 
-<tr>
-<td>&ndash;&ndash;attach</td>
-<td>&ndash;a</td>
-<td></td>
-<td>附着到 STDIN，STDOUT 或 STDERR</td>
-<td></td>
-</tr>
+<p>示例</p>
 
-<tr>
-<td>&ndash;&ndash;cidfile</td>
-<td></td>
-<td></td>
-<td>将容器 ID 写到文件</td>
-<td></td>
-</tr>
+<pre><code class="language-shell">docker run -i -t --restart always centos
+exit 0
+docker ps -a
+</code></pre></li>
 
-<tr>
-<td>&ndash;&ndash;cpus</td>
-<td></td>
-<td></td>
-<td>CPU 数量</td>
-<td></td>
-</tr>
+<li><p>rm</p>
 
-<tr>
-<td>&ndash;&ndash;detach</td>
-<td>&ndash;d</td>
-<td></td>
-<td>在后台运行容器</td>
-<td></td>
-</tr>
+<p>容器退出时自动删除容器</p>
 
-<tr>
-<td>&ndash;&ndash;dns</td>
-<td></td>
-<td></td>
-<td>设置容器 DNS</td>
-<td></td>
-</tr>
+<p>用法</p>
 
-<tr>
-<td>&ndash;&ndash;dns-opt</td>
-<td></td>
-<td></td>
-<td>DNS 选项</td>
-<td></td>
-</tr>
+<pre><code class="language-shell">--rm
+</code></pre>
 
-<tr>
-<td>&ndash;&ndash;dns-option</td>
-<td></td>
-<td></td>
-<td>DNS 选项</td>
-<td></td>
-</tr>
+<p>示例</p>
 
-<tr>
-<td>&ndash;&ndash;entrypoint</td>
-<td></td>
-<td></td>
-<td>设置容器启动时执行命令</td>
-<td></td>
-</tr>
+<pre><code class="language-shell">docker run -i -t --rm centos
+</code></pre></li>
 
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>覆盖 Dockerfile 默认 ENTRYPOINT 指令</td>
-<td></td>
-</tr>
+<li><p>tty</p>
 
-<tr>
-<td>&ndash;&ndash;env</td>
-<td>&ndash;e</td>
-<td></td>
-<td>设置容器环境变量</td>
-<td></td>
-</tr>
+<p>开启 TTY</p>
 
-<tr>
-<td>&ndash;&ndash;expose</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></li>
+<p>用法</p>
+
+<pre><code class="language-shell">--tty | -t
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm centos
+</code></pre></li>
+
+<li><p>volume</p>
+
+<p>挂载卷，将宿主指定目录挂载到容器指定目录，这样对宿主目录下文件的操作就是对容器目录下文件的操作</p>
+
+<p>通过挂载卷，即使容器退出，或删除，容器的文件依然存在宿主机器上</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--volume | -v &lt;host-dir&gt;:&lt;container-dir&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --rm centos
+</code></pre></li>
+
+<li><p>volume</p>
+
+<p>设置容器工作目录</p>
+
+<p>用法</p>
+
+<pre><code class="language-shell">--workdir | -w &lt;dir&gt;
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-shell">docker run -i -t --workdir /home centos
+</code></pre></li>
 </ul>
 
     </div>
