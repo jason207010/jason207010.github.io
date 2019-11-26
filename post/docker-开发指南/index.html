@@ -613,17 +613,17 @@ if (!doNotTrack) {
 
 <h4 id="用法">用法</h4>
 
-<pre><code class="language-go">FROM &lt;image&gt; [AS &lt;name&gt;]
+<pre><code class="language-shell">FROM &lt;image&gt; [AS &lt;name&gt;]
 </code></pre>
 
 <p>或</p>
 
-<pre><code class="language-go">FROM &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;]
+<pre><code class="language-shell">FROM &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;]
 </code></pre>
 
 <p>或</p>
 
-<pre><code class="language-go">FROM &lt;image&gt;[@&lt;digest&gt;] [AS &lt;name&gt;]
+<pre><code class="language-shell">FROM &lt;image&gt;[@&lt;digest&gt;] [AS &lt;name&gt;]
 </code></pre>
 
 <h4 id="参数">参数</h4>
@@ -656,7 +656,7 @@ if (!doNotTrack) {
 
 <h4 id="示例">示例</h4>
 
-<pre><code class="language-go">ARG CENTOS_VERSION=latest
+<pre><code class="language-shell">ARG CENTOS_VERSION=latest
 FROM centos:${CENTOS_VERSION}
 </code></pre>
 
@@ -666,20 +666,20 @@ FROM centos:${CENTOS_VERSION}
 
 <h4 id="用法-1">用法</h4>
 
-<pre><code class="language-go">RUN &lt;command&gt;
+<pre><code class="language-shell">RUN &lt;command&gt;
 </code></pre>
 
 <p>或</p>
 
-<pre><code class="language-go">RUN [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]
+<pre><code class="language-shell">RUN [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]
 </code></pre>
 
 <h4 id="示例-1">示例</h4>
 
-<pre><code class="language-go">RUN [&quot;/bin/bash&quot;,&quot;-c&quot;,&quot;echo runing &gt; log.txt&quot;]
+<pre><code class="language-shell">RUN [&quot;/bin/bash&quot;,&quot;-c&quot;,&quot;echo runing &gt; log.txt&quot;]
 </code></pre>
 
-<pre><code class="language-go">RUN echo runing &gt;&gt; log-1.txt
+<pre><code class="language-shell">RUN echo runing &gt;&gt; log-1.txt
 </code></pre>
 
 <h3 id="cmd">CMD</h3>
@@ -688,7 +688,7 @@ FROM centos:${CENTOS_VERSION}
 
 <p>这些命令是在容器内执行的，一个 Dockerfile 只能有一个 CMD 指令，如果有多个，则只执行最后一个</p>
 
-<pre><code class="language-go">CMD /bin/bash
+<pre><code class="language-shell">CMD /bin/bash
 </code></pre>
 
 <p>等价于</p>
@@ -698,22 +698,22 @@ FROM centos:${CENTOS_VERSION}
 
 <h4 id="用法-2">用法</h4>
 
-<pre><code class="language-go">CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]
+<pre><code class="language-shell">CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]
 </code></pre>
 
 <p>或</p>
 
-<pre><code class="language-go">CMD [&quot;param1&quot;,&quot;param2&quot;]
+<pre><code class="language-shell">CMD [&quot;param1&quot;,&quot;param2&quot;]
 </code></pre>
 
 <p>或</p>
 
-<pre><code class="language-go">CMD command param1 param2
+<pre><code class="language-shell">CMD command param1 param2
 </code></pre>
 
 <h4 id="示例-2">示例</h4>
 
-<pre><code class="language-go">CMD /bin/bash
+<pre><code class="language-shell">CMD /bin/bash
 </code></pre>
 
 <h3 id="label">LABEL</h3>
@@ -722,12 +722,12 @@ FROM centos:${CENTOS_VERSION}
 
 <h4 id="用法-3">用法</h4>
 
-<pre><code class="language-go">LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...
+<pre><code class="language-shell">LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...
 </code></pre>
 
 <h4 id="示例-3">示例</h4>
 
-<pre><code class="language-go">LABEL label1=label1 label2=&quot;this is lable2&quot;
+<pre><code class="language-shell">LABEL label1=label1 label2=&quot;this is lable2&quot;
 </code></pre>
 
 <h3 id="expose">EXPOSE</h3>
@@ -738,7 +738,7 @@ FROM centos:${CENTOS_VERSION}
 
 <h4 id="用法-4">用法</h4>
 
-<pre><code class="language-go">EXPOSE &lt;port&gt; [&lt;port&gt;/&lt;protocol&gt;...]
+<pre><code class="language-shell">EXPOSE &lt;port&gt; [&lt;port&gt;/&lt;protocol&gt;...]
 </code></pre>
 
 <h4 id="参数-1">参数</h4>
@@ -766,34 +766,34 @@ FROM centos:${CENTOS_VERSION}
 
 <h4 id="示例-4">示例</h4>
 
-<pre><code class="language-go">EXPOSE 8080
+<pre><code class="language-shell">EXPOSE 8080
 </code></pre>
 
 <h3 id="env">ENV</h3>
 
 <p>ENV 指令用于设置环境变量，可以使用 docker inspect 命令查看镜像设置的环境变量</p>
 
-<pre><code class="language-go">ENV key1=value1 key2=value2
+<pre><code class="language-shell">ENV key1=value1 key2=value2
 </code></pre>
 
 <p>等价于</p>
 
-<pre><code class="language-go">docker run --env key1=value1 --env key2=value2
+<pre><code class="language-shell">docker run --env key1=value1 --env key2=value2
 </code></pre>
 
 <h4 id="用法-5">用法</h4>
 
-<pre><code class="language-go">ENV &lt;key&gt; &lt;value&gt;
+<pre><code class="language-shell">ENV &lt;key&gt; &lt;value&gt;
 </code></pre>
 
 <p>或</p>
 
-<pre><code class="language-go">ENV &lt;key&gt;=&lt;value&gt; ...
+<pre><code class="language-shell">ENV &lt;key&gt;=&lt;value&gt; ...
 </code></pre>
 
 <h4 id="示例-5">示例</h4>
 
-<pre><code class="language-go">ENV hello world
+<pre><code class="language-shell">ENV hello world
 </code></pre>
 
 <h3 id="add">ADD</h3>
@@ -808,12 +808,12 @@ FROM centos:${CENTOS_VERSION}
 
 <h4 id="用法-6">用法</h4>
 
-<pre><code class="language-go">ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
+<pre><code class="language-shell">ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
 </code></pre>
 
 <p>或</p>
 
-<pre><code class="language-go">ADD [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
+<pre><code class="language-shell">ADD [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
 </code></pre>
 
 <h4 id="参数-2">参数</h4>
@@ -856,7 +856,7 @@ FROM centos:${CENTOS_VERSION}
 
 <h4 id="示例-6">示例</h4>
 
-<pre><code class="language-go">ADD demo.jar /home
+<pre><code class="language-shell">ADD demo.jar /home
 ADD *.xml config/
 </code></pre>
 
@@ -866,17 +866,17 @@ ADD *.xml config/
 
 <h4 id="用法-7">用法</h4>
 
-<pre><code class="language-go">COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
+<pre><code class="language-shell">COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
 </code></pre>
 
 <p>或</p>
 
-<pre><code class="language-go">COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
+<pre><code class="language-shell">COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
 </code></pre>
 
 <h4 id="示例-7">示例</h4>
 
-<pre><code class="language-go">COPY demo.jar /home
+<pre><code class="language-shell">COPY demo.jar /home
 COPY *.xml config/
 </code></pre>
 
@@ -886,17 +886,17 @@ COPY *.xml config/
 
 <h4 id="用法-8">用法</h4>
 
-<pre><code class="language-go">ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]
+<pre><code class="language-shell">ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]
 </code></pre>
 
 <p>或</p>
 
-<pre><code class="language-go">ENTRYPOINT command param1 param2
+<pre><code class="language-shell">ENTRYPOINT command param1 param2
 </code></pre>
 
 <h4 id="示例-8">示例</h4>
 
-<pre><code class="language-go">ENTRYPOINT /bin/bash
+<pre><code class="language-shell">ENTRYPOINT /bin/bash
 </code></pre>
 
 <h3 id="volume">VOLUME</h3>
@@ -911,12 +911,12 @@ COPY *.xml config/
 
 <h4 id="用法-9">用法</h4>
 
-<pre><code class="language-go">VOLUME [&quot;&lt;path&gt;&quot;, &quot;&lt;path&gt;&quot;...]
+<pre><code class="language-shell">VOLUME [&quot;&lt;path&gt;&quot;, &quot;&lt;path&gt;&quot;...]
 </code></pre>
 
 <p>或</p>
 
-<pre><code class="language-go">VOLUME &lt;path&gt;
+<pre><code class="language-shell">VOLUME &lt;path&gt;
 </code></pre>
 
 <h4 id="参数-3">参数</h4>
@@ -939,7 +939,7 @@ COPY *.xml config/
 
 <h4 id="示例-9">示例</h4>
 
-<pre><code class="language-go">VOLUME [&quot;/home/data&quot;]
+<pre><code class="language-shell">VOLUME [&quot;/home/data&quot;]
 </code></pre>
 
 <h3 id="workdir">WORKDIR</h3>
@@ -948,19 +948,19 @@ COPY *.xml config/
 
 <h4 id="用法-10">用法</h4>
 
-<pre><code class="language-go">WORKDIR &lt;path&gt;
+<pre><code class="language-shell">WORKDIR &lt;path&gt;
 </code></pre>
 
 <h4 id="示例-10">示例</h4>
 
-<pre><code class="language-go">WORKDIR /home
+<pre><code class="language-shell">WORKDIR /home
 </code></pre>
 
 <h3 id="arg">ARG</h3>
 
 <p>ARG 指令定义一个变量</p>
 
-<pre><code class="language-go">ARG CENTOS_VERSION=latest
+<pre><code class="language-shell">ARG CENTOS_VERSION=latest
 </code></pre>
 
 <p>等价于</p>
@@ -970,12 +970,12 @@ COPY *.xml config/
 
 <h4 id="用法-11">用法</h4>
 
-<pre><code class="language-go">ARG &lt;name&gt;[=&lt;default value&gt;]
+<pre><code class="language-shell">ARG &lt;name&gt;[=&lt;default value&gt;]
 </code></pre>
 
 <h4 id="示例-11">示例</h4>
 
-<pre><code class="language-go">ARG CENTOS_VERSION=latest
+<pre><code class="language-shell">ARG CENTOS_VERSION=latest
 FROM centos:$CENTOS_VERSION
 </code></pre>
 
