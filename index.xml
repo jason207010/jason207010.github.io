@@ -711,6 +711,876 @@ docker ps -a
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --workdir /home centos
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-attach&#34;&gt;docker attach&lt;/h3&gt;
+
+&lt;p&gt;将宿主输入、输出、错误流附着到正在运行的容器上&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-13&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker attach [OPTIONS] CONTAINER
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-5&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;no-stdin&lt;/p&gt;
+
+&lt;p&gt;不附着输入流&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--no-stdin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm -d --name centos centos
+
+docker attach centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-build&#34;&gt;docker build&lt;/h3&gt;
+
+&lt;p&gt;从 Dockerfile 构建镜像&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-14&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker build [OPTIONS] PATH | URL | -
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-6&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;file&lt;/p&gt;
+
+&lt;p&gt;指定 Dockerfile 的名称&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--file | -f &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker build -t jason/demo:latest --file Dfile .
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;iidfile&lt;/p&gt;
+
+&lt;p&gt;打印镜像 ID 到指定文件&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--iidfile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker build -t jason/demo:latest --iidfile iid .
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;tag&lt;/p&gt;
+
+&lt;p&gt;设置镜像名和标签&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--tag | -t &amp;lt;image-name&amp;gt;[:tag]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker build -t jason/demo:latest .
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-commit&#34;&gt;docker commit&lt;/h3&gt;
+
+&lt;p&gt;根据窗口的更改创建新的镜像&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-15&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-7&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;author&lt;/p&gt;
+
+&lt;p&gt;设置镜像作者&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--author | -a &amp;lt;author&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --name centos centos
+touch hello.txt
+exit
+docker commit --author jason --message &amp;quot;hello world&amp;quot; --pause centos centos:hello
+docker run -i -t --name hello centos:hello
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;message&lt;/p&gt;
+
+&lt;p&gt;设置提交信息，可通过 docker history 命令查看&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--message | -m &amp;lt;message&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;pause&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;提交镜像期间暂停容器&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--pause | -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-cp&#34;&gt;docker cp&lt;/h3&gt;
+
+&lt;p&gt;在容器和宿主文件系统之间复制文件或文件夹&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-16&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH | -
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker cp [OPTIONS] SRC_PATH | - CONTAINER:DEST_PATH
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-12&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker cp ~/test.txt centos:/home
+docker cp centos:/home/test.txt ~/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-create&#34;&gt;docker create&lt;/h3&gt;
+
+&lt;p&gt;从镜像创建一个容器，参数与 docker run 命令相同，但只创建不运行&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-17&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker create [OPTIONS] IMAGE [COMMAND] [ARG...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-13&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker create centos --name centos
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-diff&#34;&gt;docker diff&lt;/h3&gt;
+
+&lt;p&gt;检查容器文件系统的变化&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-18&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker diff CONTAINER
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-14&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker diff centos
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-exec&#34;&gt;docker exec&lt;/h3&gt;
+
+&lt;p&gt;在运行的容器中执行命令&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-19&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-8&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;detach&lt;/p&gt;
+
+&lt;p&gt;分离模式，后台运行命令，这样控制台不会输出任何信息&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--detach | -d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker exec --detach centos free
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;interactive&lt;/p&gt;
+
+&lt;p&gt;保持 STDIN 标准输入流打开&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--interactive | -i
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker exec -i centos free
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;tty&lt;/p&gt;
+
+&lt;p&gt;开启 TTY&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--tty | -t
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker exec -i -t centos free
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;workdir&lt;/p&gt;
+
+&lt;p&gt;设置工作目录&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--workdir | -w &amp;lt;path&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker exec --workdir /home centos ls
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-export&#34;&gt;docker export&lt;/h3&gt;
+
+&lt;p&gt;导出容器文件系统到 tar 压缩文件&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-20&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker export [OPTIONS] CONTAINER
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-9&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;output&lt;/p&gt;
+
+&lt;p&gt;指定输出文件&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--output | -o &amp;lt;tar-file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker export --output centos.tar centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-images&#34;&gt;docker images&lt;/h3&gt;
+
+&lt;p&gt;列出镜像&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-21&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker images [OPTIONS] [REPOSITORY[:TAG]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-10&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;all&lt;/p&gt;
+
+&lt;p&gt;显示所有镜像&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--all | -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker images -a
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;digests&lt;/p&gt;
+
+&lt;p&gt;显示数字签名&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--digests
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker images --digests
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-info&#34;&gt;docker info&lt;/h3&gt;
+
+&lt;p&gt;显示 docker 系统信息&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-22&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker info [OPTIONS]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-inspect&#34;&gt;docker inspect&lt;/h3&gt;
+
+&lt;p&gt;显示镜像或容器信息&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-23&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker inspect [OPTIONS] NAME | ID [NAME | ID...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-15&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker inspect centos
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-kill&#34;&gt;docker kill&lt;/h3&gt;
+
+&lt;p&gt;杀死一个或多个容器&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-24&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker kill [OPTIONS] CONTAINER [CONTAINER...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-11&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;signal&lt;/p&gt;
+
+&lt;p&gt;发送给容器的信息&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--signal | -s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker kill -s 9 centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-logs&#34;&gt;docker logs&lt;/h3&gt;
+
+&lt;p&gt;显示容器日志&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-25&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker logs [OPTIONS] CONTAINER
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-12&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;details&lt;/p&gt;
+
+&lt;p&gt;显示额外细节信息&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--details
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker logs --details -f centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;follow&lt;/p&gt;
+
+&lt;p&gt;跟随日志输出&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--follow | -f
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker logs --details -f centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;since&lt;/p&gt;
+
+&lt;p&gt;指定日志开始时间&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--since
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker logs -f --since 2019-11-26T15:40:00 centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;tail&lt;/p&gt;
+
+&lt;p&gt;显示末尾 N 行日志&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--tail &amp;lt;number&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker logs -f --tail 1 centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;until&lt;/p&gt;
+
+&lt;p&gt;显示指定时间之前的日志&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--until
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker logs --until 2019-11-26T15:53:00 centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-pause&#34;&gt;docker pause&lt;/h3&gt;
+
+&lt;p&gt;暂停一个或多个容器&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-26&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker pause CONTAINER [CONTAINER...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-16&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker pause centos1 centos2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-unpause&#34;&gt;docker unpause&lt;/h3&gt;
+
+&lt;p&gt;恢复一个或多个已暂停的容器&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-27&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker unpause CONTAINER [CONTAINER...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-17&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker unpause centos1 centos2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-port&#34;&gt;docker port&lt;/h3&gt;
+
+&lt;p&gt;列出容器端口与宿主端口的映射，或者指定一个容器端口，显示这个容器端口与宿主端口的映射&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-28&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker port CONTAINER [PRIVATE_PORT[/PROTO]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-18&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker port centos
+
+docker port centos 8080/tcp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-ps&#34;&gt;docker ps&lt;/h3&gt;
+
+&lt;p&gt;列出容器&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-29&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker ps [OPTIONS]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-13&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;all&lt;/p&gt;
+
+&lt;p&gt;列出所有容器&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--all | -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker ps -a
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;size&lt;/p&gt;
+
+&lt;p&gt;显示文件大小&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--size | -s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker ps -s
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-pull&#34;&gt;docker pull&lt;/h3&gt;
+
+&lt;p&gt;从 docker 远程仓库下载一个镜像到本地&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-30&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker pull [OPTIONS] NAME[:TAG | @DIGEST]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-14&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;all-tags&lt;/p&gt;
+
+&lt;p&gt;下载所有标签的镜像到本地&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--all-tags | -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker pull --all-tags centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;disable-content-trust&lt;/p&gt;
+
+&lt;p&gt;跳过镜像检查&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--disable-content-trust
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker pull --disable-content-trust centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;quiet&lt;/p&gt;
+
+&lt;p&gt;静默下载，不输出日志&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--quiet | -q
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker pull --quiet centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-rename&#34;&gt;docker rename&lt;/h3&gt;
+
+&lt;p&gt;重命名容器&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-31&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker rename CONTAINER NEW_NAME
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-19&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker rename centos centos-renamed
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-restart&#34;&gt;docker restart&lt;/h3&gt;
+
+&lt;p&gt;重启一个或多个容器&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-32&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker restart [OPTIONS] CONTAINER [CONTAINER...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-20&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker restart centos
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-rm&#34;&gt;docker rm&lt;/h3&gt;
+
+&lt;p&gt;删除一个或多个容器&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-33&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker rm [OPTIONS] CONTAINER [CONTAINER...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-15&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;force&lt;/p&gt;
+
+&lt;p&gt;强制删除容器，即使容器正在运行&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--force | -f
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker rm -f centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-rmi&#34;&gt;docker rmi&lt;/h3&gt;
+
+&lt;p&gt;删除一个或多个镜像&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-34&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker rmi [OPTIONS] IMAGE [IMAGE...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-16&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;force&lt;/p&gt;
+
+&lt;p&gt;强制删除镜像，即使这个镜像有正在运行的容器&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--force | -f
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker rmi -f centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-save&#34;&gt;docker save&lt;/h3&gt;
+
+&lt;p&gt;把一个或多个镜像导出为 tar 压缩文件（默认导出到 STDOUT）&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-35&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker save [OPTIONS] IMAGE [IMAGE...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-17&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;output&lt;/p&gt;
+
+&lt;p&gt;指定输出文件&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--output | -o &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker save -o ~/centos.tar centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-import&#34;&gt;docker import&lt;/h3&gt;
+
+&lt;p&gt;从 tar 压缩文件导入镜像&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-36&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker import [OPTIONS] file|URL|- [REPOSITORY[:TAG]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-21&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker import ~/centos.tar centos:latest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-search&#34;&gt;docker search&lt;/h3&gt;
+
+&lt;p&gt;从 Docker Hub 搜索镜像&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-37&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker search [OPTIONS] TERM
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-18&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;filter&lt;/p&gt;
+
+&lt;p&gt;设置过滤条件&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--filter | -f &amp;lt;key=value&amp;gt;&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;#搜索标星大于10、非自动构建、官方的 centos 镜像
+docker search --filter &amp;quot;stars=10&amp;quot; --filter &amp;quot;is-automated=false&amp;quot; --filter &amp;quot;is-official=true&amp;quot; centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;limit&lt;/p&gt;
+
+&lt;p&gt;限制搜索结果数量&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--limit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker search --limit 5 centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-start&#34;&gt;docker start&lt;/h3&gt;
+
+&lt;p&gt;启动一个已停止的容器&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-38&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker start [OPTIONS] CONTAINER [CONTAINER...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-19&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;attach&lt;/p&gt;
+
+&lt;p&gt;附着到容器 STDOUT、STDERR&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--attach | -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker start -a centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;interactive&lt;/p&gt;
+
+&lt;p&gt;附着到容器 STDIN&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--interactive | -i
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker start -a -i centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-stats&#34;&gt;docker stats&lt;/h3&gt;
+
+&lt;p&gt;显示容器资源使用量的统计&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-39&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker stats [OPTIONS] [CONTAINER...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数-20&#34;&gt;参数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;all&lt;/p&gt;
+
+&lt;p&gt;显示所有容器&lt;/p&gt;
+
+&lt;p&gt;用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;--all | -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker stats -a
+
+docker stats centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-stop&#34;&gt;docker stop&lt;/h3&gt;
+
+&lt;p&gt;停止一个正在运行的容器&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-40&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker stop [OPTIONS] CONTAINER [CONTAINER...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-22&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker stop centos
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-tag&#34;&gt;docker tag&lt;/h3&gt;
+
+&lt;p&gt;为一个镜像打标签&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-41&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-23&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker tag centos:latest centos:demo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-top&#34;&gt;docker top&lt;/h3&gt;
+
+&lt;p&gt;显示容器中正在运行的进程&lt;/p&gt;
+
+&lt;h4 id=&#34;用法-42&#34;&gt;用法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker top CONTAINER [ps OPTIONS]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;示例-24&#34;&gt;示例&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker top centos
+&lt;/code&gt;&lt;/pre&gt;
 </description>
       
     </item>
