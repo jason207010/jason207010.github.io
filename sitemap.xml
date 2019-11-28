@@ -3,8 +3,45 @@
   
   <url>
     <loc>http://jason207010.github.io/categories/</loc>
-    <lastmod>2019-11-20T00:00:00+08:00</lastmod>
+    <lastmod>2019-11-28T00:00:00+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/</loc>
+    <lastmod>2019-11-28T00:00:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/post/</loc>
+    <lastmod>2019-11-28T00:00:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/tags/</loc>
+    <lastmod>2019-11-28T00:00:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/categories/uml/</loc>
+    <lastmod>2019-11-28T00:00:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/tags/uml/</loc>
+    <lastmod>2019-11-28T00:00:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/post/uml-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2019-11-28T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -24,24 +61,6 @@
     <lastmod>2019-11-20T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://jason207010.github.io/</loc>
-    <lastmod>2019-11-20T00:00:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jason207010.github.io/post/</loc>
-    <lastmod>2019-11-20T00:00:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jason207010.github.io/tags/</loc>
-    <lastmod>2019-11-20T00:00:00+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

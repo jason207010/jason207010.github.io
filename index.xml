@@ -6,10 +6,222 @@
     <description>Recent content on Jason&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 20 Nov 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Nov 2019 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="http://jason207010.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>UML 开发指南</title>
+      <link>http://jason207010.github.io/post/uml-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/uml-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;类图&#34;&gt;类图&lt;/h2&gt;
+
+&lt;h3 id=&#34;类与接口&#34;&gt;类与接口&lt;/h3&gt;
+
+&lt;h4 id=&#34;类&#34;&gt;类&lt;/h4&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-1.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-1.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h4 id=&#34;抽象类&#34;&gt;抽象类&lt;/h4&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-2.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-2.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h4 id=&#34;接口&#34;&gt;接口&lt;/h4&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-3.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-3.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h4 id=&#34;包&#34;&gt;包&lt;/h4&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-4.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-4.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h4 id=&#34;成员可见性&#34;&gt;成员可见性&lt;/h4&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-5.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-5.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h4 id=&#34;类之间关系&#34;&gt;类之间关系&lt;/h4&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-6.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-6.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;继承（Generalization）&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-7.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-7.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;实现（Realization/Implementation）&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-8.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-8.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;依赖（Dependency）&lt;/p&gt;
+
+&lt;p&gt;依赖可以简单的理解为一个类 A 使用到了另一个类 B，&amp;rdquo; &amp;hellip; uses a &amp;hellip;&amp;ldquo;，被依赖的对象只是作为一种工具在使用，而并不持有对它的引用。而这种使用关系是具有偶然性、临时性的、非常弱的，但是 B 类的变化会影响到 A；表现在代码层面，为类 B 作为参数被类A在某个方法中使用。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-9.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-9.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;关联（Association）&lt;/p&gt;
+
+&lt;p&gt;在语义上是两个类之间、或类与接口之间一种强依赖关系，是一种长期的稳定的关系，&amp;rdquo; &amp;hellip; has a &amp;hellip;&amp;rdquo; 。&lt;/p&gt;
+
+&lt;p&gt;关联关系使一个类知道另外一个类的属性和方法；通常含有“知道”、“了解”的含义。某个对象会长期的持有另一个对象的引用，关联的两个对象彼此间没有任何强制性的约束，只要二者同意，可以随时解除关系或是进行关联，它们在生命期问题上没有任何约定。&lt;/p&gt;
+
+&lt;p&gt;被关联的对象还可以再被别的对象关联，所以关联是可以共享的。&lt;/p&gt;
+
+&lt;p&gt;在代码层面上，被关联类以类属性的形式出现在关联类中，也可能是关联类引用了一个类型为被关联类的全局变量。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-10.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-10.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;聚合（Aggregate）&lt;/p&gt;
+
+&lt;p&gt;聚合是表示整体与部分的一类特殊的关联关系，是“弱”的包含（&amp;rdquo; &amp;hellip; owns a &amp;hellip;&amp;rdquo; ）关系，成分类可以不依靠聚合类而单独存在，可以具有各自的生命周期，部分可以属于多个整体对象，也可以为多个整体对象共享。例如，教授与课程就是一种聚合关系。又例如图书馆包含学生和书籍，即使没有图书馆，学生亦可以存在，学生和图书馆之间的关系是聚集。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-11.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-11.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;组合（Composition）&lt;/p&gt;
+
+&lt;p&gt;组成是一类“强”的整体与部分的包含关系（&amp;rdquo; &amp;hellip; is a part of &amp;hellip;&amp;ldquo;）。成分类必须依靠合成类而存在。整体与部分是不可分的，整体的生命周期结束也就意味着部分的生命周期结束。合成类别完全拥有成分类别，负责创建、销毁成分类别。例如汽车与化油器，又例如公司与公司部门就是一种组成关系。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-12.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/UML%20%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97-12.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>Docker 开发指南</title>
@@ -10144,461 +10356,6 @@ public class MyTest {
 
 &lt;p&gt;打印Location日志对性能的影响如图所示：
 &lt;img src=&#34;http://jason207010.github.io/ox-hugo/Java-SLF4J-Development-Guide-1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>《深入理解 Java 虚拟机》笔记</title>
-      <link>http://jason207010.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-java-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Mon, 11 Sep 2017 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-java-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%94%E8%AE%B0/</guid>
-      
-        <description>
-
-&lt;h2 id=&#34;java内存区域与内存溢出异常&#34;&gt;Java内存区域与内存溢出异常&lt;/h2&gt;
-
-&lt;h3 id=&#34;运行时内存区域&#34;&gt;运行时内存区域&lt;/h3&gt;
-
-
-
-&lt;div class=&#34;box&#34;&gt;
-&lt;figure  itemprop=&#34;associatedMedia&#34;
-  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
-    &lt;div class=&#34;img&#34;&gt;
-      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-1.jpg&#34; /&gt;
-    &lt;/div&gt;
-    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-1.jpg&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
-  &lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;h4 id=&#34;程序计数器&#34;&gt;程序计数器&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟机的概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。此内存区域是唯一一个在Java虚拟机规范中没有规定任何OutOfMemoryError情况的区域。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;虚拟机栈&#34;&gt;虚拟机栈&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Java虚拟机栈的生命周期与线程相同。虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧用于存储局部变量表、操作数栈、动态链接、方法出口等信息。每一个方法从调用直至执行完成的过程，就对应着一个栈帧在虚拟机栈中入栈到出栈的过程。如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常；如果虚拟机栈无法申请到足够的内存，就会抛出OutOfMemoryError异常。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;本地方法栈&#34;&gt;本地方法栈&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;本地方法栈与虚拟机栈所发挥的作用是非常相似的，它们之间的区别不过是虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈则为虚拟机使用到的Native方法服务。在虚拟机规范中对本地方法栈中方法使用的语言、使用方式与数据结构并没有强制规定，因此具体的虚拟机可以自由实现它。甚至有的虚拟机（譬如Sun HotSpot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。与虚拟机栈一样，本地方法栈区域也会抛出StackOverflowError和OutOfMemoryError异常。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;java堆&#34;&gt;Java堆&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例都在这里分配内存。从内存回收的角度来看，由于现在收集器基本都采用分代收集算法，所以Java堆中还可以细分为：新生代和老年代。如果在堆中没有内存完成实例分配，并且堆也无法再扩展时，将会抛出OutOfMemoryError异常。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;方法区&#34;&gt;方法区&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;方法区（Method Area）与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。在HotSpot虚拟机中方法区也叫永久代，因为HotSpot使用永久代来实现方法区。当方法区无法满足内存分配需求时，将抛出OutOfMemoryError异常。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;垃圾收集器与内存分配策略&#34;&gt;垃圾收集器与内存分配策略&lt;/h2&gt;
-
-&lt;h3 id=&#34;垃圾收集算法&#34;&gt;垃圾收集算法&lt;/h3&gt;
-
-&lt;h4 id=&#34;标记-清除-mark-sweep-算法&#34;&gt;标记-清除（Mark-Sweep）算法&lt;/h4&gt;
-
-&lt;p&gt;“标记-清除”算法示意图
-&lt;img src=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;最基础的收集算法是“标记-清除”算法，算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象，它的主要不足有两个：一个是效率问题，标记和清除两个过程的效率都不高；另一个是空间问题，标记清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致以后在程序运行过程中需要分配较大对象时，无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;复制-copying-算法&#34;&gt;复制（Copying）算法&lt;/h4&gt;
-
-&lt;p&gt;“复制”算法示意图
-&lt;img src=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;“复制”（Copying）算法将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。这样使得每次都是对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可。只是这种算法的代价是将内存缩小为了原来的一半，未免太高了一点。现在的商业虚拟机都采用这种收集算法来回收新生代，IBM公司的专门研究表明，新生代中的对象98%是“朝生夕死”的，所以并不需要按照1:1的比例来划分内存空间，而是将内存分为一块较大的Eden空间和两块较小的Survivor空间，每次使用Eden和其中一块Survivor。当回收时，将Eden和Survivor中还存活着的对象一次性地复制到另外一块Survivor空间上，最后清理掉Eden和刚才用过的Survivor空间。HotSpot虚拟机默认Eden和Survivor的大小比例是8:1，也就是每次新生代中可用内存空间为整个新生代容量的90%（80%+10%），只有10%的内存会被“浪费”。当然，98%的对象可回收只是一般场景下的数据，我们没有办法保证每次回收都只有不多于10%的对象存活，当Survivor空间不够用时，需要依赖其他内存（这里指老年代）进行分配担保（Handle Promotion）。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;标记-整理-mark-compact-算法&#34;&gt;标记-整理（Mark-Compact）算法&lt;/h4&gt;
-
-&lt;p&gt;“标记-整理”算法示意图
-&lt;img src=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-4.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;复制收集算法在对象存活率较高时就要进行较多的复制操作，效率将会变低。更关键的是，如果不想浪费50%的空间，就需要有额外的空间进行分配担保，以应对被使用的内存中所有对象都100%存活的极端情况，所以在老年代一般不能直接选用这种算法。根据老年代的特点，有人提出了另外一种“标记-整理”（Mark-Compact）算法，标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;分代收集-generational-collection-算法&#34;&gt;分代收集（Generational Collection）算法&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;当前商业虚拟机的垃圾收集都采用“分代收集”算法，这种算法根据对象存活周期的不同将内存划分为几块。一般是把Java堆分为新生代和老年代，在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。而老年代中因为对象存活率高、没有额外空间对它进行分配担保，就必须使用“标记—清理”或者“标记—整理”算法来进行回收。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;垃圾收集器&#34;&gt;垃圾收集器&lt;/h3&gt;
-
-&lt;h4 id=&#34;serial收集器&#34;&gt;Serial收集器&lt;/h4&gt;
-
-&lt;p&gt;Serial/Serial Old收集器运行示意图
-&lt;img src=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-5.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Serial收集器是最基本、发展历史最悠久的收集器，曾经（在JDK 1.3.1之前）是虚拟机新生代收集的唯一选择。大家看名字就会知道，这个收集器是一个单线程的收集器，但它的“单线程”的意义并不仅仅说明它只会使用一个CPU或一条收集线程去完成垃圾收集工作，更重要的是在它进行垃圾收集时，必须暂停其他所有的工作线程，直到它收集结束。“Stop The World”这个名字也许听起来很酷，但这项工作实际上是由虚拟机在后台自动发起和自动完成的，在用户不可见的情况下把用户正常工作的线程全部停掉，这对很多应用来说都是难以接受的。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;parnew收集器&#34;&gt;ParNew收集器&lt;/h4&gt;
-
-&lt;p&gt;ParNew/Serial Old收集器运行示意图
-&lt;img src=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-6.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;ParNew收集器其实就是Serial收集器的多线程版本。除了Serial收集器外，目前只有它能与CMS收集器配合工作。CMS作为老年代的收集器，却无法与JDK 1.4.0中已经存在的新生代收集器Parallel Scavenge配合工作，所以在JDK 1.5中使用CMS来收集老年代的时候，新生代只能选择ParNew或者Serial收集器中的一个。ParNew收集器也是使用-XX：+UseConcMarkSweepGC选项后的默认新生代收集器，也可以使用-XX：+UseParNewGC选项来强制指定它。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;parallel-scavenge收集器&#34;&gt;Parallel Scavenge收集器&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Parallel Scavenge收集器是一个新生代收集器，它是使用复制算法的并行的多线程收集器。Parallel Scavenge收集器的特点是它的关注点与其他收集器不同，CMS等收集器的关注点是尽可能地缩短垃圾收集时用户线程的停顿时间，而Parallel Scavenge收集器的目标则是达到一个可控制的吞吐量（Throughput）。所谓吞吐量就是CPU用于运行用户代码的时间与CPU总消耗时间的比值，即吞吐量=运行用户代码时间/（运行用户代码时间+垃圾收集时间），虚拟机总共运行了100分钟，其中垃圾收集花掉1分钟，那吞吐量就是99%。停顿时间越短就越适合需要与用户交互的程序，良好的响应速度能提升用户体验，而高吞吐量则可以高效率地利用CPU时间，尽快完成程序的运算任务，主要适合在后台运算而不需要太多交互的任务。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;serial-old收集器&#34;&gt;Serial Old收集器&lt;/h4&gt;
-
-&lt;p&gt;Serial/Serial Old收集器运行示意图
-&lt;img src=&#34;//img/Reading-Understanding-The-JVM-Notes-7.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Serial Old是Serial收集器的老年代版本，它同样是一个单线程收集器，使用“标记-整理”算法。这个收集器的主要意义也是在于给Client模式下的虚拟机使用。如果在Server模式下，那么它主要还有两大用途：一种用途是在JDK 1.5以及之前的版本中与Parallel Scavenge收集器搭配使用，另一种用途就是作为CMS收集器的后备预案，在并发收集发生Concurrent Mode Failure时使用。需要说明一下，Parallel Scavenge收集器架构中本身有PS MarkSweep收集器来进行老年代收集，并非直接使用了Serial Old收集器，但是这个PS MarkSweep收集器与Serial Old的实现非常接近，所以在官方的许多资料中都是直接以Serial Old代替PS MarkSweep进行讲解。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;parallel-old收集器&#34;&gt;Parallel Old收集器&lt;/h4&gt;
-
-&lt;p&gt;Parallel Scavenge/Parallel Old收集器运行示意图
-&lt;img src=&#34;//img/Reading-Understanding-The-JVM-Notes-8.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Parallel Old是Parallel Scavenge收集器的老年代版本，使用多线程和“标记-整理”算法。这个收集器是在JDK 1.6中才开始提供的，在此之前，新生代的Parallel Scavenge收集器一直处于比较尴尬的状态。原因是，如果新生代选择了Parallel Scavenge收集器，老年代除了Serial Old（PS MarkSweep）收集器外别无选择。由于老年代Serial Old收集器在服务端应用性能上的“拖累”，使用了Parallel Scavenge收集器也未必能在整体应用上获得吞吐量最大化的效果，由于单线程的老年代收集中无法充分利用服务器多CPU的处理能力，在老年代很大而且硬件比较高级的环境中，这种组合的吞吐量甚至还不一定有ParNew加CMS的组合“给力”。直到Parallel Old收集器出现后，“吞吐量优先”收集器终于有了比较名副其实的应用组合，在注重吞吐量以及CPU资源敏感的场合，都可以优先考虑Parallel Scavenge加Parallel Old收集器。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;cms收集器&#34;&gt;CMS收集器&lt;/h4&gt;
-
-&lt;p&gt;Concurrent Mark Sweep收集器运行示意图
-&lt;img src=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-9.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时间为目标的收集器。目前很大一部分的Java应用集中在互联网站或者B/S系统的服务端上，这类应用尤其重视服务的响应速度，希望系统停顿时间最短，以给用户带来较好的体验。CMS收集器就非常符合这类应用的需求。
-CMS收集器是基于“标记—清除”算法实现的。
-CMS有以下3个明显的缺点：
-1、CMS收集器对CPU资源非常敏感。在并发阶段，它虽然不会导致用户线程停顿，但是会因为占用了一部分线程（或者说CPU资源）而导致应用程序变慢，总吞吐量会降低。
-2、CMS收集器无法处理浮动垃圾（Floating Garbage），可能出现“Concurrent Mode Failure”失败而导致另一次Full GC的产生。由于CMS并发清理阶段用户线程还在运行着，伴随程序运行自然就还会有新的垃圾不断产生，这一部分垃圾出现在标记过程之后，CMS无法在当次收集中处理掉它们，只好留待下一次GC时再清理掉。这一部分垃圾就称为“浮动垃圾”。
-3、最后一个缺点，CMS是一款基于“标记—清除”算法实现的收集器，就可能想到这意味着收集结束时会有大量空间碎片产生。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;g1收集器&#34;&gt;G1收集器&lt;/h4&gt;
-
-&lt;p&gt;G1收集器运行示意图
-&lt;img src=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-10.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;G1是一款面向服务端应用的垃圾收集器。G1具备如下特点。
-1、并行与并发。
-2、分代收集。
-3、空间整合。
-4、可预测的停顿。在G1之前的其他收集器进行收集的范围都是整个新生代或者老年代，而G1不再是这样。使用G1收集器时，Java堆的内存布局就与其他收集器有很大差别，它将整个Java堆划分为多个大小相等的独立区域（Region），虽然还保留有新生代和老年代的概念，但新生代和老年代不再是物理隔离的了，它们都是一部分Region（不需要连续）的集合。
-G1收集器之所以能建立可预测的停顿时间模型，是因为它可以有计划地避免在整个Java堆中进行全区域的垃圾收集。G1跟踪各个Region里面的垃圾堆积的价值大小（回收所获得的空间大小以及回收所需时间的经验值），在后台维护一个优先列表，每次根据允许的收集时间，优先回收价值最大的Region（这也就是Garbage-First名称的来由）。这种使用Region划分内存空间以及有优先级的区域回收方式，保证了G1收集器在有限的时间内可以获取尽可能高的收集效率。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;垃圾收集器参数总结&#34;&gt;垃圾收集器参数总结&lt;/h3&gt;
-
-&lt;h4 id=&#34;垃圾收集器参数&#34;&gt;垃圾收集器参数&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;参数&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseSerialGC&lt;/td&gt;
-&lt;td&gt;Jvm运行在Client模式下的默认值，开启后，使用Serial + Serial Old的收集器组合进行内存回收&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseParNewGC&lt;/td&gt;
-&lt;td&gt;打开此开关后，使用ParNew+Serial Old的收集器进行垃圾回收&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseConcMarkSweepGC&lt;/td&gt;
-&lt;td&gt;使用ParNew+CMS+Serial Old的收集器组合进行内存回收&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseParallelGC&lt;/td&gt;
-&lt;td&gt;Jvm运行在Server模式下的默认值，打开此开关后，使用Parallel Scavenge+Serial Old的收集器组合进行回收&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseParallelOldGC&lt;/td&gt;
-&lt;td&gt;使用Parallel Scavenge+Parallel Old的收集器组合进行回收&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:SurvivorRatio&lt;/td&gt;
-&lt;td&gt;新生代中Eden区域与Survivor区域的容量比值，默认为8，代表Eden:Subrvivor= 8:1&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:PretenureSizeThreshold&lt;/td&gt;
-&lt;td&gt;直接晋升到老年代对象的大小，设置这个参数后，大于这个参数的对象将直接在老年代分配&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:MaxTenuringThreshold&lt;/td&gt;
-&lt;td&gt;晋升到老年代的对象年龄，每次Minor GC之后，年龄就加1，当超过这个参数的值时进入老年代&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:UseAdaptiveSizePolicy&lt;/td&gt;
-&lt;td&gt;动态调整java堆中各个区域的大小以及进入老年代的年龄&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+HandlePromotionFailure&lt;/td&gt;
-&lt;td&gt;是否允许新生代收集担保，进行一次minor gc后, 另一块Survivor空间不足时，将直接会在老年代中保留&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:ParallelGCThreads&lt;/td&gt;
-&lt;td&gt;设置并行GC进行内存回收的线程数&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:GCTimeRatio&lt;/td&gt;
-&lt;td&gt;GC时间占总时间的比列，默认值为99，即允许1%的GC时间，仅在使用Parallel Scavenge 收集器时有效&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:MaxGCPauseMillis&lt;/td&gt;
-&lt;td&gt;设置GC的最大停顿时间，在Parallel Scavenge 收集器下有效&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:CMSInitiatingOccupancyFraction&lt;/td&gt;
-&lt;td&gt;设置CMS收集器在老年代空间被使用多少后出发垃圾收集，默认值为68%，仅在CMS收集器时有效&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseCMSCompactAtFullCollection&lt;/td&gt;
-&lt;td&gt;由于CMS收集器会产生碎片，此参数设置在垃圾收集器后是否需要一次内存碎片整理过程，仅在CMS收集器时有效&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+CMSFullGCBeforeCompaction&lt;/td&gt;
-&lt;td&gt;设置CMS收集器在进行若干次垃圾收集后再进行一次内存碎片整理过程，常与UseCMSCompactAtFullCollection一起使用&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseFastAccessorMethods&lt;/td&gt;
-&lt;td&gt;原始类型优化&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+DisableExplicitGC&lt;/td&gt;
-&lt;td&gt;是否关闭手动System.gc&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+CMSParallelRemarkEnabled&lt;/td&gt;
-&lt;td&gt;降低标记停顿&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:LargePageSizeInBytes&lt;/td&gt;
-&lt;td&gt;内存页的大小不可设置过大，会影响Perm的大小，-XX:LargePageSizeInBytes=128m&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;sun-oracle-jdk-gc组合方式&#34;&gt;Sun/Oracle JDK GC组合方式&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;参数&lt;/th&gt;
-&lt;th&gt;新生代GC方式&lt;/th&gt;
-&lt;th&gt;老年代和持久代GC方式&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseSerialGC&lt;/td&gt;
-&lt;td&gt;Serial 串行GC&lt;/td&gt;
-&lt;td&gt;Serial Old 串行GC&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseParallelGC&lt;/td&gt;
-&lt;td&gt;Parallel Scavenge  并行回收GC&lt;/td&gt;
-&lt;td&gt;Serial Old 并行GC&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseConcMarkSweepGC&lt;/td&gt;
-&lt;td&gt;ParNew 并行GC&lt;/td&gt;
-&lt;td&gt;CMS并发GC，出现Concurrent Mode Failure时用Serial Old 串行GC&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseParNewGC&lt;/td&gt;
-&lt;td&gt;ParNew 并行GC&lt;/td&gt;
-&lt;td&gt;Serial Old串行GC&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseParallelOldGC&lt;/td&gt;
-&lt;td&gt;Parallel Scavenge并行回收GC&lt;/td&gt;
-&lt;td&gt;Parallel Old 并行GC&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;-XX:+UseConcMarkSweepGC -XX:+UseParNewGC&lt;/td&gt;
-&lt;td&gt;Serial 串行GC&lt;/td&gt;
-&lt;td&gt;CMS 并发GC，出现Concurrent Mode Failure时用Serial Old 串行GC&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&#34;虚拟机类加载机制&#34;&gt;虚拟机类加载机制&lt;/h2&gt;
-
-&lt;h3 id=&#34;类加载时机&#34;&gt;类加载时机&lt;/h3&gt;
-
-&lt;p&gt;类的生命周期
-&lt;img src=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-11.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;加载、验证、准备、初始化和卸载这5个阶段的顺序是确定的，类的加载过程必须按照这种顺序按部就班地开始，而解析阶段则不一定：它在某些情况下可以在初始化阶段之后再开始，这是为了支持Java语言的运行时绑定（也称为动态绑定或晚期绑定）。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;类加载的过程&#34;&gt;类加载的过程&lt;/h3&gt;
-
-&lt;h4 id=&#34;加载&#34;&gt;加载&lt;/h4&gt;
-
-&lt;p&gt;“加载”是“类加载”（Class Loading）过程的一个阶段。在加载阶段，虚拟机需要完成以下3件事情：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;通过一个类的全限定名来获取定义此类的二进制字节流。&lt;/li&gt;
-&lt;li&gt;将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。&lt;/li&gt;
-&lt;li&gt;在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&#34;验证&#34;&gt;验证&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;验证是连接阶段的第一步，这一阶段的目的是为了确保Class文件的字节流中包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全。从整体上看，验证阶段大致上会完成下面4个阶段的检验动作：文件格式验证、元数据验证、字节码验证、符号引用验证。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;准备&#34;&gt;准备&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;准备是连接阶段的第二步，是正式为类变量分配内存并设置类变量初始值的阶段，这些变量所使用的内存都将在方法区中进行分配。这个阶段中有两个容易产生混淆的概念需要强调一下，首先，这时候进行内存分配的仅包括类变量（被static修饰的变量），而不包括实例变量，实例变量将会在对象实例化时随着对象一起分配在Java堆中。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;准备阶段过后，基本数据类型的初始值为0，引用数据类型为null，对于被static final修饰的常量则是代码中赋的值，如：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public static final int value=1;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在准备阶段过后，变量value的值则为1。&lt;/p&gt;
-
-&lt;h4 id=&#34;解析&#34;&gt;解析&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;解析是连接阶段的第三步，是虚拟机将常量池内的符号引用替换为直接引用的过程。&lt;/p&gt;
-
-&lt;p&gt;符号引用（Symbolic References）：符号引用以一组符号来描述所引用的目标，符号可以是任何形式的字面量，只要使用时能无歧义地定位到目标即可。&lt;/p&gt;
-
-&lt;p&gt;直接引用（Direct References）：直接引用可以是直接指向目标的指针、相对偏移量或是一个能间接定位到目标的句柄。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;初始化&#34;&gt;初始化&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;类初始化阶段是类加载过程的最后一步，前面的类加载过程中，除了在加载阶段用户应用程序可以通过自定义类加载器参与之外，其余动作完全由虚拟机主导和控制。到了初始化阶段，才真正开始执行类中定义的Java程序代码。&lt;/p&gt;
-
-&lt;p&gt;初始化阶段是执行类构造器＜clinit＞（）方法的过程。＜clinit＞（）方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static{}块）中的语句合并产生的，编译器收集的顺序是由语句在源文件中出现的顺序所决定的，静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在前面的静态语句块可以赋值，但是不能访问。虚拟机会保证在子类的＜clinit＞（）方法执行之前，父类的＜clinit＞（）方法已经执行完毕。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;类加载器&#34;&gt;类加载器&lt;/h3&gt;
-
-&lt;h4 id=&#34;双亲委派模型&#34;&gt;双亲委派模型&lt;/h4&gt;
-
-
-
-&lt;div class=&#34;box&#34;&gt;
-&lt;figure  itemprop=&#34;associatedMedia&#34;
-  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
-    &lt;div class=&#34;img&#34;&gt;
-      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-12.png&#34; /&gt;
-    &lt;/div&gt;
-    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-12.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
-  &lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;blockquote&gt;
-&lt;p&gt;双亲委派模型对于保证Java程序的稳定运作很重要，但它的实现却非常简单，实现双亲委派的代码都集中在java.lang.ClassLoader的loadClass（）方法之中：先检查是否已经被加载过，若没有加载则调用父加载器的loadClass（）方法，若父加载器为空则默认使用启动类加载器作为父加载器。如果父类加载失败，抛出ClassNotFoundException异常后，再调用自己的findClass（）方法进行加载。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;启动类加载器（Bootstrap ClassLoader）&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;这个类将器负责将存放在＜JAVA_HOME＞\lib目录中的，或者被-Xbootclasspath参数所指定的路径中的，并且是虚拟机识别的（仅按照文件名识别，如rt.jar，名字不符合的类库即使放在lib目录中也不会被加载）类库加载到虚拟机内存中。启动类加载器无法被Java程序直接引用，用户在编写自定义类加载器时，如果需要把加载请求委派给引导类加载器，那直接使用null代替即可&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;扩展类加载器（Extension ClassLoader）&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;这个加载器由sun.misc.Launcher $ExtClassLoader实现，它负责加载＜JAVA_HOME＞\lib\ext目录中的，或者被java.ext.dirs系统变量所指定的路径中的所有类库，开发者可以直接使用扩展类加载器。&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;应用程序类加载器（Application ClassLoader）&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;这个类加载器由sun.misc.Launcher $App-ClassLoader实现。由于这个类加载器是ClassLoader中的getSystemClassLoader（）方法的返回值，所以一般也称它为系统类加载器。它负责加载用户类路径（ClassPath）上所指定的类库，开发者可以直接使用这个类加载器，如果应用程序中没有自定义过自己的类加载器，一般情况下这个就是程序中默认的类加载器。&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;java内存模型与线程&#34;&gt;Java内存模型与线程&lt;/h2&gt;
-
-&lt;h3 id=&#34;java内存模型&#34;&gt;Java内存模型&lt;/h3&gt;
-
-
-
-&lt;div class=&#34;box&#34;&gt;
-&lt;figure  itemprop=&#34;associatedMedia&#34;
-  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
-    &lt;div class=&#34;img&#34;&gt;
-      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-13.png&#34; /&gt;
-    &lt;/div&gt;
-    &lt;a href=&#34;http://jason207010.github.io/ox-hugo/Reading-Understanding-The-JVM-Notes-13.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
-  &lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;blockquote&gt;
-&lt;p&gt;Java内存模型规定了所有的变量都存储在主内存（Main Memory）中。每条线程还有自己的工作内存（Working Memory），线程的工作内存中保存了被该线程使用到的变量的主内存副本拷贝，线程对变量的所有操作（读取、赋值等）都必须在工作内存中进行，而不能直接读写主内存中的变量。不同的线程之间也无法直接访问对方工作内存中的变量，线程间变量值的传递均需要通过主内存来完成。&lt;/p&gt;
-&lt;/blockquote&gt;
 </description>
       
     </item>

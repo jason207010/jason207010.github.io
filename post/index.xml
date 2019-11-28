@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Jason&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 20 Nov 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Nov 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="http://jason207010.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>UML 开发指南</title>
+      <link>http://jason207010.github.io/post/uml-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/uml-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
+      <description>类图 类与接口 类 抽象类 接口 包 成员可见性 类之间关系 继承（Generalization） 实现（Realization/Implementation</description>
+    </item>
     
     <item>
       <title>Docker 开发指南</title>
@@ -180,15 +189,6 @@
       
       <guid>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-2.x/</guid>
       <description>使用maven构建 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.logging.log4j&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;log4j-slf4j-impl&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.10.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 此时会自动引入4个依赖jar包 包名 log4j-api-2.9.1.jar log4j-core-2.9.1.jar log4j-slf4j-impl-2.9.1.jar slf4j-api-1.7.25.jar 配置 log4j 2.x默认使用classpath目录下log4j2.xml或lo</description>
-    </item>
-    
-    <item>
-      <title>《深入理解 Java 虚拟机》笔记</title>
-      <link>http://jason207010.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-java-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Mon, 11 Sep 2017 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-java-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%94%E8%AE%B0/</guid>
-      <description>Java内存区域与内存溢出异常 运行时内存区域 程序计数器 程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟</description>
     </item>
     
   </channel>
