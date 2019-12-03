@@ -328,7 +328,7 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;image&lt;/td&gt;
-&lt;td&gt;镜像名 &lt;code&gt;docker run -d &amp;ndash;rm&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;镜像名 docker run -d &amp;#x2013;rm&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -726,7 +726,7 @@ FROM centos:$CENTOS_VERSION
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker run -i -t --rm --attach stdout centos
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&amp;ndash;cidfile&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&amp;#x2013;cidfile&lt;/p&gt;
 
 &lt;p&gt;把容器 ID 打印到指定文件中&lt;/p&gt;
 
