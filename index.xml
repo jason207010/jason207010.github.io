@@ -328,7 +328,7 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;image&lt;/td&gt;
-&lt;td&gt;镜像名 docker run -d &amp;ndash;rm&lt;/td&gt;
+&lt;td&gt;镜像名 &lt;code&gt;docker run -d &amp;ndash;rm&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
