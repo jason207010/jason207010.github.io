@@ -3,25 +3,44 @@
   
   <url>
     <loc>http://jason207010.github.io/categories/</loc>
-    <lastmod>2019-11-28T00:00:00+08:00</lastmod>
+    <lastmod>2019-11-30T00:00:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/</loc>
-    <lastmod>2019-11-28T00:00:00+08:00</lastmod>
+    <lastmod>2019-11-30T00:00:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>http://jason207010.github.io/categories/jenkins/</loc>
+    <lastmod>2019-11-30T00:00:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/tags/jenkins/</loc>
+    <lastmod>2019-11-30T00:00:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/post/jenkins-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2019-11-30T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://jason207010.github.io/post/</loc>
-    <lastmod>2019-11-28T00:00:00+08:00</lastmod>
+    <lastmod>2019-11-30T00:00:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/tags/</loc>
-    <lastmod>2019-11-28T00:00:00+08:00</lastmod>
+    <lastmod>2019-11-30T00:00:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Jason&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 28 Nov 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="http://jason207010.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Jenkins 使用指南</title>
+      <link>http://jason207010.github.io/post/jenkins-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sat, 30 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/jenkins-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>安装运行 使用 Docker 安装运行 docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins 配置 Jenkins 解锁 Jenkins 查看管理员默认密码 cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword 安装插件 Jenkins 官方插件源很慢，即使换镜像源依然很慢，因为镜像源的</description>
+    </item>
     
     <item>
       <title>UML 开发指南</title>
@@ -180,15 +189,6 @@
       
       <guid>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-1.x/</guid>
       <description>使用maven构建 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.slf4j&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;slf4j-log4j12&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.7.25&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 此时会自动引入3个依赖jar包 包名 log4j-1.2.17.jar slf4j-api-1.7.25.jar slf4j-log4j12-1.7.25.jar 配置 log4j默认使用classpath目录下log4j.xml或log</description>
-    </item>
-    
-    <item>
-      <title>SLF4J 开发指南（基于LOG4J 2.x）</title>
-      <link>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-2.x/</link>
-      <pubDate>Mon, 22 Jan 2018 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-2.x/</guid>
-      <description>使用maven构建 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.logging.log4j&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;log4j-slf4j-impl&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.10.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 此时会自动引入4个依赖jar包 包名 log4j-api-2.9.1.jar log4j-core-2.9.1.jar log4j-slf4j-impl-2.9.1.jar slf4j-api-1.7.25.jar 配置 log4j 2.x默认使用classpath目录下log4j2.xml或lo</description>
     </item>
     
   </channel>

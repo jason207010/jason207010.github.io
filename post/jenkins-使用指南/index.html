@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Jason&#39;s Blog</title>
+  <title>Jenkins 使用指南 - Jason&#39;s Blog</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Jason Chan" />
-  <meta name="description" content="Welcome to Jason&#39;s blog." />
+  <meta name="description" content="安装运行 使用 Docker 安装运行 docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins 配置 Jenkins 解锁 Jenkins 查看管理员默认密码 cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword 安装插件 Jenkins 官方插件源很慢，即使换镜像源依然很慢，因为镜像源的" />
+
   <meta name="keywords" content="Jason, Blog, Java" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.55.6" />
 
 
-<link rel="canonical" href="http://jason207010.github.io/" />
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Jason&#39;s Blog" />
+<link rel="canonical" href="http://jason207010.github.io/post/jenkins-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
+
 
 
 
@@ -58,19 +59,27 @@
 
 
 
-<meta property="og:title" content="Jason&#39;s Blog" />
-<meta property="og:description" content="Welcome to Jason&#39;s blog." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://jason207010.github.io/" />
+<meta property="og:title" content="Jenkins 使用指南" />
+<meta property="og:description" content="安装运行 使用 Docker 安装运行 docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins 配置 Jenkins 解锁 Jenkins 查看管理员默认密码 cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword 安装插件 Jenkins 官方插件源很慢，即使换镜像源依然很慢，因为镜像源的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jason207010.github.io/post/jenkins-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
+<meta property="article:published_time" content="2019-11-30T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2019-11-30T00:00:00&#43;08:00"/>
 
-<meta property="og:updated_time" content="2019-11-30T00:00:00&#43;08:00"/>
+<meta itemprop="name" content="Jenkins 使用指南">
+<meta itemprop="description" content="安装运行 使用 Docker 安装运行 docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins 配置 Jenkins 解锁 Jenkins 查看管理员默认密码 cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword 安装插件 Jenkins 官方插件源很慢，即使换镜像源依然很慢，因为镜像源的">
 
-<meta itemprop="name" content="Jason&#39;s Blog">
-<meta itemprop="description" content="Welcome to Jason&#39;s blog.">
 
+<meta itemprop="datePublished" content="2019-11-30T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-30T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="327">
+
+
+
+<meta itemprop="keywords" content="Jenkins," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Jason&#39;s Blog"/>
-<meta name="twitter:description" content="Welcome to Jason&#39;s blog."/>
+<meta name="twitter:title" content="Jenkins 使用指南"/>
+<meta name="twitter:description" content="安装运行 使用 Docker 安装运行 docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins 配置 Jenkins 解锁 Jenkins 查看管理员默认密码 cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword 安装插件 Jenkins 官方插件源很慢，即使换镜像源依然很慢，因为镜像源的"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -246,7 +255,7 @@ if (!doNotTrack) {
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -327,391 +336,149 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">Jenkins 使用指南</h1>
       
-      <a class="post-link" href="/post/jdbc-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">JDBC 批量插入、更新开发指南</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2019-11-30" class="post-time">
+          2019-11-30
+        </time>
+        <div class="post-category">
+            <a href="http://jason207010.github.io/categories/jenkins/"> Jenkins </a>
+            
+          </div>
+        <span class="more-meta"> 约 327 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2019-06-17" class="post-time">
-        2019-06-17
-      </time>
-      <div class="post-category">
-          <a href="http://jason207010.github.io/categories/java/"> Java </a>
-          <a href="http://jason207010.github.io/categories/jdbc/"> JDBC </a>
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安装运行">安装运行</a>
+<ul>
+<li><a href="#使用-docker-安装运行">使用 Docker 安装运行</a></li>
+<li><a href="#配置-jenkins">配置 Jenkins</a>
+<ul>
+<li><a href="#解锁-jenkins">解锁 Jenkins</a></li>
+<li><a href="#安装插件">安装插件</a>
+<ul>
+<li><a href="#语言插件">语言插件</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h2 id="安装运行">安装运行</h2>
+
+<h3 id="使用-docker-安装运行">使用 Docker 安装运行</h3>
+
+<pre><code class="language-shell">docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins
+</code></pre>
+
+<h3 id="配置-jenkins">配置 Jenkins</h3>
+
+<h4 id="解锁-jenkins">解锁 Jenkins</h4>
+
+<p>查看管理员默认密码</p>
+
+<pre><code class="language-shell">cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword
+</code></pre>
+
+<h4 id="安装插件">安装插件</h4>
+
+<p>Jenkins 官方插件源很慢，即使换镜像源依然很慢，因为镜像源的 update-center.json 文件中的插件地址依然指向官方源</p>
+
+<p>所以在进入 Jenkins 页面后弹出 “Getting Started” 窗口安装插件这一步时，直接关闭窗口，后续手动安装插件</p>
+
+<p>插件源地址：<a href="http://mirrors.jenkins-ci.org/status.html">http://mirrors.jenkins-ci.org/status.html</a></p>
+
+<p>安装插件方式：系统管理 &gt; 插件管理 &gt; 高级</p>
+
+<h5 id="语言插件">语言插件</h5>
+
+<p>下载地址：<a href="http://mirror.esuni.jp/jenkins/plugins/locale/latest/locale.hpi">http://mirror.esuni.jp/jenkins/plugins/locale/latest/locale.hpi</a></p>
+
+<p>设置 Jenkins 为中文</p>
+
+<p>系统管理 &gt; 系统设置 &gt; Dfault Language 填 zh_CN，同时勾选 “Ignore browser preference and force this language to all users”</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content"><a href="http://jason207010.github.io/post/jenkins-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">Jason Chan</a>
+      </span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2019-11-30
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://jason207010.github.io/tags/jenkins/">Jenkins</a>
           
         </div>
-      <span class="more-meta"> 约 574 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      概述 JAVA提供java.sql.Statement#executeBatch()方法帮助开发者实现批量插入、更新及删除等操作，但MySQL
-    </div>
-    <div class="read-more">
-      <a href="/post/jdbc-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
 
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
       
-      <a class="post-link" href="/post/java-instrument-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">Java Instrument 热更新开发指南</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-12-14" class="post-time">
-        2018-12-14
-      </time>
-      <div class="post-category">
-          <a href="http://jason207010.github.io/categories/java/"> Java </a>
-          <a href="http://jason207010.github.io/categories/instrument/"> Instrument </a>
-          
-        </div>
-      <span class="more-meta"> 约 1932 字 </span>
-      <span class="more-meta"> 预计阅读 4 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      项目源码 https://github.com/JasonChanBest/instrument 相关参数 参数 参数值 操作系统 macOS JAVA版本 1.8 项目构建工具 Gradle 项目jar包 instrument-1.0.jar 概念 Instrumentation是JavaSE 5的新特性，
-    </div>
-    <div class="read-more">
-      <a href="/post/java-instrument-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/uml-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">
+            <span class="next-text nav-default">UML 开发指南</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
 
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/gradle-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">Gradle 开发指南</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-12-13" class="post-time">
-        2018-12-13
-      </time>
-      <div class="post-category">
-          <a href="http://jason207010.github.io/categories/gradle/"> Gradle </a>
-          
-        </div>
-      <span class="more-meta"> 约 1045 字 </span>
-      <span class="more-meta"> 预计阅读 3 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      概述 Gradle 提供了: 一个像 Ant 一样的非常灵活的通用构建工具 一种可切换的, 像 maven 一样的基于合约构建的框架 支持强大的多工程构建 支持强大的依赖管理(基于 ApacheIvy )
-    </div>
-    <div class="read-more">
-      <a href="/post/gradle-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/git-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">Git 使用指南</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-11-28" class="post-time">
-        2018-11-28
-      </time>
-      <div class="post-category">
-          <a href="http://jason207010.github.io/categories/git/"> Git </a>
-          
-        </div>
-      <span class="more-meta"> 约 2380 字 </span>
-      <span class="more-meta"> 预计阅读 5 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      简介 Git是分布式版本控制软件 命令 git init git init [directory] 释义 创建一个空 Git 仓库或者重新初始化一个已存在的仓库 示例 git init my-project git clone git clone [--verbose | -v] [--progress] [--origin | -o &lt;origin&gt;] [--branch | -b &lt;branch&gt;] [--depth &lt;depth&gt;]
-    </div>
-    <div class="read-more">
-      <a href="/post/git-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/emacs-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">Emacs 使用指南</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-10-27" class="post-time">
-        2018-10-27
-      </time>
-      <div class="post-category">
-          <a href="http://jason207010.github.io/categories/emacs/"> Emacs </a>
-          
-        </div>
-      <span class="more-meta"> 约 4268 字 </span>
-      <span class="more-meta"> 预计阅读 9 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      文件操作 快捷键 释义 C-x C-f 打开文件 C-x C-s 保存文件 C-x C-w 存为新文件 C-x C-c 退出Emacs 窗口操作 快捷键 释义 C-x 0 关闭本窗口 C-x 1 只留下一个窗口 C-x 2 垂直均分窗口
-    </div>
-    <div class="read-more">
-      <a href="/post/emacs-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/jetbrains-crack-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">JetBrains Crack 使用指南</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-09-11" class="post-time">
-        2018-09-11
-      </time>
-      <div class="post-category">
-          <a href="http://jason207010.github.io/categories/jetbrains/"> JetBrains </a>
-          <a href="http://jason207010.github.io/categories/crack/"> Crack </a>
-          
-        </div>
-      <span class="more-meta"> 约 301 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      破解 IntelliJ IDEA 软件版本 软件/操作系统 Mac OS Sierra 10.12.6 IntelliJ IDEA 2018.2.3 (Ultimate Edition) JetbrainsCrack-3.1-release-enc.jar 破解方法 复制 JetbrainsCrack-3.1-release-enc.jar cp JetbrainsCrack-3.1-release-enc.jar /Applications/IntelliJ\ IDEA.app/Contents/lib/ 编辑 idea.vmoptions 文件 vi /Applications/IntelliJ\ IDEA.app/Contents/bin/idea.vmoptions 追加内容 -javaagent:../lib/JetbrainsCrack-3.1-release-enc.jar 打开 IntelliJ IDEA.app 输入激活码 ThisCrackLicenseId-{ &quot;licenseId&quot;:&quot;ThisCrackLicenseId&quot;, &quot;lice
-    </div>
-    <div class="read-more">
-      <a href="/post/jetbrains-crack-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/elasticsearch-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">Elasticsearch 开发指南</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-07-30" class="post-time">
-        2018-07-30
-      </time>
-      <div class="post-category">
-          <a href="http://jason207010.github.io/categories/elastic/"> Elastic </a>
-          <a href="http://jason207010.github.io/categories/elasticsearch/"> Elasticsearch </a>
-          
-        </div>
-      <span class="more-meta"> 约 56 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      基础概念 准实时（Near Realtime） Elasticsearch 是一个准实时搜索平台，一个文档从索引到可搜索有一定的延时，通常是 1 秒
-    </div>
-    <div class="read-more">
-      <a href="/post/elasticsearch-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/logstash-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/">Logstash 开发指南</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-07-19" class="post-time">
-        2018-07-19
-      </time>
-      <div class="post-category">
-          <a href="http://jason207010.github.io/categories/elastic/"> Elastic </a>
-          <a href="http://jason207010.github.io/categories/logstash/"> Logstash </a>
-          
-        </div>
-      <span class="more-meta"> 约 5671 字 </span>
-      <span class="more-meta"> 预计阅读 12 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      关于Logstash Logstash 是开源的服务器端数据处理管道，能够同时从多个来源采集数据、转换数据，然后将数据发送到您最喜欢的 “存储库” 中。 Logst
-    </div>
-    <div class="read-more">
-      <a href="/post/logstash-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/netty-%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/">《Netty 实战》笔记</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-03-10" class="post-time">
-        2018-03-10
-      </time>
-      <div class="post-category">
-          <a href="http://jason207010.github.io/categories/java/"> Java </a>
-          <a href="http://jason207010.github.io/categories/netty/"> Netty </a>
-          
-        </div>
-      <span class="more-meta"> 约 0 字 </span>
-      <span class="more-meta"> 预计阅读 0 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      
-    </div>
-    <div class="read-more">
-      <a href="/post/netty-%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-1.x/">SLF4J 开发指南（基于 LOG4J 1.x）</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-01-24" class="post-time">
-        2018-01-24
-      </time>
-      <div class="post-category">
-          <a href="http://jason207010.github.io/categories/java/"> Java </a>
-          <a href="http://jason207010.github.io/categories/slf4j/"> SLF4J </a>
-          
-        </div>
-      <span class="more-meta"> 约 2547 字 </span>
-      <span class="more-meta"> 预计阅读 6 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      使用maven构建 &lt;dependency&gt; &lt;groupId&gt;org.slf4j&lt;/groupId&gt; &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt; &lt;version&gt;1.7.25&lt;/version&gt; &lt;/dependency&gt; 此时会自动引入3个依赖jar包 包名 log4j-1.2.17.jar slf4j-api-1.7.25.jar slf4j-log4j12-1.7.25.jar 配置 log4j默认使用classpath目录下log4j.xml或log
-    </div>
-    <div class="read-more">
-      <a href="/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-1.x/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-</section>
-
-
-
-
-
-
-  
-  
-  
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
 
   
   
@@ -720,38 +487,19 @@ if (!doNotTrack) {
   
 
   
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/">1</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
-    </ul>
-  </nav>
 
   
   
 
+  
 
+  
 
+  
 
+    
+
+  
 
         </div>
       </div>
