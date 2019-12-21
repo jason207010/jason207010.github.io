@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Jason&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Dec 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="http://jason207010.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubenetes</title>
+      <link>http://jason207010.github.io/tags/kubenetes/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/tags/kubenetes/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Jenkins</title>
@@ -179,15 +188,6 @@
       <pubDate>Thu, 19 Jul 2018 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/tags/logstash/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Netty</title>
-      <link>http://jason207010.github.io/tags/netty/</link>
-      <pubDate>Sat, 10 Mar 2018 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/tags/netty/</guid>
       <description></description>
     </item>
     

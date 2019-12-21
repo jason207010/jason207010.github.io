@@ -72,7 +72,7 @@
 
 <meta itemprop="datePublished" content="2019-09-30T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-09-30T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1168">
+<meta itemprop="wordCount" content="1307">
 
 
 
@@ -349,7 +349,7 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/java/"> Java </a>
             
           </div>
-        <span class="more-meta"> 约 1168 字 </span>
+        <span class="more-meta"> 约 1307 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         
@@ -425,6 +425,17 @@ if (!doNotTrack) {
 <li><a href="#查看-sql-safe-updates-状态">查看 sql_safe_updates 状态</a></li>
 <li><a href="#关闭-sql-safe-updates">关闭 sql_safe_updates</a></li>
 </ul></li>
+</ul></li>
+<li><a href="#linux">Linux</a>
+<ul>
+<li><a href="#ssh">SSH</a>
+<ul>
+<li><a href="#免密码远程登录">免密码远程登录</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#virtualbox">VirtualBox</a>
+<ul>
+<li><a href="#复制虚拟机-ip-冲突问题">复制虚拟机 IP 冲突问题</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -695,6 +706,107 @@ cnpm install express
 <h4 id="关闭-sql-safe-updates">关闭 sql_safe_updates</h4>
 
 <pre><code class="language-sql">set sql_safe_updates=0;
+</code></pre>
+
+<h2 id="linux">Linux</h2>
+
+<h3 id="ssh">SSH</h3>
+
+<h4 id="免密码远程登录">免密码远程登录</h4>
+
+<ol>
+<li>远程服务器设置允许 root 用户远程登录：</li>
+</ol>
+
+<!--listend-->
+
+<pre><code class="language-shell">vi /etc/ssh/sshd_config
+</code></pre>
+
+<p>修改：</p>
+
+<pre><code class="language-shell">PermitRootLogin yes
+</code></pre>
+
+<ol>
+<li>生成公钥私钥：</li>
+</ol>
+
+<!--listend-->
+
+<pre><code class="language-shell">ssh-keygen -t rsa -C &quot;jason@mail.com&quot;
+</code></pre>
+
+<p>此时 ~/.ssh 目录已生成公钥私钥：</p>
+
+<pre><code class="language-shell">.ssh/
+├── id_rsa
+├── id_rsa.pub
+</code></pre>
+
+<ol>
+<li>复制公钥到远程服务器：</li>
+</ol>
+
+<!--listend-->
+
+<pre><code class="language-shell">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.2
+</code></pre>
+
+<ol>
+<li>使用 SSH 登录远程服务器，此时无需输入密码：</li>
+</ol>
+
+<!--listend-->
+
+<pre><code class="language-shell">ssh root@192.168.1.2
+</code></pre>
+
+<h2 id="virtualbox">VirtualBox</h2>
+
+<h3 id="复制虚拟机-ip-冲突问题">复制虚拟机 IP 冲突问题</h3>
+
+<table>
+<thead>
+<tr>
+<th>系统</th>
+<th>版本</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Ubuntu</td>
+<td>18.04</td>
+</tr>
+</tbody>
+</table>
+
+<ol>
+<li>清空 /etc/machine-id</li>
+</ol>
+
+<!--listend-->
+
+<pre><code class="language-shell">sudo truncate -s 0 /etc/machine-id
+</code></pre>
+
+<ol>
+<li>删除 /var/lib/dbus/machine-id</li>
+</ol>
+
+<!--listend-->
+
+<pre><code class="language-shell">sudo rm /var/lib/dbus/machine-id
+</code></pre>
+
+<ol>
+<li>重启</li>
+</ol>
+
+<!--listend-->
+
+<pre><code class="language-shell">init 6
 </code></pre>
 
     </div>

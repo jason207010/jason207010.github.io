@@ -6,10 +6,236 @@
     <description>Recent content on Jason&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Dec 2019 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="http://jason207010.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubenetes 开发指南</title>
+      <link>http://jason207010.github.io/post/kubenetes-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>http://jason207010.github.io/post/kubenetes-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;使用-kubeadm-搭建-kubernetes-集群&#34;&gt;使用 Kubeadm 搭建 Kubernetes 集群&lt;/h2&gt;
+
+&lt;h3 id=&#34;软件版本&#34;&gt;软件版本&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;软件/系统&lt;/th&gt;
+&lt;th&gt;版本&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ubuntu&lt;/td&gt;
+&lt;td&gt;18.04&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Docker&lt;/td&gt;
+&lt;td&gt;19.03.5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Kubeadm&lt;/td&gt;
+&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;服务器列表&#34;&gt;服务器列表&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;IP&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;192.168.43.207&lt;/td&gt;
+&lt;td&gt;master 节点&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;192.168.43.165&lt;/td&gt;
+&lt;td&gt;node 节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;禁用-swap-分区&#34;&gt;禁用 swap 分区&lt;/h3&gt;
+
+&lt;p&gt;在 master 节点和 node 节点&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;vi /etc/fstab
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注释掉 swap 行，并重启服务器&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;UUID=0991534a-915a-4f63-9871-d4f2973f6d47 / ext4 defaults 0 0
+#/swap.img      none    swap    sw      0       0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;安装-kubeadm&#34;&gt;安装 Kubeadm&lt;/h3&gt;
+
+&lt;h4 id=&#34;ubuntu&#34;&gt;Ubuntu&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;apt-get update &amp;amp;&amp;amp; apt-get install -y apt-transport-https
+curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
+cat &amp;lt;&amp;lt;EOF &amp;gt;/etc/apt/sources.list.d/kubernetes.list
+deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
+EOF
+apt-get update
+apt-get install -y kubelet kubeadm kubectl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;centos&#34;&gt;CentOS&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cat &amp;lt;&amp;lt;EOF &amp;gt; /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+EOF
+setenforce 0
+yum install -y kubelet kubeadm kubectl
+systemctl enable kubelet &amp;amp;&amp;amp; systemctl start kubelet
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;预下载配置镜像&#34;&gt;预下载配置镜像&lt;/h3&gt;
+
+&lt;p&gt;国内无法访问 grc.io ，需要从国内镜像站预下载配置镜像&lt;/p&gt;
+
+&lt;p&gt;查看 Kubeadm 配置镜像列表&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;kubeadm config images list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;k8s.gcr.io/kube-apiserver:v1.17.0
+k8s.gcr.io/kube-controller-manager:v1.17.0
+k8s.gcr.io/kube-scheduler:v1.17.0
+k8s.gcr.io/kube-proxy:v1.17.0
+k8s.gcr.io/pause:3.1
+k8s.gcr.io/etcd:3.4.3-0
+k8s.gcr.io/coredns:1.6.5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;执行以下命令从阿里云镜像服务器下载配置镜像&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.17.0
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.17.0
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.17.0
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.17.0
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.4.3-0
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.6.5
+
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.17.0 k8s.gcr.io/kube-apiserver:v1.17.0
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.17.0 k8s.gcr.io/kube-controller-manager:v1.17.0
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.17.0 k8s.gcr.io/kube-scheduler:v1.17.0
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.17.0 k8s.gcr.io/kube-proxy:v1.17.0
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/pause:3.1
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.4.3-0 k8s.gcr.io/etcd:3.4.3-0
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.6.5 k8s.gcr.io/coredns:1.6.5
+
+docker rmi registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.17.0
+docker rmi registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.17.0
+docker rmi registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.17.0
+docker rmi registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.17.0
+docker rmi registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1
+docker rmi registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.4.3-0
+docker rmi registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.6.5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;初始化-master-节点&#34;&gt;初始化 master 节点&lt;/h3&gt;
+
+&lt;p&gt;在 master 服务器执行命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;kubeadm init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;也可以先导出默认初始化配置，再根据实际需要修改配置，然后执行 kubeadm init：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;kubeadm config print init-defaults &amp;gt; kubeadm-init.yaml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;kubeadm init --config kubeadm-init.yaml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;命令执行完会显示一行信息：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;kubeadm join 192.168.43.207:6443 --token jgdah6.2ckbsm793nqvz30f \
+    --discovery-token-ca-cert-hash sha256:17795b4294005f36c07a3fa50a1161fea4fed67e83205ef2d5f5d1c47458e41d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这行命令用来初始化 node 节点&lt;/p&gt;
+
+&lt;h3 id=&#34;初始化-node-节点&#34;&gt;初始化 node 节点&lt;/h3&gt;
+
+&lt;p&gt;在 node 节点执行命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;kubeadm join 192.168.43.207:6443 --token jgdah6.2ckbsm793nqvz30f \
+    --discovery-token-ca-cert-hash sha256:17795b4294005f36c07a3fa50a1161fea4fed67e83205ef2d5f5d1c47458e41d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;修改环境变量&#34;&gt;修改环境变量&lt;/h3&gt;
+
+&lt;p&gt;如果不修改环境变量，使用 kubectl 命令时会报以下异常：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;The connection to the server localhost:8080 was refused - did you specify the right host or port?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;master-节点&#34;&gt;master 节点&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;echo &amp;quot;export KUBECONFIG=/etc/kubernetes/admin.conf&amp;quot; &amp;gt;&amp;gt; ~/.bashrc
+
+source ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;node-节点&#34;&gt;node 节点&lt;/h4&gt;
+
+&lt;p&gt;从 master 节点复制配置文件到 node 节点&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;scp root@192.168.43.207:/etc/kubernetes/admin.conf /etc/kubernetes/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;echo &amp;quot;export KUBECONFIG=/etc/kubernetes/admin.conf&amp;quot; &amp;gt;&amp;gt; ~/.bashrc
+
+source ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;部署-flannel-网络插件&#34;&gt;部署 flannel 网络插件&lt;/h3&gt;
+
+&lt;p&gt;此时 master 节点和 node 节点还无法正常连接，master 节点和 node 节点都是 NotReady 状态，需要安装 flannel 网络插件使两个节点能够正常连接&lt;/p&gt;
+
+&lt;p&gt;在 master 节点执行命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;查看节点状态&#34;&gt;查看节点状态&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;root@k8s-master:~# kubectl get nodes
+NAME         STATUS   ROLES    AGE   VERSION
+k8s-master   Ready    master   21h   v1.17.0
+k8s-node     Ready    &amp;lt;none&amp;gt;   19h   v1.17.0
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>Jenkins 使用指南</title>
@@ -291,6 +517,72 @@
       <guid>http://jason207010.github.io/post/docker-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
       
         <description>
+
+&lt;h2 id=&#34;安装-docker&#34;&gt;安装 Docker&lt;/h2&gt;
+
+&lt;h3 id=&#34;ubuntu-14-dot-04-16-dot-04&#34;&gt;Ubuntu 14.04/16.04&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# step 1: 安装必要的一些系统工具
+sudo apt-get update
+sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+# step 2: 安装GPG证书
+curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+# Step 3: 写入软件源信息
+sudo add-apt-repository &amp;quot;deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&amp;quot;
+# Step 4: 更新并安装Docker-CE
+sudo apt-get -y update
+sudo apt-get -y install docker-ce
+
+# 安装指定版本的Docker-CE:
+# Step 1: 查找Docker-CE的版本:
+# apt-cache madison docker-ce
+#   docker-ce | 17.03.1~ce-0~ubuntu-xenial | https://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial/stable amd64 Packages
+#   docker-ce | 17.03.0~ce-0~ubuntu-xenial | https://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial/stable amd64 Packages
+# Step 2: 安装指定版本的Docker-CE: (VERSION例如上面的17.03.1~ce-0~ubuntu-xenial)
+# sudo apt-get -y install docker-ce=[VERSION]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;centos&#34;&gt;CentOS&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# step 1: 安装必要的一些系统工具
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+# Step 2: 添加软件源信息
+sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+# Step 3: 更新并安装Docker-CE
+sudo yum makecache fast
+sudo yum -y install docker-ce
+# Step 4: 开启Docker服务
+sudo service docker start
+
+# 注意：
+# 官方软件源默认启用了最新的软件，您可以通过编辑软件源的方式获取各个版本的软件包。例如官方并没有将测试版本的软件源置为可用，您可以通过以下方式开启。同理可以开启各种测试版本等。
+# vim /etc/yum.repos.d/docker-ee.repo
+#   将[docker-ce-test]下方的enabled=0修改为enabled=1
+#
+# 安装指定版本的Docker-CE:
+# Step 1: 查找Docker-CE的版本:
+# yum list docker-ce.x86_64 --showduplicates | sort -r
+#   Loading mirror speeds from cached hostfile
+#   Loaded plugins: branch, fastestmirror, langpacks
+#   docker-ce.x86_64            17.03.1.ce-1.el7.centos            docker-ce-stable
+#   docker-ce.x86_64            17.03.1.ce-1.el7.centos            @docker-ce-stable
+#   docker-ce.x86_64            17.03.0.ce-1.el7.centos            docker-ce-stable
+#   Available Packages
+# Step2: 安装指定版本的Docker-CE: (VERSION例如上面的17.03.0.ce.1-1.el7.centos)
+# sudo yum -y install docker-ce-[VERSION]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;使用阿里云镜像加速&#34;&gt;使用阿里云镜像加速&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-&#39;EOF&#39;
+{
+  &amp;quot;registry-mirrors&amp;quot;: [&amp;quot;https://wenn1cej.mirror.aliyuncs.com&amp;quot;]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h2&gt;
 
@@ -2451,6 +2743,107 @@ cnpm install express
 &lt;h4 id=&#34;关闭-sql-safe-updates&#34;&gt;关闭 sql_safe_updates&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;set sql_safe_updates=0;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;linux&#34;&gt;Linux&lt;/h2&gt;
+
+&lt;h3 id=&#34;ssh&#34;&gt;SSH&lt;/h3&gt;
+
+&lt;h4 id=&#34;免密码远程登录&#34;&gt;免密码远程登录&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;远程服务器设置允许 root 用户远程登录：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!--listend--&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;vi /etc/ssh/sshd_config
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;PermitRootLogin yes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;生成公钥私钥：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!--listend--&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;ssh-keygen -t rsa -C &amp;quot;jason@mail.com&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;此时 ~/.ssh 目录已生成公钥私钥：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;.ssh/
+├── id_rsa
+├── id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;复制公钥到远程服务器：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!--listend--&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;使用 SSH 登录远程服务器，此时无需输入密码：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!--listend--&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;ssh root@192.168.1.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;virtualbox&#34;&gt;VirtualBox&lt;/h2&gt;
+
+&lt;h3 id=&#34;复制虚拟机-ip-冲突问题&#34;&gt;复制虚拟机 IP 冲突问题&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;系统&lt;/th&gt;
+&lt;th&gt;版本&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ubuntu&lt;/td&gt;
+&lt;td&gt;18.04&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ol&gt;
+&lt;li&gt;清空 /etc/machine-id&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!--listend--&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo truncate -s 0 /etc/machine-id
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;删除 /var/lib/dbus/machine-id&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!--listend--&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo rm /var/lib/dbus/machine-id
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;重启&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!--listend--&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;init 6
 &lt;/code&gt;&lt;/pre&gt;
 </description>
       
@@ -8984,388 +9377,6 @@ filter {
       <guid>http://jason207010.github.io/post/netty-%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</guid>
       
         <description></description>
-      
-    </item>
-    
-    <item>
-      <title>SLF4J 开发指南（基于 LOG4J 1.x）</title>
-      <link>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-1.x/</link>
-      <pubDate>Wed, 24 Jan 2018 00:00:00 +0800</pubDate>
-      
-      <guid>http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-1.x/</guid>
-      
-        <description>
-
-&lt;h2 id=&#34;使用maven构建&#34;&gt;使用maven构建&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;dependency&amp;gt;
-  &amp;lt;groupId&amp;gt;org.slf4j&amp;lt;/groupId&amp;gt;
-  &amp;lt;artifactId&amp;gt;slf4j-log4j12&amp;lt;/artifactId&amp;gt;
-  &amp;lt;version&amp;gt;1.7.25&amp;lt;/version&amp;gt;
-&amp;lt;/dependency&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;此时会自动引入3个依赖jar包&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;包名&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;log4j-1.2.17.jar&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;slf4j-api-1.7.25.jar&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;slf4j-log4j12-1.7.25.jar&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;log4j默认使用classpath目录下log4j.xml或log4j.properties为配置文件，这里使用log4j.properties作为配置文件&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;logDir=logs
-
-log4j.rootLogger=DEBUG,console
-
-log4j.appender.console=org.apache.log4j.ConsoleAppender
-#输出流目标，可先参数为System.out和System.err
-log4j.appender.console.target=System.err
-#Appender可脱离于日志级别定义一个阀值级别，Appender对象会忽略所有级别低于阀值级别的日志
-log4j.appender.console.threshold=ERROR
-#日志等级过滤器
-log4j.appender.console.filter.filter=org.apache.log4j.varia.LevelRangeFilter
-log4j.appender.console.filter.filter.levelMin=INFO
-log4j.appender.console.filter.filter.levelMax=ERROR
-log4j.appender.console.layout=org.apache.log4j.PatternLayout
-log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
-
-log4j.appender.dailyFile=org.apache.log4j.DailyRollingFileAppender
-#使用缓冲区
-log4j.appender.dailyFile.bufferedIO=true
-#日志编码为UTF-8
-log4j.appender.dailyFile.encoding=UTF-8
-#Appender可脱离于日志级别定义一个阀值级别，Appender对象会忽略所有级别低于阀值级别的日志
-log4j.appender.dailyFile.threshold=ERROR
-log4j.appender.dailyFile.layout=org.apache.log4j.PatternLayout
-log4j.appender.dailyFile.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
-#当前日志输出到dailyLog.log文件中
-log4j.appender.dailyFile.File=${logDir}/dailyLog.log
-#按每天滚动日志，已滚动的日志保存到dailyLog.log_yyyy-MM-dd.log文件中
-log4j.appender.dailyFile.datePattern=&#39;_&#39;yyyy-MM-dd&#39;.log&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;配置文件自动热更新&#34;&gt;配置文件自动热更新&lt;/h3&gt;
-
-&lt;p&gt;log4j 1.x提供了2种API，分别是 DOMConfigurator.configureAndWatch(configFilename, delay)
-和 PropertyConfigurator.configureAndWatch(configFilename, delay) 来自动热更新配置文件，其原理是起一个线程，每隔delay毫秒检查配置文件的最后修改时间，如果本次监测到的文件修改时间比上次监测到的文件修改时间晚，则重新加载配置文件，这种方式有两个明显的缺点：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;每次调用configureAndWatch方法都会起一个线程&lt;/li&gt;
-&lt;li&gt;只对比文件修改时间，并不对比文件内容的改变。如果即将要热更的配置比现有的配置的文件修改时间早，那么这个配置将不会被热更新&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&#34;对于log4j-dot-xml文件&#34;&gt;对于log4j.xml文件&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String path = Thread.currentThread().getContextClassLoader().getResource(&amp;quot;log4j.xml&amp;quot;).getPath();
-DOMConfigurator.configureAndWatch(path, 10000L);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;对于log4j-dot-properties文件&#34;&gt;对于log4j.properties文件&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String path = Thread.currentThread().getContextClassLoader().getResource(&amp;quot;log4j.properties&amp;quot;).getPath();
-PropertyConfigurator.configureAndWatch(path, 10000L);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;logger&#34;&gt;Logger&lt;/h3&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;日志级别从低到高分为TRACE &amp;lt; DEBUG &amp;lt; INFO &amp;lt; WARN &amp;lt; ERROR&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;rootlogger&#34;&gt;RootLogger&lt;/h4&gt;
-
-&lt;p&gt;在未特别指定Logger的情况下，log4j默认使用rootLogger作为Logger，因此一般都需要配置rootLogger
-其中DEBUG为日志级别，console、dailyFile为被引用的Appender&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;log4j.rootLogger=DEBUG,console,dailyFile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;appender&#34;&gt;Appender&lt;/h3&gt;
-
-&lt;h4 id=&#34;consoleappender-控制台appender&#34;&gt;ConsoleAppender（控制台Appender）&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;ConsoleAppender使用System.out或者System.err来记录日志&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;示例：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;log4j.rootLogger=DEBUG,console
-
-log4j.appender.console=org.apache.log4j.ConsoleAppender
-#输出流目标，可先参数为System.out和System.err
-log4j.appender.console.target=System.err
-#Appender可脱离于日志级别定义一个阀值级别，Appender对象会忽略所有级别低于阀值级别的日志
-log4j.appender.console.threshold=ERROR
-log4j.appender.console.layout=org.apache.log4j.PatternLayout
-log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;dailyrollingfileappender&#34;&gt;DailyRollingFileAppender&lt;/h4&gt;
-
-&lt;p&gt;在DailyRollingFileAppender中可以指定monthly(每月)、weekly(每周)、daily(每天)、half-daily(每半天)、
-hourly(每小时)和minutely(每分钟)六个频度，这是通过为 DatePattern选项赋予不同的值来完成的。
-DatePattern选项的有效值为：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;yyyy-MM,对应monthly(每月)&lt;/li&gt;
-&lt;li&gt;yyyy-ww,对应weekly(每周)&lt;/li&gt;
-&lt;li&gt;yyyy-MM-dd,对应daily(每天)&lt;/li&gt;
-&lt;li&gt;yyyy-MM-dd-a,对应half-daily(每半天)&lt;/li&gt;
-&lt;li&gt;yyyy-MM-dd-HH,对应hourly(每小时)&lt;/li&gt;
-&lt;li&gt;yyyy-MM-dd-HH-mm,对应minutely(每分钟)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-&lt;li&gt;示例&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;logDir=logs
-
-log4j.appender.dailyFile=org.apache.log4j.DailyRollingFileAppender
-#使用缓冲区
-log4j.appender.dailyFile.bufferedIO=true
-#日志编码为UTF-8
-log4j.appender.dailyFile.encoding=UTF-8
-#Appender可脱离于日志级别定义一个阀值级别，Appender对象会忽略所有级别低于阀值级别的日志
-log4j.appender.dailyFile.threshold=ERROR
-log4j.appender.dailyFile.layout=org.apache.log4j.PatternLayout
-log4j.appender.dailyFile.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
-#当前日志输出到dailyLog.log文件中
-log4j.appender.dailyFile.File=${logDir}/dailyLog.log
-#按每天滚动日志，已滚动的日志保存到dailyLog.log_yyyy-MM-dd.log文件中
-log4j.appender.dailyFile.datePattern=&#39;_&#39;yyyy-MM-dd&#39;.log&#39;
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;asyncappender-异步appender&#34;&gt;AsyncAppender（异步Appender）&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;log4j 1.x的 AsyncAppender 原理是：每次打印日志时，都把这个日志事件添加到一个 ArrayList 中，这个添加过程是加锁同步操作的，因此当日志量特别大时，将会阻塞业务线程，造成性能瓶颈。AsyncAppender 内部有一个线程循环从 ArrayList 取出日志事件来打印，这个取出日志事件的操作也是加锁同步的，因此会阻塞添加日志事件的操作，从而在日志量特别大时阻塞业务线程，再次造成性能瓶颈。
-log4j 1.x 只支持在log4j.xml中配置 AsyncAppender。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;示例：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; ?&amp;gt;
-&amp;lt;!DOCTYPE log4j:configuration SYSTEM &amp;quot;log4j.dtd&amp;quot;&amp;gt;
-&amp;lt;log4j:configuration xmlns:log4j=&#39;http://jakarta.apache.org/log4j/&#39;&amp;gt;
-    &amp;lt;appender name=&amp;quot;console&amp;quot; class=&amp;quot;org.apache.log4j.ConsoleAppender&amp;quot;&amp;gt;
-    &amp;lt;layout class=&amp;quot;org.apache.log4j.PatternLayout&amp;quot;&amp;gt;
-        &amp;lt;param name=&amp;quot;ConversionPattern&amp;quot; value=&amp;quot;xml %d{yyyy-MM-dd HH:mm:ss} [%p] %m%n&amp;quot;/&amp;gt;
-    &amp;lt;/layout&amp;gt;
-    &amp;lt;/appender&amp;gt;
-    &amp;lt;appender name=&amp;quot;asyncConsole&amp;quot; class=&amp;quot;org.apache.log4j.AsyncAppender&amp;quot;&amp;gt;
-    &amp;lt;appender-ref ref=&amp;quot;console&amp;quot;/&amp;gt;
-    &amp;lt;/appender&amp;gt;
-    &amp;lt;root&amp;gt;
-    &amp;lt;level value=&amp;quot;DEBUG&amp;quot;/&amp;gt;
-    &amp;lt;appender-ref ref=&amp;quot;asyncConsole&amp;quot;/&amp;gt;
-    &amp;lt;/root&amp;gt;
-&amp;lt;/log4j:configuration&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;其他appender&#34;&gt;其他Appender&lt;/h4&gt;
-
-&lt;p&gt;除了以上常用的Appender，还有FileAppender、JDBCAppender、JMSAppender、RollingFileAppender等多个Appender。由于不常用，不再赘述。&lt;/p&gt;
-
-&lt;h3 id=&#34;filters&#34;&gt;Filters&lt;/h3&gt;
-
-&lt;h4 id=&#34;denyallfilter&#34;&gt;DenyAllFilter&lt;/h4&gt;
-
-&lt;p&gt;任何日志都不打印&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;示例&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;log4j.rootLogger=DEBUG,console
-
-log4j.appender.console=org.apache.log4j.ConsoleAppender
-log4j.appender.console.filter.filter=org.apache.log4j.varia.DenyAllFilter
-log4j.appender.console.layout=org.apache.log4j.PatternLayout
-log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;levelrangefilter&#34;&gt;LevelRangeFilter&lt;/h4&gt;
-
-&lt;p&gt;指定日志等级范围的日志才会被打印出来&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;log4j.rootLogger=DEBUG,console
-
-log4j.appender.console=org.apache.log4j.ConsoleAppender
-log4j.appender.console.filter.filter=org.apache.log4j.varia.LevelRangeFilter
-log4j.appender.console.filter.filter.levelMin=INFO
-log4j.appender.console.filter.filter.levelMax=ERROR
-log4j.appender.console.layout=org.apache.log4j.PatternLayout
-log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;其他filter&#34;&gt;其他Filter&lt;/h4&gt;
-
-&lt;p&gt;除了以上常用的Filter，还有LevelMatchFilter、StringMatchFilter等Filter。&lt;/p&gt;
-
-&lt;h3 id=&#34;layout&#34;&gt;Layout&lt;/h3&gt;
-
-&lt;h4 id=&#34;patternlayout&#34;&gt;PatternLayout&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;如果想生成基于模式的特定格式的日志信息，那么可以使用PatternLayout格式化日志信息&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;模式转换字符&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;转换字符&lt;/th&gt;
-&lt;th&gt;表示的意思&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;c&lt;/td&gt;
-&lt;td&gt;用于输出的记录事件的类别。例如，对于类别名称&amp;rdquo;a.b.c&amp;rdquo; 模式  %c{2} 会输出 &amp;ldquo;b.c&amp;rdquo;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;C&lt;/td&gt;
-&lt;td&gt;用于输出呼叫者发出日志请求的完全限定类名。例如，对于类名 &amp;ldquo;org.apache.xyz.SomeClass&amp;rdquo;, 模式 %C{1} 会输出 &amp;ldquo;SomeClass&amp;rdquo;.&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;d&lt;/td&gt;
-&lt;td&gt;用于输出的记录事件的日期。例如， %d{HH:mm:ss,SSS} 或 %d{dd MMM yyyy HH:mm:ss,SSS}.&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;F&lt;/td&gt;
-&lt;td&gt;用于输出被发出日志记录请求，其中的文件名&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;l&lt;/td&gt;
-&lt;td&gt;用于将产生的日志事件调用者输出位置信息&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;L&lt;/td&gt;
-&lt;td&gt;用于输出从被发出日志记录请求的行号&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;m&lt;/td&gt;
-&lt;td&gt;用于输出使用日志事件相关联的应用程序提供的消息&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;M&lt;/td&gt;
-&lt;td&gt;用于输出发出日志请求所在的方法名称&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;n&lt;/td&gt;
-&lt;td&gt;输出平台相关的行分隔符或文字&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;p&lt;/td&gt;
-&lt;td&gt;用于输出的记录事件的优先级&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;r&lt;/td&gt;
-&lt;td&gt;用于输出毫秒从布局的结构经过直到创建日志记录事件的数目&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;t&lt;/td&gt;
-&lt;td&gt;用于输出生成的日志记录事件的线程的名称&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;x&lt;/td&gt;
-&lt;td&gt;用于与产生该日志事件的线程相关联输出的NDC（嵌套诊断上下文）&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;X&lt;/td&gt;
-&lt;td&gt;在X转换字符后面是键为的MDC。例如  X{clientIP} 将打印存储在MDC对键clientIP的信息&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;%&lt;/td&gt;
-&lt;td&gt;文字百分号 %%将打印％标志&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;示例&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;log4j.rootLogger=DEBUG,console
-
-log4j.appender.console=org.apache.log4j.ConsoleAppender
-log4j.appender.console.layout=org.apache.log4j.PatternLayout
-log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;其他layout&#34;&gt;其他Layout&lt;/h4&gt;
-
-&lt;p&gt;除了以上Layout，还有HTMLLayout、XMLLayout等，由于不常用，不再赘述。&lt;/p&gt;
-
-&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-public class MyTest {
-private static final Logger LOGGER = LoggerFactory.getLogger(MyTest.class);
-public static void main(String[] args) {
-LOGGER.trace(&amp;quot;{}&amp;quot;, &amp;quot;hello world!&amp;quot;);
-LOGGER.debug(&amp;quot;{}&amp;quot;, &amp;quot;hello world!&amp;quot;);
-LOGGER.info(&amp;quot;{}&amp;quot;, &amp;quot;hello world!&amp;quot;);
-LOGGER.warn(&amp;quot;{}&amp;quot;, &amp;quot;hello world!&amp;quot;);
-LOGGER.error(&amp;quot;{}&amp;quot;, &amp;quot;hello world!&amp;quot;);
-}
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;性能调优&#34;&gt;性能调优&lt;/h2&gt;
-
-&lt;h3 id=&#34;设置日志缓存及缓存大小&#34;&gt;设置日志缓存及缓存大小&lt;/h3&gt;
-
-&lt;h3 id=&#34;设置日志输出方式为异步方式-如使用asyncappender&#34;&gt;设置日志输出方式为异步方式，如使用AsyncAppender&lt;/h3&gt;
-
-&lt;h3 id=&#34;避免打印location日志-如-c-class-f-file-l-location-l-line-m或-method&#34;&gt;避免打印Location日志，如%C、$class、%F、%file、%l、%location、%L、%line、%M或%method&lt;/h3&gt;
-</description>
       
     </item>
     
