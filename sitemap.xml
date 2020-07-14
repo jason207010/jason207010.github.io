@@ -4,25 +4,29 @@
   <url>
     <loc>http://jason207010.github.io/categories/</loc>
     <lastmod>2019-12-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/</loc>
     <lastmod>2019-12-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jason207010.github.io/categories/kubenetes/</loc>
-    <lastmod>2019-12-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/tags/kubenetes/</loc>
     <lastmod>2019-12-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/categories/kubenetes/</loc>
+    <lastmod>2019-12-19T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -35,25 +39,29 @@
   <url>
     <loc>http://jason207010.github.io/post/</loc>
     <lastmod>2019-12-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/tags/</loc>
     <lastmod>2019-12-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jason207010.github.io/categories/jenkins/</loc>
-    <lastmod>2019-11-30T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/tags/jenkins/</loc>
     <lastmod>2019-11-30T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/categories/jenkins/</loc>
+    <lastmod>2019-11-30T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -64,15 +72,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/uml/</loc>
+    <loc>http://jason207010.github.io/tags/uml/</loc>
     <lastmod>2019-11-28T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/uml/</loc>
+    <loc>http://jason207010.github.io/categories/uml/</loc>
     <lastmod>2019-11-28T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -83,15 +93,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/docker/</loc>
+    <loc>http://jason207010.github.io/tags/docker/</loc>
     <lastmod>2019-11-20T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/docker/</loc>
+    <loc>http://jason207010.github.io/categories/docker/</loc>
     <lastmod>2019-11-20T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -102,15 +114,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/mirror/</loc>
+    <loc>http://jason207010.github.io/tags/mirror/</loc>
     <lastmod>2019-11-17T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/mirror/</loc>
+    <loc>http://jason207010.github.io/categories/mirror/</loc>
     <lastmod>2019-11-17T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -121,27 +135,31 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/maven/</loc>
-    <lastmod>2019-11-16T00:00:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://jason207010.github.io/tags/maven/</loc>
     <lastmod>2019-11-16T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/reading/</loc>
+    <loc>http://jason207010.github.io/categories/maven/</loc>
     <lastmod>2019-11-16T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/tags/reading/</loc>
     <lastmod>2019-11-16T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/categories/reading/</loc>
+    <lastmod>2019-11-16T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -152,15 +170,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/emacs/</loc>
+    <loc>http://jason207010.github.io/tags/emacs/</loc>
     <lastmod>2019-10-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/emacs/</loc>
+    <loc>http://jason207010.github.io/categories/emacs/</loc>
     <lastmod>2019-10-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -171,27 +191,31 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/hugo/</loc>
-    <lastmod>2019-10-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://jason207010.github.io/tags/hugo/</loc>
     <lastmod>2019-10-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/java/</loc>
-    <lastmod>2019-09-30T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <loc>http://jason207010.github.io/categories/hugo/</loc>
+    <lastmod>2019-10-19T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/tags/java/</loc>
     <lastmod>2019-09-30T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/categories/java/</loc>
+    <lastmod>2019-09-30T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -202,15 +226,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/homebrew/</loc>
+    <loc>http://jason207010.github.io/tags/homebrew/</loc>
     <lastmod>2019-06-20T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/homebrew/</loc>
+    <loc>http://jason207010.github.io/categories/homebrew/</loc>
     <lastmod>2019-06-20T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -221,15 +247,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/git/</loc>
+    <loc>http://jason207010.github.io/tags/git/</loc>
     <lastmod>2019-06-18T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/git/</loc>
+    <loc>http://jason207010.github.io/categories/git/</loc>
     <lastmod>2019-06-18T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -247,15 +275,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/jdbc/</loc>
+    <loc>http://jason207010.github.io/tags/jdbc/</loc>
     <lastmod>2019-06-17T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/jdbc/</loc>
+    <loc>http://jason207010.github.io/categories/jdbc/</loc>
     <lastmod>2019-06-17T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -266,15 +296,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/instrument/</loc>
+    <loc>http://jason207010.github.io/tags/instrument/</loc>
     <lastmod>2018-12-14T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/instrument/</loc>
+    <loc>http://jason207010.github.io/categories/instrument/</loc>
     <lastmod>2018-12-14T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -285,15 +317,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/gradle/</loc>
+    <loc>http://jason207010.github.io/tags/gradle/</loc>
     <lastmod>2018-12-13T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/gradle/</loc>
+    <loc>http://jason207010.github.io/categories/gradle/</loc>
     <lastmod>2018-12-13T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -318,27 +352,31 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/crack/</loc>
-    <lastmod>2018-09-11T00:00:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://jason207010.github.io/tags/crack/</loc>
     <lastmod>2018-09-11T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/jetbrains/</loc>
+    <loc>http://jason207010.github.io/categories/crack/</loc>
     <lastmod>2018-09-11T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/tags/jetbrains/</loc>
     <lastmod>2018-09-11T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/categories/jetbrains/</loc>
+    <lastmod>2018-09-11T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -349,27 +387,31 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/elastic/</loc>
-    <lastmod>2018-07-30T00:00:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://jason207010.github.io/tags/elastic/</loc>
     <lastmod>2018-07-30T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/elasticsearch/</loc>
+    <loc>http://jason207010.github.io/categories/elastic/</loc>
     <lastmod>2018-07-30T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/tags/elasticsearch/</loc>
     <lastmod>2018-07-30T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/categories/elasticsearch/</loc>
+    <lastmod>2018-07-30T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -380,15 +422,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/logstash/</loc>
+    <loc>http://jason207010.github.io/tags/logstash/</loc>
     <lastmod>2018-07-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/logstash/</loc>
+    <loc>http://jason207010.github.io/categories/logstash/</loc>
     <lastmod>2018-07-19T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -399,15 +443,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/netty/</loc>
+    <loc>http://jason207010.github.io/tags/netty/</loc>
     <lastmod>2018-03-10T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/netty/</loc>
+    <loc>http://jason207010.github.io/categories/netty/</loc>
     <lastmod>2018-03-10T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -418,15 +464,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/slf4j/</loc>
+    <loc>http://jason207010.github.io/tags/slf4j/</loc>
     <lastmod>2018-01-24T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/slf4j/</loc>
+    <loc>http://jason207010.github.io/categories/slf4j/</loc>
     <lastmod>2018-01-24T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -444,15 +492,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/jvm/</loc>
+    <loc>http://jason207010.github.io/tags/jvm/</loc>
     <lastmod>2017-09-11T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/jvm/</loc>
+    <loc>http://jason207010.github.io/categories/jvm/</loc>
     <lastmod>2017-09-11T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -463,19 +513,21 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/jms/</loc>
+    <loc>http://jason207010.github.io/post/java-jms-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2017-08-16T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/tags/jms/</loc>
     <lastmod>2017-08-16T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/post/java-jms-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</loc>
+    <loc>http://jason207010.github.io/categories/jms/</loc>
     <lastmod>2017-08-16T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -491,13 +543,15 @@
   <url>
     <loc>http://jason207010.github.io/tags/rim/</loc>
     <lastmod>2017-08-14T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/categories/rmi/</loc>
     <lastmod>2017-08-14T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -508,15 +562,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/spring/</loc>
+    <loc>http://jason207010.github.io/tags/spring/</loc>
     <lastmod>2017-07-14T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/spring/</loc>
+    <loc>http://jason207010.github.io/categories/spring/</loc>
     <lastmod>2017-07-14T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -527,15 +583,31 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/jpa/</loc>
+    <loc>http://jason207010.github.io/tags/javaweb/</loc>
     <lastmod>2017-07-12T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/categories/javaweb/</loc>
+    <lastmod>2017-07-12T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/tags/jpa/</loc>
     <lastmod>2017-07-12T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://jason207010.github.io/categories/jpa/</loc>
+    <lastmod>2017-07-12T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -546,27 +618,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/javaweb/</loc>
+    <loc>http://jason207010.github.io/tags/lucene/</loc>
     <lastmod>2017-07-12T00:00:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jason207010.github.io/tags/javaweb/</loc>
-    <lastmod>2017-07-12T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://jason207010.github.io/categories/lucene/</loc>
     <lastmod>2017-07-12T00:00:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jason207010.github.io/tags/lucene/</loc>
-    <lastmod>2017-07-12T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -577,15 +639,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/servlet/</loc>
+    <loc>http://jason207010.github.io/tags/servlet/</loc>
     <lastmod>2017-07-12T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/servlet/</loc>
+    <loc>http://jason207010.github.io/categories/servlet/</loc>
     <lastmod>2017-07-12T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -631,15 +695,17 @@
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/categories/hadoop/</loc>
+    <loc>http://jason207010.github.io/tags/hadoop/</loc>
     <lastmod>2017-07-11T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://jason207010.github.io/tags/hadoop/</loc>
+    <loc>http://jason207010.github.io/categories/hadoop/</loc>
     <lastmod>2017-07-11T00:00:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>

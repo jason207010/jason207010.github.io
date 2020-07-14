@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reading on Jason&#39;s Blog</title>
@@ -35,7 +35,7 @@
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/spring-%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</guid>
-      <description>Bean的生命周期 Spring Bean 装配Bean 隐式自动装配 基于annotation方式 @Configuration @ComponentScan public class AppConfig {} 基于XML方式 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xmlns:context=&amp;quot;http://www.springframework.org/schema/context&amp;quot; xmlns:aop=&amp;quot;http://www.springframework.org/schema/aop&amp;quot; xsi:schemaLocation=&amp;quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd &amp;quot;&amp;gt; &amp;lt;context:component-scan base-package=&amp;quot;com&amp;quot;/&amp;gt; &amp;lt;/beans&amp;gt; 显式装配</description>
+      <description>Bean的生命周期 Spring Bean 装配Bean 隐式自动装配 基于annotation方式 @Configuration @ComponentScan public class AppConfig {} 基于XML方式 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;beans xmlns=&amp;#34;http://www.springframework.org/schema/beans&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xmlns:context=&amp;#34;http://www.springframework.org/schema/context&amp;#34; xmlns:aop=&amp;#34;http://www.springframework.org/schema/aop&amp;#34; xsi:schemaLocation=&amp;#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd &amp;#34;&amp;gt; &amp;lt;context:component-scan base-package=&amp;#34;com&amp;#34;/&amp;gt; &amp;lt;/beans&amp;gt; 显式装配</description>
     </item>
     
   </channel>

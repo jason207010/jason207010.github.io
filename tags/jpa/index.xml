@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JPA on Jason&#39;s Blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/jpa-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
-      <description>设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &#39;网址的CRC32&#39;, `url` LONGTEXT COMMENT &#39;网址&#39;, `vice_url` LONGTEXT COMMENT &#39;AJAX请求网址&#39;, `title` LONGTEXT COMMENT &#39;标题&#39;, `content` LONGTEXT COMMENT &#39;网页文字内容&#39;</description>
+      <description>设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &amp;#39;网址的CRC32&amp;#39;, `url` LONGTEXT COMMENT &amp;#39;网址&amp;#39;, `vice_url` LONGTEXT COMMENT &amp;#39;AJAX请求网址&amp;</description>
     </item>
     
   </channel>

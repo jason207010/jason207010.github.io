@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/hadoop-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" />
@@ -63,21 +63,17 @@
 <meta property="og:description" content="主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 环境变量配置（两台机器都要配置） 编辑/etc" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/hadoop-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" />
-<meta property="article:published_time" content="2017-07-11T00:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2017-07-11T00:00:00&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-07-11T00:00:00+08:00" />
+<meta property="article:modified_time" content="2017-07-11T00:00:00+08:00" />
 <meta itemprop="name" content="Hadoop 开发环境配置">
 <meta itemprop="description" content="主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 环境变量配置（两台机器都要配置） 编辑/etc">
-
-
 <meta itemprop="datePublished" content="2017-07-11T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-07-11T00:00:00&#43;08:00" />
 <meta itemprop="wordCount" content="608">
 
 
 
-<meta itemprop="keywords" content="Hadoop," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Hadoop," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hadoop 开发环境配置"/>
 <meta name="twitter:description" content="主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 环境变量配置（两台机器都要配置） 编辑/etc"/>
 
@@ -366,35 +362,28 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#主机概览">主机概览</a></li>
-<li><a href="#软件概览">软件概览</a></li>
-<li><a href="#环境变量配置-两台机器都要配置">环境变量配置（两台机器都要配置）</a></li>
-<li><a href="#hosts文件配置-两台机器都要配置">hosts文件配置（两台机器都要配置）</a></li>
-<li><a href="#hostname文件配置">hostname文件配置</a></li>
-<li><a href="#配置免密码登陆">配置免密码登陆</a></li>
-<li><a href="#配置hadoop配置文件-两台机器都要配置">配置Hadoop配置文件（两台机器都要配置）</a></li>
-<li><a href="#格式化namenode">格式化namenode</a></li>
-<li><a href="#在master主机启动hadoop">在master主机启动Hadoop</a></li>
-<li><a href="#查看hadoop启动情况">查看Hadoop启动情况</a></li>
-<li><a href="#在master主机查看hadoop提供的web界面">在master主机查看Hadoop提供的web界面</a></li>
-<li><a href="#停止hadoop">停止Hadoop</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#主机概览">主机概览</a></li>
+    <li><a href="#软件概览">软件概览</a></li>
+    <li><a href="#环境变量配置-两台机器都要配置">环境变量配置（两台机器都要配置）</a></li>
+    <li><a href="#hosts文件配置-两台机器都要配置">hosts文件配置（两台机器都要配置）</a></li>
+    <li><a href="#hostname文件配置">hostname文件配置</a></li>
+    <li><a href="#配置免密码登陆">配置免密码登陆</a></li>
+    <li><a href="#配置hadoop配置文件-两台机器都要配置">配置Hadoop配置文件（两台机器都要配置）</a></li>
+    <li><a href="#格式化namenode">格式化namenode</a></li>
+    <li><a href="#在master主机启动hadoop">在master主机启动Hadoop</a></li>
+    <li><a href="#查看hadoop启动情况">查看Hadoop启动情况</a></li>
+    <li><a href="#在master主机查看hadoop提供的web界面">在master主机查看Hadoop提供的web界面</a></li>
+    <li><a href="#停止hadoop">停止Hadoop</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="主机概览">主机概览</h2>
-
+      <h2 id="主机概览">主机概览</h2>
 <p>注意：两台主机的用户名必须一样</p>
-
 <table>
 <thead>
 <tr>
@@ -404,7 +393,6 @@ if (!doNotTrack) {
 <th>用途</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>master</td>
@@ -412,7 +400,6 @@ if (!doNotTrack) {
 <td>10.2.2.99</td>
 <td>namenode</td>
 </tr>
-
 <tr>
 <td>slave1</td>
 <td>jason</td>
@@ -421,9 +408,7 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
 <h2 id="软件概览">软件概览</h2>
-
 <table>
 <thead>
 <tr>
@@ -431,206 +416,152 @@ if (!doNotTrack) {
 <th>版本</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>JAVA</td>
 <td>1.8.0_65</td>
 </tr>
-
 <tr>
 <td>Hadoop</td>
 <td>2.6.4</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="环境变量配置-两台机器都要配置">环境变量配置（两台机器都要配置）</h2>
-
 <p>编辑/etc/profile文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#JAVA环境变量begin</span>
+export JAVA_HOME<span style="color:#f92672">=</span>/opt/jdk1.8.0_65
+export JRE_HOME<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>JAVA_HOME<span style="color:#e6db74">}</span>/jre
+export CLASSPATH<span style="color:#f92672">=</span>.:<span style="color:#e6db74">${</span>JAVA_HOME<span style="color:#e6db74">}</span>/lib:<span style="color:#e6db74">${</span>JRE_HOME<span style="color:#e6db74">}</span>/lib
+export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>JAVA_HOME<span style="color:#e6db74">}</span>/bin:$PATH
+<span style="color:#75715e">#JAVA环境变量end</span>
 
-<pre><code class="language-sh">#JAVA环境变量begin
-export JAVA_HOME=/opt/jdk1.8.0_65
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin:$PATH
-#JAVA环境变量end
-
-#hadoop环境变量begin
-export HADOOP_HOME=/opt/hadoop
-export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
-export PATH=$PATH:${HADOOP_HOME}/bin
-export PATH=$PATH:${HADOOP_HOME}/sbin
-#hadoop环境变量end
-</code></pre>
-
-<h2 id="hosts文件配置-两台机器都要配置">hosts文件配置（两台机器都要配置）</h2>
-
+<span style="color:#75715e">#hadoop环境变量begin</span>
+export HADOOP_HOME<span style="color:#f92672">=</span>/opt/hadoop
+export HADOOP_CONF_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HADOOP_HOME<span style="color:#e6db74">}</span>/etc/hadoop
+export PATH<span style="color:#f92672">=</span>$PATH:<span style="color:#e6db74">${</span>HADOOP_HOME<span style="color:#e6db74">}</span>/bin
+export PATH<span style="color:#f92672">=</span>$PATH:<span style="color:#e6db74">${</span>HADOOP_HOME<span style="color:#e6db74">}</span>/sbin
+<span style="color:#75715e">#hadoop环境变量end</span>
+</code></pre></div><h2 id="hosts文件配置-两台机器都要配置">hosts文件配置（两台机器都要配置）</h2>
 <p>编辑/etc/hosts文件</p>
-
-<pre><code class="language-sh">10.2.2.99       master
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">10.2.2.99       master
 10.2.2.178      slave1
-</code></pre>
-
-<h2 id="hostname文件配置">hostname文件配置</h2>
-
+</code></pre></div><h2 id="hostname文件配置">hostname文件配置</h2>
 <p>master主机：编辑/etc/hostname文件</p>
-
-<pre><code class="language-sh">master
-</code></pre>
-
-<p>slave1主机：编辑/etc/hostname文件</p>
-
-<pre><code class="language-sh">slave1
-</code></pre>
-
-<h2 id="配置免密码登陆">配置免密码登陆</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">master
+</code></pre></div><p>slave1主机：编辑/etc/hostname文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">slave1
+</code></pre></div><h2 id="配置免密码登陆">配置免密码登陆</h2>
 <ol>
-<li><p>生成密钥</p>
-
-<pre><code class="language-sh">cd ~/.ssh
+<li>
+<p>生成密钥</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd ~/.ssh
 ssh-keygen -t dsa
-</code></pre>
-
-<p>这里生成私钥id_dsa和公钥id_dsa.pub</p>
-
-<ol>
-<li>master主机设置免密码登陆</li>
+</code></pre></div></li>
 </ol>
-
-<pre><code class="language-sh">cat id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys
-</code></pre></li>
-
-<li><p>slave1主机设置免密码登陆</p>
-
-<pre><code class="language-sh">scp id_dsa.pub jason@slave1:~/.ssh
+<p>这里生成私钥id_dsa和公钥id_dsa.pub</p>
+<ol>
+<li>
+<p>master主机设置免密码登陆</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</code></pre></div></li>
+<li>
+<p>slave1主机设置免密码登陆</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">scp id_dsa.pub jason@slave1:~/.ssh
 ssh jason@slave1
 cd .ssh
 cat id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys
-</code></pre>
-
+</code></pre></div></li>
+</ol>
 <h2 id="配置hadoop配置文件-两台机器都要配置">配置Hadoop配置文件（两台机器都要配置）</h2>
-
 <ol>
-<li>编辑mapred-site.xml</li>
+<li>
+<p>编辑mapred-site.xml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;configuration&gt;</span>
+  <span style="color:#f92672">&lt;property&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>mapreduce.framework.name<span style="color:#f92672">&lt;/name&gt;</span>
+    <span style="color:#f92672">&lt;value&gt;</span>yarn<span style="color:#f92672">&lt;/value&gt;</span>
+  <span style="color:#f92672">&lt;/property&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div></li>
+<li>
+<p>编辑core-site.xml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;configuration&gt;</span>
+  <span style="color:#f92672">&lt;property&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>fs.defaultFS<span style="color:#f92672">&lt;/name&gt;</span>
+    <span style="color:#f92672">&lt;value&gt;</span>hdfs://master:9000<span style="color:#f92672">&lt;/value&gt;</span>
+  <span style="color:#f92672">&lt;/property&gt;</span>
+  <span style="color:#f92672">&lt;property&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>hadoop.tmp.dir<span style="color:#f92672">&lt;/name&gt;</span>
+    <span style="color:#f92672">&lt;value&gt;</span>/home/jason/other/hadoop/tmp<span style="color:#f92672">&lt;/value&gt;</span>
+  <span style="color:#f92672">&lt;/property&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div></li>
+<li>
+<p>编辑slaves</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">slave1
+</code></pre></div></li>
+<li>
+<p>编辑hadoop-env.sh</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">export JAVA_HOME<span style="color:#f92672">=</span>/opt/jdk1.8.0_65
+</code></pre></div></li>
+<li>
+<p>编辑hdfs-site.xml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;configuration&gt;</span>
+  <span style="color:#f92672">&lt;property&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>dfs.namenode.secondary.http-address<span style="color:#f92672">&lt;/name&gt;</span>
+    <span style="color:#f92672">&lt;value&gt;</span>Master:9001<span style="color:#f92672">&lt;/value&gt;</span>
+  <span style="color:#f92672">&lt;/property&gt;</span>
+  <span style="color:#f92672">&lt;property&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>dfs.replication<span style="color:#f92672">&lt;/name&gt;</span>
+    <span style="color:#f92672">&lt;value&gt;</span>1<span style="color:#f92672">&lt;/value&gt;</span>
+  <span style="color:#f92672">&lt;/property&gt;</span>
+  <span style="color:#f92672">&lt;property&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>dfs.namenode.name.dir<span style="color:#f92672">&lt;/name&gt;</span>
+    <span style="color:#f92672">&lt;value&gt;</span>file:/home/jason/other/hadoop/name<span style="color:#f92672">&lt;/value&gt;</span>
+  <span style="color:#f92672">&lt;/property&gt;</span>
+  <span style="color:#f92672">&lt;property&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>dfs.datanode.data.dir<span style="color:#f92672">&lt;/name&gt;</span>
+    <span style="color:#f92672">&lt;value&gt;</span>file:/home/jason/other/hadoop/data<span style="color:#f92672">&lt;/value&gt;</span>
+  <span style="color:#f92672">&lt;/property&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div></li>
+<li>
+<p>编辑yarn-site.xml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;configuration&gt;</span>
+  <span style="color:#f92672">&lt;property&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>yarn.resourcemanager.hostname<span style="color:#f92672">&lt;/name&gt;</span>
+    <span style="color:#f92672">&lt;value&gt;</span>master<span style="color:#f92672">&lt;/value&gt;</span>
+  <span style="color:#f92672">&lt;/property&gt;</span>
+  <span style="color:#f92672">&lt;property&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>yarn.nodemanager.aux-services<span style="color:#f92672">&lt;/name&gt;</span>
+    <span style="color:#f92672">&lt;value&gt;</span>mapreduce_shuffle<span style="color:#f92672">&lt;/value&gt;</span>
+  <span style="color:#f92672">&lt;/property&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div></li>
 </ol>
-
-<pre><code class="language-xml">&lt;configuration&gt;
-  &lt;property&gt;
-    &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
-    &lt;value&gt;yarn&lt;/value&gt;
-  &lt;/property&gt;
-&lt;/configuration&gt;
-</code></pre></li>
-
-<li><p>编辑core-site.xml</p>
-
-<pre><code class="language-xml">&lt;configuration&gt;
-  &lt;property&gt;
-    &lt;name&gt;fs.defaultFS&lt;/name&gt;
-    &lt;value&gt;hdfs://master:9000&lt;/value&gt;
-  &lt;/property&gt;
-  &lt;property&gt;
-    &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
-    &lt;value&gt;/home/jason/other/hadoop/tmp&lt;/value&gt;
-  &lt;/property&gt;
-&lt;/configuration&gt;
-</code></pre>
-
-<ol>
-<li>编辑slaves</li>
-</ol>
-
-<pre><code class="language-sh">slave1
-</code></pre></li>
-
-<li><p>编辑hadoop-env.sh</p>
-
-<pre><code class="language-sh">export JAVA_HOME=/opt/jdk1.8.0_65
-</code></pre>
-
-<ol>
-<li>编辑hdfs-site.xml</li>
-</ol>
-
-<pre><code class="language-xml">&lt;configuration&gt;
-  &lt;property&gt;
-    &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;
-    &lt;value&gt;Master:9001&lt;/value&gt;
-  &lt;/property&gt;
-  &lt;property&gt;
-    &lt;name&gt;dfs.replication&lt;/name&gt;
-    &lt;value&gt;1&lt;/value&gt;
-  &lt;/property&gt;
-  &lt;property&gt;
-    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
-    &lt;value&gt;file:/home/jason/other/hadoop/name&lt;/value&gt;
-  &lt;/property&gt;
-  &lt;property&gt;
-    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;
-    &lt;value&gt;file:/home/jason/other/hadoop/data&lt;/value&gt;
-  &lt;/property&gt;
-&lt;/configuration&gt;
-</code></pre></li>
-
-<li><p>编辑yarn-site.xml</p>
-
-<pre><code class="language-xml">&lt;configuration&gt;
-  &lt;property&gt;
-    &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
-    &lt;value&gt;master&lt;/value&gt;
-  &lt;/property&gt;
-  &lt;property&gt;
-    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
-    &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
-  &lt;/property&gt;
-&lt;/configuration&gt;
-</code></pre>
-
 <h2 id="格式化namenode">格式化namenode</h2>
-
-<pre><code class="language-sh">hdfs namenode -format
-</code></pre></li>
-</ol>
-
-<h2 id="在master主机启动hadoop">在master主机启动Hadoop</h2>
-
-<pre><code class="language-sh">start-all.sh
-</code></pre>
-
-<h2 id="查看hadoop启动情况">查看Hadoop启动情况</h2>
-
-<pre><code class="language-sh">jps
-</code></pre>
-
-<p>结果</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hdfs namenode -format
+</code></pre></div><h2 id="在master主机启动hadoop">在master主机启动Hadoop</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">start-all.sh
+</code></pre></div><h2 id="查看hadoop启动情况">查看Hadoop启动情况</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">jps
+</code></pre></div><p>结果</p>
 <p>master主机</p>
-
-<pre><code class="language-sh">8626 NameNode
-8995 ResourceManager
-8839 SecondaryNameNode
-11800 Jps
-</code></pre>
-
-<p>slave1主机</p>
-
-<pre><code class="language-sh">2753 Jps
-2155 DataNode
-2284 NodeManager
-</code></pre>
-
-<h2 id="在master主机查看hadoop提供的web界面">在master主机查看Hadoop提供的web界面</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#ae81ff">8626</span> NameNode
+<span style="color:#ae81ff">8995</span> ResourceManager
+<span style="color:#ae81ff">8839</span> SecondaryNameNode
+<span style="color:#ae81ff">11800</span> Jps
+</code></pre></div><p>slave1主机</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#ae81ff">2753</span> Jps
+<span style="color:#ae81ff">2155</span> DataNode
+<span style="color:#ae81ff">2284</span> NodeManager
+</code></pre></div><h2 id="在master主机查看hadoop提供的web界面">在master主机查看Hadoop提供的web界面</h2>
 <p><a href="http://master:8088/">http://master:8088/</a>
 <a href="http://master:50070/">http://master:50070/</a></p>
-
 <h2 id="停止hadoop">停止Hadoop</h2>
-
-<pre><code class="language-sh">stop-all.sh
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">stop-all.sh
+</code></pre></div>
     </div>
 
     
@@ -765,7 +696,7 @@ cat id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys
     &copy;
     
       2017 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

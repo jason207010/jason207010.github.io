@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mirror on Jason&#39;s Blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Sun, 17 Nov 2019 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/%E4%B8%AD%E5%9B%BD%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/</guid>
-      <description>Python pip 镜像源 中科大镜像源 pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple 恢复默认源 清空 ~/.config/pip/pip.conf vi ~/.config/pip/pip.conf Homebrew Homebrew 中科大镜像源 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git 恢复官方源 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://github.com/Homebrew/brew.git Homebrew Core 中科大镜像源 cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot; git remote set-url origin</description>
+      <description>Python pip 镜像源 中科大镜像源 pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple 恢复默认源 清空 ~/.config/pip/pip.conf vi ~/.config/pip/pip.conf Homebrew Homebrew 中科大镜像源 cd &amp;#34;$(brew --repo)&amp;#34; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git 恢复官方源 cd &amp;#34;$(brew --repo)&amp;#34; git remote set-url origin https://github.com/Homebrew/brew.git Homebrew Core 中科大镜像源 cd &amp;#34;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;#34; git remote set-url origin</description>
     </item>
     
   </channel>

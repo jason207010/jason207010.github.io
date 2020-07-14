@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/jenkins-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
@@ -63,21 +63,17 @@
 <meta property="og:description" content="安装运行 使用 Docker 安装运行 docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins 配置 Jenkins 解锁 Jenkins 查看管理员默认密码 cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword 安装插件 Jenkins 官方插件源很慢，即使换镜像源依然很慢，因为镜像源的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/jenkins-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
-<meta property="article:published_time" content="2019-11-30T00:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-11-30T00:00:00&#43;08:00"/>
-
+<meta property="article:published_time" content="2019-11-30T00:00:00+08:00" />
+<meta property="article:modified_time" content="2019-11-30T00:00:00+08:00" />
 <meta itemprop="name" content="Jenkins 使用指南">
 <meta itemprop="description" content="安装运行 使用 Docker 安装运行 docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins 配置 Jenkins 解锁 Jenkins 查看管理员默认密码 cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword 安装插件 Jenkins 官方插件源很慢，即使换镜像源依然很慢，因为镜像源的">
-
-
 <meta itemprop="datePublished" content="2019-11-30T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-30T00:00:00&#43;08:00" />
 <meta itemprop="wordCount" content="327">
 
 
 
-<meta itemprop="keywords" content="Jenkins," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Jenkins," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Jenkins 使用指南"/>
 <meta name="twitter:description" content="安装运行 使用 Docker 安装运行 docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins 配置 Jenkins 解锁 Jenkins 查看管理员默认密码 cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword 安装插件 Jenkins 官方插件源很慢，即使换镜像源依然很慢，因为镜像源的"/>
 
@@ -366,64 +362,37 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#安装运行">安装运行</a>
-<ul>
-<li><a href="#使用-docker-安装运行">使用 Docker 安装运行</a></li>
-<li><a href="#配置-jenkins">配置 Jenkins</a>
-<ul>
-<li><a href="#解锁-jenkins">解锁 Jenkins</a></li>
-<li><a href="#安装插件">安装插件</a>
-<ul>
-<li><a href="#语言插件">语言插件</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#安装运行">安装运行</a>
+      <ul>
+        <li><a href="#使用-docker-安装运行">使用 Docker 安装运行</a></li>
+        <li><a href="#配置-jenkins">配置 Jenkins</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="安装运行">安装运行</h2>
-
+      <h2 id="安装运行">安装运行</h2>
 <h3 id="使用-docker-安装运行">使用 Docker 安装运行</h3>
-
-<pre><code class="language-shell">docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins
-</code></pre>
-
-<h3 id="配置-jenkins">配置 Jenkins</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins
+</code></pre></div><h3 id="配置-jenkins">配置 Jenkins</h3>
 <h4 id="解锁-jenkins">解锁 Jenkins</h4>
-
 <p>查看管理员默认密码</p>
-
-<pre><code class="language-shell">cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword
-</code></pre>
-
-<h4 id="安装插件">安装插件</h4>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword
+</code></pre></div><h4 id="安装插件">安装插件</h4>
 <p>Jenkins 官方插件源很慢，即使换镜像源依然很慢，因为镜像源的 update-center.json 文件中的插件地址依然指向官方源</p>
-
 <p>所以在进入 Jenkins 页面后弹出 “Getting Started” 窗口安装插件这一步时，直接关闭窗口，后续手动安装插件</p>
-
 <p>插件源地址：<a href="http://mirrors.jenkins-ci.org/status.html">http://mirrors.jenkins-ci.org/status.html</a></p>
-
 <p>安装插件方式：系统管理 &gt; 插件管理 &gt; 高级</p>
-
 <h5 id="语言插件">语言插件</h5>
-
 <p>下载地址：<a href="http://mirror.esuni.jp/jenkins/plugins/locale/latest/locale.hpi">http://mirror.esuni.jp/jenkins/plugins/locale/latest/locale.hpi</a></p>
-
 <p>设置 Jenkins 为中文</p>
-
 <p>系统管理 &gt; 系统设置 &gt; Dfault Language 填 zh_CN，同时勾选 “Ignore browser preference and force this language to all users”</p>
+<h5 id=""></h5>
 
     </div>
 
@@ -559,7 +528,7 @@ if (!doNotTrack) {
     &copy;
     
       2017 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

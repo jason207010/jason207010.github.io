@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Servlet on Jason&#39;s Blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/servlet-3.0-web.xml-%E9%85%8D%E7%BD%AE/</guid>
-      <description>&amp;lt;web-app xmlns=&amp;quot;http://xmlns.jcp.org/xml/ns/javaee&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&amp;quot; version=&amp;quot;3.1&amp;quot;&amp;gt; &amp;lt;/web-app&amp;gt;</description>
+      <description>&amp;lt;web-app xmlns=&amp;#34;http://xmlns.jcp.org/xml/ns/javaee&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&amp;#34; version=&amp;#34;3.1&amp;#34;&amp;gt; &amp;lt;/web-app&amp;gt;</description>
     </item>
     
   </channel>

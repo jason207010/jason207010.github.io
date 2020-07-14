@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Homebrew on Jason&#39;s Blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Thu, 20 Jun 2019 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/homebrew-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
-      <description>安装Homebrew 获取安装脚本 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install &amp;gt; install 修改安装脚本源为中科大的源 BREW_REPO = &amp;quot;https://github.com/Homebrew/brew&amp;quot;.freeze 改为： BREW_REPO = &amp;quot;https://mirrors.ustc.edu.cn/brew.git&amp;quot;.freeze 安装 /usr/bin/ruby install 修改软件包源为中科大的源 Homebrew 源代码仓库 cd &amp;quot;$(brew --repo)&amp;quot; git remote</description>
+      <description>安装Homebrew 获取安装脚本 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install &amp;gt; install 修改安装脚本源为中科大的源 BREW_REPO = &amp;#34;https://github.com/Homebrew/brew&amp;#34;.freeze 改为： BREW_REPO = &amp;#34;https://mirrors.ustc.edu.cn/brew.git&amp;#34;.freeze 安装 /usr/bin/ruby install 修改软件包源为中科大的源 Homebrew 源代码仓库 cd &amp;#34;$(brew --repo)&amp;#34; git remote</description>
     </item>
     
   </channel>

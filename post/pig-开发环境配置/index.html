@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/pig-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" />
@@ -63,21 +63,17 @@
 <meta property="og:description" content="软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 Pig 0.15.0 依赖环境 安装Pig必须先安装配置好JAVA、Hadoop 环境变量配置 编辑/etc/profile文件 #pig环境" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/pig-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" />
-<meta property="article:published_time" content="2017-07-11T00:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2017-07-11T00:00:00&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-07-11T00:00:00+08:00" />
+<meta property="article:modified_time" content="2017-07-11T00:00:00+08:00" />
 <meta itemprop="name" content="Pig 开发环境配置">
 <meta itemprop="description" content="软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 Pig 0.15.0 依赖环境 安装Pig必须先安装配置好JAVA、Hadoop 环境变量配置 编辑/etc/profile文件 #pig环境">
-
-
 <meta itemprop="datePublished" content="2017-07-11T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-07-11T00:00:00&#43;08:00" />
 <meta itemprop="wordCount" content="138">
 
 
 
-<meta itemprop="keywords" content="Hadoop," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Hadoop," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Pig 开发环境配置"/>
 <meta name="twitter:description" content="软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 Pig 0.15.0 依赖环境 安装Pig必须先安装配置好JAVA、Hadoop 环境变量配置 编辑/etc/profile文件 #pig环境"/>
 
@@ -366,25 +362,19 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#软件概览">软件概览</a></li>
-<li><a href="#依赖环境">依赖环境</a></li>
-<li><a href="#环境变量配置">环境变量配置</a></li>
-<li><a href="#启动pig">启动Pig</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#软件概览">软件概览</a></li>
+    <li><a href="#依赖环境">依赖环境</a></li>
+    <li><a href="#环境变量配置">环境变量配置</a></li>
+    <li><a href="#启动pig">启动Pig</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="软件概览">软件概览</h2>
-
+      <h2 id="软件概览">软件概览</h2>
 <table>
 <thead>
 <tr>
@@ -392,47 +382,34 @@ if (!doNotTrack) {
 <th>版本</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>JAVA</td>
 <td>1.8.0_65</td>
 </tr>
-
 <tr>
 <td>Hadoop</td>
 <td>2.6.4</td>
 </tr>
-
 <tr>
 <td>Pig</td>
 <td>0.15.0</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="依赖环境">依赖环境</h2>
-
 <p>安装Pig必须先安装配置好JAVA、Hadoop</p>
-
 <h2 id="环境变量配置">环境变量配置</h2>
-
 <p>编辑/etc/profile文件</p>
-
-<pre><code class="language-sh">#pig环境变量配置begin
-export PIG_HOME=/opt/pig
-export PATH=$PATH:${PIG_HOME}/bin
-export PIG_CLASSPATH=${HADOOP_CONF_DIR}
-#pig环境变量配置end
-</code></pre>
-
-<h2 id="启动pig">启动Pig</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#pig环境变量配置begin</span>
+export PIG_HOME<span style="color:#f92672">=</span>/opt/pig
+export PATH<span style="color:#f92672">=</span>$PATH:<span style="color:#e6db74">${</span>PIG_HOME<span style="color:#e6db74">}</span>/bin
+export PIG_CLASSPATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HADOOP_CONF_DIR<span style="color:#e6db74">}</span>
+<span style="color:#75715e">#pig环境变量配置end</span>
+</code></pre></div><h2 id="启动pig">启动Pig</h2>
 <p>注意：启动Pig前必须先启动Hadoop、historyserver</p>
-
-<pre><code class="language-sh">Pig
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Pig
+</code></pre></div>
     </div>
 
     
@@ -567,7 +544,7 @@ export PIG_CLASSPATH=${HADOOP_CONF_DIR}
     &copy;
     
       2017 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

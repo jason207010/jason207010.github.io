@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/maven%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/" />
@@ -63,21 +63,17 @@
 <meta property="og:description" content="继承与聚合 继承 可继承的 POM 元素 groupId：项目组ID，项目坐标的核心元素。 version：项目版本，项目坐标的核心元素。 descripti" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/maven%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/" />
-<meta property="article:published_time" content="2019-11-16T00:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-11-16T00:00:00&#43;08:00"/>
-
+<meta property="article:published_time" content="2019-11-16T00:00:00+08:00" />
+<meta property="article:modified_time" content="2019-11-16T00:00:00+08:00" />
 <meta itemprop="name" content="《Maven实战》笔记">
 <meta itemprop="description" content="继承与聚合 继承 可继承的 POM 元素 groupId：项目组ID，项目坐标的核心元素。 version：项目版本，项目坐标的核心元素。 descripti">
-
-
 <meta itemprop="datePublished" content="2019-11-16T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-16T00:00:00&#43;08:00" />
 <meta itemprop="wordCount" content="647">
 
 
 
-<meta itemprop="keywords" content="Maven,Reading," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Maven,Reading," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="《Maven实战》笔记"/>
 <meta name="twitter:description" content="继承与聚合 继承 可继承的 POM 元素 groupId：项目组ID，项目坐标的核心元素。 version：项目版本，项目坐标的核心元素。 descripti"/>
 
@@ -367,33 +363,22 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#继承与聚合">继承与聚合</a>
-<ul>
-<li><a href="#继承">继承</a>
-<ul>
-<li><a href="#可继承的-pom-元素">可继承的 POM 元素</a></li>
-<li><a href="#依赖管理">依赖管理</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#继承与聚合">继承与聚合</a>
+      <ul>
+        <li><a href="#继承">继承</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="继承与聚合">继承与聚合</h2>
-
+      <h2 id="继承与聚合">继承与聚合</h2>
 <h3 id="继承">继承</h3>
-
 <h4 id="可继承的-pom-元素">可继承的 POM 元素</h4>
-
 <ul>
 <li>groupId：项目组ID，项目坐标的核心元素。</li>
 <li>version：项目版本，项目坐标的核心元素。</li>
@@ -415,62 +400,58 @@ if (!doNotTrack) {
 <li>build：包括项目的源码目录配置、输出目录配置、插件配置、插件管理配置等。</li>
 <li>reporting：包括项目的报告输出目录配置、报告插件配置等。</li>
 </ul>
-
 <h4 id="依赖管理">依赖管理</h4>
-
 <blockquote>
 <p>Maven提供的dependencyManagement元素既能让子模块继承到父模块的依赖配置，又能保证子模块依赖使用的灵活性。在dependencyManagement元素下的依赖声明不会引入实际的依赖，不过它能够约束dependencies下的依赖使用。</p>
 </blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+  <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
 
-&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  <span style="color:#f92672">&lt;groupId&gt;</span>com.example<span style="color:#f92672">&lt;/groupId&gt;</span>
+  <span style="color:#f92672">&lt;artifactId&gt;</span>maven-demo<span style="color:#f92672">&lt;/artifactId&gt;</span>
+  <span style="color:#f92672">&lt;packaging&gt;</span>pom<span style="color:#f92672">&lt;/packaging&gt;</span>
+  <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;modules&gt;</span>
+	<span style="color:#f92672">&lt;module&gt;</span>module-one<span style="color:#f92672">&lt;/module&gt;</span>
+    <span style="color:#f92672">&lt;/modules&gt;</span>
 
-  &lt;groupId&gt;com.example&lt;/groupId&gt;
-  &lt;artifactId&gt;maven-demo&lt;/artifactId&gt;
-  &lt;packaging&gt;pom&lt;/packaging&gt;
-  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-    &lt;modules&gt;
-    &lt;module&gt;module-one&lt;/module&gt;
-    &lt;/modules&gt;
+    <span style="color:#f92672">&lt;name&gt;</span>maven-demo<span style="color:#f92672">&lt;/name&gt;</span>
 
-    &lt;name&gt;maven-demo&lt;/name&gt;
+  <span style="color:#f92672">&lt;properties&gt;</span>
+    <span style="color:#f92672">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#f92672">&lt;/project.build.sourceEncoding&gt;</span>
+    <span style="color:#f92672">&lt;junit.version&gt;</span>4.11<span style="color:#f92672">&lt;/junit.version&gt;</span>
+  <span style="color:#f92672">&lt;/properties&gt;</span>
 
-  &lt;properties&gt;
-    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-    &lt;junit.version&gt;4.11&lt;/junit.version&gt;
-  &lt;/properties&gt;
+  <span style="color:#f92672">&lt;dependencyManagement&gt;</span>
+    <span style="color:#f92672">&lt;dependencies&gt;</span>
+      <span style="color:#f92672">&lt;dependency&gt;</span>
+	<span style="color:#f92672">&lt;groupId&gt;</span>junit<span style="color:#f92672">&lt;/groupId&gt;</span>
+	<span style="color:#f92672">&lt;artifactId&gt;</span>junit<span style="color:#f92672">&lt;/artifactId&gt;</span>
+	<span style="color:#f92672">&lt;version&gt;</span>${junit.version}<span style="color:#f92672">&lt;/version&gt;</span>
+	<span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+      <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+  <span style="color:#f92672">&lt;/dependencyManagement&gt;</span>
 
-  &lt;dependencyManagement&gt;
-    &lt;dependencies&gt;
-      &lt;dependency&gt;
-    &lt;groupId&gt;junit&lt;/groupId&gt;
-    &lt;artifactId&gt;junit&lt;/artifactId&gt;
-    &lt;version&gt;${junit.version}&lt;/version&gt;
-    &lt;scope&gt;test&lt;/scope&gt;
-      &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-  &lt;/dependencyManagement&gt;
-
-  &lt;build&gt;
-    &lt;pluginManagement&gt;
-      &lt;plugins&gt;
-    &lt;plugin&gt;
-      &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
-      &lt;version&gt;3.8.0&lt;/version&gt;
-    &lt;/plugin&gt;
-    &lt;plugin&gt;
-      &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;
-      &lt;version&gt;3.0.2&lt;/version&gt;
-    &lt;/plugin&gt;
-      &lt;/plugins&gt;
-    &lt;/pluginManagement&gt;
-  &lt;/build&gt;
-&lt;/project&gt;
-</code></pre>
-
+  <span style="color:#f92672">&lt;build&gt;</span>
+    <span style="color:#f92672">&lt;pluginManagement&gt;</span>
+      <span style="color:#f92672">&lt;plugins&gt;</span>
+	<span style="color:#f92672">&lt;plugin&gt;</span>
+	  <span style="color:#f92672">&lt;artifactId&gt;</span>maven-compiler-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+	  <span style="color:#f92672">&lt;version&gt;</span>3.8.0<span style="color:#f92672">&lt;/version&gt;</span>
+	<span style="color:#f92672">&lt;/plugin&gt;</span>
+	<span style="color:#f92672">&lt;plugin&gt;</span>
+	  <span style="color:#f92672">&lt;artifactId&gt;</span>maven-jar-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+	  <span style="color:#f92672">&lt;version&gt;</span>3.0.2<span style="color:#f92672">&lt;/version&gt;</span>
+	<span style="color:#f92672">&lt;/plugin&gt;</span>
+      <span style="color:#f92672">&lt;/plugins&gt;</span>
+    <span style="color:#f92672">&lt;/pluginManagement&gt;</span>
+  <span style="color:#f92672">&lt;/build&gt;</span>
+<span style="color:#f92672">&lt;/project&gt;</span>
+</code></pre></div>
     </div>
 
     
@@ -606,7 +587,7 @@ if (!doNotTrack) {
     &copy;
     
       2017 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/java-jms-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" />
@@ -63,21 +63,17 @@
 <meta property="og:description" content="概念 Java消息服务（Java Message Service，JMS）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/java-jms-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" />
-<meta property="article:published_time" content="2017-08-16T00:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2017-08-16T00:00:00&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-08-16T00:00:00+08:00" />
+<meta property="article:modified_time" content="2017-08-16T00:00:00+08:00" />
 <meta itemprop="name" content="Java JMS 开发指南">
 <meta itemprop="description" content="概念 Java消息服务（Java Message Service，JMS）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用">
-
-
 <meta itemprop="datePublished" content="2017-08-16T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-08-16T00:00:00&#43;08:00" />
 <meta itemprop="wordCount" content="1418">
 
 
 
-<meta itemprop="keywords" content="Java,JMS," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Java,JMS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java JMS 开发指南"/>
 <meta name="twitter:description" content="概念 Java消息服务（Java Message Service，JMS）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用"/>
 
@@ -367,49 +363,34 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#概念">概念</a></li>
-<li><a href="#jms元素">JMS元素</a></li>
-<li><a href="#jms模型">JMS模型</a>
-<ul>
-<li><a href="#点对点或队列模型">点对点或队列模型</a></li>
-<li><a href="#发布-订阅模型">发布/订阅模型</a></li>
-</ul></li>
-<li><a href="#实例">实例</a>
-<ul>
-<li><a href="#队列模式">队列模式</a>
-<ul>
-<li><a href="#服务端">服务端</a></li>
-<li><a href="#客户端">客户端</a></li>
-</ul></li>
-<li><a href="#发布-订阅模式">发布/订阅模式</a>
-<ul>
-<li><a href="#服务端-1">服务端</a></li>
-<li><a href="#客户端-1">客户端</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#概念">概念</a></li>
+    <li><a href="#jms元素">JMS元素</a></li>
+    <li><a href="#jms模型">JMS模型</a>
+      <ul>
+        <li><a href="#点对点或队列模型">点对点或队列模型</a></li>
+        <li><a href="#发布-订阅模型">发布/订阅模型</a></li>
+      </ul>
+    </li>
+    <li><a href="#实例">实例</a>
+      <ul>
+        <li><a href="#队列模式">队列模式</a></li>
+        <li><a href="#发布-订阅模式">发布/订阅模式</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="概念">概念</h2>
-
+      <h2 id="概念">概念</h2>
 <blockquote>
 <p>Java消息服务（Java Message Service，JMS）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。</p>
 </blockquote>
-
 <h2 id="jms元素">JMS元素</h2>
-
 <p>JMS由以下元素组成。</p>
-
 <ul>
 <li><strong>JMS提供者</strong> 连接面向消息中间件的，JMS接口的一个实现。提供者可以是Java平台的JMS实现，也可以是非Java平台的面向消息中间件的适配器。</li>
 <li><strong>JMS客户</strong> 生产或消费消息的基于Java的应用程序或对象。</li>
@@ -419,36 +400,24 @@ if (!doNotTrack) {
 <li><strong>JMS队列</strong> 一个容纳那些被发送的等待阅读的消息的区域。队列暗示，这些消息将按照顺序发送。一旦一个消息被阅读，该消息将被从队列中移走。</li>
 <li><strong>JMS主题</strong> 一种支持发送消息给多个订阅者的机制。</li>
 </ul>
-
 <h2 id="jms模型">JMS模型</h2>
-
 <p>Java消息服务应用程序结构支持两种模型：</p>
-
 <h3 id="点对点或队列模型">点对点或队列模型</h3>
-
 <p>在点对点或队列模型下，一个生产者向一个特定的队列发布消息，一个消费者从该队列中读取消息。这里，生产者知道消费者的队列，并直接将消息发送到消费者的队列。这种模式被概括为：</p>
-
 <ul>
 <li>只有一个消费者将获得消息</li>
 <li>生产者不需要在接收者消费该消息期间处于运行状态，接收者也同样不需要在消息发送时处于运行状态。</li>
 <li>每一个成功处理的消息都由接收者签收</li>
 </ul>
-
 <h3 id="发布-订阅模型">发布/订阅模型</h3>
-
 <p>发布者／订阅者模型支持向一个特定的消息主题发布消息。0或多个订阅者可能对接收来自特定消息主题的消息感兴趣。在这种模型下，发布者和订阅者彼此不知道对方。这种模式好比是匿名公告板。这种模式被概括为：</p>
-
 <ul>
 <li>多个消费者可以获得消息</li>
 <li>在发布者和订阅者之间存在时间依赖性。发布者需要建立一个订阅（subscription），以便客户能够购订阅。订阅者必须保持持续的活动状态以接收消息，除非订阅者建立了持久的订阅。在那种情况下，在订阅者未连接时发布的消息将在订阅者重新连接时重新发布。</li>
 </ul>
-
 <h2 id="实例">实例</h2>
-
 <h3 id="队列模式">队列模式</h3>
-
 <h4 id="服务端">服务端</h4>
-
 <ol>
 <li>创建连接工厂</li>
 <li>从连接工厂创建连接</li>
@@ -457,48 +426,43 @@ if (!doNotTrack) {
 <li>从会话创建生产者，并传入队列</li>
 <li>由生产者发送消息</li>
 </ol>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Server</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
 
-<!--listend-->
-
-<pre><code class="language-java">public class Server {
-    public static void main(String args[]) {
-
-    Connection connection = null;
-    Session session = null;
-    try {
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(&quot;tcp://127.0.0.1:61616&quot;);
-        connection = connectionFactory.createConnection();
-        connection.start();
-        session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-        Queue queue = session.createQueue(&quot;MyQueue&quot;);
-        MessageProducer producer = session.createProducer(queue);
-        TextMessage message = session.createTextMessage();
-        message.setText(&quot;Hello World!&quot;);
-        producer.send(message);
-    } catch (JMSException e) {
-        e.printStackTrace();
-    } finally {
-        if(session != null) {
-        try {
-            session.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-        if(connection != null) {
-        try {
-            connection.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-    }
-    }
-}
-</code></pre>
-
-<h4 id="客户端">客户端</h4>
-
+	Connection connection <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+	Session session <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+	    ActiveMQConnectionFactory connectionFactory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ActiveMQConnectionFactory<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tcp://127.0.0.1:61616&#34;</span><span style="color:#f92672">);</span>
+	    connection <span style="color:#f92672">=</span> connectionFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">createConnection</span><span style="color:#f92672">();</span>
+	    connection<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+	    session <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span><span style="color:#a6e22e">createSession</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> Session<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTO_ACKNOWLEDGE</span><span style="color:#f92672">);</span>
+	    Queue queue <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">createQueue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyQueue&#34;</span><span style="color:#f92672">);</span>
+	    MessageProducer producer <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">createProducer</span><span style="color:#f92672">(</span>queue<span style="color:#f92672">);</span>
+	    TextMessage message <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">createTextMessage</span><span style="color:#f92672">();</span>
+	    message<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World!&#34;</span><span style="color:#f92672">);</span>
+	    producer<span style="color:#f92672">.</span><span style="color:#a6e22e">send</span><span style="color:#f92672">(</span>message<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+	    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>session <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+		    session<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	    <span style="color:#f92672">}</span>
+	    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>connection <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+		    connection<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	    <span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="客户端">客户端</h4>
 <ol>
 <li>创建连接工厂</li>
 <li>从连接工厂创建连接</li>
@@ -507,49 +471,43 @@ if (!doNotTrack) {
 <li>从会话创建消费者，并传入队列</li>
 <li>由消费者接收消息</li>
 </ol>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Client</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
 
-<!--listend-->
-
-<pre><code class="language-java">public class Client {
-    public static void main(String args[]) {
-
-    Connection connection = null;
-    Session session = null;
-    try {
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(&quot;tcp://127.0.0.1:61616&quot;);
-        connection = connectionFactory.createConnection();
-        connection.start();
-        session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-        Queue queue = session.createQueue(&quot;MyQueue&quot;);
-        MessageConsumer consumer = session.createConsumer(queue);
-        Message message = consumer.receive();
-        System.out.println(message.toString());
-    } catch (JMSException e) {
-        e.printStackTrace();
-    } finally {
-        if(session != null) {
-        try {
-            session.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-        if(connection != null) {
-        try {
-            connection.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-    }
-    }
-}
-</code></pre>
-
-<h3 id="发布-订阅模式">发布/订阅模式</h3>
-
-<h4 id="服务端-1">服务端</h4>
-
+	Connection connection <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+	Session session <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+	    ActiveMQConnectionFactory connectionFactory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ActiveMQConnectionFactory<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tcp://127.0.0.1:61616&#34;</span><span style="color:#f92672">);</span>
+	    connection <span style="color:#f92672">=</span> connectionFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">createConnection</span><span style="color:#f92672">();</span>
+	    connection<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+	    session <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span><span style="color:#a6e22e">createSession</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> Session<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTO_ACKNOWLEDGE</span><span style="color:#f92672">);</span>
+	    Queue queue <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">createQueue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyQueue&#34;</span><span style="color:#f92672">);</span>
+	    MessageConsumer consumer <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">createConsumer</span><span style="color:#f92672">(</span>queue<span style="color:#f92672">);</span>
+	    Message message <span style="color:#f92672">=</span> consumer<span style="color:#f92672">.</span><span style="color:#a6e22e">receive</span><span style="color:#f92672">();</span>
+	    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>message<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+	    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>session <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+		    session<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	    <span style="color:#f92672">}</span>
+	    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>connection <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+		    connection<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	    <span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="发布-订阅模式">发布/订阅模式</h3>
+<h4 id="服务端">服务端</h4>
 <ol>
 <li>创建连接工厂</li>
 <li>从连接工厂创建连接</li>
@@ -558,49 +516,44 @@ if (!doNotTrack) {
 <li>从会话创建发布者，并传入主题</li>
 <li>由发布者发送消息</li>
 </ol>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Server</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+	TopicConnection connection <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+	TopicSession session <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+	    ActiveMQConnectionFactory connectionFactory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ActiveMQConnectionFactory<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tcp://127.0.0.1:61616&#34;</span><span style="color:#f92672">);</span>
+	    connection <span style="color:#f92672">=</span> connectionFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">createTopicConnection</span><span style="color:#f92672">();</span>
+	    connection<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+	    session <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span><span style="color:#a6e22e">createTopicSession</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> Session<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTO_ACKNOWLEDGE</span><span style="color:#f92672">);</span>
+	    Topic topic <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">createTopic</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyTopic&#34;</span><span style="color:#f92672">);</span>
+	    TopicPublisher publisher <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">createPublisher</span><span style="color:#f92672">(</span>topic<span style="color:#f92672">);</span>
+	    TextMessage message <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">createTextMessage</span><span style="color:#f92672">();</span>
+	    message<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World!&#34;</span><span style="color:#f92672">);</span>
+	    publisher<span style="color:#f92672">.</span><span style="color:#a6e22e">send</span><span style="color:#f92672">(</span>message<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+	    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>session <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+		    session<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	    <span style="color:#f92672">}</span>
+	    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>connection <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+		    connection<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	    <span style="color:#f92672">}</span>
 
-<!--listend-->
+	<span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-<pre><code class="language-java">public class Server {
-    public static void main(String args[]) {
-    TopicConnection connection = null;
-    TopicSession session = null;
-    try {
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(&quot;tcp://127.0.0.1:61616&quot;);
-        connection = connectionFactory.createTopicConnection();
-        connection.start();
-        session = connection.createTopicSession(false, Session.AUTO_ACKNOWLEDGE);
-        Topic topic = session.createTopic(&quot;MyTopic&quot;);
-        TopicPublisher publisher = session.createPublisher(topic);
-        TextMessage message = session.createTextMessage();
-        message.setText(&quot;Hello World!&quot;);
-        publisher.send(message);
-    } catch (JMSException e) {
-        e.printStackTrace();
-    } finally {
-        if(session != null) {
-        try {
-            session.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-        if(connection != null) {
-        try {
-            connection.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-
-    }
-    }
-}
-
-</code></pre>
-
-<h4 id="客户端-1">客户端</h4>
-
+</code></pre></div><h4 id="客户端">客户端</h4>
 <ol>
 <li>创建连接工厂</li>
 <li>从连接工厂创建连接</li>
@@ -609,44 +562,41 @@ if (!doNotTrack) {
 <li>从会话创建订阅者，并传入主题</li>
 <li>由订阅者接收消息</li>
 </ol>
-
-<!--listend-->
-
-<pre><code class="language-java">public class Client {
-    public static void main(String args[]) {
-    TopicConnection connection = null;
-    TopicSession session = null;
-    try {
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(&quot;tcp://127.0.0.1:61616&quot;);
-        connection = connectionFactory.createTopicConnection();
-        connection.start();
-        session = connection.createTopicSession(false, Session.AUTO_ACKNOWLEDGE);
-        Topic topic = session.createTopic(&quot;MyTopic&quot;);
-        TopicSubscriber subscriber = session.createSubscriber(topic);
-        Message message = subscriber.receive();
-        System.out.println(message.toString());
-    } catch (JMSException e) {
-        e.printStackTrace();
-    } finally {
-        if(session != null) {
-        try {
-            session.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-        if(connection != null) {
-        try {
-            connection.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-        }
-    }
-    }
-}
-</code></pre>
-
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Client</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+	TopicConnection connection <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+	TopicSession session <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+	    ActiveMQConnectionFactory connectionFactory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ActiveMQConnectionFactory<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tcp://127.0.0.1:61616&#34;</span><span style="color:#f92672">);</span>
+	    connection <span style="color:#f92672">=</span> connectionFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">createTopicConnection</span><span style="color:#f92672">();</span>
+	    connection<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+	    session <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span><span style="color:#a6e22e">createTopicSession</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> Session<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTO_ACKNOWLEDGE</span><span style="color:#f92672">);</span>
+	    Topic topic <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">createTopic</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyTopic&#34;</span><span style="color:#f92672">);</span>
+	    TopicSubscriber subscriber <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">createSubscriber</span><span style="color:#f92672">(</span>topic<span style="color:#f92672">);</span>
+	    Message message <span style="color:#f92672">=</span> subscriber<span style="color:#f92672">.</span><span style="color:#a6e22e">receive</span><span style="color:#f92672">();</span>
+	    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>message<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+	    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>session <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+		    session<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	    <span style="color:#f92672">}</span>
+	    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>connection <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+		    connection<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JMSException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	    <span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
     </div>
 
     
@@ -782,7 +732,7 @@ if (!doNotTrack) {
     &copy;
     
       2017 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

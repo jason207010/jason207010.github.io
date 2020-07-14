@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Jason Chan" />
-  <meta name="description" content="设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &#39;网址的CRC32&#39;, `url` LONGTEXT COMMENT &#39;网址&#39;, `vice_url` LONGTEXT COMMENT &#39;AJAX请求网址&#39;, `title` LONGTEXT COMMENT &#39;标题&#39;, `content` LONGTEXT COMMENT &#39;网页文字内容&#39;" />
+  <meta name="description" content="设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &amp;#39;网址的CRC32&amp;#39;, `url` LONGTEXT COMMENT &amp;#39;网址&amp;#39;, `vice_url` LONGTEXT COMMENT &amp;#39;AJAX请求网址&amp;" />
 
   <meta name="keywords" content="Jason, Blog, Java" />
 
@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/jpa-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" />
@@ -60,26 +60,22 @@
 
 
 <meta property="og:title" content="JPA 开发指南" />
-<meta property="og:description" content="设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &#39;网址的CRC32&#39;, `url` LONGTEXT COMMENT &#39;网址&#39;, `vice_url` LONGTEXT COMMENT &#39;AJAX请求网址&#39;, `title` LONGTEXT COMMENT &#39;标题&#39;, `content` LONGTEXT COMMENT &#39;网页文字内容&#39;" />
+<meta property="og:description" content="设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &#39;网址的CRC32&#39;, `url` LONGTEXT COMMENT &#39;网址&#39;, `vice_url` LONGTEXT COMMENT &#39;AJAX请求网址&" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/jpa-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" />
-<meta property="article:published_time" content="2017-07-12T00:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2017-07-12T00:00:00&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-07-12T00:00:00+08:00" />
+<meta property="article:modified_time" content="2017-07-12T00:00:00+08:00" />
 <meta itemprop="name" content="JPA 开发指南">
-<meta itemprop="description" content="设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &#39;网址的CRC32&#39;, `url` LONGTEXT COMMENT &#39;网址&#39;, `vice_url` LONGTEXT COMMENT &#39;AJAX请求网址&#39;, `title` LONGTEXT COMMENT &#39;标题&#39;, `content` LONGTEXT COMMENT &#39;网页文字内容&#39;">
-
-
+<meta itemprop="description" content="设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &#39;网址的CRC32&#39;, `url` LONGTEXT COMMENT &#39;网址&#39;, `vice_url` LONGTEXT COMMENT &#39;AJAX请求网址&">
 <meta itemprop="datePublished" content="2017-07-12T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-07-12T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="786">
+<meta itemprop="wordCount" content="930">
 
 
 
-<meta itemprop="keywords" content="Java,JPA," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Java,JPA," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JPA 开发指南"/>
-<meta name="twitter:description" content="设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &#39;网址的CRC32&#39;, `url` LONGTEXT COMMENT &#39;网址&#39;, `vice_url` LONGTEXT COMMENT &#39;AJAX请求网址&#39;, `title` LONGTEXT COMMENT &#39;标题&#39;, `content` LONGTEXT COMMENT &#39;网页文字内容&#39;"/>
+<meta name="twitter:description" content="设计数据库表 CREATE TABLE IF NOT EXISTS `webpage`( `id` BIGINT AUTO_INCREMENT, `crc` BIGINT COMMENT &#39;网址的CRC32&#39;, `url` LONGTEXT COMMENT &#39;网址&#39;, `vice_url` LONGTEXT COMMENT &#39;AJAX请求网址&"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -350,7 +346,7 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/jpa/"> JPA </a>
             
           </div>
-        <span class="more-meta"> 约 786 字 </span>
+        <span class="more-meta"> 约 930 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -367,312 +363,293 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#设计数据库表">设计数据库表</a></li>
-<li><a href="#编写persistence-dot-xml">编写persistence.xml</a></li>
-<li><a href="#编写实体类">编写实体类</a></li>
-<li><a href="#编写webpagedao">编写WebPageDao</a></li>
-<li><a href="#编写applicationcontext-dot-xml">编写applicationContext.xml</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#设计数据库表">设计数据库表</a></li>
+    <li><a href="#编写persistence-dot-xml">编写persistence.xml</a></li>
+    <li><a href="#编写实体类">编写实体类</a></li>
+    <li><a href="#编写webpagedao">编写WebPageDao</a></li>
+    <li><a href="#编写applicationcontext-dot-xml">编写applicationContext.xml</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="设计数据库表">设计数据库表</h2>
-
-<pre><code class="language-sql">CREATE TABLE IF NOT EXISTS `webpage`(
-`id` BIGINT AUTO_INCREMENT,
-`crc` BIGINT COMMENT '网址的CRC32',
-`url` LONGTEXT COMMENT '网址',
-`vice_url` LONGTEXT COMMENT 'AJAX请求网址',
-`title` LONGTEXT COMMENT '标题',
-`content` LONGTEXT COMMENT '网页文字内容',
-`html` LONGTEXT COMMENT '网页HTML',
-`status_code` INT COMMENT '主机返回状态',
-`content_type` VARCHAR(256) COMMENT '类型',
-`headers` TEXT COMMENT '头信息',
-`md5` VARCHAR(512) COMMENT '整个网页的md5',
-
-article_title LONGTEXT COMMENT '文章标题',
-article_body LONGTEXT COMMENT '文章正文',
-category LONGTEXT COMMENT '文章分类',
-tag LONGTEXT COMMENT '文章标签',
-release_time TIMESTAMP COMMENT '文章发布时间',
-author VARCHAR(64) COMMENT '作者',
-
-crawle_time TIMESTAMP COMMENT '爬取时间',
-CONSTRAINT pk_webpage_id PRIMARY KEY(`id`),
-INDEX index_url_crc(`crc`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT '网页数据表';
-</code></pre>
-
-<h2 id="编写persistence-dot-xml">编写persistence.xml</h2>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;persistence xmlns=&quot;http://java.sun.com/xml/ns/persistence&quot; version=&quot;2.0&quot;&gt;
-    &lt;persistence-unit name=&quot;prometheus&quot; transaction-type=&quot;RESOURCE_LOCAL&quot;&gt;
-    &lt;provider&gt;org.hibernate.ejb.HibernatePersistence&lt;/provider&gt;
-    &lt;properties&gt;
-        &lt;property name=&quot;hibernate.dialect&quot; value=&quot;org.hibernate.dialect.MySQLDialect&quot;/&gt;
-        &lt;property name=&quot;hibernate.show_sql&quot; value=&quot;false&quot;/&gt;
-        &lt;property name=&quot;hibernate.format_sql&quot; value=&quot;false&quot;/&gt;
-        &lt;property name=&quot;hibernate.c3p0.min_size&quot; value=&quot;5&quot;/&gt;
-        &lt;property name=&quot;hibernate.c3p0.max_size&quot; value=&quot;100&quot;/&gt;
-        &lt;property name=&quot;hibernate.connection.driver_class&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
-        &lt;property name=&quot;hibernate.connection.username&quot; value=&quot;root&quot;/&gt;
-        &lt;property name=&quot;hibernate.connection.password&quot; value=&quot;root&quot;/&gt;
-        &lt;property name=&quot;hibernate.connection.url&quot; value=&quot;jdbc:mysql://127.0.0.1:3306/prometheus?useUnicode=true&amp;amp;characterEncoding=UTF-8&quot;/&gt;
-    &lt;/properties&gt;
-    &lt;/persistence-unit&gt;
-&lt;/persistence&gt;
-</code></pre>
-
-<h2 id="编写实体类">编写实体类</h2>
-
-<pre><code class="language-java">@Entity(name = &quot;WebPageEntity&quot;)
-@Table(name = &quot;webpage&quot;)
-public class WebPageEntity {
-
-    @Id
-    @Column(name = &quot;id&quot;)
-    @GeneratedValue
-    private long id;
-
-    @Column(name = &quot;crc&quot;)
-    private long crc;
-
-    @Column(name = &quot;url&quot;)
-    private String url;
-
-    @Column(name = &quot;vice_url&quot;)
-    private String viceUrl;
-
-    @Column(name = &quot;title&quot;)
-    private String title;
-
-    @Column(name = &quot;content&quot;)
-    private String content;
-
-    @Column(name = &quot;html&quot;)
-    private String html;
-
-    @Column(name = &quot;status_code&quot;)
-    private int statusCode;
-
-    @Column(name = &quot;content_type&quot;)
-    private String contentType;
-
-    @Column(name = &quot;headers&quot;)
-    private String headers;
-
-    @Column(name = &quot;md5&quot;)
-    private String md5;
-
-    @Column(name = &quot;article_title&quot;)
-    private String articleTitle;
-
-    @Column(name = &quot;article_body&quot;)
-    private String articleBody;
-
-    @Column(name = &quot;category&quot;)
-    private String category;
-
-    @Column(name = &quot;tag&quot;)
-    private String tag;
+      <h2 id="设计数据库表">设计数据库表</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span>webpage<span style="color:#f92672">`</span>(
+<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> BIGINT AUTO_INCREMENT,
+<span style="color:#f92672">`</span>crc<span style="color:#f92672">`</span> BIGINT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;网址的CRC32&#39;</span>,
+<span style="color:#f92672">`</span>url<span style="color:#f92672">`</span> LONGTEXT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;网址&#39;</span>,
+<span style="color:#f92672">`</span>vice_url<span style="color:#f92672">`</span> LONGTEXT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;AJAX请求网址&#39;</span>,
+<span style="color:#f92672">`</span>title<span style="color:#f92672">`</span> LONGTEXT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;标题&#39;</span>,
+<span style="color:#f92672">`</span>content<span style="color:#f92672">`</span> LONGTEXT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;网页文字内容&#39;</span>,
+<span style="color:#f92672">`</span>html<span style="color:#f92672">`</span> LONGTEXT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;网页HTML&#39;</span>,
+<span style="color:#f92672">`</span>status_code<span style="color:#f92672">`</span> INT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;主机返回状态&#39;</span>,
+<span style="color:#f92672">`</span>content_type<span style="color:#f92672">`</span> VARCHAR(<span style="color:#ae81ff">256</span>) <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;类型&#39;</span>,
+<span style="color:#f92672">`</span>headers<span style="color:#f92672">`</span> TEXT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;头信息&#39;</span>,
+<span style="color:#f92672">`</span>md5<span style="color:#f92672">`</span> VARCHAR(<span style="color:#ae81ff">512</span>) <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;整个网页的md5&#39;</span>,
+
+article_title LONGTEXT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;文章标题&#39;</span>,
+article_body LONGTEXT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;文章正文&#39;</span>,
+category LONGTEXT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;文章分类&#39;</span>,
+tag LONGTEXT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;文章标签&#39;</span>,
+release_time <span style="color:#66d9ef">TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;文章发布时间&#39;</span>,
+author VARCHAR(<span style="color:#ae81ff">64</span>) <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;作者&#39;</span>,
+
+crawle_time <span style="color:#66d9ef">TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;爬取时间&#39;</span>,
+<span style="color:#66d9ef">CONSTRAINT</span> pk_webpage_id <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+<span style="color:#66d9ef">INDEX</span> index_url_crc(<span style="color:#f92672">`</span>crc<span style="color:#f92672">`</span>)
+) ENGINE<span style="color:#f92672">=</span>INNODB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;网页数据表&#39;</span>;
+</code></pre></div><h2 id="编写persistence-dot-xml">编写persistence.xml</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;persistence</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://java.sun.com/xml/ns/persistence&#34;</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;2.0&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;persistence-unit</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;prometheus&#34;</span> <span style="color:#a6e22e">transaction-type=</span><span style="color:#e6db74">&#34;RESOURCE_LOCAL&#34;</span><span style="color:#f92672">&gt;</span>
+	<span style="color:#f92672">&lt;provider&gt;</span>org.hibernate.ejb.HibernatePersistence<span style="color:#f92672">&lt;/provider&gt;</span>
+	<span style="color:#f92672">&lt;properties&gt;</span>
+	    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.dialect&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;org.hibernate.dialect.MySQLDialect&#34;</span><span style="color:#f92672">/&gt;</span>
+	    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.show_sql&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">/&gt;</span>
+	    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.format_sql&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">/&gt;</span>
+	    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.c3p0.min_size&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;5&#34;</span><span style="color:#f92672">/&gt;</span>
+	    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.c3p0.max_size&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;100&#34;</span><span style="color:#f92672">/&gt;</span>
+	    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.connection.driver_class&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span><span style="color:#f92672">/&gt;</span>
+	    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.connection.username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">/&gt;</span>
+	    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.connection.password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">/&gt;</span>
+	    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.connection.url&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:mysql://127.0.0.1:3306/prometheus?useUnicode=true&amp;amp;characterEncoding=UTF-8&#34;</span><span style="color:#f92672">/&gt;</span>
+	<span style="color:#f92672">&lt;/properties&gt;</span>
+    <span style="color:#f92672">&lt;/persistence-unit&gt;</span>
+<span style="color:#f92672">&lt;/persistence&gt;</span>
+</code></pre></div><h2 id="编写实体类">编写实体类</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;WebPageEntity&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Table</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;webpage&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WebPageEntity</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Id</span>
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@GeneratedValue</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> id<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;crc&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> crc<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;url&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String url<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vice_url&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String viceUrl<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;title&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String title<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;content&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String content<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;html&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String html<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;status_code&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> statusCode<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;content_type&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String contentType<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;headers&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String headers<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;md5&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String md5<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;article_title&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String articleTitle<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;article_body&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String articleBody<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;category&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String category<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tag&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String tag<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;release_time&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> Timestamp releaseTime<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;author&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String author<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;crawle_time&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> Timestamp crawleTime<span style="color:#f92672">;</span>
 
-    @Column(name = &quot;release_time&quot;)
-    private Timestamp releaseTime;
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getId</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> id<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    @Column(name = &quot;author&quot;)
-    private String author;
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    @Column(name = &quot;crawle_time&quot;)
-    private Timestamp crawleTime;
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getCrc</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> crc<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public long getId() {
-    return id;
-    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setCrc</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> crc<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">crc</span> <span style="color:#f92672">=</span> crc<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public void setId(long id) {
-    this.id = id;
-    }
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getUrl</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> url<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public long getCrc() {
-    return crc;
-    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUrl</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> url<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public void setCrc(long crc) {
-    this.crc = crc;
-    }
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getViceUrl</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> viceUrl<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public String getUrl() {
-    return url;
-    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setViceUrl</span><span style="color:#f92672">(</span>String viceUrl<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">viceUrl</span> <span style="color:#f92672">=</span> viceUrl<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public void setUrl(String url) {
-    this.url = url;
-    }
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getTitle</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> title<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public String getViceUrl() {
-    return viceUrl;
-    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setTitle</span><span style="color:#f92672">(</span>String title<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public void setViceUrl(String viceUrl) {
-    this.viceUrl = viceUrl;
-    }
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getContent</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> content<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public String getTitle() {
-    return title;
-    }
-
-    public void setTitle(String title) {
-    this.title = title;
-    }
-
-    public String getContent() {
-    return content;
-    }
-
-    public void setContent(String content) {
-    this.content = content;
-    }
-
-    public String getHtml() {
-    return html;
-    }
-
-    public void setHtml(String html) {
-    this.html = html;
-    }
-
-    public int getStatusCode() {
-    return statusCode;
-    }
-
-    public void setStatusCode(int statusCode) {
-    this.statusCode = statusCode;
-    }
-
-    public String getContentType() {
-    return contentType;
-    }
-
-    public void setContentType(String contentType) {
-    this.contentType = contentType;
-    }
-
-    public String getHeaders() {
-    return headers;
-    }
-
-    public void setHeaders(String headers) {
-    this.headers = headers;
-    }
-
-    public String getArticleTitle() {
-    return articleTitle;
-    }
-
-    public void setArticleTitle(String articleTitle) {
-    this.articleTitle = articleTitle;
-    }
-
-    public String getArticleBody() {
-    return articleBody;
-    }
-
-    public void setArticleBody(String articleBody) {
-    this.articleBody = articleBody;
-    }
-
-    public String getCategory() {
-    return category;
-    }
-
-    public void setCategory(String category) {
-    this.category = category;
-    }
-
-    public String getTag() {
-    return tag;
-    }
-
-    public void setTag(String tag) {
-    this.tag = tag;
-    }
-
-    public Timestamp getReleaseTime() {
-    return releaseTime;
-    }
-
-    public void setReleaseTime(Timestamp releaseTime) {
-    this.releaseTime = releaseTime;
-    }
-
-    public String getAuthor() {
-    return author;
-    }
-
-    public void setAuthor(String author) {
-    this.author = author;
-    }
-
-    public Timestamp getCrawleTime() {
-    return crawleTime;
-    }
-
-    public void setCrawleTime(Timestamp crawleTime) {
-    this.crawleTime = crawleTime;
-    }
-
-    public String getMd5() {
-    return md5;
-    }
-
-    public void setMd5(String md5) {
-    this.md5 = md5;
-    }
-}
-</code></pre>
-
-<h2 id="编写webpagedao">编写WebPageDao</h2>
-
-<pre><code class="language-java">public interface WebPageDao extends JpaRepository&lt;WebPageEntity, Long&gt; {
-    @Query(&quot;select w from WebPageEntity w where w.crc=?1 and w.url=?2 and w.viceUrl=?3&quot;)
-    public WebPageEntity get(long crc , String url , String viceUrl);
-}
-</code></pre>
-
-<h2 id="编写applicationcontext-dot-xml">编写applicationContext.xml</h2>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-       xmlns:jpa=&quot;http://www.springframework.org/schema/data/jpa&quot;
-       xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
-       xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
-      http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
-      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd&quot;&gt;
-
-    &lt;jpa:repositories base-package=&quot;com.web.dao&quot;/&gt;
-    &lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;
-
-    &lt;bean id=&quot;entityManagerFactory&quot; class=&quot;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&quot;&gt;
-    &lt;property name=&quot;persistenceUnitName&quot; value=&quot;prometheus&quot;/&gt;
-    &lt;/bean&gt;
-    &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.jpa.JpaTransactionManager&quot;&gt;
-    &lt;property name=&quot;entityManagerFactory&quot; ref=&quot;entityManagerFactory&quot;/&gt;
-    &lt;/bean&gt;
-&lt;/beans&gt;
-</code></pre>
-
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setContent</span><span style="color:#f92672">(</span>String content<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> content<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getHtml</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> html<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setHtml</span><span style="color:#f92672">(</span>String html<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">html</span> <span style="color:#f92672">=</span> html<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getStatusCode</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> statusCode<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setStatusCode</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> statusCode<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">statusCode</span> <span style="color:#f92672">=</span> statusCode<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getContentType</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> contentType<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setContentType</span><span style="color:#f92672">(</span>String contentType<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span> <span style="color:#f92672">=</span> contentType<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getHeaders</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> headers<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setHeaders</span><span style="color:#f92672">(</span>String headers<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span> <span style="color:#f92672">=</span> headers<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getArticleTitle</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> articleTitle<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setArticleTitle</span><span style="color:#f92672">(</span>String articleTitle<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">articleTitle</span> <span style="color:#f92672">=</span> articleTitle<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getArticleBody</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> articleBody<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setArticleBody</span><span style="color:#f92672">(</span>String articleBody<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">articleBody</span> <span style="color:#f92672">=</span> articleBody<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getCategory</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> category<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setCategory</span><span style="color:#f92672">(</span>String category<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">category</span> <span style="color:#f92672">=</span> category<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getTag</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> tag<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setTag</span><span style="color:#f92672">(</span>String tag<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">tag</span> <span style="color:#f92672">=</span> tag<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> Timestamp <span style="color:#a6e22e">getReleaseTime</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> releaseTime<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setReleaseTime</span><span style="color:#f92672">(</span>Timestamp releaseTime<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">releaseTime</span> <span style="color:#f92672">=</span> releaseTime<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getAuthor</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> author<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setAuthor</span><span style="color:#f92672">(</span>String author<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> author<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> Timestamp <span style="color:#a6e22e">getCrawleTime</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> crawleTime<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setCrawleTime</span><span style="color:#f92672">(</span>Timestamp crawleTime<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">crawleTime</span> <span style="color:#f92672">=</span> crawleTime<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getMd5</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> md5<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setMd5</span><span style="color:#f92672">(</span>String md5<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">md5</span> <span style="color:#f92672">=</span> md5<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="编写webpagedao">编写WebPageDao</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">WebPageDao</span> <span style="color:#66d9ef">extends</span> JpaRepository<span style="color:#f92672">&lt;</span>WebPageEntity<span style="color:#f92672">,</span> Long<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Query</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;select w from WebPageEntity w where w.crc=?1 and w.url=?2 and w.viceUrl=?3&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> WebPageEntity <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> crc <span style="color:#f92672">,</span> String url <span style="color:#f92672">,</span> String viceUrl<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="编写applicationcontext-dot-xml">编写applicationContext.xml</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span style="color:#a6e22e">xmlns:jpa=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/data/jpa&#34;</span>
+       <span style="color:#a6e22e">xmlns:tx=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/tx&#34;</span>
+       <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+</span><span style="color:#e6db74">      http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+</span><span style="color:#e6db74">      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;jpa:repositories</span> <span style="color:#a6e22e">base-package=</span><span style="color:#e6db74">&#34;com.web.dao&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;tx:annotation-driven</span> <span style="color:#a6e22e">transaction-manager=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span><span style="color:#f92672">/&gt;</span>
+
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;entityManagerFactory&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&#34;</span><span style="color:#f92672">&gt;</span>
+	<span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;persistenceUnitName&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;prometheus&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.orm.jpa.JpaTransactionManager&#34;</span><span style="color:#f92672">&gt;</span>
+	<span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;entityManagerFactory&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;entityManagerFactory&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+<span style="color:#f92672">&lt;/beans&gt;</span>
+</code></pre></div>
     </div>
 
     
@@ -808,7 +785,7 @@ public class WebPageEntity {
     &copy;
     
       2017 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

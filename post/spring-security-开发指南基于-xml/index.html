@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Jason Chan" />
-  <meta name="description" content="配置web.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;web-app version=&amp;quot;3.0&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/javaee&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&amp;quot;&amp;gt; &amp;lt;!--spring mvc begin--&amp;gt; &amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt;spring&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;org.springframework.web.servlet.DispatcherServlet&amp;lt;/servlet-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt; &amp;lt;!--spring mvc的配置需要单独配置--&amp;gt; &amp;lt;param-value&amp;gt;classpath:spring-mvc.xml&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt; &amp;lt;/servlet&amp;gt; &amp;lt;servlet-mapping&amp;gt; &amp;lt;servlet-name&amp;gt;spring&amp;lt;/servlet-name&amp;gt; &amp;lt;url-pattern&amp;gt;*.do&amp;lt;/url-pattern&amp;gt; &amp;lt;/servlet-mapping&amp;gt; &amp;lt;!--spring mvc end--&amp;gt; &amp;lt;!--encoding begin--&amp;gt; &amp;lt;!--编码过滤器" />
+  <meta name="description" content="配置web.xml &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;web-app version=&amp;#34;3.0&amp;#34; xmlns=&amp;#34;http://java.sun.com/xml/ns/javaee&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&amp;#34;&amp;gt; &amp;lt;!--spring mvc begin--&amp;gt; &amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt;spring&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;org.springframework.web.servlet.DispatcherServlet&amp;lt;/servlet-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt; &amp;lt;!--spring mvc的配置需要单独配置--&amp;gt; &amp;lt;param-value&amp;gt;classpath:spring-mvc.xml&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt; &amp;lt;/servlet&amp;gt; &amp;lt;servlet-mapping&amp;gt; &amp;lt;servlet-name&amp;gt;spring&amp;lt;/servlet-name&amp;gt; &amp;lt;url-pattern&amp;gt;*.do&amp;lt;/url-pattern&amp;gt; &amp;lt;/servlet-mapping&amp;gt; &amp;lt;!--spring mvc end--&amp;gt; &amp;lt;!--encoding begin--&amp;gt; &amp;lt;!--编码过滤器" />
 
   <meta name="keywords" content="Jason, Blog, Java" />
 
@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/spring-security-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-xml/" />
@@ -60,26 +60,22 @@
 
 
 <meta property="og:title" content="Spring Security 开发指南（基于 XML）" />
-<meta property="og:description" content="配置web.xml &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;web-app version=&quot;3.0&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;&gt; &lt;!--spring mvc begin--&gt; &lt;servlet&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt; &lt;init-param&gt; &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt; &lt;!--spring mvc的配置需要单独配置--&gt; &lt;param-value&gt;classpath:spring-mvc.xml&lt;/param-value&gt; &lt;/init-param&gt; &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; &lt;/servlet&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;url-pattern&gt;*.do&lt;/url-pattern&gt; &lt;/servlet-mapping&gt; &lt;!--spring mvc end--&gt; &lt;!--encoding begin--&gt; &lt;!--编码过滤器" />
+<meta property="og:description" content="配置web.xml &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;web-app version=&#34;3.0&#34; xmlns=&#34;http://java.sun.com/xml/ns/javaee&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&#34;&gt; &lt;!--spring mvc begin--&gt; &lt;servlet&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt; &lt;init-param&gt; &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt; &lt;!--spring mvc的配置需要单独配置--&gt; &lt;param-value&gt;classpath:spring-mvc.xml&lt;/param-value&gt; &lt;/init-param&gt; &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; &lt;/servlet&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;url-pattern&gt;*.do&lt;/url-pattern&gt; &lt;/servlet-mapping&gt; &lt;!--spring mvc end--&gt; &lt;!--encoding begin--&gt; &lt;!--编码过滤器" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/spring-security-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-xml/" />
-<meta property="article:published_time" content="2017-07-12T00:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2017-07-12T00:00:00&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-07-12T00:00:00+08:00" />
+<meta property="article:modified_time" content="2017-07-12T00:00:00+08:00" />
 <meta itemprop="name" content="Spring Security 开发指南（基于 XML）">
-<meta itemprop="description" content="配置web.xml &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;web-app version=&quot;3.0&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;&gt; &lt;!--spring mvc begin--&gt; &lt;servlet&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt; &lt;init-param&gt; &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt; &lt;!--spring mvc的配置需要单独配置--&gt; &lt;param-value&gt;classpath:spring-mvc.xml&lt;/param-value&gt; &lt;/init-param&gt; &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; &lt;/servlet&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;url-pattern&gt;*.do&lt;/url-pattern&gt; &lt;/servlet-mapping&gt; &lt;!--spring mvc end--&gt; &lt;!--encoding begin--&gt; &lt;!--编码过滤器">
-
-
+<meta itemprop="description" content="配置web.xml &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;web-app version=&#34;3.0&#34; xmlns=&#34;http://java.sun.com/xml/ns/javaee&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&#34;&gt; &lt;!--spring mvc begin--&gt; &lt;servlet&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt; &lt;init-param&gt; &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt; &lt;!--spring mvc的配置需要单独配置--&gt; &lt;param-value&gt;classpath:spring-mvc.xml&lt;/param-value&gt; &lt;/init-param&gt; &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; &lt;/servlet&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;url-pattern&gt;*.do&lt;/url-pattern&gt; &lt;/servlet-mapping&gt; &lt;!--spring mvc end--&gt; &lt;!--encoding begin--&gt; &lt;!--编码过滤器">
 <meta itemprop="datePublished" content="2017-07-12T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-07-12T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="2740">
+<meta itemprop="wordCount" content="2810">
 
 
 
-<meta itemprop="keywords" content="JavaWeb,Spring," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="JavaWeb,Spring," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Security 开发指南（基于 XML）"/>
-<meta name="twitter:description" content="配置web.xml &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;web-app version=&quot;3.0&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;&gt; &lt;!--spring mvc begin--&gt; &lt;servlet&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt; &lt;init-param&gt; &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt; &lt;!--spring mvc的配置需要单独配置--&gt; &lt;param-value&gt;classpath:spring-mvc.xml&lt;/param-value&gt; &lt;/init-param&gt; &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; &lt;/servlet&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;url-pattern&gt;*.do&lt;/url-pattern&gt; &lt;/servlet-mapping&gt; &lt;!--spring mvc end--&gt; &lt;!--encoding begin--&gt; &lt;!--编码过滤器"/>
+<meta name="twitter:description" content="配置web.xml &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;web-app version=&#34;3.0&#34; xmlns=&#34;http://java.sun.com/xml/ns/javaee&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&#34;&gt; &lt;!--spring mvc begin--&gt; &lt;servlet&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt; &lt;init-param&gt; &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt; &lt;!--spring mvc的配置需要单独配置--&gt; &lt;param-value&gt;classpath:spring-mvc.xml&lt;/param-value&gt; &lt;/init-param&gt; &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; &lt;/servlet&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt;spring&lt;/servlet-name&gt; &lt;url-pattern&gt;*.do&lt;/url-pattern&gt; &lt;/servlet-mapping&gt; &lt;!--spring mvc end--&gt; &lt;!--encoding begin--&gt; &lt;!--编码过滤器"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -350,7 +346,7 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/spring/"> Spring </a>
             
           </div>
-        <span class="more-meta"> 约 2740 字 </span>
+        <span class="more-meta"> 约 2810 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
 
         
@@ -367,469 +363,442 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#配置web-dot-xml">配置web.xml</a></li>
-<li><a href="#配置applicationcontext-dot-xml">配置applicationContext.xml</a></li>
-<li><a href="#编写customaccessdecisionmanager">编写CustomAccessDecisionManager</a></li>
-<li><a href="#编写customuserdetailsservice以及customuserdetails">编写CustomUserDetailsService以及CustomUserDetails</a></li>
-<li><a href="#编写customfilterinvocationsecuritymetadatasource">编写CustomFilterInvocationSecurityMetadataSource</a></li>
-<li><a href="#设计数据库表">设计数据库表</a></li>
-<li><a href="#编写login-dot-jsp">编写login.jsp</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#配置web-dot-xml">配置web.xml</a></li>
+    <li><a href="#配置applicationcontext-dot-xml">配置applicationContext.xml</a></li>
+    <li><a href="#编写customaccessdecisionmanager">编写CustomAccessDecisionManager</a></li>
+    <li><a href="#编写customuserdetailsservice以及customuserdetails">编写CustomUserDetailsService以及CustomUserDetails</a></li>
+    <li><a href="#编写customfilterinvocationsecuritymetadatasource">编写CustomFilterInvocationSecurityMetadataSource</a></li>
+    <li><a href="#设计数据库表">设计数据库表</a></li>
+    <li><a href="#编写login-dot-jsp">编写login.jsp</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="配置web-dot-xml">配置web.xml</h2>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;web-app version=&quot;3.0&quot;
-     xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
-     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-     xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee
-    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;&gt;
-    &lt;!--spring mvc begin--&gt;
-    &lt;servlet&gt;
-    &lt;servlet-name&gt;spring&lt;/servlet-name&gt;
-    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
-    &lt;init-param&gt;
-        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-        &lt;!--spring mvc的配置需要单独配置--&gt;
-        &lt;param-value&gt;classpath:spring-mvc.xml&lt;/param-value&gt;
-    &lt;/init-param&gt;
-    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-    &lt;/servlet&gt;
-    &lt;servlet-mapping&gt;
-    &lt;servlet-name&gt;spring&lt;/servlet-name&gt;
-    &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
-    &lt;/servlet-mapping&gt;
-    &lt;!--spring mvc end--&gt;
-
-    &lt;!--encoding begin--&gt;
-    &lt;!--编码过滤器，防止出现乱码--&gt;
-    &lt;filter&gt;
-    &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;
-    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
-    &lt;init-param&gt;
-        &lt;param-name&gt;encoding&lt;/param-name&gt;
-        &lt;param-value&gt;UTF-8&lt;/param-value&gt;
-    &lt;/init-param&gt;
-    &lt;/filter&gt;
-    &lt;filter-mapping&gt;
-    &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;
-    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-    &lt;/filter-mapping&gt;
-    &lt;!--encoding end--&gt;
-
-    &lt;!--spring-security-begin--&gt;
-    &lt;filter&gt;
-    &lt;filter-name&gt;springSecurityFilterChain&lt;/filter-name&gt;
-    &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;
-    &lt;/filter&gt;
-    &lt;filter-mapping&gt;
-    &lt;filter-name&gt;springSecurityFilterChain&lt;/filter-name&gt;
-    &lt;url-pattern&gt;/admin/*&lt;/url-pattern&gt;
-    &lt;/filter-mapping&gt;
-    &lt;!--spring-security-end--&gt;
-
-    &lt;!--spring-security需要从ContextLoaderListener获取spring配置--&gt;
-    &lt;listener&gt;
-    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
-    &lt;/listener&gt;
-
-      &lt;!--ContextLoaderListener从context-param中获取spring配置--&gt;
-    &lt;context-param&gt;
-    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
-    &lt;/context-param&gt;
-&lt;/web-app&gt;
-</code></pre>
-
-<h2 id="配置applicationcontext-dot-xml">配置applicationContext.xml</h2>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
-       xmlns:jpa=&quot;http://www.springframework.org/schema/data/jpa&quot;
-       xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
-       xmlns:security=&quot;http://www.springframework.org/schema/security&quot;
-       xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
-      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
-      http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
-      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
-      http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd&quot;&gt;
-
-    &lt;!--通过注解来依赖注入，由于spring mvc的配置是必须单独配置的，所以这里要排除对Controller的扫描--&gt;
-    &lt;context:component-scan base-package=&quot;com.web&quot;&gt;
-    &lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
-    &lt;/context:component-scan&gt;
-
-    &lt;!--spring security begin--&gt;
-    &lt;security:http pattern=&quot;/**/**.js&quot; security=&quot;none&quot;/&gt;
-    &lt;security:http pattern=&quot;/**/**.png&quot; security=&quot;none&quot;/&gt;
-    &lt;security:http pattern=&quot;/**/**.css&quot; security=&quot;none&quot;/&gt;
-    &lt;security:http pattern=&quot;/admin/loginInit.do&quot; security=&quot;none&quot;/&gt;
-
-    &lt;security:http&gt;
-    &lt;!--
-      login-page:登陆页面，即返回到登陆jsp的页面url
-      login-processing-url:登陆逻辑处理url，这里只需要定义一个url即可，登陆逻辑不需要写，因为已经交给spring-security自动处理了
-      default-target-url:登陆成功后跳转的页面
-      authentication-failure-url:登陆失败后跳转的页面
-      username-parameter:登陆form的用户名input的name属性
-      password-parameter:登陆form的密码input的password属性
-    --&gt;
-    &lt;security:form-login login-page=&quot;/admin/loginInit.do&quot;
-      login-processing-url=&quot;/admin/login.do&quot;
-      default-target-url=&quot;/admin/index.do&quot;
-      authentication-failure-url=&quot;/admin/loginInit.do?authError=true&quot;
-      username-parameter=&quot;name&quot;
-      password-parameter=&quot;password&quot;/&gt;
-    &lt;!--退出登陆url，这里只需要定义一个url即可，退出登陆逻辑不需要写，因为已经交给spring-security自动处理了--&gt;
-    &lt;security:logout logout-url=&quot;/admin/logout.do&quot;/&gt;
-    &lt;!--没有权限时返回的页面--&gt;
-    &lt;security:access-denied-handler error-page=&quot;/WEB-INF/admin/403.jsp&quot;&gt;&lt;/security:access-denied-handler&gt;
-    &lt;!--session过期后，访问其他资源时跳转到登陆页面--&gt;
-    &lt;security:session-management invalid-session-url=&quot;/admin/loginInit.do&quot;/&gt;
-    &lt;!--自定义过滤器，为spring-security提供用户名、密码、权限等信息，有了这些信息，spring-security才能自动去处理登陆及权限的逻辑--&gt;
-    &lt;security:custom-filter ref=&quot;FilterSecurityInterceptor&quot; before=&quot;FILTER_SECURITY_INTERCEPTOR&quot;/&gt;
-    &lt;!--禁用csrf，否则需要在登陆form配置csrf字段--&gt;
-    &lt;security:csrf disabled=&quot;true&quot;/&gt;
-    &lt;/security:http&gt;
-
-    &lt;!--身份认证管理器--&gt;
-    &lt;security:authentication-manager alias=&quot;authenticationManager&quot;&gt;
-    &lt;!--自定义身份认证管理器--&gt;
-    &lt;security:authentication-provider user-service-ref=&quot;CustomUserDetailsService&quot;/&gt;
-    &lt;/security:authentication-manager&gt;
-
-    &lt;!--自定义过滤器，为spring-security提供用户名、密码、权限等信息，有了这些信息，spring-security才能自动去处理登陆及权限的逻辑--&gt;
-    &lt;bean id=&quot;FilterSecurityInterceptor&quot; class=&quot;org.springframework.security.web.access.intercept.FilterSecurityInterceptor&quot;&gt;
-    &lt;!--自定义权限决定器，根据用户是否拥有某资源的权限，从而决定是否让用户访问某资源--&gt;
-    &lt;property name=&quot;accessDecisionManager&quot; ref=&quot;CustomAccessDecisionManager&quot;/&gt;
-    &lt;!--自定义身份认证管理器--&gt;
-    &lt;property name=&quot;authenticationManager&quot; ref=&quot;authenticationManager&quot;/&gt;
-    &lt;!--自定义权限信息数据源--&gt;
-    &lt;property name=&quot;securityMetadataSource&quot; ref=&quot;CustomFilterInvocationSecurityMetadataSource&quot;/&gt;
-    &lt;/bean&gt;
-    &lt;!--spring security end--&gt;
-&lt;/beans&gt;
-</code></pre>
-
-<h2 id="编写customaccessdecisionmanager">编写CustomAccessDecisionManager</h2>
-
-<pre><code class="language-java">/**
- * 自定义权限决定器，根据用户是否拥有某资源的权限，从而决定是否让用户访问某资源
- */
-@Component(&quot;CustomAccessDecisionManager&quot;)
-public class CustomAccessDecisionManager implements AccessDecisionManager {
-
-    /**
-     * 如果用户拥有访问权限，则直接return。如果没有访问权限，那么抛出AccessDeniedException异常
-     * 这个异常会被spring security检测到，从而引导到403页面
-     * @param authentication 当前用户
-     * @param o
-     * @param collection 当前用户所访问的资源需要的权限
-     * @throws AccessDeniedException
-     * @throws InsufficientAuthenticationException
-     */
-    @Override
-    public void decide(Authentication authentication, Object o, Collection&lt;ConfigAttribute&gt; collection) throws AccessDeniedException, InsufficientAuthenticationException {
-
-    if(collection == null || collection.isEmpty())//如果不需要角色权限
-        return;
-
-    //当前用户所拥有的权限
-    Collection&lt;? extends GrantedAuthority&gt; authorities = authentication.getAuthorities();
-
-    if(authentication.getName().equals(&quot;admin&quot;))//超级管理员拥有所有权限
-        return;
-
-    //遍历，判断当前用户是否具有访问权限
-    for(ConfigAttribute ca : collection){
-        for (GrantedAuthority ga : authorities){
-        if(ca.getAttribute().equals(ga.getAuthority()))
-            return;
-        }
-    }
-
-    throw new AccessDeniedException(&quot;没有访问权限！&quot;);
-    }
-
-    @Override
-    public boolean supports(ConfigAttribute configAttribute) {
-    return true;
-    }
-
-    @Override
-    public boolean supports(Class&lt;?&gt; aClass) {
-    return true;
-    }
-}
-</code></pre>
-
-<h2 id="编写customuserdetailsservice以及customuserdetails">编写CustomUserDetailsService以及CustomUserDetails</h2>
-
-<pre><code class="language-java">public class CustomUserDetails implements UserDetails {
-    private UserEntity userEntity;
-    //用户所拥有的权限
-    private Collection&lt;GrantedAuthority&gt; authorities = new ArrayList&lt;&gt;();
-
-    public CustomUserDetails(UserEntity userEntity) {
-    this.userEntity = userEntity;
-    for(RoleEntity r : userEntity.getRoleEntities()){
-        GrantedAuthority authority = new SimpleGrantedAuthority(r.getName());
-        authorities.add(authority);
-    }
-    }
-
-    @Override
-    public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() {
-    return authorities;
-    }
-
-    @Override
-    public String getPassword() {
-    return userEntity.getPassword();
-    }
-
-    @Override
-    public String getUsername() {
-    return userEntity.getName();
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-    return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-    return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-    return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-    return userEntity.isEnable();
-    }
-}
-</code></pre>
-
-<pre><code class="language-java">@Service(&quot;CustomUserDetailsService&quot;)
-public class CustomUserDetailsService implements UserDetailsService {
-    @Autowired
-    private UserService userService;
-
-    /**
-     * 根据用户名查找用户信息，如果查找不到，抛出UsernameNotFoundException
-     * @param s 用户名
-     * @return
-     * @throws UsernameNotFoundException
-     */
-    @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-    UserEntity userEntity = userService.findByName(s);
-    if(userEntity == null)
-        throw new UsernameNotFoundException(String.format(&quot;username:%s not found!&quot; , s));
-
-    return new CustomUserDetails(userEntity);
-    }
-}
-</code></pre>
-
-<h2 id="编写customfilterinvocationsecuritymetadatasource">编写CustomFilterInvocationSecurityMetadataSource</h2>
-
-<pre><code class="language-java">/**
- * 自定义权限信息数据源
- */
-@Component(&quot;CustomFilterInvocationSecurityMetadataSource&quot;)
-public class CustomFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
-
-    @Autowired
-    private ResourceService resourceService;
-
-    @Autowired
-    private RoleService roleService;
-
-    /**
-     * 根据用户访问的资源获取访问该资源所需要权限
-     * @param o
-     * @return
-     * @throws IllegalArgumentException
-     */
-    @Override
-    public Collection&lt;ConfigAttribute&gt; getAttributes(Object o) throws IllegalArgumentException {
-    FilterInvocation invocation = (FilterInvocation) o;
-    //当前用户所访问的资源url
-    String servletPath = invocation.getRequest().getServletPath();
-
-    List&lt;ConfigAttribute&gt; configAttributes = new ArrayList&lt;&gt;();
-
-    //从数据库中查出该资源
-    ResourceEntity resourceEntity = resourceService.findByUrl(servletPath);
-
-    //如果数据库中不存在该资源，直接返回空权限列表，表示不需要权限
-    if(resourceEntity == null)
-        return configAttributes;
-
-    //访问该资源所需要的角色权限
-    List&lt;RoleEntity&gt; roleEntities = resourceEntity.getRoleEntities();
-
-    //如果角色权限列表为空，那么返回一个自定义的forbid权限，表示禁止访问
-    if(roleEntities == null || roleEntities.isEmpty()){
-        ConfigAttribute attribute = new SecurityConfig(&quot;forbid&quot;);
-        configAttributes.add(attribute);
-        return configAttributes;
-    }
-
-    //遍历，把角色权限加进角色权限列表中
-    for(RoleEntity re : roleEntities){
-        ConfigAttribute attribute = new SecurityConfig(re.getName());
-        configAttributes.add(attribute);
-    }
-
-    return configAttributes;
-    }
-
-    /**
-     * 获取所有角色权限
-     * @return
-     */
-    @Override
-    public Collection&lt;ConfigAttribute&gt; getAllConfigAttributes() {
-    //从数据库查出所有角色实体
-    List&lt;RoleEntity&gt; roleEntities = roleService.findAll();
-
-    //所有角色权限列表
-    List&lt;ConfigAttribute&gt; configAttributes = new ArrayList&lt;&gt;();
-
-    if(roleEntities == null || roleEntities.isEmpty())
-        return configAttributes;
-
-    //遍历，把角色权限加进角色权限列表中
-    for(RoleEntity re : roleEntities){
-        ConfigAttribute ca = new SecurityConfig(re.getName());
-        configAttributes.add(ca);
-    }
-
-    return configAttributes;
-    }
-
-    @Override
-    public boolean supports(Class&lt;?&gt; aClass) {
-    return FilterInvocation.class.isAssignableFrom(aClass);
-    }
-}
-</code></pre>
-
-<h2 id="设计数据库表">设计数据库表</h2>
-
-<pre><code class="language-sql">CREATE TABLE IF NOT EXISTS `user`(
-`id` BIGINT AUTO_INCREMENT,
-`name` VARCHAR(32) NOT NULL COMMENT '用户名',
-`password` VARCHAR(512) NOT NULL COMMENT '密码',
-`enable` BOOLEAN DEFAULT TRUE COMMENT '是否可用',
-CONSTRAINT `pk_user_id` PRIMARY KEY(`id`),
-UNIQUE KEY `uc_user_name` (`name`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT '用户表';
-
-CREATE TABLE IF NOT EXISTS `role`(
-`id` BIGINT AUTO_INCREMENT,
-`name` VARCHAR(32) NOT NULL COMMENT '角色名',
-CONSTRAINT `pk_role_id` PRIMARY KEY(`id`),
-UNIQUE KEY `uc_role_name`(`name`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT '角色表';
-
-CREATE TABLE IF NOT EXISTS `user_role`(
-`user_id` BIGINT,
-`role_id` BIGINT,
-CONSTRAINT `fk_user_role_user_id` FOREIGN KEY (`user_id`) REFERENCES `user`(`id`),
-CONSTRAINT `fk_user_role_role_id` FOREIGN KEY (`role_id`) REFERENCES `role`(`id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT '用户-角色关联表';
-
-
-CREATE TABLE IF NOT EXISTS `resource`(
-`id` BIGINT AUTO_INCREMENT,
-`url` VARCHAR(1024) NOT NULL COMMENT '资源URL',
-CONSTRAINT `pk_resource_id` PRIMARY KEY(`id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT '资源表';
-
-
-CREATE TABLE IF NOT EXISTS `role_resource`(
-`role_id` BIGINT,
-`resource_id` BIGINT,
-CONSTRAINT `fk_role_resource_role_id` FOREIGN KEY (`role_id`) REFERENCES `role`(`id`),
-CONSTRAINT `fk_role_resource_resource_id` FOREIGN KEY (`resource_id`) REFERENCES `resource`(`id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT '角色-资源关联表';
-</code></pre>
-
-<h2 id="编写login-dot-jsp">编写login.jsp</h2>
-
-<pre><code class="language-html">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
-&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;${path}/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;${path}/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css&quot;&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;${path}/lib/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;${path}/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
-
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;${path}/css/admin/login.css&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;${path}/css/common.css&quot;&gt;
-    &lt;title&gt;欢迎登陆Prometheus后台管理系统&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;form action=&quot;${path}/admin/login.do&quot; method=&quot;post&quot;&gt;
-&lt;div class=&quot;container main&quot;&gt;
-    &lt;c:if test=&quot;${param.authError}&quot;&gt;
-    &lt;div class=&quot;row main-row&quot;&gt;
-        &lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;col-md-4 col-xs-12 error&quot;&gt;
-        用户名或密码错误！
-        &lt;/div&gt;
-        &lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;/c:if&gt;
-    &lt;div class=&quot;row main-row&quot;&gt;
-    &lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;col-md-4 col-xs-12&quot;&gt;
-        &lt;input class=&quot;form-control&quot; name=&quot;name&quot; placeholder=&quot;请输入用户名&quot;&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;row main-row&quot;&gt;
-    &lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;col-md-4 col-xs-12&quot;&gt;
-        &lt;input class=&quot;form-control&quot; type=&quot;password&quot; name=&quot;password&quot; placeholder=&quot;请输入密码&quot;&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;row main-row&quot;&gt;
-    &lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;col-md-4 col-xs-12&quot;&gt;
-        &lt;input class=&quot;btn btn-default&quot; type=&quot;submit&quot; value=&quot;登陆&quot;&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
+      <h2 id="配置web-dot-xml">配置web.xml</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;web-app</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;3.0&#34;</span>
+	 <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
+	 <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+	 <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://java.sun.com/xml/ns/javaee
+</span><span style="color:#e6db74">	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#75715e">&lt;!--spring mvc begin--&gt;</span>
+    <span style="color:#f92672">&lt;servlet&gt;</span>
+	<span style="color:#f92672">&lt;servlet-name&gt;</span>spring<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+	<span style="color:#f92672">&lt;servlet-class&gt;</span>org.springframework.web.servlet.DispatcherServlet<span style="color:#f92672">&lt;/servlet-class&gt;</span>
+	<span style="color:#f92672">&lt;init-param&gt;</span>
+	    <span style="color:#f92672">&lt;param-name&gt;</span>contextConfigLocation<span style="color:#f92672">&lt;/param-name&gt;</span>
+	    <span style="color:#75715e">&lt;!--spring mvc的配置需要单独配置--&gt;</span>
+	    <span style="color:#f92672">&lt;param-value&gt;</span>classpath:spring-mvc.xml<span style="color:#f92672">&lt;/param-value&gt;</span>
+	<span style="color:#f92672">&lt;/init-param&gt;</span>
+	<span style="color:#f92672">&lt;load-on-startup&gt;</span>1<span style="color:#f92672">&lt;/load-on-startup&gt;</span>
+    <span style="color:#f92672">&lt;/servlet&gt;</span>
+    <span style="color:#f92672">&lt;servlet-mapping&gt;</span>
+	<span style="color:#f92672">&lt;servlet-name&gt;</span>spring<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+	<span style="color:#f92672">&lt;url-pattern&gt;</span>*.do<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;/servlet-mapping&gt;</span>
+    <span style="color:#75715e">&lt;!--spring mvc end--&gt;</span>
+
+    <span style="color:#75715e">&lt;!--encoding begin--&gt;</span>
+    <span style="color:#75715e">&lt;!--编码过滤器，防止出现乱码--&gt;</span>
+    <span style="color:#f92672">&lt;filter&gt;</span>
+	<span style="color:#f92672">&lt;filter-name&gt;</span>encodingFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
+	<span style="color:#f92672">&lt;filter-class&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span style="color:#f92672">&lt;/filter-class&gt;</span>
+	<span style="color:#f92672">&lt;init-param&gt;</span>
+	    <span style="color:#f92672">&lt;param-name&gt;</span>encoding<span style="color:#f92672">&lt;/param-name&gt;</span>
+	    <span style="color:#f92672">&lt;param-value&gt;</span>UTF-8<span style="color:#f92672">&lt;/param-value&gt;</span>
+	<span style="color:#f92672">&lt;/init-param&gt;</span>
+    <span style="color:#f92672">&lt;/filter&gt;</span>
+    <span style="color:#f92672">&lt;filter-mapping&gt;</span>
+	<span style="color:#f92672">&lt;filter-name&gt;</span>encodingFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
+	<span style="color:#f92672">&lt;url-pattern&gt;</span>/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;/filter-mapping&gt;</span>
+    <span style="color:#75715e">&lt;!--encoding end--&gt;</span>
+
+    <span style="color:#75715e">&lt;!--spring-security-begin--&gt;</span>
+    <span style="color:#f92672">&lt;filter&gt;</span>
+	<span style="color:#f92672">&lt;filter-name&gt;</span>springSecurityFilterChain<span style="color:#f92672">&lt;/filter-name&gt;</span>
+	<span style="color:#f92672">&lt;filter-class&gt;</span>org.springframework.web.filter.DelegatingFilterProxy<span style="color:#f92672">&lt;/filter-class&gt;</span>
+    <span style="color:#f92672">&lt;/filter&gt;</span>
+    <span style="color:#f92672">&lt;filter-mapping&gt;</span>
+	<span style="color:#f92672">&lt;filter-name&gt;</span>springSecurityFilterChain<span style="color:#f92672">&lt;/filter-name&gt;</span>
+	<span style="color:#f92672">&lt;url-pattern&gt;</span>/admin/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;/filter-mapping&gt;</span>
+    <span style="color:#75715e">&lt;!--spring-security-end--&gt;</span>
+
+    <span style="color:#75715e">&lt;!--spring-security需要从ContextLoaderListener获取spring配置--&gt;</span>
+    <span style="color:#f92672">&lt;listener&gt;</span>
+	<span style="color:#f92672">&lt;listener-class&gt;</span>org.springframework.web.context.ContextLoaderListener<span style="color:#f92672">&lt;/listener-class&gt;</span>
+    <span style="color:#f92672">&lt;/listener&gt;</span>
+
+      <span style="color:#75715e">&lt;!--ContextLoaderListener从context-param中获取spring配置--&gt;</span>
+    <span style="color:#f92672">&lt;context-param&gt;</span>
+	<span style="color:#f92672">&lt;param-name&gt;</span>contextConfigLocation<span style="color:#f92672">&lt;/param-name&gt;</span>
+	<span style="color:#f92672">&lt;param-value&gt;</span>classpath:applicationContext.xml<span style="color:#f92672">&lt;/param-value&gt;</span>
+    <span style="color:#f92672">&lt;/context-param&gt;</span>
+<span style="color:#f92672">&lt;/web-app&gt;</span>
+</code></pre></div><h2 id="配置applicationcontext-dot-xml">配置applicationContext.xml</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span style="color:#a6e22e">xmlns:context=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/context&#34;</span>
+       <span style="color:#a6e22e">xmlns:jpa=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/data/jpa&#34;</span>
+       <span style="color:#a6e22e">xmlns:tx=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/tx&#34;</span>
+       <span style="color:#a6e22e">xmlns:security=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/security&#34;</span>
+       <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+</span><span style="color:#e6db74">      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+</span><span style="color:#e6db74">      http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+</span><span style="color:#e6db74">      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+</span><span style="color:#e6db74">      http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#75715e">&lt;!--通过注解来依赖注入，由于spring mvc的配置是必须单独配置的，所以这里要排除对Controller的扫描--&gt;</span>
+    <span style="color:#f92672">&lt;context:component-scan</span> <span style="color:#a6e22e">base-package=</span><span style="color:#e6db74">&#34;com.web&#34;</span><span style="color:#f92672">&gt;</span>
+	<span style="color:#f92672">&lt;context:exclude-filter</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;annotation&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;org.springframework.stereotype.Controller&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/context:component-scan&gt;</span>
+
+    <span style="color:#75715e">&lt;!--spring security begin--&gt;</span>
+    <span style="color:#f92672">&lt;security:http</span> <span style="color:#a6e22e">pattern=</span><span style="color:#e6db74">&#34;/**/**.js&#34;</span> <span style="color:#a6e22e">security=</span><span style="color:#e6db74">&#34;none&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;security:http</span> <span style="color:#a6e22e">pattern=</span><span style="color:#e6db74">&#34;/**/**.png&#34;</span> <span style="color:#a6e22e">security=</span><span style="color:#e6db74">&#34;none&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;security:http</span> <span style="color:#a6e22e">pattern=</span><span style="color:#e6db74">&#34;/**/**.css&#34;</span> <span style="color:#a6e22e">security=</span><span style="color:#e6db74">&#34;none&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;security:http</span> <span style="color:#a6e22e">pattern=</span><span style="color:#e6db74">&#34;/admin/loginInit.do&#34;</span> <span style="color:#a6e22e">security=</span><span style="color:#e6db74">&#34;none&#34;</span><span style="color:#f92672">/&gt;</span>
+
+    <span style="color:#f92672">&lt;security:http&gt;</span>
+	<span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">	  login-page:登陆页面，即返回到登陆jsp的页面url
+</span><span style="color:#75715e">	  login-processing-url:登陆逻辑处理url，这里只需要定义一个url即可，登陆逻辑不需要写，因为已经交给spring-security自动处理了
+</span><span style="color:#75715e">	  default-target-url:登陆成功后跳转的页面
+</span><span style="color:#75715e">	  authentication-failure-url:登陆失败后跳转的页面
+</span><span style="color:#75715e">	  username-parameter:登陆form的用户名input的name属性
+</span><span style="color:#75715e">	  password-parameter:登陆form的密码input的password属性
+</span><span style="color:#75715e">	--&gt;</span>
+	<span style="color:#f92672">&lt;security:form-login</span> <span style="color:#a6e22e">login-page=</span><span style="color:#e6db74">&#34;/admin/loginInit.do&#34;</span>
+	  <span style="color:#a6e22e">login-processing-url=</span><span style="color:#e6db74">&#34;/admin/login.do&#34;</span>
+	  <span style="color:#a6e22e">default-target-url=</span><span style="color:#e6db74">&#34;/admin/index.do&#34;</span>
+	  <span style="color:#a6e22e">authentication-failure-url=</span><span style="color:#e6db74">&#34;/admin/loginInit.do?authError=true&#34;</span>
+	  <span style="color:#a6e22e">username-parameter=</span><span style="color:#e6db74">&#34;name&#34;</span>
+	  <span style="color:#a6e22e">password-parameter=</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">/&gt;</span>
+	<span style="color:#75715e">&lt;!--退出登陆url，这里只需要定义一个url即可，退出登陆逻辑不需要写，因为已经交给spring-security自动处理了--&gt;</span>
+	<span style="color:#f92672">&lt;security:logout</span> <span style="color:#a6e22e">logout-url=</span><span style="color:#e6db74">&#34;/admin/logout.do&#34;</span><span style="color:#f92672">/&gt;</span>
+	<span style="color:#75715e">&lt;!--没有权限时返回的页面--&gt;</span>
+	<span style="color:#f92672">&lt;security:access-denied-handler</span> <span style="color:#a6e22e">error-page=</span><span style="color:#e6db74">&#34;/WEB-INF/admin/403.jsp&#34;</span><span style="color:#f92672">&gt;&lt;/security:access-denied-handler&gt;</span>
+	<span style="color:#75715e">&lt;!--session过期后，访问其他资源时跳转到登陆页面--&gt;</span>
+	<span style="color:#f92672">&lt;security:session-management</span> <span style="color:#a6e22e">invalid-session-url=</span><span style="color:#e6db74">&#34;/admin/loginInit.do&#34;</span><span style="color:#f92672">/&gt;</span>
+	<span style="color:#75715e">&lt;!--自定义过滤器，为spring-security提供用户名、密码、权限等信息，有了这些信息，spring-security才能自动去处理登陆及权限的逻辑--&gt;</span>
+	<span style="color:#f92672">&lt;security:custom-filter</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;FilterSecurityInterceptor&#34;</span> <span style="color:#a6e22e">before=</span><span style="color:#e6db74">&#34;FILTER_SECURITY_INTERCEPTOR&#34;</span><span style="color:#f92672">/&gt;</span>
+	<span style="color:#75715e">&lt;!--禁用csrf，否则需要在登陆form配置csrf字段--&gt;</span>
+	<span style="color:#f92672">&lt;security:csrf</span> <span style="color:#a6e22e">disabled=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/security:http&gt;</span>
+
+    <span style="color:#75715e">&lt;!--身份认证管理器--&gt;</span>
+    <span style="color:#f92672">&lt;security:authentication-manager</span> <span style="color:#a6e22e">alias=</span><span style="color:#e6db74">&#34;authenticationManager&#34;</span><span style="color:#f92672">&gt;</span>
+	<span style="color:#75715e">&lt;!--自定义身份认证管理器--&gt;</span>
+	<span style="color:#f92672">&lt;security:authentication-provider</span> <span style="color:#a6e22e">user-service-ref=</span><span style="color:#e6db74">&#34;CustomUserDetailsService&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/security:authentication-manager&gt;</span>
+
+    <span style="color:#75715e">&lt;!--自定义过滤器，为spring-security提供用户名、密码、权限等信息，有了这些信息，spring-security才能自动去处理登陆及权限的逻辑--&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;FilterSecurityInterceptor&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.security.web.access.intercept.FilterSecurityInterceptor&#34;</span><span style="color:#f92672">&gt;</span>
+	<span style="color:#75715e">&lt;!--自定义权限决定器，根据用户是否拥有某资源的权限，从而决定是否让用户访问某资源--&gt;</span>
+	<span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;accessDecisionManager&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;CustomAccessDecisionManager&#34;</span><span style="color:#f92672">/&gt;</span>
+	<span style="color:#75715e">&lt;!--自定义身份认证管理器--&gt;</span>
+	<span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;authenticationManager&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;authenticationManager&#34;</span><span style="color:#f92672">/&gt;</span>
+	<span style="color:#75715e">&lt;!--自定义权限信息数据源--&gt;</span>
+	<span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;securityMetadataSource&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;CustomFilterInvocationSecurityMetadataSource&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+    <span style="color:#75715e">&lt;!--spring security end--&gt;</span>
+<span style="color:#f92672">&lt;/beans&gt;</span>
+</code></pre></div><h2 id="编写customaccessdecisionmanager">编写CustomAccessDecisionManager</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 自定义权限决定器，根据用户是否拥有某资源的权限，从而决定是否让用户访问某资源
+</span><span style="color:#75715e"> */</span>
+<span style="color:#a6e22e">@Component</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CustomAccessDecisionManager&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomAccessDecisionManager</span> <span style="color:#66d9ef">implements</span> AccessDecisionManager <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 如果用户拥有访问权限，则直接return。如果没有访问权限，那么抛出AccessDeniedException异常
+</span><span style="color:#75715e">     * 这个异常会被spring security检测到，从而引导到403页面
+</span><span style="color:#75715e">     * @param authentication 当前用户
+</span><span style="color:#75715e">     * @param o
+</span><span style="color:#75715e">     * @param collection 当前用户所访问的资源需要的权限
+</span><span style="color:#75715e">     * @throws AccessDeniedException
+</span><span style="color:#75715e">     * @throws InsufficientAuthenticationException
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">decide</span><span style="color:#f92672">(</span>Authentication authentication<span style="color:#f92672">,</span> Object o<span style="color:#f92672">,</span> Collection<span style="color:#f92672">&lt;</span>ConfigAttribute<span style="color:#f92672">&gt;</span> collection<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> AccessDeniedException<span style="color:#f92672">,</span> InsufficientAuthenticationException <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>collection <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> collection<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span><span style="color:#75715e">//如果不需要角色权限
+</span><span style="color:#75715e"></span>	    <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+
+	<span style="color:#75715e">//当前用户所拥有的权限
+</span><span style="color:#75715e"></span>	Collection<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> GrantedAuthority<span style="color:#f92672">&gt;</span> authorities <span style="color:#f92672">=</span> authentication<span style="color:#f92672">.</span><span style="color:#a6e22e">getAuthorities</span><span style="color:#f92672">();</span>
+
+	<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>authentication<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;admin&#34;</span><span style="color:#f92672">))</span><span style="color:#75715e">//超级管理员拥有所有权限
+</span><span style="color:#75715e"></span>	    <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+
+	<span style="color:#75715e">//遍历，判断当前用户是否具有访问权限
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>ConfigAttribute ca <span style="color:#f92672">:</span> collection<span style="color:#f92672">){</span>
+	    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>GrantedAuthority ga <span style="color:#f92672">:</span> authorities<span style="color:#f92672">){</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>ca<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>ga<span style="color:#f92672">.</span><span style="color:#a6e22e">getAuthority</span><span style="color:#f92672">()))</span>
+		    <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+	    <span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> AccessDeniedException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;没有访问权限！&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span>ConfigAttribute configAttribute<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span>Class<span style="color:#f92672">&lt;?&gt;</span> aClass<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="编写customuserdetailsservice以及customuserdetails">编写CustomUserDetailsService以及CustomUserDetails</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomUserDetails</span> <span style="color:#66d9ef">implements</span> UserDetails <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> UserEntity userEntity<span style="color:#f92672">;</span>
+    <span style="color:#75715e">//用户所拥有的权限
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> Collection<span style="color:#f92672">&lt;</span>GrantedAuthority<span style="color:#f92672">&gt;</span> authorities <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CustomUserDetails</span><span style="color:#f92672">(</span>UserEntity userEntity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userEntity</span> <span style="color:#f92672">=</span> userEntity<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>RoleEntity r <span style="color:#f92672">:</span> userEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">getRoleEntities</span><span style="color:#f92672">()){</span>
+	    GrantedAuthority authority <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SimpleGrantedAuthority<span style="color:#f92672">(</span>r<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+	    authorities<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>authority<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Collection<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> GrantedAuthority<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAuthorities</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> authorities<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getPassword</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> userEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getUsername</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> userEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isAccountNonExpired</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isAccountNonLocked</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isCredentialsNonExpired</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isEnabled</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> userEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">isEnable</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CustomUserDetailsService&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomUserDetailsService</span> <span style="color:#66d9ef">implements</span> UserDetailsService <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> UserService userService<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 根据用户名查找用户信息，如果查找不到，抛出UsernameNotFoundException
+</span><span style="color:#75715e">     * @param s 用户名
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     * @throws UsernameNotFoundException
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> UserDetails <span style="color:#a6e22e">loadUserByUsername</span><span style="color:#f92672">(</span>String s<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> UsernameNotFoundException <span style="color:#f92672">{</span>
+	UserEntity userEntity <span style="color:#f92672">=</span> userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findByName</span><span style="color:#f92672">(</span>s<span style="color:#f92672">);</span>
+	<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>userEntity <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+	    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UsernameNotFoundException<span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username:%s not found!&#34;</span> <span style="color:#f92672">,</span> s<span style="color:#f92672">));</span>
+
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> CustomUserDetails<span style="color:#f92672">(</span>userEntity<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="编写customfilterinvocationsecuritymetadatasource">编写CustomFilterInvocationSecurityMetadataSource</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 自定义权限信息数据源
+</span><span style="color:#75715e"> */</span>
+<span style="color:#a6e22e">@Component</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CustomFilterInvocationSecurityMetadataSource&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomFilterInvocationSecurityMetadataSource</span> <span style="color:#66d9ef">implements</span> FilterInvocationSecurityMetadataSource <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> ResourceService resourceService<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> RoleService roleService<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 根据用户访问的资源获取访问该资源所需要权限
+</span><span style="color:#75715e">     * @param o
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     * @throws IllegalArgumentException
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Collection<span style="color:#f92672">&lt;</span>ConfigAttribute<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAttributes</span><span style="color:#f92672">(</span>Object o<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IllegalArgumentException <span style="color:#f92672">{</span>
+	FilterInvocation invocation <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>FilterInvocation<span style="color:#f92672">)</span> o<span style="color:#f92672">;</span>
+	<span style="color:#75715e">//当前用户所访问的资源url
+</span><span style="color:#75715e"></span>	String servletPath <span style="color:#f92672">=</span> invocation<span style="color:#f92672">.</span><span style="color:#a6e22e">getRequest</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getServletPath</span><span style="color:#f92672">();</span>
+
+	List<span style="color:#f92672">&lt;</span>ConfigAttribute<span style="color:#f92672">&gt;</span> configAttributes <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+
+	<span style="color:#75715e">//从数据库中查出该资源
+</span><span style="color:#75715e"></span>	ResourceEntity resourceEntity <span style="color:#f92672">=</span> resourceService<span style="color:#f92672">.</span><span style="color:#a6e22e">findByUrl</span><span style="color:#f92672">(</span>servletPath<span style="color:#f92672">);</span>
+
+	<span style="color:#75715e">//如果数据库中不存在该资源，直接返回空权限列表，表示不需要权限
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>resourceEntity <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+	    <span style="color:#66d9ef">return</span> configAttributes<span style="color:#f92672">;</span>
+
+	<span style="color:#75715e">//访问该资源所需要的角色权限
+</span><span style="color:#75715e"></span>	List<span style="color:#f92672">&lt;</span>RoleEntity<span style="color:#f92672">&gt;</span> roleEntities <span style="color:#f92672">=</span> resourceEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">getRoleEntities</span><span style="color:#f92672">();</span>
+
+	<span style="color:#75715e">//如果角色权限列表为空，那么返回一个自定义的forbid权限，表示禁止访问
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>roleEntities <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> roleEntities<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">()){</span>
+	    ConfigAttribute attribute <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SecurityConfig<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;forbid&#34;</span><span style="color:#f92672">);</span>
+	    configAttributes<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>attribute<span style="color:#f92672">);</span>
+	    <span style="color:#66d9ef">return</span> configAttributes<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#75715e">//遍历，把角色权限加进角色权限列表中
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>RoleEntity re <span style="color:#f92672">:</span> roleEntities<span style="color:#f92672">){</span>
+	    ConfigAttribute attribute <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SecurityConfig<span style="color:#f92672">(</span>re<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+	    configAttributes<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>attribute<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#66d9ef">return</span> configAttributes<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 获取所有角色权限
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Collection<span style="color:#f92672">&lt;</span>ConfigAttribute<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllConfigAttributes</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#75715e">//从数据库查出所有角色实体
+</span><span style="color:#75715e"></span>	List<span style="color:#f92672">&lt;</span>RoleEntity<span style="color:#f92672">&gt;</span> roleEntities <span style="color:#f92672">=</span> roleService<span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
+
+	<span style="color:#75715e">//所有角色权限列表
+</span><span style="color:#75715e"></span>	List<span style="color:#f92672">&lt;</span>ConfigAttribute<span style="color:#f92672">&gt;</span> configAttributes <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+
+	<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>roleEntities <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> roleEntities<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span>
+	    <span style="color:#66d9ef">return</span> configAttributes<span style="color:#f92672">;</span>
+
+	<span style="color:#75715e">//遍历，把角色权限加进角色权限列表中
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>RoleEntity re <span style="color:#f92672">:</span> roleEntities<span style="color:#f92672">){</span>
+	    ConfigAttribute ca <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SecurityConfig<span style="color:#f92672">(</span>re<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+	    configAttributes<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>ca<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#66d9ef">return</span> configAttributes<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span>Class<span style="color:#f92672">&lt;?&gt;</span> aClass<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> FilterInvocation<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isAssignableFrom</span><span style="color:#f92672">(</span>aClass<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="设计数据库表">设计数据库表</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span><span style="color:#66d9ef">user</span><span style="color:#f92672">`</span>(
+<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> BIGINT AUTO_INCREMENT,
+<span style="color:#f92672">`</span>name<span style="color:#f92672">`</span> VARCHAR(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;用户名&#39;</span>,
+<span style="color:#f92672">`</span>password<span style="color:#f92672">`</span> VARCHAR(<span style="color:#ae81ff">512</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;密码&#39;</span>,
+<span style="color:#f92672">`</span>enable<span style="color:#f92672">`</span> BOOLEAN <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">TRUE</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;是否可用&#39;</span>,
+<span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#f92672">`</span>pk_user_id<span style="color:#f92672">`</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+<span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>uc_user_name<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>name<span style="color:#f92672">`</span>)
+) ENGINE<span style="color:#f92672">=</span>INNODB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;用户表&#39;</span>;
+
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span><span style="color:#66d9ef">role</span><span style="color:#f92672">`</span>(
+<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> BIGINT AUTO_INCREMENT,
+<span style="color:#f92672">`</span>name<span style="color:#f92672">`</span> VARCHAR(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;角色名&#39;</span>,
+<span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#f92672">`</span>pk_role_id<span style="color:#f92672">`</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+<span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>uc_role_name<span style="color:#f92672">`</span>(<span style="color:#f92672">`</span>name<span style="color:#f92672">`</span>)
+) ENGINE<span style="color:#f92672">=</span>INNODB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;角色表&#39;</span>;
+
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span>user_role<span style="color:#f92672">`</span>(
+<span style="color:#f92672">`</span>user_id<span style="color:#f92672">`</span> BIGINT,
+<span style="color:#f92672">`</span>role_id<span style="color:#f92672">`</span> BIGINT,
+<span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#f92672">`</span>fk_user_role_user_id<span style="color:#f92672">`</span> <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>user_id<span style="color:#f92672">`</span>) <span style="color:#66d9ef">REFERENCES</span> <span style="color:#f92672">`</span><span style="color:#66d9ef">user</span><span style="color:#f92672">`</span>(<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+<span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#f92672">`</span>fk_user_role_role_id<span style="color:#f92672">`</span> <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>role_id<span style="color:#f92672">`</span>) <span style="color:#66d9ef">REFERENCES</span> <span style="color:#f92672">`</span><span style="color:#66d9ef">role</span><span style="color:#f92672">`</span>(<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>)
+) ENGINE<span style="color:#f92672">=</span>INNODB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;用户-角色关联表&#39;</span>;
+
+
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span>resource<span style="color:#f92672">`</span>(
+<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> BIGINT AUTO_INCREMENT,
+<span style="color:#f92672">`</span>url<span style="color:#f92672">`</span> VARCHAR(<span style="color:#ae81ff">1024</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;资源URL&#39;</span>,
+<span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#f92672">`</span>pk_resource_id<span style="color:#f92672">`</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>)
+) ENGINE<span style="color:#f92672">=</span>INNODB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;资源表&#39;</span>;
+
+
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span>role_resource<span style="color:#f92672">`</span>(
+<span style="color:#f92672">`</span>role_id<span style="color:#f92672">`</span> BIGINT,
+<span style="color:#f92672">`</span>resource_id<span style="color:#f92672">`</span> BIGINT,
+<span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#f92672">`</span>fk_role_resource_role_id<span style="color:#f92672">`</span> <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>role_id<span style="color:#f92672">`</span>) <span style="color:#66d9ef">REFERENCES</span> <span style="color:#f92672">`</span><span style="color:#66d9ef">role</span><span style="color:#f92672">`</span>(<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+<span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#f92672">`</span>fk_role_resource_resource_id<span style="color:#f92672">`</span> <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>resource_id<span style="color:#f92672">`</span>) <span style="color:#66d9ef">REFERENCES</span> <span style="color:#f92672">`</span>resource<span style="color:#f92672">`</span>(<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>)
+) ENGINE<span style="color:#f92672">=</span>INNODB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;角色-资源关联表&#39;</span>;
+</code></pre></div><h2 id="编写login-dot-jsp">编写login.jsp</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#960050;background-color:#1e0010">&lt;</span>%@ page contentType=&#34;text/html;charset=UTF-8&#34; language=&#34;java&#34; %&gt;
+<span style="color:#960050;background-color:#1e0010">&lt;</span>%@ taglib prefix=&#34;c&#34; uri=&#34;http://java.sun.com/jsp/jstl/core&#34; %&gt;
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${path}/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css&#34;</span>&gt;
+    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${path}/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css&#34;</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${path}/lib/jquery-2.1.4.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${path}/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+
+    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${path}/css/admin/login.css&#34;</span>&gt;
+    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${path}/css/common.css&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;欢迎登陆Prometheus后台管理系统&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${path}/admin/login.do&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container main&#34;</span>&gt;
+    &lt;<span style="color:#f92672">c:if</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${param.authError}&#34;</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row main-row&#34;</span>&gt;
+	    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+	    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4 col-xs-12 error&#34;</span>&gt;
+		用户名或密码错误！
+	    &lt;/<span style="color:#f92672">div</span>&gt;
+	    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">c:if</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row main-row&#34;</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4 col-xs-12&#34;</span>&gt;
+	    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;请输入用户名&#34;</span>&gt;
+	&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row main-row&#34;</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4 col-xs-12&#34;</span>&gt;
+	    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;请输入密码&#34;</span>&gt;
+	&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row main-row&#34;</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4 col-xs-12&#34;</span>&gt;
+	    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn btn-default&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;登陆&#34;</span>&gt;
+	&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-4&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div>
     </div>
 
     
@@ -965,7 +934,7 @@ CONSTRAINT `fk_role_resource_resource_id` FOREIGN KEY (`resource_id`) REFERENCES
     &copy;
     
       2017 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

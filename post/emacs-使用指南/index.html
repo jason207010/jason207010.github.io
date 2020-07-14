@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/emacs-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
@@ -63,21 +63,17 @@
 <meta property="og:description" content="文件操作 快捷键 释义 C-x C-f 打开文件 C-x C-s 保存文件 C-x C-w 存为新文件 C-x C-c 退出Emacs 窗口操作 快捷键 释义 C-x 0 关闭本窗口 C-x 1 只留下一个窗口 C-x 2 垂直均分窗口" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/emacs-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
-<meta property="article:published_time" content="2018-10-27T00:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2018-10-27T00:00:00&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-10-27T00:00:00+08:00" />
+<meta property="article:modified_time" content="2018-10-27T00:00:00+08:00" />
 <meta itemprop="name" content="Emacs 使用指南">
 <meta itemprop="description" content="文件操作 快捷键 释义 C-x C-f 打开文件 C-x C-s 保存文件 C-x C-w 存为新文件 C-x C-c 退出Emacs 窗口操作 快捷键 释义 C-x 0 关闭本窗口 C-x 1 只留下一个窗口 C-x 2 垂直均分窗口">
-
-
 <meta itemprop="datePublished" content="2018-10-27T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-10-27T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="4268">
+<meta itemprop="wordCount" content="4335">
 
 
 
-<meta itemprop="keywords" content="Emacs," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Emacs," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Emacs 使用指南"/>
 <meta name="twitter:description" content="文件操作 快捷键 释义 C-x C-f 打开文件 C-x C-s 保存文件 C-x C-w 存为新文件 C-x C-c 退出Emacs 窗口操作 快捷键 释义 C-x 0 关闭本窗口 C-x 1 只留下一个窗口 C-x 2 垂直均分窗口"/>
 
@@ -349,7 +345,7 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/emacs/"> Emacs </a>
             
           </div>
-        <span class="more-meta"> 约 4268 字 </span>
+        <span class="more-meta"> 约 4335 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
 
         
@@ -366,99 +362,48 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#文件操作">文件操作</a></li>
-<li><a href="#窗口操作">窗口操作</a></li>
-<li><a href="#缓冲区列表操作">缓冲区列表操作</a></li>
-<li><a href="#配置">配置</a></li>
-<li><a href="#插件">插件</a>
-<ul>
-<li><a href="#插件源">插件源</a>
-<ul>
-<li><a href="#国内源">国内源</a></li>
-<li><a href="#国外源">国外源</a></li>
-</ul></li>
-<li><a href="#安装插件">安装插件</a></li>
-<li><a href="#重装插件">重装插件</a></li>
-<li><a href="#卸载插件">卸载插件</a></li>
-</ul></li>
-<li><a href="#org-mode">Org-Mode</a>
-<ul>
-<li><a href="#大纲">大纲</a>
-<ul>
-<li><a href="#快捷键">快捷键</a></li>
-<li><a href="#配置-1">配置</a></li>
-</ul></li>
-<li><a href="#列表">列表</a>
-<ul>
-<li><a href="#无序列表">无序列表</a></li>
-<li><a href="#有序列表">有序列表</a></li>
-<li><a href="#描述列表">描述列表</a></li>
-<li><a href="#快捷键-1">快捷键</a></li>
-</ul></li>
-<li><a href="#抽屉">抽屉</a>
-<ul>
-<li><a href="#快捷键-2">快捷键</a></li>
-<li><a href="#配置-2">配置</a></li>
-</ul></li>
-<li><a href="#注脚">注脚</a>
-<ul>
-<li><a href="#快捷键-3">快捷键</a></li>
-</ul></li>
-<li><a href="#表格">表格</a>
-<ul>
-<li><a href="#快捷键-4">快捷键</a></li>
-</ul></li>
-<li><a href="#超链接">超链接</a>
-<ul>
-<li><a href="#内部链接">内部链接</a></li>
-<li><a href="#快捷键-5">快捷键</a></li>
-</ul></li>
-<li><a href="#待办事项">待办事项</a>
-<ul>
-<li><a href="#快捷键-6">快捷键</a></li>
-<li><a href="#配置-3">配置</a></li>
-<li><a href="#checkbox列表">checkbox列表</a></li>
-<li><a href="#快捷键-7">快捷键</a></li>
-</ul></li>
-<li><a href="#标签">标签</a>
-<ul>
-<li><a href="#快捷键-8">快捷键</a></li>
-</ul></li>
-<li><a href="#日期与时间">日期与时间</a>
-<ul>
-<li><a href="#快捷键-9">快捷键</a></li>
-</ul></li>
-<li><a href="#源码">源码</a>
-<ul>
-<li><a href="#快捷键-10">快捷键</a></li>
-</ul></li>
-<li><a href="#杂项">杂项</a>
-<ul>
-<li><a href="#自动完成">自动完成</a></li>
-<li><a href="#快捷模板">快捷模板</a></li>
-<li><a href="#简洁的大纲视图">简洁的大纲视图</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#dired">Dired</a>
-<ul>
-<li><a href="#绑定快捷键">绑定快捷键</a></li>
-<li><a href="#快捷键-11">快捷键</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#文件操作">文件操作</a></li>
+    <li><a href="#窗口操作">窗口操作</a></li>
+    <li><a href="#缓冲区列表操作">缓冲区列表操作</a></li>
+    <li><a href="#配置">配置</a></li>
+    <li><a href="#插件">插件</a>
+      <ul>
+        <li><a href="#插件源">插件源</a></li>
+        <li><a href="#安装插件">安装插件</a></li>
+        <li><a href="#重装插件">重装插件</a></li>
+        <li><a href="#卸载插件">卸载插件</a></li>
+      </ul>
+    </li>
+    <li><a href="#org-mode">Org-Mode</a>
+      <ul>
+        <li><a href="#大纲">大纲</a></li>
+        <li><a href="#列表">列表</a></li>
+        <li><a href="#抽屉">抽屉</a></li>
+        <li><a href="#注脚">注脚</a></li>
+        <li><a href="#表格">表格</a></li>
+        <li><a href="#超链接">超链接</a></li>
+        <li><a href="#待办事项">待办事项</a></li>
+        <li><a href="#标签">标签</a></li>
+        <li><a href="#日期与时间">日期与时间</a></li>
+        <li><a href="#源码">源码</a></li>
+        <li><a href="#杂项">杂项</a></li>
+      </ul>
+    </li>
+    <li><a href="#dired">Dired</a>
+      <ul>
+        <li><a href="#绑定快捷键">绑定快捷键</a></li>
+        <li><a href="#快捷键">快捷键</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="文件操作">文件操作</h2>
-
+      <h2 id="文件操作">文件操作</h2>
 <table>
 <thead>
 <tr>
@@ -466,32 +411,26 @@ if (!doNotTrack) {
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>C-x C-f</td>
 <td>打开文件</td>
 </tr>
-
 <tr>
 <td>C-x C-s</td>
 <td>保存文件</td>
 </tr>
-
 <tr>
 <td>C-x C-w</td>
 <td>存为新文件</td>
 </tr>
-
 <tr>
 <td>C-x C-c</td>
 <td>退出Emacs</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="窗口操作">窗口操作</h2>
-
 <table>
 <thead>
 <tr>
@@ -499,57 +438,46 @@ if (!doNotTrack) {
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>C-x 0</td>
 <td>关闭本窗口</td>
 </tr>
-
 <tr>
 <td>C-x 1</td>
 <td>只留下一个窗口</td>
 </tr>
-
 <tr>
 <td>C-x 2</td>
 <td>垂直均分窗口</td>
 </tr>
-
 <tr>
 <td>C-x 3</td>
 <td>水平均分窗口</td>
 </tr>
-
 <tr>
 <td>C-x o</td>
 <td>切换到别的窗口</td>
 </tr>
-
 <tr>
 <td>C-x s</td>
 <td>保存所有窗口的缓冲</td>
 </tr>
-
 <tr>
 <td>C-x b</td>
 <td>选择当前窗口的缓冲区</td>
 </tr>
-
 <tr>
 <td>C-M v</td>
 <td>另外一个窗口向下翻页</td>
 </tr>
-
 <tr>
 <td>C-M-Shift v</td>
 <td>另外一个窗口向上翻页</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="缓冲区列表操作">缓冲区列表操作</h2>
-
 <table>
 <thead>
 <tr>
@@ -557,143 +485,126 @@ if (!doNotTrack) {
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>C-x C-b</td>
 <td>打开缓冲区列表</td>
 </tr>
-
 <tr>
 <td>C-x k</td>
 <td>关闭缓冲区</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="配置">配置</h2>
-
-<pre><code class="language-shell">vi ~/.emacs
-</code></pre>
-
-<pre><code class="language-sh">(require 'package)
-
-;设置中国elpa begin
-(setq package-archives '((&quot;gnu&quot;   . &quot;http://elpa.emacs-china.org/gnu/&quot;)
-             (&quot;melpa&quot; . &quot;http://elpa.emacs-china.org/melpa/&quot;)))
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vi ~/.emacs
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">(</span>require <span style="color:#e6db74">&#39;package)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置中国elpa begin
+</span><span style="color:#e6db74">(setq package-archives &#39;</span><span style="color:#f92672">((</span><span style="color:#e6db74">&#34;gnu&#34;</span>   . <span style="color:#e6db74">&#34;http://elpa.emacs-china.org/gnu/&#34;</span><span style="color:#f92672">)</span>
+			 <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;melpa&#34;</span> . <span style="color:#e6db74">&#34;http://elpa.emacs-china.org/melpa/&#34;</span><span style="color:#f92672">)))</span>
 ;设置中国elpa end
 
-(package-initialize)
+<span style="color:#f92672">(</span>package-initialize<span style="color:#f92672">)</span>
 
 ;设置smex begin
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd &quot;M-x&quot;) 'smex)
-(global-set-key (kbd &quot;M-X&quot;) 'smex-major-mode-commands)
-(global-set-key (kbd &quot;C-c C-c M-x&quot;) 'execute-extended-command)
+<span style="color:#f92672">(</span>require <span style="color:#e6db74">&#39;smex)
+</span><span style="color:#e6db74">(smex-initialize)
+</span><span style="color:#e6db74">(global-set-key (kbd &#34;M-x&#34;) &#39;</span>smex<span style="color:#f92672">)</span>
+<span style="color:#f92672">(</span>global-set-key <span style="color:#f92672">(</span>kbd <span style="color:#e6db74">&#34;M-X&#34;</span><span style="color:#f92672">)</span> <span style="color:#e6db74">&#39;smex-major-mode-commands)
+</span><span style="color:#e6db74">(global-set-key (kbd &#34;C-c C-c M-x&#34;) &#39;</span>execute-extended-command<span style="color:#f92672">)</span>
 ;设置smex end
 
 ;设置evil begin
-(require 'evil)
-(evil-mode 1)
-;设置evil end
-
-;设置evil-org
-(require 'evil-org)
+<span style="color:#f92672">(</span>require <span style="color:#e6db74">&#39;evil)
+</span><span style="color:#e6db74">(evil-mode 1)
+</span><span style="color:#e6db74">;设置evil end
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置evil-org
+</span><span style="color:#e6db74">(require &#39;</span>evil-org<span style="color:#f92672">)</span>
 
 ;设置dired begin
-(global-set-key (kbd &quot;&lt;f8&gt;&quot;)
-    (lambda ()
-        (interactive)
-            (dired &quot;~/Nutstore Files/Note&quot;)))
+<span style="color:#f92672">(</span>global-set-key <span style="color:#f92672">(</span>kbd <span style="color:#e6db74">&#34;&lt;f8&gt;&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#f92672">(</span>lambda <span style="color:#f92672">()</span>
+		<span style="color:#f92672">(</span>interactive<span style="color:#f92672">)</span>
+			<span style="color:#f92672">(</span>dired <span style="color:#e6db74">&#34;~/Nutstore Files/Note&#34;</span><span style="color:#f92672">)))</span>
 ;设置dired end
 
 ;设置org-page begin
-(require 'org-page)
-(setq op/repository-directory &quot;/Users/jason/github/JasonChanBest.github.io&quot;)
-(setq op/site-domain &quot;https://jasonchanbest.github.io/&quot;)
-(setq op/site-main-title &quot;Jason Chan's Blog&quot;)
-(setq op/site-sub-title &quot;你必须非常努力才能看起来毫不费力&quot;)
-;设置org-page end
-
-;设置plantuml begin
-(add-to-list
-  'org-src-lang-modes '(&quot;plantuml&quot; . plantuml))
-
-(setq org-plantuml-jar-path
-      (expand-file-name &quot;/Users/jason/.emacs.d/plantuml.jar&quot;))
-
-(org-babel-do-load-languages
-  'org-babel-load-languages
-  '(
-    (plantuml . t)
-    ))
-;设置plantuml end
-
-;设置cnfonts begin
-(require 'cnfonts)
-(cnfonts-enable)
-(cnfonts-set-spacemacs-fallback-fonts)
-;设置cnfonts end
-
-;设置主题
-(load-theme 'atom-dark t)
-
-;设置Org Mode以缩进模式显示
-(setq org-startup-indented t)
-
-;设置保存不备份临时文件
-(setq make-backup-files nil)
-
-;设置窗口最大化begin
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;设置启动不显示欢迎页
-(setq inhibit-startup-screen t)
-
-;设置隐藏滚动条
-(scroll-bar-mode -1)
-
-;设置自动换行
-(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-
-;设置代码高亮
-(setq org-src-fontify-natively t)
-
-;设置默认读入文件编码
-(prefer-coding-system 'utf-8)
-
-;设置写入文件编码
-(setq default-buffer-file-coding-system 'utf-8)
-
-;TODO状态改为DONE时自动插入时间
-(setq org-log-done 'time)
-
-;导出HTML时不要执行代码块
-(setq org-export-babel-evaluate nil)
-
-;导出HTML时不导出drawers
-(setq org-export-with-drawers nil)
-</code></pre>
-
-<h2 id="插件">插件</h2>
-
+<span style="color:#f92672">(</span>require <span style="color:#e6db74">&#39;org-page)
+</span><span style="color:#e6db74">(setq op/repository-directory &#34;/Users/jason/github/JasonChanBest.github.io&#34;)
+</span><span style="color:#e6db74">(setq op/site-domain &#34;https://jasonchanbest.github.io/&#34;)
+</span><span style="color:#e6db74">(setq op/site-main-title &#34;Jason Chan&#39;</span>s Blog<span style="color:#e6db74">&#34;)
+</span><span style="color:#e6db74">(setq op/site-sub-title &#34;</span>你必须非常努力才能看起来毫不费力<span style="color:#e6db74">&#34;)
+</span><span style="color:#e6db74">;设置org-page end
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置plantuml begin
+</span><span style="color:#e6db74">(add-to-list
+</span><span style="color:#e6db74">  &#39;org-src-lang-modes &#39;(&#34;</span>plantuml<span style="color:#e6db74">&#34; . plantuml))
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">(setq org-plantuml-jar-path
+</span><span style="color:#e6db74">      (expand-file-name &#34;</span>/Users/jason/.emacs.d/plantuml.jar<span style="color:#e6db74">&#34;))
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">(org-babel-do-load-languages
+</span><span style="color:#e6db74">  &#39;org-babel-load-languages
+</span><span style="color:#e6db74">  &#39;(
+</span><span style="color:#e6db74">    (plantuml . t)
+</span><span style="color:#e6db74">    ))
+</span><span style="color:#e6db74">;设置plantuml end
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置cnfonts begin
+</span><span style="color:#e6db74">(require &#39;cnfonts)
+</span><span style="color:#e6db74">(cnfonts-enable)
+</span><span style="color:#e6db74">(cnfonts-set-spacemacs-fallback-fonts)
+</span><span style="color:#e6db74">;设置cnfonts end
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置主题
+</span><span style="color:#e6db74">(load-theme &#39;atom-dark t)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置Org Mode以缩进模式显示
+</span><span style="color:#e6db74">(setq org-startup-indented t)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置保存不备份临时文件
+</span><span style="color:#e6db74">(setq make-backup-files nil)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置窗口最大化begin
+</span><span style="color:#e6db74">(add-to-list &#39;default-frame-alist &#39;(fullscreen . maximized))
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置启动不显示欢迎页
+</span><span style="color:#e6db74">(setq inhibit-startup-screen t)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置隐藏滚动条
+</span><span style="color:#e6db74">(scroll-bar-mode -1)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置自动换行
+</span><span style="color:#e6db74">(add-hook &#39;org-mode-hook (lambda () (setq truncate-lines nil)))
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置代码高亮
+</span><span style="color:#e6db74">(setq org-src-fontify-natively t)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置默认读入文件编码
+</span><span style="color:#e6db74">(prefer-coding-system &#39;utf-8)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;设置写入文件编码
+</span><span style="color:#e6db74">(setq default-buffer-file-coding-system &#39;utf-8)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;TODO状态改为DONE时自动插入时间
+</span><span style="color:#e6db74">(setq org-log-done &#39;time)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;导出HTML时不要执行代码块
+</span><span style="color:#e6db74">(setq org-export-babel-evaluate nil)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">;导出HTML时不导出drawers
+</span><span style="color:#e6db74">(setq org-export-with-drawers nil)
+</span></code></pre></div><h2 id="插件">插件</h2>
 <h3 id="插件源">插件源</h3>
-
 <h4 id="国内源">国内源</h4>
-
-<pre><code class="language-lisp">(setq package-archives '((&quot;gnu&quot;   . &quot;http://elpa.emacs-china.org/gnu/&quot;)
-             (&quot;melpa&quot; . &quot;http://elpa.emacs-china.org/melpa/&quot;)))
-</code></pre>
-
-<h4 id="国外源">国外源</h4>
-
-<pre><code class="language-lisp">(add-to-list 'package-archives '(&quot;melpa&quot; . &quot;http://melpa.org/packages/&quot;) t)
-(add-to-list 'package-archives '(&quot;gnu&quot; . &quot;http://elpa.gnu.org/packages/&quot;))
-</code></pre>
-
-<h3 id="安装插件">安装插件</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">setq</span> package-archives <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;gnu&#34;</span>   <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;http://elpa.emacs-china.org/gnu/&#34;</span>)
+			 (<span style="color:#e6db74">&#34;melpa&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;http://elpa.emacs-china.org/melpa/&#34;</span>)))
+</code></pre></div><h4 id="国外源">国外源</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(add-to-list <span style="color:#e6db74">&#39;package-archives</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;melpa&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;http://melpa.org/packages/&#34;</span>) <span style="color:#66d9ef">t</span>)
+(add-to-list <span style="color:#e6db74">&#39;package-archives</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;gnu&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;http://elpa.gnu.org/packages/&#34;</span>))
+</code></pre></div><h3 id="安装插件">安装插件</h3>
 <blockquote>
 <p>M-x
 package-refresh-contents
@@ -702,37 +613,27 @@ RET
 输入插件名
 RET</p>
 </blockquote>
-
 <h3 id="重装插件">重装插件</h3>
-
 <blockquote>
 <p>M-x
 package-reinstall
 RET
 输入插件名</p>
 </blockquote>
-
 <h3 id="卸载插件">卸载插件</h3>
-
 <blockquote>
 <p>M-x
 package-delete
 RET
 输入插件名</p>
 </blockquote>
-
 <h2 id="org-mode">Org-Mode</h2>
-
 <h3 id="大纲">大纲</h3>
-
 <p>示例：</p>
-
 <blockquote>
-<p>&lowast; 这是一个大纲</p>
+<p>∗ 这是一个大纲</p>
 </blockquote>
-
 <h4 id="快捷键">快捷键</h4>
-
 <table>
 <thead>
 <tr>
@@ -741,110 +642,92 @@ RET
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>TAB</td>
 <td>org-cycleorg-cycle</td>
 <td>当前大纲 FOLDED -&gt; CHILDREN -&gt; SUBTREE 三种状态循环</td>
 </tr>
-
 <tr>
 <td>S-TAB</td>
 <td>org-global-cycle</td>
 <td>当前 buffer OVERVIEW -&gt; CONTENTS -&gt; SHOW ALL 三种状态循环</td>
 </tr>
-
 <tr>
 <td>C-u TAB</td>
 <td></td>
 <td></td>
 </tr>
-
 <tr>
 <td>C-c C-n</td>
 <td>org-next-visible-heading</td>
 <td>下一个标题</td>
 </tr>
-
 <tr>
 <td>C-c C-p</td>
 <td>org-previous-visible-heading</td>
 <td>上一个标题</td>
 </tr>
-
 <tr>
 <td>C-c C-f</td>
 <td>org-forward-same-level</td>
 <td>下一个同级标题</td>
 </tr>
-
 <tr>
 <td>C-c C-b</td>
 <td>org-backward-same-level</td>
 <td>上一个同级标题</td>
 </tr>
-
 <tr>
 <td>C-c C-u</td>
 <td>outline-up-heading</td>
 <td>上一级标题</td>
 </tr>
-
 <tr>
 <td>M-RET</td>
 <td>org-meta-return</td>
 <td>在下一行插入同级标题、列表子项、表格行</td>
 </tr>
-
 <tr>
 <td>M-S-RET</td>
 <td>org-insert-todo-heading</td>
 <td>在下一行插入同级 TODO 标题</td>
 </tr>
-
 <tr>
 <td>C-RET</td>
 <td>org-insert-heading-respect-content</td>
 <td>插入同级标题</td>
 </tr>
-
 <tr>
 <td>C-S-RET</td>
 <td>org-insert-todo-heading-respect-content</td>
 <td>插入同级 TODO 标题</td>
 </tr>
-
 <tr>
 <td>M-LEFT</td>
 <td>org-do-promote</td>
 <td>当前标题提升一级</td>
 </tr>
-
 <tr>
 <td>M-RIGHT</td>
 <td>org-do-demote</td>
 <td>当前标题降低一级</td>
 </tr>
-
 <tr>
 <td>M-S-LEFT</td>
 <td>org-promote-subtree</td>
 <td>当前标题及子树提升一级</td>
 </tr>
-
 <tr>
 <td>M-S-RIGHT</td>
 <td>org-demote-subtree</td>
 <td>当前标题及子树降低一级</td>
 </tr>
-
 <tr>
 <td>M-UP</td>
 <td>org-move-subtree-up</td>
 <td>当前标题及子树上移</td>
 </tr>
-
 <tr>
 <td>M-DOWN</td>
 <td>org-move-subtree-down</td>
@@ -852,47 +735,34 @@ RET
 </tr>
 </tbody>
 </table>
-
-<h4 id="配置-1">配置</h4>
-
+<h4 id="配置">配置</h4>
 <ul>
-<li><p>初始视图</p>
-
-<p>4种初始视图，在 org 文件头加入</p></li>
+<li>初始视图</li>
 </ul>
-
+<pre><code>4种初始视图，在 org 文件头加入
+</code></pre>
 <h3 id="列表">列表</h3>
-
 <h4 id="无序列表">无序列表</h4>
-
 <blockquote>
-<p>无序列表,以&rsquo;-&lsquo;、&rsquo;+&lsquo;或&rsquo;*&lsquo;开头</p>
+<p>无序列表,以&rsquo;-'、&lsquo;+'或&rsquo;*&lsquo;开头</p>
 </blockquote>
-
 <h4 id="有序列表">有序列表</h4>
-
 <blockquote>
 <p>有序列表以数字开头后接.或者)，如：</p>
-
 <ol>
 <li>列表项</li>
 <li>列表项</li>
 </ol>
 </blockquote>
-
 <h4 id="描述列表">描述列表</h4>
-
 <blockquote>
 <p>描述列表是一种无序列表,它包含&rsquo;::&lsquo;作为分隔符来分割术语和描述，如：</p>
-
 <dl>
 <dt>描述列表项</dt>
 <dd>这是一个描述列表</dd>
 </dl>
 </blockquote>
-
-<h4 id="快捷键-1">快捷键</h4>
-
+<h4 id="快捷键">快捷键</h4>
 <table>
 <thead>
 <tr>
@@ -901,98 +771,82 @@ RET
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>TAB</td>
 <td>org-cycle</td>
 <td>折叠/打开列表</td>
 </tr>
-
 <tr>
 <td>M-RET</td>
 <td>org-insert-heading</td>
 <td>在下一行插入列表项</td>
 </tr>
-
 <tr>
 <td>M-S-RET</td>
 <td></td>
 <td>在下一行插入带复选框的列表项</td>
 </tr>
-
 <tr>
 <td>M-up</td>
 <td></td>
 <td>同级向上移动列表项及其子项</td>
 </tr>
-
 <tr>
 <td>M-down</td>
 <td></td>
 <td>同级向下移动列表项及其子项</td>
 </tr>
-
 <tr>
 <td>M-left</td>
 <td></td>
 <td>减少当前列表项的缩进</td>
 </tr>
-
 <tr>
 <td>M-right</td>
 <td></td>
 <td>增加当前列表项的缩进</td>
 </tr>
-
 <tr>
 <td>M-S-left</td>
 <td></td>
 <td>减少当前列表项及其子项的缩进</td>
 </tr>
-
 <tr>
 <td>M-S-right</td>
 <td></td>
 <td>增加当前列表项及其子项的缩进</td>
 </tr>
-
 <tr>
 <td>C-c C-c</td>
 <td></td>
 <td>切换复选框状态</td>
 </tr>
-
 <tr>
 <td>C-c -</td>
 <td></td>
 <td>循环列表的标志</td>
 </tr>
-
 <tr>
 <td>S-left</td>
 <td></td>
 <td></td>
 </tr>
-
 <tr>
 <td>S-right</td>
 <td></td>
 <td></td>
 </tr>
-
 <tr>
 <td>C-c *</td>
 <td></td>
 <td>列表项转化为标题</td>
 </tr>
-
 <tr>
 <td>C-c C-*</td>
 <td></td>
 <td>列表转化为标题</td>
 </tr>
-
 <tr>
 <td>C-c ^</td>
 <td></td>
@@ -1000,15 +854,11 @@ RET
 </tr>
 </tbody>
 </table>
-
 <h3 id="抽屉">抽屉</h3>
-
 <blockquote>
-<p>有时候你想记录下一项事务的某些信息,但是这些信息在一般情况下是没必要显示出来的。为了实现这个目的,Org mode提供了drawers功能，即在标题上按 <TAB> 抽屉里的信息不会显示出来，只有在抽屉上按 <TAB> 时才会显示出来。</p>
+<p>有时候你想记录下一项事务的某些信息,但是这些信息在一般情况下是没必要显示出来的。为了实现这个目的,Org mode提供了drawers功能，即在标题上按 <!-- raw HTML omitted --> 抽屉里的信息不会显示出来，只有在抽屉上按 <!-- raw HTML omitted --> 时才会显示出来。</p>
 </blockquote>
-
-<h4 id="快捷键-2">快捷键</h4>
-
+<h4 id="快捷键">快捷键</h4>
 <table>
 <thead>
 <tr>
@@ -1017,7 +867,6 @@ RET
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>C-c C-x d</td>
@@ -1026,23 +875,20 @@ RET
 </tr>
 </tbody>
 </table>
-
-<h4 id="配置-2">配置</h4>
-
+<h4 id="配置">配置</h4>
 <ul>
-<li><p>导出 HTML 时不导出抽屉</p>
-
-<pre><code class="language-shell">vi ~/.emacs
-</code></pre>
-
-<pre><code class="language-lisp">(setq org-export-with-drawers nil)
-</code></pre></li>
+<li>导出 HTML 时不导出抽屉</li>
 </ul>
+<pre><code>```shell
+vi ~/.emacs
+```
 
+```lisp
+(setq org-export-with-drawers nil)
+```
+</code></pre>
 <h3 id="注脚">注脚</h3>
-
-<h4 id="快捷键-3">快捷键</h4>
-
+<h4 id="快捷键">快捷键</h4>
 <table>
 <thead>
 <tr>
@@ -1051,80 +897,66 @@ RET
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>C-c C-x f</td>
 <td></td>
 <td>当光标在注脚处，则会在注脚引用和注脚定义之间跳转</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>当光标在文字处，则会为创建新的注脚</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>当光标在空白处，则会弹出附加菜单：</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>s 以引用顺序为依据对注脚的定义进行排序</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>r 对类型fn:N这样的以简单数字命名的注脚进行重新编号</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>S 先执行r操作,然后执行s操作</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>n 标准化所有的标准</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>d 删除当前位置的标注</td>
 </tr>
-
 <tr>
 <td>C-c C-c</td>
 <td></td>
 <td>在注脚引用和定义之间跳转</td>
 </tr>
-
 <tr>
 <td>C-c C-o</td>
 <td></td>
 <td>在注脚引用和定义之间跳转</td>
 </tr>
-
 <tr>
-<td>C-c &lsquo;</td>
+<td>C-c '</td>
 <td></td>
 <td>在注脚引用处按下此快捷键，可以编辑注脚定义</td>
 </tr>
 </tbody>
 </table>
-
 <h3 id="表格">表格</h3>
-
-<h4 id="快捷键-4">快捷键</h4>
-
+<h4 id="快捷键">快捷键</h4>
 <table>
 <thead>
 <tr>
@@ -1133,122 +965,102 @@ RET
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>C-c</td>
 <td></td>
 <td>org-table-create-or-convert-from-region</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>如果没有选定文字，则创建空表格</td>
 </tr>
-
 <tr>
 <td>C-c C-c</td>
 <td>org-table-align</td>
 <td>重新对齐表格</td>
 </tr>
-
 <tr>
 <td>C-c SPC</td>
 <td>org-table-blank-field</td>
 <td>清空光标所在格子</td>
 </tr>
-
 <tr>
 <td>TAB</td>
 <td>org-table-next-field</td>
 <td>重对齐操作,光标移动到下一个域中. 如果需要的话创建一个新行</td>
 </tr>
-
 <tr>
 <td>S-TAB</td>
 <td>org-table-previous-field</td>
 <td>重对齐操作,光标移动到上一个域中</td>
 </tr>
-
 <tr>
 <td>RET</td>
 <td>org-table-next-row</td>
 <td>重对齐表格,并且光标移到下一行. 如果需要的话会新键一行</td>
 </tr>
-
 <tr>
 <td>M-a</td>
 <td>org-table-beginning-of-field</td>
 <td>光标移到当前格子或者上一个格子的开头位置</td>
 </tr>
-
 <tr>
 <td>M-e</td>
 <td>org-table-end-of-field</td>
 <td>光标移到当前格子或者下一个格子的结尾位置</td>
 </tr>
-
 <tr>
 <td>M-LEFT</td>
 <td>org-table-move-column-left</td>
 <td>当前列向左移动一列</td>
 </tr>
-
 <tr>
 <td>M-RIGHT</td>
 <td>org-table-move-column-right</td>
 <td>当前列向右移动一列</td>
 </tr>
-
 <tr>
 <td>M-UP</td>
 <td>org-table-move-row-up</td>
 <td>当前行向上移动一行</td>
 </tr>
-
 <tr>
 <td>M-DOWN</td>
 <td>org-table-move-row-down</td>
 <td>当前行向下移动一行</td>
 </tr>
-
 <tr>
 <td>M-S-LEFT</td>
 <td>org-table-delete-column</td>
 <td>删除当前列</td>
 </tr>
-
 <tr>
 <td>M-S-RIGHT</td>
 <td>org-table-insert-column</td>
 <td>在光标左边新建一列</td>
 </tr>
-
 <tr>
 <td>M-S-DOWN</td>
 <td>org-table-insert-row</td>
 <td>在光标上边新建一行</td>
 </tr>
-
 <tr>
 <td>M-S-UP</td>
 <td>org-table-kill-row</td>
 <td>删除当前行</td>
 </tr>
-
 <tr>
 <td>C-c -</td>
 <td>org-table-insert-hline</td>
 <td>在当前行下面插入水平分隔行</td>
 </tr>
-
 <tr>
 <td>C-c RET</td>
 <td>org-table-hline-and-move</td>
 <td>在当前行下面插入水平分隔行并把光标定位到下一行第一格</td>
 </tr>
-
 <tr>
 <td></td>
 <td>org-tableexport</td>
@@ -1256,42 +1068,24 @@ RET
 </tr>
 </tbody>
 </table>
-
 <h3 id="超链接">超链接</h3>
-
 <p>超链接格式：</p>
-
-<pre><code class="language-text">[[链接地址][描述]] 或 [[链接地址]]
-</code></pre>
-
-<p>示例：</p>
-
-<pre><code class="language-text">[[http://google.com]]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[[链接地址][描述]] 或 [[链接地址]]
+</code></pre></div><p>示例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[[http://google.com]]
 [[file:img/picture.jpg]]
-</code></pre>
-
-<h4 id="内部链接">内部链接</h4>
-
+</code></pre></div><h4 id="内部链接">内部链接</h4>
 <ul>
 <li>设置锚点</li>
 </ul>
-
-<!--listend-->
-
-<pre><code class="language-text">&lt;&lt;link&gt;&gt;
-</code></pre>
-
-<ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&lt;&lt;link&gt;&gt;
+</code></pre></div><ul>
 <li>链接到锚点</li>
 </ul>
-
-<!--listend-->
-
-<pre><code class="language-text">[[link]]
-</code></pre>
-
-<h4 id="快捷键-5">快捷键</h4>
-
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[[link]]
+</code></pre></div><h4 id="快捷键">快捷键</h4>
 <table>
 <thead>
 <tr>
@@ -1300,44 +1094,37 @@ RET
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>C-c C-l</td>
 <td>org-insert-link</td>
 <td>当光标在链接上时，编辑当前链接</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>当光标不在链接上时，插入新链接</td>
 </tr>
-
 <tr>
 <td>C-u C-c C-l</td>
 <td></td>
 <td>插入本地文件链接</td>
 </tr>
-
 <tr>
 <td>C-c C-o</td>
 <td>org-open-at-point</td>
 <td>打开光标所在链接</td>
 </tr>
-
 <tr>
 <td>C-c C-x C-v</td>
 <td>org-toggle-inline-images</td>
 <td>内联显示/隐藏链接的图片</td>
 </tr>
-
 <tr>
 <td>C-c C-x C-n</td>
 <td>org-next-link</td>
 <td>下一个链接</td>
 </tr>
-
 <tr>
 <td>C-c C-x C-p</td>
 <td>org-previous-link</td>
@@ -1345,16 +1132,10 @@ RET
 </tr>
 </tbody>
 </table>
-
 <h3 id="待办事项">待办事项</h3>
-
 <p>任何以TODO开头的标题都被认为是TODO事项，例如：</p>
-
-<pre><code class="language-org">*** TODO Write letter to Sam Fortune
-</code></pre>
-
-<h4 id="快捷键-6">快捷键</h4>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="color:#75715e">***</span><span style="color:#960050;background-color:#1e0010"> TODO</span> Write letter to Sam Fortune
+</code></pre></div><h4 id="快捷键">快捷键</h4>
 <table>
 <thead>
 <tr>
@@ -1363,68 +1144,57 @@ RET
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>C-c C-t</td>
 <td>org-todo</td>
 <td>TODO 状态从 (unmarked) -&gt; TODO -&gt; DONE 循环</td>
 </tr>
-
 <tr>
 <td>C-u C-c C-t</td>
 <td></td>
 <td>使用补全方式或快速选择界面(需要设置)来选择特定的TODO关键字</td>
 </tr>
-
 <tr>
 <td>S-RIGHT</td>
 <td></td>
 <td>循环TODO状态</td>
 </tr>
-
 <tr>
 <td>S-LEFT</td>
 <td></td>
 <td>循环TODO状态</td>
 </tr>
-
 <tr>
 <td>C-c / t</td>
 <td>org-show-todo-tree</td>
 <td>折叠起整个buffer，只显示TODO事项</td>
 </tr>
-
 <tr>
 <td>C-c a t</td>
 <td>org-todo-list</td>
 <td>显示全局的TODO列列表</td>
 </tr>
-
 <tr>
 <td>S-M-RET</td>
 <td>org-insert-todo-heading</td>
 <td>在当前TODO事项下面增加一个新的TODO事项</td>
 </tr>
-
 <tr>
 <td>C-c ,</td>
 <td></td>
 <td>设置TODO事项优先级</td>
 </tr>
-
 <tr>
 <td>S-UP</td>
 <td></td>
 <td>提升TODO事项优先级</td>
 </tr>
-
 <tr>
 <td>S-DOWN</td>
 <td></td>
 <td>降低TODO事项优先级</td>
 </tr>
-
 <tr>
 <td>C-c C-c</td>
 <td></td>
@@ -1432,80 +1202,75 @@ RET
 </tr>
 </tbody>
 </table>
-
-<h4 id="配置-3">配置</h4>
-
+<h4 id="配置">配置</h4>
 <ul>
-<li><p>扩充TODO关键字</p>
+<li>扩充TODO关键字</li>
+</ul>
+<pre><code>默认情况下，TODO事项只有TODO和DONE个关键字，可以通过配置扩充关键字，如：
 
-<p>默认情况下，TODO事项只有TODO和DONE个关键字，可以通过配置扩充关键字，如：</p>
-
-<pre><code class="language-lisp">(setq org-todo-keywords
+```lisp
+(setq org-todo-keywords
   '((sequence &quot;TODO&quot; &quot;FEEDBACK&quot; &quot;VERIFY&quot; &quot;|&quot; &quot;DONE&quot; &quot;DELEGATED&quot;)))
+```
+
+“|”符号左边为未完结状态关键字，右边为完结状态关键字
 </code></pre>
-
-<p>“|”符号左边为未完结状态关键字，右边为完结状态关键字</p>
-
 <ul>
 <li>记录TODO事项完结时间</li>
 </ul>
+<pre><code>当TODO事项状态切换为完结时自动插入时间：
 
-<p>当TODO事项状态切换为完结时自动插入时间：</p>
-
-<pre><code class="language-lisp">(setq org-log-done 'time)
-</code></pre></li>
-
-<li><p>在TODO事项完结时记录附加信息</p>
-
-<pre><code class="language-lisp">(setq org-log-done 'note)
+```lisp
+(setq org-log-done 'time)
+```
 </code></pre>
-
+<ul>
+<li>在TODO事项完结时记录附加信息</li>
+</ul>
+<pre><code>```lisp
+(setq org-log-done 'note)
+```
+</code></pre>
 <ul>
 <li>优先级</li>
 </ul>
-
-<p>默认情况下,Org-mode支持从高到低三个优先级,分别表示为`A`,`B`,`C`. 如果某个任务没有分配优先级,则被认为是`B`优先级. 为任务分配优先级的意义仅仅在于在agenda视图中可以依照优先级对任务进行排序</p>
-
+<pre><code>默认情况下,Org-mode支持从高到低三个优先级,分别表示为\`A\`,\`B\`,\`C\`. 如果某个任务没有分配优先级,则被认为是\`B\`优先级. 为任务分配优先级的意义仅仅在于在agenda视图中可以依照优先级对任务进行排序
+</code></pre>
 <ul>
 <li>划分子任务</li>
 </ul>
+<pre><code>在TODO事项下创建子TODO事项树来表达分层关系，在父TODO事项标题任何位置插入“&lt;code&gt;[/]&lt;/code&gt;”或“&lt;code&gt;[%]&lt;/code&gt;”来显示子TODO事项的完成情况，如：
 
-<p>在TODO事项下创建子TODO事项树来表达分层关系，在父TODO事项标题任何位置插入“<code>[/]</code>”或“<code>[%]</code>”来显示子TODO事项的完成情况，如：</p>
-
-<pre><code class="language-org">* Organize Party [33%]
+```org
+* Organize Party [33%]
 ** TODO Call people [1/2]
 *** TODO Peter
 *** DONE Sarah
 ** TODO Buy food
 ** DONE Talk to neighbor
-</code></pre>
+```
 
-<p>当所有子TODO事项状态都设置为完结后，父TODO事项状态也自动设置为完结：</p>
+当所有子TODO事项状态都设置为完结后，父TODO事项状态也自动设置为完结：
 
-<pre><code class="language-lisp">(defun org-summary-todo (n-done n-not-done)
+```lisp
+(defun org-summary-todo (n-done n-not-done)
   &quot;Switch entry to DONE when all subentries are done, to TODO otherwise.&quot;
   (let (org-log-done org-log-states)   ; turn off logging
     (org-todo (if (= n-not-done 0) &quot;DONE&quot; &quot;TODO&quot;))))
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+```
 </code></pre>
-
 <h4 id="checkbox列表">checkbox列表</h4>
-
 <p>当子checkbox列表状态为完结时，父checkbox状态会自动切换为完结示例：</p>
-
-<pre><code class="language-org">* TODO Organize party [2/4]
-- [-] call people [1/3]
-- [ ] Peter
-- [X] Sarah
-- [ ] Sam
-- [X] order food
-- [ ] think about what music to play
-- [X] talk to the neighbors
-</code></pre></li>
-</ul>
-
-<h4 id="快捷键-7">快捷键</h4>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org">*<span style="color:#960050;background-color:#1e0010"> TODO</span><span style="font-weight:bold"> Organize party [2/4]</span>
+ <span style="color:#66d9ef">- </span>[-] call people [1/3]
+   <span style="color:#66d9ef">- [ ]</span> Peter
+   <span style="color:#66d9ef">- [X]</span> Sarah
+   <span style="color:#66d9ef">- [ ]</span> Sam
+ <span style="color:#66d9ef">- [X]</span> order food
+ <span style="color:#66d9ef">- [ ]</span> think about what music to play
+ <span style="color:#66d9ef">- [X]</span> talk to the neighbors
+</code></pre></div><h4 id="快捷键">快捷键</h4>
 <table>
 <thead>
 <tr>
@@ -1514,7 +1279,6 @@ RET
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>C-c C-c</td>
@@ -1523,18 +1287,12 @@ RET
 </tr>
 </tbody>
 </table>
-
 <h3 id="标签">标签</h3>
-
 <p>每个标题都可以包含多个tag; 这些tag应该放在标题的末尾位置. tag通常由字母,汉字,数字,-和@组成. tag的前后必须被冒号包括，示例：</p>
-
-<pre><code class="language-org">* Meeting with the French group      :work:
-** Summary by Frank                  :boss:notes:
-*** TODO Prepare slides for him      :action:
-</code></pre>
-
-<h4 id="快捷键-8">快捷键</h4>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org">*<span style="font-weight:bold"> Meeting with the French group     </span><span style="font-style:italic"> :work:</span>
+<span style="color:#75715e">**</span> Summary by Frank                 <span style="font-style:italic"> :boss:notes:</span>
+<span style="color:#75715e">***</span><span style="color:#960050;background-color:#1e0010"> TODO</span> Prepare slides for him      :action:
+</code></pre></div><h4 id="快捷键">快捷键</h4>
 <table>
 <thead>
 <tr>
@@ -1543,14 +1301,12 @@ RET
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>C-c C-q</td>
 <td>org-set-tags-command</td>
 <td>为当前标题输入新的标签</td>
 </tr>
-
 <tr>
 <td>C-c C-c</td>
 <td>org-set-tags-command</td>
@@ -1558,11 +1314,8 @@ RET
 </tr>
 </tbody>
 </table>
-
 <h3 id="日期与时间">日期与时间</h3>
-
-<h4 id="快捷键-9">快捷键</h4>
-
+<h4 id="快捷键">快捷键</h4>
 <table>
 <thead>
 <tr>
@@ -1571,98 +1324,82 @@ RET
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>C-c .</td>
 <td>org-time-stamp</td>
 <td>光标位于时间戳上时，修改时间戳</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>否则插入新的时间戳，如果两次执行该命令，则插入时间段</td>
 </tr>
-
 <tr>
 <td>C-c !</td>
 <td>org-time-stamp-inactive</td>
 <td>类似C-c .命令，但插入的是一个无效的时间戳</td>
 </tr>
-
 <tr>
 <td>C-u C-c .</td>
 <td></td>
 <td>类似C-c .命令，但插入的是带日期和时间的时间戳，默认的时间</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>会自动四舍五入到每5分钟为单位</td>
 </tr>
-
 <tr>
 <td>C-u C-c !</td>
 <td></td>
 <td>类似C-c !命令，但插入的是带日期和时间的无效时间戳，默认的时间</td>
 </tr>
-
 <tr>
 <td></td>
 <td></td>
 <td>会自动四舍五入到每5分钟为单位</td>
 </tr>
-
 <tr>
 <td>C-c C-c</td>
 <td></td>
 <td>更正时间戳,如果星期数错了或者没有,就会修正或者插入正确的星期数</td>
 </tr>
-
 <tr>
 <td>C-c &lt;</td>
 <td>org-date-from-calendar</td>
 <td>光标位于时间戳上时，修改时间戳为当前时间，否则直接插入当前时间戳</td>
 </tr>
-
 <tr>
 <td>C-c &gt;</td>
 <td>org-goto-calendar</td>
 <td>打开Emacs Calendar窗口</td>
 </tr>
-
 <tr>
 <td>C-c C-o</td>
 <td>org-open-at-point</td>
 <td>在agenda窗口中打开时间戳所指定的日期或时间段</td>
 </tr>
-
 <tr>
 <td>S-LEFT</td>
 <td>org-timestamp-down-day</td>
 <td>减少光标所在时间戳一天</td>
 </tr>
-
 <tr>
 <td>S-RIGHT</td>
 <td>org-timestamp-up-day</td>
 <td>增加光标所在时间戳一天</td>
 </tr>
-
 <tr>
 <td>S-UP</td>
 <td>org-timestamp-up</td>
 <td>增加时间戳光标所在部分的值</td>
 </tr>
-
 <tr>
 <td>S-DOWN</td>
 <td>org-timestamp-down-down</td>
 <td>减少时间戳光标所在部分的值</td>
 </tr>
-
 <tr>
 <td>C-c C-y</td>
 <td>org-evaluate-time-range</td>
@@ -1670,13 +1407,9 @@ RET
 </tr>
 </tbody>
 </table>
-
 <h3 id="源码">源码</h3>
-
 <p>输入&lt;s 后按&lt;TAB&gt;可以快速插入代码块</p>
-
-<h4 id="快捷键-10">快捷键</h4>
-
+<h4 id="快捷键">快捷键</h4>
 <table>
 <thead>
 <tr>
@@ -1685,14 +1418,12 @@ RET
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td>C-c &lsquo;</td>
+<td>C-c '</td>
 <td></td>
 <td>光标在代码块上时，打开编辑窗口，再次按下该快捷键结束编辑</td>
 </tr>
-
 <tr>
 <td>C-c C-c</td>
 <td></td>
@@ -1700,17 +1431,11 @@ RET
 </tr>
 </tbody>
 </table>
-
 <h3 id="杂项">杂项</h3>
-
 <h4 id="自动完成">自动完成</h4>
-
 <p>快捷键为：</p>
-
-<pre><code class="language-text">M-TAB
-</code></pre>
-
-<ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">M-TAB
+</code></pre></div><ul>
 <li>在标题开头，自动完成 TODO 关键字</li>
 <li>在“\”后面，自动完成TeX符号</li>
 <li>在“*”后面，自动完成标题</li>
@@ -1719,77 +1444,59 @@ RET
 <li>在“#+”后面，自动完成相关关键字，如OPTIONS</li>
 <li>在“#+STARTUP:”后面，自动完成startup关键字</li>
 </ul>
-
 <h4 id="快捷模板">快捷模板</h4>
-
-<p>例如输入\<s按<TAB>可以快捷插入</p>
-
-<pre><code class="language-text">#+BEGIN_SRC
+<p>例如输入\&lt;s按<!-- raw HTML omitted -->可以快捷插入</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#+BEGIN_SRC
 #+END_SRC
-</code></pre>
-
-<p>内置的快捷模板有：</p>
-
-<pre><code class="language-sh">s   #+BEGIN_SRC ... #+END_SRC
-e   #+BEGIN_EXAMPLE ... #+END_EXAMPLE
-q   #+BEGIN_QUOTE ... #+END_QUOTE
-v   #+BEGIN_VERSE ... #+END_VERSE
-c   #+BEGIN_CENTER ... #+END_CENTER
-C   #+BEGIN_COMMENT ... #+END_COMMENT
-l   #+BEGIN_EXPORT latex ... #+END_EXPORT
-L   #+LATEX:
-h   #+BEGIN_EXPORT html ... #+END_EXPORT
-H   #+HTML:
-a   #+BEGIN_EXPORT ascii ... #+END_EXPORT
-A   #+ASCII:
-i   #+INDEX: line
-I   #+INCLUDE: line
-</code></pre>
-
-<h4 id="简洁的大纲视图">简洁的大纲视图</h4>
-
+</code></pre></div><p>内置的快捷模板有：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">s	<span style="color:#75715e">#+BEGIN_SRC ... #+END_SRC</span>
+e	<span style="color:#75715e">#+BEGIN_EXAMPLE ... #+END_EXAMPLE</span>
+q	<span style="color:#75715e">#+BEGIN_QUOTE ... #+END_QUOTE</span>
+v	<span style="color:#75715e">#+BEGIN_VERSE ... #+END_VERSE</span>
+c	<span style="color:#75715e">#+BEGIN_CENTER ... #+END_CENTER</span>
+C	<span style="color:#75715e">#+BEGIN_COMMENT ... #+END_COMMENT</span>
+l	<span style="color:#75715e">#+BEGIN_EXPORT latex ... #+END_EXPORT</span>
+L	<span style="color:#75715e">#+LATEX:</span>
+h	<span style="color:#75715e">#+BEGIN_EXPORT html ... #+END_EXPORT</span>
+H	<span style="color:#75715e">#+HTML:</span>
+a	<span style="color:#75715e">#+BEGIN_EXPORT ascii ... #+END_EXPORT</span>
+A	<span style="color:#75715e">#+ASCII:</span>
+i	<span style="color:#75715e">#+INDEX: line</span>
+I	<span style="color:#75715e">#+INCLUDE: line</span>
+</code></pre></div><h4 id="简洁的大纲视图">简洁的大纲视图</h4>
 <ul>
-<li><p>缩进模式</p>
-
-<p>两种开启 org-indent-mode 缩进模式：</p>
-
-<ul>
-<li><p>全局模式</p>
-
-<pre><code class="language-sh">vi .emacs
-</code></pre>
-
-<pre><code class="language-sh">(setq org-startup-indented t)
-</code></pre></li>
-
-<li><p>单个org文件模式</p>
-
-<pre><code class="language-org">#+STARTUP: indent
-</code></pre></li>
-</ul></li>
+<li>缩进模式</li>
 </ul>
+<pre><code>两种开启 org-indent-mode 缩进模式：
 
+-    全局模式
+
+    ```sh
+    vi .emacs
+    ```
+
+    ```sh
+    (setq org-startup-indented t)
+    ```
+
+-    单个org文件模式
+
+    ```org
+    #+STARTUP: indent
+    ```
+</code></pre>
 <h2 id="dired">Dired</h2>
-
 <blockquote>
 <p>Dired是Emacs自带的文件管理器</p>
 </blockquote>
-
 <h3 id="绑定快捷键">绑定快捷键</h3>
-
-<p>设置按<f8>用Dired打开指定目录：</p>
-
-<pre><code class="language-sh">vi .emacs
-</code></pre>
-
-<pre><code class="language-c">(global-set-key (kbd &quot;&lt;f8&gt;&quot;)
+<p>设置按<!-- raw HTML omitted -->用Dired打开指定目录：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vi .emacs
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">(global<span style="color:#f92672">-</span>set<span style="color:#f92672">-</span>key (kbd <span style="color:#e6db74">&#34;&lt;f8&gt;&#34;</span>)
     (lambda ()
-    (interactive)
-        (dired &quot;~/Nutstore Files/Note&quot;)))
-</code></pre>
-
-<h3 id="快捷键-11">快捷键</h3>
-
+	(interactive)
+	    (dired <span style="color:#e6db74">&#34;~/Nutstore Files/Note&#34;</span>)))
+</code></pre></div><h3 id="快捷键">快捷键</h3>
 <table>
 <thead>
 <tr>
@@ -1797,203 +1504,163 @@ I   #+INCLUDE: line
 <th>释义</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>m</td>
 <td>mark光标所在的文件或目录</td>
 </tr>
-
 <tr>
 <td>u</td>
 <td>unmark光标所在的文件或目录</td>
 </tr>
-
 <tr>
 <td>U</td>
 <td>unmark所有文件或目录</td>
 </tr>
-
 <tr>
 <td>d</td>
 <td>mark要删除的文件或目录</td>
 </tr>
-
 <tr>
 <td>t</td>
 <td>反转所有文件的mark标记</td>
 </tr>
-
 <tr>
 <td>#</td>
 <td>mark所有以#文件名结尾的文件</td>
 </tr>
-
 <tr>
 <td>~</td>
 <td>mark所有以~文件名结尾的文件</td>
 </tr>
-
 <tr>
 <td>**</td>
 <td>mark所有可执行文件</td>
 </tr>
-
 <tr>
 <td>*@</td>
 <td>mark所有符号链接</td>
 </tr>
-
 <tr>
 <td>*/</td>
 <td>mark所有目录</td>
 </tr>
-
 <tr>
 <td>*S</td>
 <td>mark所有文件和目录</td>
 </tr>
-
 <tr>
 <td>*.</td>
 <td>mark给定扩展名的文件</td>
 </tr>
-
 <tr>
 <td>%m</td>
 <td>mark所有匹配正则表达式的文件</td>
 </tr>
-
 <tr>
 <td>%d</td>
 <td>mark所有匹配正则表达式的要删除的文件</td>
 </tr>
-
 <tr>
 <td>+</td>
 <td>创建一个子目录</td>
 </tr>
-
 <tr>
 <td>C</td>
 <td>拷贝文件</td>
 </tr>
-
 <tr>
 <td>R</td>
 <td>重命名</td>
 </tr>
-
 <tr>
 <td>D</td>
 <td>删除文件</td>
 </tr>
-
 <tr>
 <td>O</td>
 <td>更改文件所有者，chown</td>
 </tr>
-
 <tr>
 <td>G</td>
 <td>更改文件所有组，chgrp</td>
 </tr>
-
 <tr>
 <td>M</td>
 <td>更改文件属性，chmod</td>
 </tr>
-
 <tr>
 <td>T</td>
 <td>更改文件时间戳</td>
 </tr>
-
 <tr>
 <td>x</td>
 <td>删除被加了删除mark的文件</td>
 </tr>
-
 <tr>
 <td>c</td>
 <td>压缩文件</td>
 </tr>
-
 <tr>
 <td>Z</td>
 <td>使用gzip解压或压缩文件</td>
 </tr>
-
 <tr>
 <td>%C</td>
 <td>拷贝匹配正则表达式的文件</td>
 </tr>
-
 <tr>
 <td>%R</td>
 <td>移动匹配正则表达式的文件</td>
 </tr>
-
 <tr>
 <td>%m</td>
 <td>mark匹配正则表达式文件</td>
 </tr>
-
 <tr>
 <td>%d</td>
 <td>mark匹配正则表达式的要删除的文件</td>
 </tr>
-
 <tr>
 <td>%g</td>
 <td>mark文件内容匹配正则表达式的文件</td>
 </tr>
-
 <tr>
 <td>%S</td>
 <td>为匹配正则表达式的文件添加软链接</td>
 </tr>
-
 <tr>
 <td>%H</td>
 <td>为匹配正则表达式的文件添加硬链接</td>
 </tr>
-
 <tr>
 <td>A</td>
 <td>列出匹配正则表达式的文件</td>
 </tr>
-
 <tr>
 <td>%u</td>
 <td>所选文件名改为大写</td>
 </tr>
-
 <tr>
 <td>%l</td>
 <td>所选文件名改为小写</td>
 </tr>
-
 <tr>
 <td>f</td>
 <td>在当前buffer打开光标所在文件或目录</td>
 </tr>
-
 <tr>
 <td>o</td>
 <td>在新buffer打开光标所在文件或目录</td>
 </tr>
-
 <tr>
 <td>v</td>
 <td>在当前buffer以只读方式打开光标所在文件或目录</td>
 </tr>
-
 <tr>
 <td>i</td>
 <td>在当前buffer内容正文打开光标所在目录</td>
 </tr>
-
 <tr>
 <td>w</td>
 <td>复制文件名</td>
@@ -2135,7 +1802,7 @@ I   #+INCLUDE: line
     &copy;
     
       2017 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

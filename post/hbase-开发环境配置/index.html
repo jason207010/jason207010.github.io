@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/hbase-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" />
@@ -63,21 +63,17 @@
 <meta property="og:description" content="主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 Zookeeper 3.4.8 Hbase 1.1.4 依赖环境 安装Hbase必须先安装配置" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/hbase-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" />
-<meta property="article:published_time" content="2017-07-11T00:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2017-07-11T00:00:00&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-07-11T00:00:00+08:00" />
+<meta property="article:modified_time" content="2017-07-11T00:00:00+08:00" />
 <meta itemprop="name" content="Hbase 开发环境配置">
 <meta itemprop="description" content="主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 Zookeeper 3.4.8 Hbase 1.1.4 依赖环境 安装Hbase必须先安装配置">
-
-
 <meta itemprop="datePublished" content="2017-07-11T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-07-11T00:00:00&#43;08:00" />
 <meta itemprop="wordCount" content="293">
 
 
 
-<meta itemprop="keywords" content="Hadoop," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Hadoop," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hbase 开发环境配置"/>
 <meta name="twitter:description" content="主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 Zookeeper 3.4.8 Hbase 1.1.4 依赖环境 安装Hbase必须先安装配置"/>
 
@@ -366,36 +362,30 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#主机概览">主机概览</a></li>
-<li><a href="#软件概览">软件概览</a></li>
-<li><a href="#依赖环境">依赖环境</a></li>
-<li><a href="#环境变量配置-两台机器都要配置">环境变量配置（两台机器都要配置）</a></li>
-<li><a href="#配置hbase配置文件">配置Hbase配置文件</a>
-<ul>
-<li><a href="#编辑hbase-env-dot-sh">编辑hbase-env.sh</a></li>
-<li><a href="#编辑hbase-site-dot-xml">编辑hbase-site.xml</a></li>
-<li><a href="#编辑regionservers">编辑regionservers</a></li>
-</ul></li>
-<li><a href="#启动hbase">启动Hbase</a></li>
-<li><a href="#进入hbase-shell">进入Hbase Shell</a></li>
-<li><a href="#关闭hbase">关闭Hbase</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#主机概览">主机概览</a></li>
+    <li><a href="#软件概览">软件概览</a></li>
+    <li><a href="#依赖环境">依赖环境</a></li>
+    <li><a href="#环境变量配置-两台机器都要配置">环境变量配置（两台机器都要配置）</a></li>
+    <li><a href="#配置hbase配置文件">配置Hbase配置文件</a>
+      <ul>
+        <li><a href="#编辑hbase-env-dot-sh">编辑hbase-env.sh</a></li>
+        <li><a href="#编辑hbase-site-dot-xml">编辑hbase-site.xml</a></li>
+        <li><a href="#编辑regionservers">编辑regionservers</a></li>
+      </ul>
+    </li>
+    <li><a href="#启动hbase">启动Hbase</a></li>
+    <li><a href="#进入hbase-shell">进入Hbase Shell</a></li>
+    <li><a href="#关闭hbase">关闭Hbase</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="主机概览">主机概览</h2>
-
+      <h2 id="主机概览">主机概览</h2>
 <p>注意：两台主机的用户名必须一样</p>
-
 <table>
 <thead>
 <tr>
@@ -405,7 +395,6 @@ if (!doNotTrack) {
 <th>用途</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>master</td>
@@ -413,7 +402,6 @@ if (!doNotTrack) {
 <td>10.2.2.99</td>
 <td>namenode</td>
 </tr>
-
 <tr>
 <td>slave1</td>
 <td>jason</td>
@@ -422,9 +410,7 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
 <h2 id="软件概览">软件概览</h2>
-
 <table>
 <thead>
 <tr>
@@ -432,96 +418,66 @@ if (!doNotTrack) {
 <th>版本</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>JAVA</td>
 <td>1.8.0_65</td>
 </tr>
-
 <tr>
 <td>Hadoop</td>
 <td>2.6.4</td>
 </tr>
-
 <tr>
 <td>Zookeeper</td>
 <td>3.4.8</td>
 </tr>
-
 <tr>
 <td>Hbase</td>
 <td>1.1.4</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="依赖环境">依赖环境</h2>
-
 <p>安装Hbase必须先安装配置好JAVA、Hadoop、Zookeeper</p>
-
 <h2 id="环境变量配置-两台机器都要配置">环境变量配置（两台机器都要配置）</h2>
-
 <p>编辑/etc/profile文件</p>
-
-<pre><code class="language-sh">#hbase环境变量begin
-export HBASE_HOME=/opt/hbase
-export PATH=$PATH:${HBASE_HOME}/bin
-#hbase环境变量end
-</code></pre>
-
-<h2 id="配置hbase配置文件">配置Hbase配置文件</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#hbase环境变量begin</span>
+export HBASE_HOME<span style="color:#f92672">=</span>/opt/hbase
+export PATH<span style="color:#f92672">=</span>$PATH:<span style="color:#e6db74">${</span>HBASE_HOME<span style="color:#e6db74">}</span>/bin
+<span style="color:#75715e">#hbase环境变量end</span>
+</code></pre></div><h2 id="配置hbase配置文件">配置Hbase配置文件</h2>
 <h3 id="编辑hbase-env-dot-sh">编辑hbase-env.sh</h3>
-
-<pre><code class="language-sh">export JAVA_HOME=/opt/jdk
-export HBASE_MANAGES_ZK=false
-</code></pre>
-
-<h3 id="编辑hbase-site-dot-xml">编辑hbase-site.xml</h3>
-
-<pre><code class="language-xml">&lt;configuration&gt;
-    &lt;property&gt;
-        &lt;name&gt;hbase.rootdir&lt;/name&gt;
-        &lt;value&gt;hdfs://master:9000/hbase&lt;/value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-        &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;
-        &lt;value&gt;true&lt;/value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-        &lt;name&gt;hbase.tmp.dir&lt;/name&gt;
-        &lt;value&gt;/home/jason/other/hbase/tmp&lt;/value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-        &lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt;
-        &lt;value&gt;master,slave1&lt;/value&gt;
-    &lt;/property&gt;
-&lt;/configuration&gt;
-</code></pre>
-
-<h3 id="编辑regionservers">编辑regionservers</h3>
-
-<pre><code class="language-sh">slave1
-</code></pre>
-
-<h2 id="启动hbase">启动Hbase</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">export JAVA_HOME<span style="color:#f92672">=</span>/opt/jdk
+export HBASE_MANAGES_ZK<span style="color:#f92672">=</span>false
+</code></pre></div><h3 id="编辑hbase-site-dot-xml">编辑hbase-site.xml</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;configuration&gt;</span>
+	<span style="color:#f92672">&lt;property&gt;</span>
+		<span style="color:#f92672">&lt;name&gt;</span>hbase.rootdir<span style="color:#f92672">&lt;/name&gt;</span>
+		<span style="color:#f92672">&lt;value&gt;</span>hdfs://master:9000/hbase<span style="color:#f92672">&lt;/value&gt;</span>
+	<span style="color:#f92672">&lt;/property&gt;</span>
+	<span style="color:#f92672">&lt;property&gt;</span>
+		<span style="color:#f92672">&lt;name&gt;</span>hbase.cluster.distributed<span style="color:#f92672">&lt;/name&gt;</span>
+		<span style="color:#f92672">&lt;value&gt;</span>true<span style="color:#f92672">&lt;/value&gt;</span>
+	<span style="color:#f92672">&lt;/property&gt;</span>
+	<span style="color:#f92672">&lt;property&gt;</span>
+		<span style="color:#f92672">&lt;name&gt;</span>hbase.tmp.dir<span style="color:#f92672">&lt;/name&gt;</span>
+		<span style="color:#f92672">&lt;value&gt;</span>/home/jason/other/hbase/tmp<span style="color:#f92672">&lt;/value&gt;</span>
+	<span style="color:#f92672">&lt;/property&gt;</span>
+	<span style="color:#f92672">&lt;property&gt;</span>
+		<span style="color:#f92672">&lt;name&gt;</span>hbase.zookeeper.quorum<span style="color:#f92672">&lt;/name&gt;</span>
+		<span style="color:#f92672">&lt;value&gt;</span>master,slave1<span style="color:#f92672">&lt;/value&gt;</span>
+	<span style="color:#f92672">&lt;/property&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div><h3 id="编辑regionservers">编辑regionservers</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">slave1
+</code></pre></div><h2 id="启动hbase">启动Hbase</h2>
 <p>注意：启动Hbase前必须先启动Hadoop、Zookeeper</p>
-
-<pre><code class="language-sh">start-hbase.sh
-</code></pre>
-
-<h2 id="进入hbase-shell">进入Hbase Shell</h2>
-
-<pre><code class="language-sh">hbase shell
-</code></pre>
-
-<h2 id="关闭hbase">关闭Hbase</h2>
-
-<pre><code class="language-sh">stop-hbase.sh
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">start-hbase.sh
+</code></pre></div><h2 id="进入hbase-shell">进入Hbase Shell</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hbase shell
+</code></pre></div><h2 id="关闭hbase">关闭Hbase</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">stop-hbase.sh
+</code></pre></div>
     </div>
 
     
@@ -656,7 +612,7 @@ export HBASE_MANAGES_ZK=false
     &copy;
     
       2017 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

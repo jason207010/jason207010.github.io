@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JetBrains on Jason&#39;s Blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/jetbrains-crack-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
-      <description>破解 IntelliJ IDEA 软件版本 软件/操作系统 Mac OS Sierra 10.12.6 IntelliJ IDEA 2018.2.3 (Ultimate Edition) JetbrainsCrack-3.1-release-enc.jar 破解方法 复制 JetbrainsCrack-3.1-release-enc.jar cp JetbrainsCrack-3.1-release-enc.jar /Applications/IntelliJ\ IDEA.app/Contents/lib/ 编辑 idea.vmoptions 文件 vi /Applications/IntelliJ\ IDEA.app/Contents/bin/idea.vmoptions 追加内容 -javaagent:../lib/JetbrainsCrack-3.1-release-enc.jar 打开 IntelliJ IDEA.app 输入激活码 ThisCrackLicenseId-{ &amp;quot;licenseId&amp;quot;:&amp;quot;ThisCrackLicenseId&amp;quot;, &amp;quot;lice</description>
+      <description>破解 IntelliJ IDEA 软件版本 软件/操作系统 Mac OS Sierra 10.12.6 IntelliJ IDEA 2018.2.3 (Ultimate Edition) JetbrainsCrack-3.1-release-enc.jar 破解方法 复制 JetbrainsCrack-3.1-release-enc.jar cp JetbrainsCrack-3.1-release-enc.jar /Applications/IntelliJ\ IDEA.app/Contents/lib/ 编辑 idea.vmoptions 文件 vi /Applications/IntelliJ\ IDEA.app/Contents/bin/idea.vmoptions 追加内容 -javaagent:../lib/JetbrainsCrack-3.1-release-enc.jar 打开 IntelliJ IDEA.app 输入激活码 ThisCrackLicenseId-{ &amp;#34;licenseId&amp;#34;:&amp;#34;ThisCrackLicenseId&amp;#34;, &amp;#34;licen</description>
     </item>
     
   </channel>
