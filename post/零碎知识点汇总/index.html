@@ -69,7 +69,7 @@
 <meta itemprop="description" content="Java Servlet、Filter 的 url-pattern 匹配规则 精确匹配 @WebServlet(urlPatterns = &#34;/test&#34;) public class TestServlet extends HttpServlet { } 扩展名匹配 @WebServlet(urlPatterns = &#34;*.do&#34;) public class TestServlet extends HttpServlet { } 路径匹配 @WebServlet(urlPatterns = &#34;/test/*&#34;) public class TestServlet extends HttpServlet { } 任意url匹">
 <meta itemprop="datePublished" content="2019-09-30T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-09-30T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1315">
+<meta itemprop="wordCount" content="1417">
 
 
 
@@ -345,7 +345,7 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/java/"> Java </a>
             
           </div>
-        <span class="more-meta"> 约 1315 字 </span>
+        <span class="more-meta"> 约 1417 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         
@@ -370,6 +370,7 @@ if (!doNotTrack) {
         <li><a href="#读取项目-resources-目录下的文件">读取项目 resources 目录下的文件</a></li>
         <li><a href="#spring-mvc-中-jackson-反序列化时区问题">Spring MVC 中 Jackson 反序列化时区问题</a></li>
         <li><a href="#mybatis-转义字符处理">MyBatis 转义字符处理</a></li>
+        <li><a href="#jdbc-url-重要参数">JDBC url 重要参数</a></li>
       </ul>
     </li>
     <li><a href="#maven">Maven</a>
@@ -433,63 +434,61 @@ if (!doNotTrack) {
 </ul>
 <h3 id="spring-boot-注册-servlet-和-filter">Spring Boot 注册 Servlet 和 Filter</h3>
 <h4 id="通过配置-servletregistrationbean-注册">通过配置 ServletRegistrationBean 注册</h4>
+<!-- raw HTML omitted -->
 <ul>
-<li>编写 Servlet</li>
+<li>
+<p>编写 Servlet</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestServlet</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
 </ul>
-<pre><code>```java
-public class TestServlet extends HttpServlet {
-}
-```
-</code></pre>
+<!-- raw HTML omitted -->
 <ul>
-<li>配置 ServletRegistrationBean</li>
+<li>
+<p>配置 ServletRegistrationBean</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringBootDemoApplication</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>SpringBootDemoApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> ServletRegistrationBean<span style="color:#f92672">&lt;</span>TestServlet<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">testServletServletRegistrationBean</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    ServletRegistrationBean<span style="color:#f92672">&lt;</span>TestServlet<span style="color:#f92672">&gt;</span> bean <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ServletRegistrationBean<span style="color:#f92672">&lt;&gt;();</span>
+    bean<span style="color:#f92672">.</span><span style="color:#a6e22e">addUrlMappings</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/test&#34;</span><span style="color:#f92672">);</span>
+    bean<span style="color:#f92672">.</span><span style="color:#a6e22e">setServlet</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> TestServlet<span style="color:#f92672">());</span>
+    <span style="color:#66d9ef">return</span> bean<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
 </ul>
-<pre><code>```java
-@SpringBootApplication
-public class SpringBootDemoApplication {
-
-    public static void main(String[] args) {
-    SpringApplication.run(SpringBootDemoApplication.class, args);
-    }
-
-    @Bean
-    public ServletRegistrationBean&lt;TestServlet&gt; testServletServletRegistrationBean() {
-    ServletRegistrationBean&lt;TestServlet&gt; bean = new ServletRegistrationBean&lt;&gt;();
-    bean.addUrlMappings(&quot;/test&quot;);
-    bean.setServlet(new TestServlet());
-    return bean;
-    }
-}
-```
-</code></pre>
 <h4 id="注解方式注册">注解方式注册</h4>
+<!-- raw HTML omitted -->
 <ul>
-<li>编写 Servlet</li>
+<li>
+<p>编写 Servlet</p>
+<p>Servlet 使用 @WebServlet 注解</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@WebServlet</span><span style="color:#f92672">(</span>urlPatterns <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/test&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestServlet</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
 </ul>
-<pre><code>Servlet 使用 @WebServlet 注解
-
-```java
-@WebServlet(urlPatterns = &quot;/test&quot;)
-public class TestServlet extends HttpServlet {
-}
-```
-</code></pre>
+<!-- raw HTML omitted -->
 <ul>
-<li>配置 Spring Boot 扫描 Servlet</li>
+<li>
+<p>配置 Spring Boot 扫描 Servlet</p>
+<p>@ServletComponentScan 注解会扫描 有 @WebServlet 注解的 Servlet，并注册进来</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#a6e22e">@ServletComponentScan</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringBootDemoApplication</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>SpringBootDemoApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
 </ul>
-<pre><code>@ServletComponentScan 注解会扫描 有 @WebServlet 注解的 Servlet，并注册进来
-
-```java
-@SpringBootApplication
-@ServletComponentScan
-public class SpringBootDemoApplication {
-
-    public static void main(String[] args) {
-    SpringApplication.run(SpringBootDemoApplication.class, args);
-    }
-}
-```
-</code></pre>
 <h3 id="读取项目-resources-目录下的文件">读取项目 resources 目录下的文件</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//根目录就是 resources 目录
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getResource</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/application.properties&#34;</span><span style="color:#f92672">);</span>
@@ -511,7 +510,60 @@ public class SpringBootDemoApplication {
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">spring<span style="color:#f92672">.</span><span style="color:#a6e22e">jackson</span><span style="color:#f92672">.</span><span style="color:#a6e22e">time</span><span style="color:#f92672">-</span>zone<span style="color:#f92672">=</span>GMT<span style="color:#f92672">+</span>8
 </code></pre></div><h3 id="mybatis-转义字符处理">MyBatis 转义字符处理</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;![CDATA[ 这里写你的sql ]]&gt;</span>
-</code></pre></div><h2 id="maven">Maven</h2>
+</code></pre></div><h3 id="jdbc-url-重要参数">JDBC url 重要参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>释义</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>用户名</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>用户密码</td>
+<td></td>
+</tr>
+<tr>
+<td>useUnicode</td>
+<td>是否使用Unicode字符集</td>
+<td>false</td>
+</tr>
+<tr>
+<td>characterEncoding</td>
+<td>指定字符编码，如utf8</td>
+<td></td>
+</tr>
+<tr>
+<td>autoReconnect</td>
+<td>连接异常中断时，是否自动重新连接</td>
+<td>false</td>
+</tr>
+<tr>
+<td>failOverReadOnly</td>
+<td>自动重连成功后，连接是否设置为只读</td>
+<td>true</td>
+</tr>
+<tr>
+<td>connectTimeout</td>
+<td>连接超时时间，0表示永不超时</td>
+<td>0</td>
+</tr>
+<tr>
+<td>serverTimezone</td>
+<td>设置时区</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">jdbc:mysql<span style="color:#f92672">:</span><span style="color:#75715e">//127.0.0.1:3306/demo_projects?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=0&amp;serverTimezone=Asia/Shanghai
+</span></code></pre></div><h2 id="maven">Maven</h2>
 <h3 id="maven-dependency-scope">Maven Dependency Scope</h3>
 <p>Dependency scope 是用来限制Dependency的作用范围的, 影响maven项目在各个生命周期时导入的package的状态</p>
 <h4 id="compile">compile</h4>
