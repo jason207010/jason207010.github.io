@@ -359,6 +359,75 @@ if (!doNotTrack) {
 
     
     
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#关于logstash">关于Logstash</a>
+      <ul>
+        <li><a href="#数据输入-input">数据输入（input)</a></li>
+        <li><a href="#数据解析转换-filter">数据解析转换（filter）</a></li>
+        <li><a href="#数据输出-output">数据输出（output）</a></li>
+        <li><a href="#编码解码器-codec">编码解码器（codec）</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装-logstash-6-dot-3-dot-1">安装（Logstash 6.3.1)</a>
+      <ul>
+        <li><a href="#安装jdk-1-dot-8并配置好java-home环境变量">安装JDK 1.8并配置好JAVA_HOME环境变量</a></li>
+        <li><a href="#下载并解压logstash-6-dot-3-dot-1-dot-tar-dot-gz">下载并解压logstash-6.3.1.tar.gz</a></li>
+        <li><a href="#新建配置文件logstash-dot-conf">新建配置文件logstash.conf</a></li>
+        <li><a href="#运行">运行</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置文件">配置文件</a>
+      <ul>
+        <li><a href="#logstash-dot-yml">logstash.yml</a></li>
+        <li><a href="#pipelines-dot-yml">pipelines.yml</a></li>
+        <li><a href="#jvm-dot-options">jvm.options</a></li>
+        <li><a href="#log4j2-dot-properties">log4j2.properties</a></li>
+      </ul>
+    </li>
+    <li><a href="#input">input</a>
+      <ul>
+        <li><a href="#所有-input-插件都通用的设置项">所有 input 插件都通用的设置项</a></li>
+        <li><a href="#stdin-input-插件">stdin input 插件</a></li>
+        <li><a href="#beats-input-插件">beats input 插件</a></li>
+        <li><a href="#jdbc-input-插件">jdbc input 插件</a></li>
+        <li><a href="#redis-input-插件">redis input 插件</a></li>
+      </ul>
+    </li>
+    <li><a href="#output">output</a>
+      <ul>
+        <li><a href="#所有-output-插件都通用的设置项">所有 output 插件都通用的设置项</a></li>
+        <li><a href="#stdout-output-插件">stdout output 插件</a></li>
+        <li><a href="#elasticsearch-output-插件">elasticsearch output 插件</a></li>
+      </ul>
+    </li>
+    <li><a href="#filter">filter</a>
+      <ul>
+        <li><a href="#所有-filter-插件都通用的设置项">所有 filter 插件都通用的设置项</a></li>
+        <li><a href="#geoip-filter-插件">geoip filter 插件</a></li>
+        <li><a href="#grok-filter-插件">grok filter 插件</a></li>
+      </ul>
+    </li>
+    <li><a href="#codec">codec</a>
+      <ul>
+        <li><a href="#json-lines-codec-插件">json_lines codec 插件</a></li>
+        <li><a href="#json-codec-插件">json codec 插件</a></li>
+      </ul>
+    </li>
+    <li><a href="#性能调优">性能调优</a>
+      <ul>
+        <li><a href="#jvm-调优">jvm 调优</a></li>
+        <li><a href="#使用多个-pipeline-分别接收不同来源的-event">使用多个 pipeline 分别接收不同来源的 event</a></li>
+        <li><a href="#调整-worker-线程批处理数量">调整 worker 线程批处理数量</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
 
     
     <div class="post-content">
