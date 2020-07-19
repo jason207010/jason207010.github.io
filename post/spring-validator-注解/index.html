@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.73.0" />
+<meta name="generator" content="Hugo 0.55.6" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/spring-validator-%E6%B3%A8%E8%A7%A3/" />
@@ -63,17 +63,21 @@
 <meta property="og:description" content="验证注解 验证的数据类型 说明 @AssertFalse Boolean,boolean 验证注解的元素值是false @AssertTrue Boolean,boolean 验证注解的元素值是true @NotNull 任意类型 验证注解的元素值不是null @Null 任意类型 验证" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/spring-validator-%E6%B3%A8%E8%A7%A3/" />
-<meta property="article:published_time" content="2017-07-12T00:00:00+08:00" />
-<meta property="article:modified_time" content="2017-07-12T00:00:00+08:00" />
+<meta property="article:published_time" content="2017-07-12T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2017-07-12T00:00:00&#43;08:00"/>
+
 <meta itemprop="name" content="Spring Validator 注解">
 <meta itemprop="description" content="验证注解 验证的数据类型 说明 @AssertFalse Boolean,boolean 验证注解的元素值是false @AssertTrue Boolean,boolean 验证注解的元素值是true @NotNull 任意类型 验证注解的元素值不是null @Null 任意类型 验证">
+
+
 <meta itemprop="datePublished" content="2017-07-12T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-07-12T00:00:00&#43;08:00" />
 <meta itemprop="wordCount" content="674">
 
 
 
-<meta itemprop="keywords" content="JavaWeb,Spring," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="JavaWeb,Spring," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Validator 注解"/>
 <meta name="twitter:description" content="验证注解 验证的数据类型 说明 @AssertFalse Boolean,boolean 验证注解的元素值是false @AssertTrue Boolean,boolean 验证注解的元素值是true @NotNull 任意类型 验证注解的元素值不是null @Null 任意类型 验证"/>
 
@@ -362,7 +366,7 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
+    
   </div>
 </div>
 
@@ -376,97 +380,116 @@ if (!doNotTrack) {
 <th>说明</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>@AssertFalse</td>
 <td>Boolean,boolean</td>
 <td>验证注解的元素值是false</td>
 </tr>
+
 <tr>
 <td>@AssertTrue</td>
 <td>Boolean,boolean</td>
 <td>验证注解的元素值是true</td>
 </tr>
+
 <tr>
 <td>@NotNull</td>
 <td>任意类型</td>
 <td>验证注解的元素值不是null</td>
 </tr>
+
 <tr>
 <td>@Null</td>
 <td>任意类型</td>
 <td>验证注解的元素值是null</td>
 </tr>
+
 <tr>
 <td>@Min</td>
 <td>Number或CharSequence</td>
 <td>验证注解的元素值大于等于@Min指定的value值</td>
 </tr>
+
 <tr>
 <td>@Max</td>
 <td>和@Min要求一样</td>
 <td>验证注解的元素值大于等于@ DecimalMin指定的value值</td>
 </tr>
+
 <tr>
 <td>@DecimalMin</td>
 <td>和@Min要求一样</td>
 <td>验证注解的元素值大于等于@ DecimalMin指定的value值</td>
 </tr>
+
 <tr>
 <td>@DecimalMax</td>
 <td>和@Min要求一样</td>
 <td>验证注解的元素值小于等于@ DecimalMax指定的value值</td>
 </tr>
+
 <tr>
 <td>@Digits</td>
 <td>和@Min要求一样</td>
 <td>验证注解的元素值的整数位数和小数位数上限</td>
 </tr>
+
 <tr>
 <td>@Size</td>
 <td>字符串、Collection、Map、数组等</td>
 <td>验证注解的元素值的在指定区间之内，如字符长度、集合大小</td>
 </tr>
+
 <tr>
 <td>@Past</td>
 <td>Date，Calendar等日期类型</td>
 <td>验证注解的元素值（日期类型）比当前时间早</td>
 </tr>
+
 <tr>
 <td>@Future</td>
 <td>与@Past要求一样</td>
 <td>验证注解的元素值（日期类型）比当前时间晚</td>
 </tr>
+
 <tr>
 <td>@NotBlank</td>
 <td>CharSequence子类型</td>
 <td>验证注解的元素值不为空（不为null、去除首位空格后长度为0）</td>
 </tr>
+
 <tr>
 <td>@Length</td>
 <td>CharSequence子类型</td>
 <td>验证注解的元素值长度在min和max区间内</td>
 </tr>
+
 <tr>
 <td>@NotEmpty</td>
 <td>CharSequence、Collection、数组</td>
 <td>验证注解的元素值不为null且不为空</td>
 </tr>
+
 <tr>
 <td>@Range</td>
 <td>BigDecimal,CharSequence，int等</td>
 <td>验证注解的元素值在最小值和最大值之间</td>
 </tr>
+
 <tr>
 <td>@Email</td>
 <td>CharSequence子类型（如String）</td>
 <td>验证注解的元素值是Email</td>
 </tr>
+
 <tr>
 <td>@Pattern</td>
 <td>任何CharSequence的子类型</td>
 <td>验证注解的元素值与指定的正则表达式匹配</td>
 </tr>
+
 <tr>
 <td>@Valid</td>
 <td>任何非原子类型</td>
@@ -654,7 +677,7 @@ if (!doNotTrack) {
 
 
 
-<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
 
 
 

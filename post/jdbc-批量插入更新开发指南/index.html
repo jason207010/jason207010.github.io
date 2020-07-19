@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.73.0" />
+<meta name="generator" content="Hugo 0.55.6" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/jdbc-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" />
@@ -63,17 +63,21 @@
 <meta property="og:description" content="概述 JAVA提供java.sql.Statement#executeBatch()方法帮助开发者实现批量插入、更新及删除等操作，但MySQL" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/jdbc-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" />
-<meta property="article:published_time" content="2019-06-17T00:00:00+08:00" />
-<meta property="article:modified_time" content="2019-06-17T00:00:00+08:00" />
+<meta property="article:published_time" content="2019-06-17T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2019-06-17T00:00:00&#43;08:00"/>
+
 <meta itemprop="name" content="JDBC 批量插入、更新开发指南">
 <meta itemprop="description" content="概述 JAVA提供java.sql.Statement#executeBatch()方法帮助开发者实现批量插入、更新及删除等操作，但MySQL">
+
+
 <meta itemprop="datePublished" content="2019-06-17T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-06-17T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="572">
+<meta itemprop="wordCount" content="574">
 
 
 
-<meta itemprop="keywords" content="Java,JDBC," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Java,JDBC," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JDBC 批量插入、更新开发指南"/>
 <meta name="twitter:description" content="概述 JAVA提供java.sql.Statement#executeBatch()方法帮助开发者实现批量插入、更新及删除等操作，但MySQL"/>
 
@@ -346,7 +350,7 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/jdbc/"> JDBC </a>
             
           </div>
-        <span class="more-meta"> 约 572 字 </span>
+        <span class="more-meta"> 约 574 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -363,126 +367,145 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#概述">概述</a></li>
-    <li><a href="#创建mysql数据库表">创建MySQL数据库表</a></li>
-    <li><a href="#构建项目-基于gradle">构建项目（基于Gradle）</a></li>
-    <li><a href="#spring配置">Spring配置</a></li>
-    <li><a href="#批量插入">批量插入</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#概述">概述</a></li>
+<li><a href="#创建mysql数据库表">创建MySQL数据库表</a></li>
+<li><a href="#构建项目-基于gradle">构建项目（基于Gradle）</a></li>
+<li><a href="#spring配置">Spring配置</a></li>
+<li><a href="#批量插入">批量插入</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h2 id="概述">概述</h2>
+      
+
+<h2 id="概述">概述</h2>
+
 <p>JAVA提供java.sql.Statement#executeBatch()方法帮助开发者实现批量插入、更新及删除等操作，但MySQL JDBC驱动默认情况下会无视该语句，把SQL语句逐条发送给MySQL服务器，导致批量操作无效，为了实现把SQL语句批量发送给MySQL服务器，需要把rewriteBatchedStatements参数设置为true。本项目基于Gradle、Spring、DBCP数据库连接池构建。</p>
+
 <h2 id="创建mysql数据库表">创建MySQL数据库表</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">SCHEMA</span> <span style="color:#f92672">`</span>test<span style="color:#f92672">`</span> <span style="color:#66d9ef">DEFAULT</span> CHARACTER <span style="color:#66d9ef">SET</span> utf8 ;
-USE <span style="color:#f92672">`</span>test<span style="color:#f92672">`</span>;
-<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span><span style="color:#66d9ef">user</span><span style="color:#f92672">`</span> (
-    <span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> INT,
-    <span style="color:#f92672">`</span>name<span style="color:#f92672">`</span> VARCHAR(<span style="color:#ae81ff">64</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
-    <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>)
-)  ENGINE<span style="color:#f92672">=</span>INNODB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>UTF8;
-</code></pre></div><h2 id="构建项目-基于gradle">构建项目（基于Gradle）</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">plugins <span style="color:#f92672">{</span>
-    id <span style="color:#960050;background-color:#1e0010">&#39;</span>java<span style="color:#960050;background-color:#1e0010">&#39;</span>
-<span style="color:#f92672">}</span>
 
-group <span style="color:#960050;background-color:#1e0010">&#39;</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">test</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-version <span style="color:#960050;background-color:#1e0010">&#39;</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">-</span>SNAPSHOT<span style="color:#960050;background-color:#1e0010">&#39;</span>
+<pre><code class="language-sql">CREATE SCHEMA `test` DEFAULT CHARACTER SET utf8 ;
+USE `test`;
+CREATE TABLE `user` (
+    `id` INT,
+    `name` VARCHAR(64) NOT NULL,
+    PRIMARY KEY (`id`)
+)  ENGINE=INNODB DEFAULT CHARSET=UTF8;
+</code></pre>
 
-sourceCompatibility <span style="color:#f92672">=</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">8</span>
+<h2 id="构建项目-基于gradle">构建项目（基于Gradle）</h2>
 
-repositories <span style="color:#f92672">{</span>
-    maven <span style="color:#f92672">{</span>url <span style="color:#960050;background-color:#1e0010">&#39;</span>http<span style="color:#f92672">:</span><span style="color:#75715e">//maven.aliyun.com/nexus/content/groups/public/&#39;}
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+<pre><code class="language-java">plugins {
+    id 'java'
+}
 
-dependencies <span style="color:#f92672">{</span>
-    compile group<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>mysql<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> name<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>mysql<span style="color:#f92672">-</span>connector<span style="color:#f92672">-</span>java<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> version<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>8<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">.</span><span style="color:#a6e22e">16</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    compile group<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> name<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>spring<span style="color:#f92672">-</span>core<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> version<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>5<span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">.</span><span style="color:#a6e22e">8</span><span style="color:#f92672">.</span><span style="color:#a6e22e">RELEASE</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    compile group<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> name<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>spring<span style="color:#f92672">-</span>context<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> version<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>5<span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">.</span><span style="color:#a6e22e">8</span><span style="color:#f92672">.</span><span style="color:#a6e22e">RELEASE</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    compile group<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> name<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>spring<span style="color:#f92672">-</span>beans<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> version<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>5<span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">.</span><span style="color:#a6e22e">8</span><span style="color:#f92672">.</span><span style="color:#a6e22e">RELEASE</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    compile group<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> name<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>spring<span style="color:#f92672">-</span>jdbc<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> version<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>5<span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">.</span><span style="color:#a6e22e">8</span><span style="color:#f92672">.</span><span style="color:#a6e22e">RELEASE</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    compile group<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">commons</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> name<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>commons<span style="color:#f92672">-</span>dbcp2<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> version<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>2<span style="color:#f92672">.</span><span style="color:#a6e22e">6</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h2 id="spring配置">Spring配置</h2>
+group 'com.test'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+}
+
+dependencies {
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.16'
+    compile group: 'org.springframework', name: 'spring-core', version: '5.1.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '5.1.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version: '5.1.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '5.1.8.RELEASE'
+    compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.6.0'
+}
+</code></pre>
+
+<h2 id="spring配置">Spring配置</h2>
+
 <p><strong>关键要在MySQL连接URL中设置rewriteBatchedStatements=true</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.test<span style="color:#f92672">;</span>
 
-<span style="color:#f92672">import</span> org.apache.commons.dbcp2.BasicDataSource<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.springframework.context.annotation.Bean<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.springframework.context.annotation.ComponentScan<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.springframework.context.annotation.Configuration<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.springframework.jdbc.core.JdbcTemplate<span style="color:#f92672">;</span>
+<pre><code class="language-java">package com.test;
 
-<span style="color:#f92672">import</span> javax.sql.DataSource<span style="color:#f92672">;</span>
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 
-<span style="color:#a6e22e">@Configuration</span>
-<span style="color:#a6e22e">@ComponentScan</span><span style="color:#f92672">(</span>basePackages <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;com.test&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Config</span> <span style="color:#f92672">{</span>
+import javax.sql.DataSource;
 
-    <span style="color:#a6e22e">@Bean</span>
-    <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">dataSource</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	BasicDataSource dataSource <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BasicDataSource<span style="color:#f92672">();</span>
-	dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc:mysql://127.0.0.1:3306/test?rewriteBatchedStatements=true&#34;</span><span style="color:#f92672">);</span>
-	dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUsername</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">);</span>
-	dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;rootroot&#34;</span><span style="color:#f92672">);</span>
-	<span style="color:#66d9ef">return</span> dataSource<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
+@Configuration
+@ComponentScan(basePackages = &quot;com.test&quot;)
+public class Config {
 
-    <span style="color:#a6e22e">@Bean</span>
-    <span style="color:#66d9ef">public</span> JdbcTemplate <span style="color:#a6e22e">jdbcTemplate</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JdbcTemplate<span style="color:#f92672">(</span>dataSource<span style="color:#f92672">());</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h2 id="批量插入">批量插入</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.test<span style="color:#f92672">;</span>
+    @Bean
+    public DataSource dataSource() {
+	BasicDataSource dataSource = new BasicDataSource();
+	dataSource.setUrl(&quot;jdbc:mysql://127.0.0.1:3306/test?rewriteBatchedStatements=true&quot;);
+	dataSource.setUsername(&quot;root&quot;);
+	dataSource.setPassword(&quot;rootroot&quot;);
+	return dataSource;
+    }
 
-<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.springframework.context.annotation.AnnotationConfigApplicationContext<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.springframework.jdbc.core.BatchPreparedStatementSetter<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.springframework.jdbc.core.JdbcTemplate<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.springframework.stereotype.Component<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.springframework.util.StopWatch<span style="color:#f92672">;</span>
+    @Bean
+    public JdbcTemplate jdbcTemplate() {
+	return new JdbcTemplate(dataSource());
+    }
+}
+</code></pre>
 
-<span style="color:#f92672">import</span> java.sql.PreparedStatement<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.sql.SQLException<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.concurrent.atomic.AtomicInteger<span style="color:#f92672">;</span>
+<h2 id="批量插入">批量插入</h2>
 
-<span style="color:#a6e22e">@Component</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JdbcBatch</span> <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@Autowired</span>
-    <span style="color:#66d9ef">private</span> JdbcTemplate jdbcTemplate<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> String sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;insert into `user` values(?,?)&#34;</span><span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">batchInsert</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	StopWatch sw <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StopWatch<span style="color:#f92672">();</span>
-	sw<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
-	AtomicInteger idIncrease <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicInteger<span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
-	jdbcTemplate<span style="color:#f92672">.</span><span style="color:#a6e22e">batchUpdate</span><span style="color:#f92672">(</span>sql<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> BatchPreparedStatementSetter<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	    <span style="color:#a6e22e">@Override</span>
-	    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setValues</span><span style="color:#f92672">(</span>PreparedStatement ps<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> i<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> SQLException <span style="color:#f92672">{</span>
-		<span style="color:#66d9ef">int</span> id <span style="color:#f92672">=</span> idIncrease<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">();</span>
-		ps<span style="color:#f92672">.</span><span style="color:#a6e22e">setInt</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> id<span style="color:#f92672">);</span>
-		ps<span style="color:#f92672">.</span><span style="color:#a6e22e">setString</span><span style="color:#f92672">(</span>2<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;name_&#34;</span> <span style="color:#f92672">+</span> id<span style="color:#f92672">);</span>
-	    <span style="color:#f92672">}</span>
-	    <span style="color:#a6e22e">@Override</span>
-	    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getBatchSize</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-		<span style="color:#66d9ef">return</span> 10000<span style="color:#f92672">;</span>
-	    <span style="color:#f92672">}</span>
-	<span style="color:#f92672">});</span>
-	sw<span style="color:#f92672">.</span><span style="color:#a6e22e">stop</span><span style="color:#f92672">();</span>
-	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;耗时%s毫秒&#34;</span><span style="color:#f92672">,</span> sw<span style="color:#f92672">.</span><span style="color:#a6e22e">getTotalTimeMillis</span><span style="color:#f92672">());</span>
-    <span style="color:#f92672">}</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
-	AnnotationConfigApplicationContext context <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AnnotationConfigApplicationContext<span style="color:#f92672">(</span>Config<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-	JdbcBatch jdbcBatch <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span>JdbcBatch<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-	jdbcBatch<span style="color:#f92672">.</span><span style="color:#a6e22e">batchInsert</span><span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div>
+<pre><code class="language-java">package com.test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StopWatch;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.concurrent.atomic.AtomicInteger;
+
+@Component
+public class JdbcBatch {
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    private String sql = &quot;insert into `user` values(?,?)&quot;;
+    void batchInsert() {
+	StopWatch sw = new StopWatch();
+	sw.start();
+	AtomicInteger idIncrease = new AtomicInteger(1);
+	jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
+	    @Override
+	    public void setValues(PreparedStatement ps, int i) throws SQLException {
+		int id = idIncrease.getAndIncrement();
+		ps.setInt(1, id);
+		ps.setString(2, &quot;name_&quot; + id);
+	    }
+	    @Override
+	    public int getBatchSize() {
+		return 10000;
+	    }
+	});
+	sw.stop();
+	System.out.printf(&quot;耗时%s毫秒&quot;, sw.getTotalTimeMillis());
+    }
+    public static void main(String args[]) {
+	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+	JdbcBatch jdbcBatch = context.getBean(JdbcBatch.class);
+	jdbcBatch.batchInsert();
+    }
+}
+</code></pre>
+
     </div>
 
     
@@ -662,7 +685,7 @@ dependencies <span style="color:#f92672">{</span>
 
 
 
-<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
 
 
 

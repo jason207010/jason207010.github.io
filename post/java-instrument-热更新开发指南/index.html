@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.73.0" />
+<meta name="generator" content="Hugo 0.55.6" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/java-instrument-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" />
@@ -63,17 +63,21 @@
 <meta property="og:description" content="项目源码 https://github.com/JasonChanBest/instrument 相关参数 参数 参数值 操作系统 macOS JAVA版本 1.8 项目构建工具 Gradle 项目jar包 instrument-1.0.jar 概念 Instrumentation是JavaSE 5的新特性，" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/java-instrument-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" />
-<meta property="article:published_time" content="2018-12-14T00:00:00+08:00" />
-<meta property="article:modified_time" content="2018-12-14T00:00:00+08:00" />
+<meta property="article:published_time" content="2018-12-14T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2018-12-14T00:00:00&#43;08:00"/>
+
 <meta itemprop="name" content="Java Instrument 热更新开发指南">
 <meta itemprop="description" content="项目源码 https://github.com/JasonChanBest/instrument 相关参数 参数 参数值 操作系统 macOS JAVA版本 1.8 项目构建工具 Gradle 项目jar包 instrument-1.0.jar 概念 Instrumentation是JavaSE 5的新特性，">
+
+
 <meta itemprop="datePublished" content="2018-12-14T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-12-14T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1930">
+<meta itemprop="wordCount" content="1932">
 
 
 
-<meta itemprop="keywords" content="Java,Instrument," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Java,Instrument," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java Instrument 热更新开发指南"/>
 <meta name="twitter:description" content="项目源码 https://github.com/JasonChanBest/instrument 相关参数 参数 参数值 操作系统 macOS JAVA版本 1.8 项目构建工具 Gradle 项目jar包 instrument-1.0.jar 概念 Instrumentation是JavaSE 5的新特性，"/>
 
@@ -346,7 +350,7 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/instrument/"> Instrument </a>
             
           </div>
-        <span class="more-meta"> 约 1930 字 </span>
+        <span class="more-meta"> 约 1932 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
 
         
@@ -363,35 +367,42 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#项目源码">项目源码</a></li>
-    <li><a href="#相关参数">相关参数</a></li>
-    <li><a href="#概念">概念</a></li>
-    <li><a href="#核心api">核心API</a></li>
-    <li><a href="#项目结构">项目结构</a></li>
-    <li><a href="#开发步骤">开发步骤</a>
-      <ul>
-        <li><a href="#步骤一-构建项目">步骤一、构建项目</a></li>
-        <li><a href="#步骤二-编写代理类">步骤二、编写代理类</a></li>
-        <li><a href="#步骤三-监控-dot-class文件-并重新加载类">步骤三、监控.class文件，并重新加载类</a></li>
-        <li><a href="#步骤四-定义manifest-dot-mf文件">步骤四、定义MANIFEST.MF文件</a></li>
-        <li><a href="#步骤五-编写测试类">步骤五、编写测试类</a></li>
-        <li><a href="#步骤六-编写启动类">步骤六、编写启动类</a></li>
-        <li><a href="#步骤七-打包项目">步骤七、打包项目</a></li>
-        <li><a href="#步骤八-运行项目">步骤八、运行项目</a></li>
-        <li><a href="#步骤九-热更新">步骤九、热更新</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#项目源码">项目源码</a></li>
+<li><a href="#相关参数">相关参数</a></li>
+<li><a href="#概念">概念</a></li>
+<li><a href="#核心api">核心API</a></li>
+<li><a href="#项目结构">项目结构</a></li>
+<li><a href="#开发步骤">开发步骤</a>
+<ul>
+<li><a href="#步骤一-构建项目">步骤一、构建项目</a></li>
+<li><a href="#步骤二-编写代理类">步骤二、编写代理类</a></li>
+<li><a href="#步骤三-监控-dot-class文件-并重新加载类">步骤三、监控.class文件，并重新加载类</a></li>
+<li><a href="#步骤四-定义manifest-dot-mf文件">步骤四、定义MANIFEST.MF文件</a></li>
+<li><a href="#步骤五-编写测试类">步骤五、编写测试类</a></li>
+<li><a href="#步骤六-编写启动类">步骤六、编写启动类</a></li>
+<li><a href="#步骤七-打包项目">步骤七、打包项目</a></li>
+<li><a href="#步骤八-运行项目">步骤八、运行项目</a></li>
+<li><a href="#步骤九-热更新">步骤九、热更新</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h2 id="项目源码">项目源码</h2>
+      
+
+<h2 id="项目源码">项目源码</h2>
+
 <p><a href="https://github.com/JasonChanBest/instrument">https://github.com/JasonChanBest/instrument</a></p>
+
 <h2 id="相关参数">相关参数</h2>
+
 <table>
 <thead>
 <tr>
@@ -399,34 +410,45 @@ if (!doNotTrack) {
 <th>参数值</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>操作系统</td>
 <td>macOS</td>
 </tr>
+
 <tr>
 <td>JAVA版本</td>
 <td>1.8</td>
 </tr>
+
 <tr>
 <td>项目构建工具</td>
 <td>Gradle</td>
 </tr>
+
 <tr>
 <td>项目jar包</td>
 <td>instrument-1.0.jar</td>
 </tr>
 </tbody>
 </table>
+
 <h2 id="概念">概念</h2>
+
 <blockquote>
 <p>Instrumentation是JavaSE 5的新特性，使用Instrumentation，开发者可以构建一个独立于应用程序的代理程序（Agent），用来监测和协助运行在 JVM 上的程序，甚至能够替换和修改某些类的定义。有了这样的功能，开发者就可以实现更为灵活的运行时虚拟机监控和Java类操作了，这样的特性实际上提供了一种虚拟机级别支持的 AOP 实现方式，使得开发者无需对 JDK 做任何升级和改动，就可以实现某些 AOP 的功能了。在JavaSE 6里面，instrumentation包被赋予了更强大的功能：启动后的 instrument、本地代码（native code）instrument，以及动态改变 classpath 等等。这些改变，意味着 Java 具有了更强的动态控制、解释能力，它使得 Java 语言变得更加灵活多变。</p>
 </blockquote>
+
 <h2 id="核心api">核心API</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">com<span style="color:#f92672">.</span><span style="color:#a6e22e">sun</span><span style="color:#f92672">.</span><span style="color:#a6e22e">tools</span><span style="color:#f92672">.</span><span style="color:#a6e22e">attach</span><span style="color:#f92672">.</span><span style="color:#a6e22e">VirtualMachine</span><span style="color:#f92672">.</span><span style="color:#a6e22e">loadAgent</span><span style="color:#f92672">();</span>
-java<span style="color:#f92672">.</span><span style="color:#a6e22e">lang</span><span style="color:#f92672">.</span><span style="color:#a6e22e">instrument</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Instrumentation</span><span style="color:#f92672">.</span><span style="color:#a6e22e">redefineClasses</span><span style="color:#f92672">();</span>
-</code></pre></div><h2 id="项目结构">项目结构</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">.
+
+<pre><code class="language-java">com.sun.tools.attach.VirtualMachine.loadAgent();
+java.lang.instrument.Instrumentation.redefineClasses();
+</code></pre>
+
+<h2 id="项目结构">项目结构</h2>
+
+<pre><code class="language-text">.
 ├── build.gradle
 ├── libs
 │   └── tools.jar
@@ -441,197 +463,241 @@ java<span style="color:#f92672">.</span><span style="color:#a6e22e">lang</span><
                     ├── ClassMonitor.java
                     ├── Echo.java
                     └── SimpleClassLoader.java
-</code></pre></div><h2 id="开发步骤">开发步骤</h2>
+</code></pre>
+
+<h2 id="开发步骤">开发步骤</h2>
+
 <h3 id="步骤一-构建项目">步骤一、构建项目</h3>
+
 <p>本项目使用Gradle构建，其中引入commons-io用于读取.class文件，com.sun.tools.attach.VirtualMachine类在$JAVA_HOME/lib/tools.jar中，把这个jar文件复制到项目libs目录下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">build.gradle
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">apply plugin<span style="color:#f92672">:</span><span style="color:#960050;background-color:#1e0010">&#39;</span>java<span style="color:#960050;background-color:#1e0010">&#39;</span>
-apply plugin<span style="color:#f92672">:</span><span style="color:#960050;background-color:#1e0010">&#39;</span>idea<span style="color:#960050;background-color:#1e0010">&#39;</span>
 
-group <span style="color:#960050;background-color:#1e0010">&#39;</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">instrument</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-version <span style="color:#960050;background-color:#1e0010">&#39;</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+<pre><code class="language-text">build.gradle
+</code></pre>
 
-sourceCompatibility <span style="color:#f92672">=</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">8</span>
+<pre><code class="language-java">apply plugin:'java'
+apply plugin:'idea'
 
-repositories <span style="color:#f92672">{</span>
-    <span style="color:#75715e">//使用阿里云的Maven仓库
-</span><span style="color:#75715e"></span>    maven <span style="color:#f92672">{</span>url <span style="color:#960050;background-color:#1e0010">&#39;</span>http<span style="color:#f92672">:</span><span style="color:#75715e">//maven.aliyun.com/nexus/content/groups/public/&#39;}
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+group 'com.instrument'
+version '1.0'
 
-dependencies <span style="color:#f92672">{</span>
-    compile group<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>commons<span style="color:#f92672">-</span>io<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> name<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>commons<span style="color:#f92672">-</span>io<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> version<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>2<span style="color:#f92672">.</span><span style="color:#a6e22e">6</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-    compile <span style="color:#a6e22e">files</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>libs<span style="color:#f92672">/</span>tools<span style="color:#f92672">.</span><span style="color:#a6e22e">jar</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">)</span>
-<span style="color:#f92672">}</span>
-jar <span style="color:#f92672">{</span>
-    manifest <span style="color:#f92672">{</span>
-	attributes <span style="color:#e6db74">&#34;Agent-Class&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;com.instrument.AgentMain&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Premain-Class&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;com.instrument.AgentMain&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Can-Redefine-Classes&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;true&#34;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-<span style="color:#75715e">//打包，同时导出所有依赖jar包
-</span><span style="color:#75715e"></span>task <span style="color:#a6e22e">release</span><span style="color:#f92672">(</span>type<span style="color:#f92672">:</span> Copy<span style="color:#f92672">)</span>
-release<span style="color:#f92672">.</span><span style="color:#a6e22e">dependsOn</span> build
-release <span style="color:#f92672">{</span>
-    from configurations<span style="color:#f92672">.</span><span style="color:#a6e22e">runtime</span>
-    into <span style="color:#960050;background-color:#1e0010">&#39;</span>build<span style="color:#f92672">/</span>libs<span style="color:#960050;background-color:#1e0010">&#39;</span>
-    doLast <span style="color:#f92672">{</span>
-	mkdir<span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>build<span style="color:#f92672">/</span>libs<span style="color:#f92672">/</span>class<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">)</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="步骤二-编写代理类">步骤二、编写代理类</h3>
+sourceCompatibility = 1.8
+
+repositories {
+    //使用阿里云的Maven仓库
+    maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+}
+
+dependencies {
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    compile files('libs/tools.jar')
+}
+jar {
+    manifest {
+    attributes &quot;Agent-Class&quot;:&quot;com.instrument.AgentMain&quot;,&quot;Premain-Class&quot;:&quot;com.instrument.AgentMain&quot;,&quot;Can-Redefine-Classes&quot;:&quot;true&quot;
+    }
+}
+//打包，同时导出所有依赖jar包
+task release(type: Copy)
+release.dependsOn build
+release {
+    from configurations.runtime
+    into 'build/libs'
+    doLast {
+    mkdir('build/libs/class')
+    }
+}
+</code></pre>
+
+<h3 id="步骤二-编写代理类">步骤二、编写代理类</h3>
+
 <p>在agentmain方法中，接收我们通过VirtualMachine传进来的.class文件路径，通过自定义的SimpleClassLoader从这个.class文件取得Class对象，进而得知要热更新的类名，有了类名就可以通过Class.forName获取原先已经加载在JVM中的类，然后用Instrumentation.redefineClasses热更新这个类</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.instrument<span style="color:#f92672">;</span>
 
-<span style="color:#f92672">import</span> org.apache.commons.io.FileUtils<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.File<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.lang.instrument.ClassDefinition<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.lang.instrument.Instrumentation<span style="color:#f92672">;</span>
+<pre><code class="language-java">package com.instrument;
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AgentMain</span> <span style="color:#f92672">{</span>
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 这是instrument开发规范规定的固定格式的方法，
-</span><span style="color:#75715e">     * 当调用{@link com.sun.tools.attach.VirtualMachine#loadAgent(String, String)}时，
-</span><span style="color:#75715e">     * jdk会自动调用到这个方法
-</span><span style="color:#75715e">     * 第一个参数为VirtualMachine传过来的参数，我们在调用VirtualMachine#loadAgent方法时
-</span><span style="color:#75715e">     * 传进来的是.class文件路径，所以这里接收到的也是.class文件路径
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">agentmain</span><span style="color:#f92672">(</span>String classFilePath<span style="color:#f92672">,</span> Instrumentation instrumentation<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-	    <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> bytes <span style="color:#f92672">=</span> FileUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">readFileToByteArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span>classFilePath<span style="color:#f92672">));</span>
-	    Class<span style="color:#f92672">&lt;?&gt;</span> clazz <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SimpleClassLoader<span style="color:#f92672">().</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">(</span>bytes<span style="color:#f92672">);</span>
-	    <span style="color:#75715e">//重新加载类，实现热更新，注意这里通过Class.forName取得原来已经加载在JVM晨的类，然后热更新它
-</span><span style="color:#75715e"></span>	    instrumentation<span style="color:#f92672">.</span><span style="color:#a6e22e">redefineClasses</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ClassDefinition<span style="color:#f92672">(</span>Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span>clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()),</span> bytes<span style="color:#f92672">));</span>
-	<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
-	<span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.lang.instrument.ClassDefinition;
+import java.lang.instrument.Instrumentation;
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 这是instrument开发规范规定的固定格式的方法，当java程序启动时，会自动调用到这个方法
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">premain</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">,</span> Instrumentation instrumentation<span style="color:#f92672">){</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="步骤三-监控-dot-class文件-并重新加载类">步骤三、监控.class文件，并重新加载类</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.instrument<span style="color:#f92672">;</span>
+public class AgentMain {
+    /**
+     * 这是instrument开发规范规定的固定格式的方法，
+     * 当调用{@link com.sun.tools.attach.VirtualMachine#loadAgent(String, String)}时，
+     * jdk会自动调用到这个方法
+     * 第一个参数为VirtualMachine传过来的参数，我们在调用VirtualMachine#loadAgent方法时
+     * 传进来的是.class文件路径，所以这里接收到的也是.class文件路径
+     */
+    public static void agentmain(String classFilePath, Instrumentation instrumentation) {
+    try {
+        byte[] bytes = FileUtils.readFileToByteArray(new File(classFilePath));
+        Class&lt;?&gt; clazz = new SimpleClassLoader().getClass(bytes);
+        //重新加载类，实现热更新，注意这里通过Class.forName取得原来已经加载在JVM晨的类，然后热更新它
+        instrumentation.redefineClasses(new ClassDefinition(Class.forName(clazz.getName()), bytes));
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }
 
-<span style="color:#f92672">import</span> com.sun.tools.attach.AttachNotSupportedException<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> com.sun.tools.attach.VirtualMachine<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.apache.commons.io.filefilter.FileFilterUtils<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.apache.commons.io.monitor.FileAlterationListenerAdaptor<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.apache.commons.io.monitor.FileAlterationMonitor<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.apache.commons.io.monitor.FileAlterationObserver<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.File<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.lang.instrument.Instrumentation<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.lang.management.ManagementFactory<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.concurrent.TimeUnit<span style="color:#f92672">;</span>
+    /**
+     * 这是instrument开发规范规定的固定格式的方法，当java程序启动时，会自动调用到这个方法
+     */
+    public static void premain(String args, Instrumentation instrumentation){
+    }
+}
+</code></pre>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassMonitor</span> <span style="color:#66d9ef">implements</span> Runnable <span style="color:#f92672">{</span>
+<h3 id="步骤三-监控-dot-class文件-并重新加载类">步骤三、监控.class文件，并重新加载类</h3>
 
-    <span style="color:#66d9ef">private</span> VirtualMachine vm<span style="color:#f92672">;</span>
+<pre><code class="language-java">package com.instrument;
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">watch</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> IOException<span style="color:#f92672">,</span> AttachNotSupportedException <span style="color:#f92672">{</span>
-	<span style="color:#75715e">//取得当前java进程id
-</span><span style="color:#75715e"></span>	String pid <span style="color:#f92672">=</span> ManagementFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getRuntimeMXBean</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">().</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;@&#34;</span><span style="color:#f92672">)[</span>0<span style="color:#f92672">];</span>
-	vm <span style="color:#f92672">=</span> VirtualMachine<span style="color:#f92672">.</span><span style="color:#a6e22e">attach</span><span style="color:#f92672">(</span>pid<span style="color:#f92672">);</span>
-	<span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">).</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
+import com.sun.tools.attach.AttachNotSupportedException;
+import com.sun.tools.attach.VirtualMachine;
+import org.apache.commons.io.filefilter.FileFilterUtils;
+import org.apache.commons.io.monitor.FileAlterationListenerAdaptor;
+import org.apache.commons.io.monitor.FileAlterationMonitor;
+import org.apache.commons.io.monitor.FileAlterationObserver;
+import java.io.File;
+import java.io.IOException;
+import java.lang.instrument.Instrumentation;
+import java.lang.management.ManagementFactory;
+import java.util.concurrent.TimeUnit;
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">long</span> interval <span style="color:#f92672">=</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">.</span><span style="color:#a6e22e">toMillis</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span>
-	<span style="color:#75715e">//运行java程序的目录
-</span><span style="color:#75715e"></span>	String userDir <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user.dir&#34;</span><span style="color:#f92672">);</span>
-	<span style="color:#75715e">//要替换的class类文件放在class文件夹中，用FileAlterationMonitor监控该文件夹是否有新的class类文件添加进来
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">//如果有则重新加载这个类
-</span><span style="color:#75715e"></span>	String path <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">().</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>userDir<span style="color:#f92672">).</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>File<span style="color:#f92672">.</span><span style="color:#a6e22e">separator</span><span style="color:#f92672">).</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;class&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">();</span>
-	String jarFilePath <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">(</span>userDir<span style="color:#f92672">).</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>File<span style="color:#f92672">.</span><span style="color:#a6e22e">separator</span><span style="color:#f92672">).</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;instrument-1.0.jar&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">();</span>
-	FileAlterationObserver observer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileAlterationObserver<span style="color:#f92672">(</span>path<span style="color:#f92672">,</span> FileFilterUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">suffixFileFilter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;class&#34;</span><span style="color:#f92672">));</span>
-	observer<span style="color:#f92672">.</span><span style="color:#a6e22e">addListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FileAlterationListenerAdaptor<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	    <span style="color:#a6e22e">@Override</span>
-	    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFileCreate</span><span style="color:#f92672">(</span>File file<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-		    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;监控到新的class类文件%s\r\n&#34;</span><span style="color:#f92672">,</span> file<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
-		    <span style="color:#75715e">/**加载代理，把.class文件路径传给{@link AgentMain#agentmain(String, Instrumentation)}**/</span>
-		    vm<span style="color:#f92672">.</span><span style="color:#a6e22e">loadAgent</span><span style="color:#f92672">(</span>jarFilePath<span style="color:#f92672">,</span> file<span style="color:#f92672">.</span><span style="color:#a6e22e">getPath</span><span style="color:#f92672">());</span>
-		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-		    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
-		<span style="color:#f92672">}</span>
-	    <span style="color:#f92672">}</span>
-	<span style="color:#f92672">});</span>
-	FileAlterationMonitor monitor <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileAlterationMonitor<span style="color:#f92672">(</span>interval<span style="color:#f92672">,</span> observer<span style="color:#f92672">);</span>
-	<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-	    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
-	<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
-	<span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="步骤四-定义manifest-dot-mf文件">步骤四、定义MANIFEST.MF文件</h3>
+public class ClassMonitor implements Runnable {
+
+    private VirtualMachine vm;
+
+    public void watch() throws IOException, AttachNotSupportedException {
+    //取得当前java进程id
+    String pid = ManagementFactory.getRuntimeMXBean().getName().split(&quot;@&quot;)[0];
+    vm = VirtualMachine.attach(pid);
+    new Thread(this).start();
+    }
+
+    @Override
+    public void run() {
+    long interval = TimeUnit.SECONDS.toMillis(5);
+    //运行java程序的目录
+    String userDir = System.getProperty(&quot;user.dir&quot;);
+    //要替换的class类文件放在class文件夹中，用FileAlterationMonitor监控该文件夹是否有新的class类文件添加进来
+    //如果有则重新加载这个类
+    String path = new StringBuilder().append(userDir).append(File.separator).append(&quot;class&quot;).toString();
+    String jarFilePath = new StringBuilder(userDir).append(File.separator).append(&quot;instrument-1.0.jar&quot;).toString();
+    FileAlterationObserver observer = new FileAlterationObserver(path, FileFilterUtils.suffixFileFilter(&quot;class&quot;));
+    observer.addListener(new FileAlterationListenerAdaptor() {
+        @Override
+        public void onFileCreate(File file) {
+        try {
+            System.out.printf(&quot;监控到新的class类文件%s\r\n&quot;, file.getName());
+            /**加载代理，把.class文件路径传给{@link AgentMain#agentmain(String, Instrumentation)}**/
+            vm.loadAgent(jarFilePath, file.getPath());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        }
+    });
+    FileAlterationMonitor monitor = new FileAlterationMonitor(interval, observer);
+    try {
+        monitor.start();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }
+}
+</code></pre>
+
+<h3 id="步骤四-定义manifest-dot-mf文件">步骤四、定义MANIFEST.MF文件</h3>
+
 <p>由于项目使用Gradle构建，可以直接通过build.gradle配置生成这个MANIFEST.MF文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">build.gradle
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">jar <span style="color:#f92672">{</span>
-    manifest <span style="color:#f92672">{</span>
-	attributes <span style="color:#e6db74">&#34;Agent-Class&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;com.instrument.AgentMain&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Premain-Class&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;com.instrument.AgentMain&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Can-Redefine-Classes&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;true&#34;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="步骤五-编写测试类">步骤五、编写测试类</h3>
+
+<pre><code class="language-text">build.gradle
+</code></pre>
+
+<pre><code class="language-java">jar {
+    manifest {
+    attributes &quot;Agent-Class&quot;:&quot;com.instrument.AgentMain&quot;,&quot;Premain-Class&quot;:&quot;com.instrument.AgentMain&quot;,&quot;Can-Redefine-Classes&quot;:&quot;true&quot;
+    }
+}
+</code></pre>
+
+<h3 id="步骤五-编写测试类">步骤五、编写测试类</h3>
+
 <p>每隔3秒打印1+1=3，这个结果明显是错的，所以我们稍候通过热更新的方式修复这个BUG，使之打印出1+1=2</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.instrument<span style="color:#f92672">;</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Echo</span> <span style="color:#66d9ef">implements</span> Runnable <span style="color:#f92672">{</span>
+<pre><code class="language-java">package com.instrument;
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">).</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
+public class Echo implements Runnable {
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	    echo<span style="color:#f92672">();</span>
-	    <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-		Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>3000L<span style="color:#f92672">);</span>
-	    <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-		e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
-	    <span style="color:#f92672">}</span>
-	<span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
+    public void start() {
+    new Thread(this).start();
+    }
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">echo</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;1+1=3&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="步骤六-编写启动类">步骤六、编写启动类</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.instrument<span style="color:#f92672">;</span>
+    @Override
+    public void run() {
+    while (true) {
+        echo();
+        try {
+        Thread.sleep(3000L);
+        } catch (InterruptedException e) {
+        e.printStackTrace();
+        }
+    }
+    }
 
-<span style="color:#f92672">import</span> com.sun.tools.attach.AttachNotSupportedException<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
+    public void echo() {
+    System.out.println(&quot;1+1=3&quot;);
+    }
+}
+</code></pre>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Bootstrap</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException<span style="color:#f92672">,</span> AttachNotSupportedException <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">new</span> Echo<span style="color:#f92672">().</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
-	<span style="color:#66d9ef">new</span> ClassMonitor<span style="color:#f92672">().</span><span style="color:#a6e22e">watch</span><span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="步骤七-打包项目">步骤七、打包项目</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">gradle release
-</code></pre></div><p>打包得到的项目结构为</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">.
+<h3 id="步骤六-编写启动类">步骤六、编写启动类</h3>
+
+<pre><code class="language-java">package com.instrument;
+
+import com.sun.tools.attach.AttachNotSupportedException;
+import java.io.IOException;
+
+public class Bootstrap {
+    public static void main(String[] args) throws IOException, AttachNotSupportedException {
+    new Echo().start();
+    new ClassMonitor().watch();
+    }
+}
+</code></pre>
+
+<h3 id="步骤七-打包项目">步骤七、打包项目</h3>
+
+<pre><code class="language-shell">gradle release
+</code></pre>
+
+<p>打包得到的项目结构为</p>
+
+<pre><code class="language-text">.
 ├── class
 ├── commons-io-2.6.jar
 ├── instrument-1.0.jar
 └── tools.jar
-</code></pre></div><h3 id="步骤八-运行项目">步骤八、运行项目</h3>
+</code></pre>
+
+<h3 id="步骤八-运行项目">步骤八、运行项目</h3>
+
 <p>注意这里通过*-javaagent:instrument-1.0.jar*参数指定代理jar</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">java -javaagent:instrument-1.0.jar -cp instrument-1.jar:commons-io-2.6.jar:tools.jar com.instrument.Bootstrap
-</code></pre></div><p>此时控制台会不停地打印1+1=3</p>
+
+<pre><code class="language-shell">java -javaagent:instrument-1.0.jar -cp instrument-1.jar:commons-io-2.6.jar:tools.jar com.instrument.Bootstrap
+</code></pre>
+
+<p>此时控制台会不停地打印1+1=3</p>
+
 <h3 id="步骤九-热更新">步骤九、热更新</h3>
+
 <p>修改Echo类</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">echo</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;1+1=2&#34;</span><span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>编译这个类得到Echo.class文件，把这个文件放到运行目录下的class文件夹中，此时程序自动检测到时文件变化并重新加载类，结果如下
-<img src="/ox-hugo/Java-Instrument-Development-Guide-1.png" alt=""></p>
+
+<pre><code class="language-java">public void echo() {
+    System.out.println(&quot;1+1=2&quot;);
+}
+</code></pre>
+
+<p>编译这个类得到Echo.class文件，把这个文件放到运行目录下的class文件夹中，此时程序自动检测到时文件变化并重新加载类，结果如下
+<img src="/ox-hugo/Java-Instrument-Development-Guide-1.png" alt="" /></p>
 
     </div>
 
@@ -812,7 +878,7 @@ release <span style="color:#f92672">{</span>
 
 
 
-<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
 
 
 

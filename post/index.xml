@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Jason&#39;s Blog</title>
@@ -44,7 +44,7 @@
       <pubDate>Wed, 20 Nov 2019 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/docker-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
-      <description>安装 Docker Ubuntu 14.04/16.04 # step 1: 安装必要的一些系统工具 sudo apt-get update sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common # step 2: 安装GPG证书 curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add - # Step 3: 写入软件源信息 sudo add-apt-repository &amp;#34;deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs)stable&amp;#34; # Step 4: 更新</description>
+      <description>安装 Docker Ubuntu 14.04/16.04 # step 1: 安装必要的一些系统工具 sudo apt-get update sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common # step 2: 安装GPG证书 curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add - # Step 3: 写入软件源信息 sudo add-apt-repository &amp;quot;deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&amp;quot; # Step 4: 更</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@
       <pubDate>Sun, 17 Nov 2019 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/%E4%B8%AD%E5%9B%BD%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/</guid>
-      <description>Python pip 镜像源 中科大镜像源 pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple 恢复默认源 清空 ~/.config/pip/pip.conf vi ~/.config/pip/pip.conf Homebrew Homebrew 中科大镜像源 cd &amp;#34;$(brew --repo)&amp;#34; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git 恢复官方源 cd &amp;#34;$(brew --repo)&amp;#34; git remote set-url origin https://github.com/Homebrew/brew.git Homebrew Core 中科大镜像源 cd &amp;#34;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;#34; git remote set-url origin</description>
+      <description>Python pip 镜像源 中科大镜像源 pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple 恢复默认源 清空 ~/.config/pip/pip.conf vi ~/.config/pip/pip.conf Homebrew Homebrew 中科大镜像源 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git 恢复官方源 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://github.com/Homebrew/brew.git Homebrew Core 中科大镜像源 cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot; git remote set-url origin</description>
     </item>
     
     <item>
@@ -80,7 +80,7 @@
       <pubDate>Mon, 30 Sep 2019 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/</guid>
-      <description>Java Servlet、Filter 的 url-pattern 匹配规则 精确匹配 @WebServlet(urlPatterns = &amp;#34;/test&amp;#34;) public class TestServlet extends HttpServlet { } 扩展名匹配 @WebServlet(urlPatterns = &amp;#34;*.do&amp;#34;) public class TestServlet extends HttpServlet { } 路径匹配 @WebServlet(urlPatterns = &amp;#34;/test/*&amp;#34;) public class TestServlet extends HttpServlet { } 任意url匹</description>
+      <description>Java Servlet、Filter 的 url-pattern 匹配规则 精确匹配 @WebServlet(urlPatterns = &amp;quot;/test&amp;quot;) public class TestServlet extends HttpServlet { } 扩展名匹配 @WebServlet(urlPatterns = &amp;quot;*.do&amp;quot;) public class TestServlet extends HttpServlet { } 路径匹配 @WebServlet(urlPatterns = &amp;quot;/test/*&amp;quot;) public class TestServlet extends HttpServlet { } 任意url匹</description>
     </item>
     
     <item>
@@ -89,7 +89,7 @@
       <pubDate>Thu, 20 Jun 2019 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/homebrew-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
-      <description>安装Homebrew 获取安装脚本 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install &amp;gt; install 修改安装脚本源为中科大的源 BREW_REPO = &amp;#34;https://github.com/Homebrew/brew&amp;#34;.freeze 改为： BREW_REPO = &amp;#34;https://mirrors.ustc.edu.cn/brew.git&amp;#34;.freeze 安装 /usr/bin/ruby install 修改软件包源为中科大的源 Homebrew 源代码仓库 cd &amp;#34;$(brew --repo)&amp;#34; git remote</description>
+      <description>安装Homebrew 获取安装脚本 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install &amp;gt; install 修改安装脚本源为中科大的源 BREW_REPO = &amp;quot;https://github.com/Homebrew/brew&amp;quot;.freeze 改为： BREW_REPO = &amp;quot;https://mirrors.ustc.edu.cn/brew.git&amp;quot;.freeze 安装 /usr/bin/ruby install 修改软件包源为中科大的源 Homebrew 源代码仓库 cd &amp;quot;$(brew --repo)&amp;quot; git remote</description>
     </item>
     
     <item>
@@ -161,7 +161,7 @@
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/jetbrains-crack-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
-      <description>破解 IntelliJ IDEA 软件版本 软件/操作系统 Mac OS Sierra 10.12.6 IntelliJ IDEA 2018.2.3 (Ultimate Edition) JetbrainsCrack-3.1-release-enc.jar 破解方法 复制 JetbrainsCrack-3.1-release-enc.jar cp JetbrainsCrack-3.1-release-enc.jar /Applications/IntelliJ\ IDEA.app/Contents/lib/ 编辑 idea.vmoptions 文件 vi /Applications/IntelliJ\ IDEA.app/Contents/bin/idea.vmoptions 追加内容 -javaagent:../lib/JetbrainsCrack-3.1-release-enc.jar 打开 IntelliJ IDEA.app 输入激活码 ThisCrackLicenseId-{ &amp;#34;licenseId&amp;#34;:&amp;#34;ThisCrackLicenseId&amp;#34;, &amp;#34;licen</description>
+      <description>破解 IntelliJ IDEA 软件版本 软件/操作系统 Mac OS Sierra 10.12.6 IntelliJ IDEA 2018.2.3 (Ultimate Edition) JetbrainsCrack-3.1-release-enc.jar 破解方法 复制 JetbrainsCrack-3.1-release-enc.jar cp JetbrainsCrack-3.1-release-enc.jar /Applications/IntelliJ\ IDEA.app/Contents/lib/ 编辑 idea.vmoptions 文件 vi /Applications/IntelliJ\ IDEA.app/Contents/bin/idea.vmoptions 追加内容 -javaagent:../lib/JetbrainsCrack-3.1-release-enc.jar 打开 IntelliJ IDEA.app 输入激活码 ThisCrackLicenseId-{ &amp;quot;licenseId&amp;quot;:&amp;quot;ThisCrackLicenseId&amp;quot;, &amp;quot;lice</description>
     </item>
     
     <item>

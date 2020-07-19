@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.73.0" />
+<meta name="generator" content="Hugo 0.55.6" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-1.x/" />
@@ -63,17 +63,21 @@
 <meta property="og:description" content="使用maven构建 &lt;dependency&gt; &lt;groupId&gt;org.slf4j&lt;/groupId&gt; &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt; &lt;version&gt;1.7.25&lt;/version&gt; &lt;/dependency&gt; 此时会自动引入3个依赖jar包 包名 log4j-1.2.17.jar slf4j-api-1.7.25.jar slf4j-log4j12-1.7.25.jar 配置 log4j默认使用classpath目录下log4j.xml或log" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/slf4j-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E5%9F%BA%E4%BA%8E-log4j-1.x/" />
-<meta property="article:published_time" content="2018-01-24T00:00:00+08:00" />
-<meta property="article:modified_time" content="2018-01-24T00:00:00+08:00" />
+<meta property="article:published_time" content="2018-01-24T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2018-01-24T00:00:00&#43;08:00"/>
+
 <meta itemprop="name" content="SLF4J 开发指南（基于 LOG4J 1.x）">
 <meta itemprop="description" content="使用maven构建 &lt;dependency&gt; &lt;groupId&gt;org.slf4j&lt;/groupId&gt; &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt; &lt;version&gt;1.7.25&lt;/version&gt; &lt;/dependency&gt; 此时会自动引入3个依赖jar包 包名 log4j-1.2.17.jar slf4j-api-1.7.25.jar slf4j-log4j12-1.7.25.jar 配置 log4j默认使用classpath目录下log4j.xml或log">
+
+
 <meta itemprop="datePublished" content="2018-01-24T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-01-24T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="2604">
+<meta itemprop="wordCount" content="2547">
 
 
 
-<meta itemprop="keywords" content="Java,SLF4J," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Java,SLF4J," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SLF4J 开发指南（基于 LOG4J 1.x）"/>
 <meta name="twitter:description" content="使用maven构建 &lt;dependency&gt; &lt;groupId&gt;org.slf4j&lt;/groupId&gt; &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt; &lt;version&gt;1.7.25&lt;/version&gt; &lt;/dependency&gt; 此时会自动引入3个依赖jar包 包名 log4j-1.2.17.jar slf4j-api-1.7.25.jar slf4j-log4j12-1.7.25.jar 配置 log4j默认使用classpath目录下log4j.xml或log"/>
 
@@ -346,7 +350,7 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/slf4j/"> SLF4J </a>
             
           </div>
-        <span class="more-meta"> 约 2604 字 </span>
+        <span class="more-meta"> 约 2547 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
 
         
@@ -363,120 +367,99 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#使用maven构建">使用maven构建</a></li>
-    <li><a href="#配置">配置</a>
-      <ul>
-        <li><a href="#示例">示例</a></li>
-        <li><a href="#配置文件自动热更新">配置文件自动热更新</a></li>
-        <li><a href="#logger">Logger</a></li>
-        <li><a href="#appender">Appender</a></li>
-        <li><a href="#filters">Filters</a></li>
-        <li><a href="#layout">Layout</a></li>
-      </ul>
-    </li>
-    <li><a href="#使用">使用</a></li>
-    <li><a href="#性能调优">性能调优</a>
-      <ul>
-        <li><a href="#设置日志缓存及缓存大小">设置日志缓存及缓存大小</a></li>
-        <li><a href="#设置日志输出方式为异步方式-如使用asyncappender">设置日志输出方式为异步方式，如使用AsyncAppender</a></li>
-        <li><a href="#避免打印location日志-如-c-class-f-file-l-location-l-line-m或-method">避免打印Location日志，如%C、$class、%F、%file、%l、%location、%L、%line、%M或%method</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#使用maven构建">使用maven构建</a></li>
+<li><a href="#配置">配置</a>
+<ul>
+<li><a href="#示例">示例</a></li>
+<li><a href="#配置文件自动热更新">配置文件自动热更新</a>
+<ul>
+<li><a href="#对于log4j-dot-xml文件">对于log4j.xml文件</a></li>
+<li><a href="#对于log4j-dot-properties文件">对于log4j.properties文件</a></li>
+</ul></li>
+<li><a href="#logger">Logger</a>
+<ul>
+<li><a href="#rootlogger">RootLogger</a></li>
+</ul></li>
+<li><a href="#appender">Appender</a>
+<ul>
+<li><a href="#consoleappender-控制台appender">ConsoleAppender（控制台Appender）</a></li>
+<li><a href="#dailyrollingfileappender">DailyRollingFileAppender</a></li>
+<li><a href="#asyncappender-异步appender">AsyncAppender（异步Appender）</a></li>
+<li><a href="#其他appender">其他Appender</a></li>
+</ul></li>
+<li><a href="#filters">Filters</a>
+<ul>
+<li><a href="#denyallfilter">DenyAllFilter</a></li>
+<li><a href="#levelrangefilter">LevelRangeFilter</a></li>
+<li><a href="#其他filter">其他Filter</a></li>
+</ul></li>
+<li><a href="#layout">Layout</a>
+<ul>
+<li><a href="#patternlayout">PatternLayout</a></li>
+<li><a href="#其他layout">其他Layout</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#使用">使用</a></li>
+<li><a href="#性能调优">性能调优</a>
+<ul>
+<li><a href="#设置日志缓存及缓存大小">设置日志缓存及缓存大小</a></li>
+<li><a href="#设置日志输出方式为异步方式-如使用asyncappender">设置日志输出方式为异步方式，如使用AsyncAppender</a></li>
+<li><a href="#避免打印location日志-如-c-class-f-file-l-location-l-line-m或-method">避免打印Location日志，如%C、$class、%F、%file、%l、%location、%L、%line、%M或%method</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h2 id="使用maven构建">使用maven构建</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
-  <span style="color:#f92672">&lt;groupId&gt;</span>org.slf4j<span style="color:#f92672">&lt;/groupId&gt;</span>
-  <span style="color:#f92672">&lt;artifactId&gt;</span>slf4j-log4j12<span style="color:#f92672">&lt;/artifactId&gt;</span>
-  <span style="color:#f92672">&lt;version&gt;</span>1.7.25<span style="color:#f92672">&lt;/version&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span>
-</code></pre></div><p>此时会自动引入3个依赖jar包</p>
+      
+
+<h2 id="使用maven构建">使用maven构建</h2>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+  &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+  &lt;version&gt;1.7.25&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>此时会自动引入3个依赖jar包</p>
+
 <table>
 <thead>
 <tr>
 <th>包名</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>log4j-1.2.17.jar</td>
 </tr>
+
 <tr>
 <td>slf4j-api-1.7.25.jar</td>
 </tr>
+
 <tr>
 <td>slf4j-log4j12-1.7.25.jar</td>
 </tr>
 </tbody>
 </table>
+
 <h2 id="配置">配置</h2>
+
 <p><strong>log4j默认使用classpath目录下log4j.xml或log4j.properties为配置文件，这里使用log4j.properties作为配置文件</strong></p>
+
 <h3 id="示例">示例</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">logDir<span style="color:#f92672">=</span>logs
 
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">rootLogger</span><span style="color:#f92672">=</span>DEBUG<span style="color:#f92672">,</span>console
+<pre><code class="language-java">logDir=logs
 
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log4j</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ConsoleAppender</span>
-<span style="color:#960050;background-color:#1e0010">#</span>输出流目标<span style="color:#960050;background-color:#1e0010">，</span>可先参数为System<span style="color:#f92672">.</span><span style="color:#a6e22e">out和System</span><span style="color:#f92672">.</span><span style="color:#a6e22e">err</span>
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">target</span><span style="color:#f92672">=</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span>
-<span style="color:#960050;background-color:#1e0010">#</span>Appender可脱离于日志级别定义一个阀值级别<span style="color:#960050;background-color:#1e0010">，</span>Appender对象会忽略所有级别低于阀值级别的日志
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">threshold</span><span style="color:#f92672">=</span>ERROR
-<span style="color:#960050;background-color:#1e0010">#</span>日志等级过滤器
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log4j</span><span style="color:#f92672">.</span><span style="color:#a6e22e">varia</span><span style="color:#f92672">.</span><span style="color:#a6e22e">LevelRangeFilter</span>
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">levelMin</span><span style="color:#f92672">=</span>INFO
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">levelMax</span><span style="color:#f92672">=</span>ERROR
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log4j</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PatternLayout</span>
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">conversionPattern</span><span style="color:#f92672">=%</span>d<span style="color:#f92672">{</span>yyyy<span style="color:#f92672">-</span>MM<span style="color:#f92672">-</span>dd HH<span style="color:#f92672">:</span>mm<span style="color:#f92672">:</span>ss<span style="color:#f92672">}</span> <span style="color:#f92672">[%</span>p<span style="color:#f92672">]</span> <span style="color:#f92672">%</span>m<span style="color:#f92672">%</span>n
-
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dailyFile</span><span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log4j</span><span style="color:#f92672">.</span><span style="color:#a6e22e">DailyRollingFileAppender</span>
-<span style="color:#960050;background-color:#1e0010">#</span>使用缓冲区
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dailyFile</span><span style="color:#f92672">.</span><span style="color:#a6e22e">bufferedIO</span><span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>
-<span style="color:#960050;background-color:#1e0010">#</span>日志编码为UTF<span style="color:#f92672">-</span>8
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dailyFile</span><span style="color:#f92672">.</span><span style="color:#a6e22e">encoding</span><span style="color:#f92672">=</span>UTF<span style="color:#f92672">-</span>8
-<span style="color:#960050;background-color:#1e0010">#</span>Appender可脱离于日志级别定义一个阀值级别<span style="color:#960050;background-color:#1e0010">，</span>Appender对象会忽略所有级别低于阀值级别的日志
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dailyFile</span><span style="color:#f92672">.</span><span style="color:#a6e22e">threshold</span><span style="color:#f92672">=</span>ERROR
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dailyFile</span><span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log4j</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PatternLayout</span>
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dailyFile</span><span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">conversionPattern</span><span style="color:#f92672">=%</span>d<span style="color:#f92672">{</span>yyyy<span style="color:#f92672">-</span>MM<span style="color:#f92672">-</span>dd HH<span style="color:#f92672">:</span>mm<span style="color:#f92672">:</span>ss<span style="color:#f92672">}</span> <span style="color:#f92672">[%</span>p<span style="color:#f92672">]</span> <span style="color:#f92672">%</span>m<span style="color:#f92672">%</span>n
-<span style="color:#960050;background-color:#1e0010">#</span>当前日志输出到dailyLog<span style="color:#f92672">.</span><span style="color:#a6e22e">log文件中</span>
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dailyFile</span><span style="color:#f92672">.</span><span style="color:#a6e22e">File</span><span style="color:#f92672">=</span>$<span style="color:#f92672">{</span>logDir<span style="color:#f92672">}/</span>dailyLog<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span>
-<span style="color:#960050;background-color:#1e0010">#</span>按每天滚动日志<span style="color:#960050;background-color:#1e0010">，</span>已滚动的日志保存到dailyLog<span style="color:#f92672">.</span><span style="color:#a6e22e">log_yyyy</span><span style="color:#f92672">-</span>MM<span style="color:#f92672">-</span>dd<span style="color:#f92672">.</span><span style="color:#a6e22e">log文件中</span>
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dailyFile</span><span style="color:#f92672">.</span><span style="color:#a6e22e">datePattern</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;_&#39;</span>yyyy<span style="color:#f92672">-</span>MM<span style="color:#f92672">-</span>dd<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-</code></pre></div><h3 id="配置文件自动热更新">配置文件自动热更新</h3>
-<p>log4j 1.x提供了2种API，分别是 DOMConfigurator.configureAndWatch(configFilename, delay)
-和 PropertyConfigurator.configureAndWatch(configFilename, delay) 来自动热更新配置文件，其原理是起一个线程，每隔delay毫秒检查配置文件的最后修改时间，如果本次监测到的文件修改时间比上次监测到的文件修改时间晚，则重新加载配置文件，这种方式有两个明显的缺点：</p>
-<ol>
-<li>每次调用configureAndWatch方法都会起一个线程</li>
-<li>只对比文件修改时间，并不对比文件内容的改变。如果即将要热更的配置比现有的配置的文件修改时间早，那么这个配置将不会被热更新</li>
-</ol>
-<h4 id="对于log4j-dot-xml文件">对于log4j.xml文件</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String path <span style="color:#f92672">=</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getContextClassLoader</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getResource</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;log4j.xml&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">getPath</span><span style="color:#f92672">();</span>
-DOMConfigurator<span style="color:#f92672">.</span><span style="color:#a6e22e">configureAndWatch</span><span style="color:#f92672">(</span>path<span style="color:#f92672">,</span> 10000L<span style="color:#f92672">);</span>
-</code></pre></div><h4 id="对于log4j-dot-properties文件">对于log4j.properties文件</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String path <span style="color:#f92672">=</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getContextClassLoader</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getResource</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;log4j.properties&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">getPath</span><span style="color:#f92672">();</span>
-PropertyConfigurator<span style="color:#f92672">.</span><span style="color:#a6e22e">configureAndWatch</span><span style="color:#f92672">(</span>path<span style="color:#f92672">,</span> 10000L<span style="color:#f92672">);</span>
-</code></pre></div><h3 id="logger">Logger</h3>
-<blockquote>
-<p>日志级别从低到高分为TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR</p>
-</blockquote>
-<h4 id="rootlogger">RootLogger</h4>
-<p>在未特别指定Logger的情况下，log4j默认使用rootLogger作为Logger，因此一般都需要配置rootLogger
-其中DEBUG为日志级别，console、dailyFile为被引用的Appender</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">rootLogger</span><span style="color:#f92672">=</span>DEBUG<span style="color:#f92672">,</span>console<span style="color:#f92672">,</span>dailyFile
-</code></pre></div><h3 id="appender">Appender</h3>
-<h4 id="consoleappender-控制台appender">ConsoleAppender（控制台Appender）</h4>
-<blockquote>
-<p>ConsoleAppender使用System.out或者System.err来记录日志</p>
-</blockquote>
-<ul>
-<li>示例：</li>
-</ul>
-<pre><code>```java
 log4j.rootLogger=DEBUG,console
 
 log4j.appender.console=org.apache.log4j.ConsoleAppender
@@ -484,27 +467,12 @@ log4j.appender.console=org.apache.log4j.ConsoleAppender
 log4j.appender.console.target=System.err
 #Appender可脱离于日志级别定义一个阀值级别，Appender对象会忽略所有级别低于阀值级别的日志
 log4j.appender.console.threshold=ERROR
+#日志等级过滤器
+log4j.appender.console.filter.filter=org.apache.log4j.varia.LevelRangeFilter
+log4j.appender.console.filter.filter.levelMin=INFO
+log4j.appender.console.filter.filter.levelMax=ERROR
 log4j.appender.console.layout=org.apache.log4j.PatternLayout
 log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
-```
-</code></pre>
-<h4 id="dailyrollingfileappender">DailyRollingFileAppender</h4>
-<p>在DailyRollingFileAppender中可以指定monthly(每月)、weekly(每周)、daily(每天)、half-daily(每半天)、
-hourly(每小时)和minutely(每分钟)六个频度，这是通过为 DatePattern选项赋予不同的值来完成的。
-DatePattern选项的有效值为：</p>
-<ol>
-<li>yyyy-MM,对应monthly(每月)</li>
-<li>yyyy-ww,对应weekly(每周)</li>
-<li>yyyy-MM-dd,对应daily(每天)</li>
-<li>yyyy-MM-dd-a,对应half-daily(每半天)</li>
-<li>yyyy-MM-dd-HH,对应hourly(每小时)</li>
-<li>yyyy-MM-dd-HH-mm,对应minutely(每分钟)</li>
-</ol>
-<ul>
-<li>示例</li>
-</ul>
-<pre><code>```java
-logDir=logs
 
 log4j.appender.dailyFile=org.apache.log4j.DailyRollingFileAppender
 #使用缓冲区
@@ -519,18 +487,114 @@ log4j.appender.dailyFile.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %
 log4j.appender.dailyFile.File=${logDir}/dailyLog.log
 #按每天滚动日志，已滚动的日志保存到dailyLog.log_yyyy-MM-dd.log文件中
 log4j.appender.dailyFile.datePattern='_'yyyy-MM-dd'.log'
-```
 </code></pre>
+
+<h3 id="配置文件自动热更新">配置文件自动热更新</h3>
+
+<p>log4j 1.x提供了2种API，分别是 DOMConfigurator.configureAndWatch(configFilename, delay)
+和 PropertyConfigurator.configureAndWatch(configFilename, delay) 来自动热更新配置文件，其原理是起一个线程，每隔delay毫秒检查配置文件的最后修改时间，如果本次监测到的文件修改时间比上次监测到的文件修改时间晚，则重新加载配置文件，这种方式有两个明显的缺点：</p>
+
+<ol>
+<li>每次调用configureAndWatch方法都会起一个线程</li>
+<li>只对比文件修改时间，并不对比文件内容的改变。如果即将要热更的配置比现有的配置的文件修改时间早，那么这个配置将不会被热更新</li>
+</ol>
+
+<h4 id="对于log4j-dot-xml文件">对于log4j.xml文件</h4>
+
+<pre><code class="language-java">String path = Thread.currentThread().getContextClassLoader().getResource(&quot;log4j.xml&quot;).getPath();
+DOMConfigurator.configureAndWatch(path, 10000L);
+</code></pre>
+
+<h4 id="对于log4j-dot-properties文件">对于log4j.properties文件</h4>
+
+<pre><code class="language-java">String path = Thread.currentThread().getContextClassLoader().getResource(&quot;log4j.properties&quot;).getPath();
+PropertyConfigurator.configureAndWatch(path, 10000L);
+</code></pre>
+
+<h3 id="logger">Logger</h3>
+
+<blockquote>
+<p>日志级别从低到高分为TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR</p>
+</blockquote>
+
+<h4 id="rootlogger">RootLogger</h4>
+
+<p>在未特别指定Logger的情况下，log4j默认使用rootLogger作为Logger，因此一般都需要配置rootLogger
+其中DEBUG为日志级别，console、dailyFile为被引用的Appender</p>
+
+<pre><code class="language-java">log4j.rootLogger=DEBUG,console,dailyFile
+</code></pre>
+
+<h3 id="appender">Appender</h3>
+
+<h4 id="consoleappender-控制台appender">ConsoleAppender（控制台Appender）</h4>
+
+<blockquote>
+<p>ConsoleAppender使用System.out或者System.err来记录日志</p>
+</blockquote>
+
+<ul>
+<li><p>示例：</p>
+
+<pre><code class="language-java">log4j.rootLogger=DEBUG,console
+
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+#输出流目标，可先参数为System.out和System.err
+log4j.appender.console.target=System.err
+#Appender可脱离于日志级别定义一个阀值级别，Appender对象会忽略所有级别低于阀值级别的日志
+log4j.appender.console.threshold=ERROR
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+</code></pre>
+
+<h4 id="dailyrollingfileappender">DailyRollingFileAppender</h4>
+
+<p>在DailyRollingFileAppender中可以指定monthly(每月)、weekly(每周)、daily(每天)、half-daily(每半天)、
+hourly(每小时)和minutely(每分钟)六个频度，这是通过为 DatePattern选项赋予不同的值来完成的。
+DatePattern选项的有效值为：</p>
+
+<ol>
+<li>yyyy-MM,对应monthly(每月)</li>
+<li>yyyy-ww,对应weekly(每周)</li>
+<li>yyyy-MM-dd,对应daily(每天)</li>
+<li>yyyy-MM-dd-a,对应half-daily(每半天)</li>
+<li>yyyy-MM-dd-HH,对应hourly(每小时)</li>
+<li>yyyy-MM-dd-HH-mm,对应minutely(每分钟)</li>
+</ol>
+
+<ul>
+<li>示例</li>
+</ul>
+
+<pre><code class="language-java">logDir=logs
+
+log4j.appender.dailyFile=org.apache.log4j.DailyRollingFileAppender
+#使用缓冲区
+log4j.appender.dailyFile.bufferedIO=true
+#日志编码为UTF-8
+log4j.appender.dailyFile.encoding=UTF-8
+#Appender可脱离于日志级别定义一个阀值级别，Appender对象会忽略所有级别低于阀值级别的日志
+log4j.appender.dailyFile.threshold=ERROR
+log4j.appender.dailyFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.dailyFile.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+#当前日志输出到dailyLog.log文件中
+log4j.appender.dailyFile.File=${logDir}/dailyLog.log
+#按每天滚动日志，已滚动的日志保存到dailyLog.log_yyyy-MM-dd.log文件中
+log4j.appender.dailyFile.datePattern='_'yyyy-MM-dd'.log'
+</code></pre></li>
+</ul>
+
 <h4 id="asyncappender-异步appender">AsyncAppender（异步Appender）</h4>
+
 <blockquote>
 <p>log4j 1.x的 AsyncAppender 原理是：每次打印日志时，都把这个日志事件添加到一个 ArrayList 中，这个添加过程是加锁同步操作的，因此当日志量特别大时，将会阻塞业务线程，造成性能瓶颈。AsyncAppender 内部有一个线程循环从 ArrayList 取出日志事件来打印，这个取出日志事件的操作也是加锁同步的，因此会阻塞添加日志事件的操作，从而在日志量特别大时阻塞业务线程，再次造成性能瓶颈。
 log4j 1.x 只支持在log4j.xml中配置 AsyncAppender。</p>
 </blockquote>
+
 <ul>
-<li>示例：</li>
-</ul>
-<pre><code>```xml
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+<li><p>示例：</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;!DOCTYPE log4j:configuration SYSTEM &quot;log4j.dtd&quot;&gt;
 &lt;log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'&gt;
     &lt;appender name=&quot;console&quot; class=&quot;org.apache.log4j.ConsoleAppender&quot;&gt;
@@ -546,93 +610,183 @@ log4j 1.x 只支持在log4j.xml中配置 AsyncAppender。</p>
     &lt;appender-ref ref=&quot;asyncConsole&quot;/&gt;
     &lt;/root&gt;
 &lt;/log4j:configuration&gt;
-```
 </code></pre>
+
 <h4 id="其他appender">其他Appender</h4>
+
 <p>除了以上常用的Appender，还有FileAppender、JDBCAppender、JMSAppender、RollingFileAppender等多个Appender。由于不常用，不再赘述。</p>
+
 <h3 id="filters">Filters</h3>
+
 <h4 id="denyallfilter">DenyAllFilter</h4>
+
 <p>任何日志都不打印</p>
+
 <ul>
 <li>示例</li>
 </ul>
-<pre><code>```java
-log4j.rootLogger=DEBUG,console
+
+<pre><code class="language-java">log4j.rootLogger=DEBUG,console
 
 log4j.appender.console=org.apache.log4j.ConsoleAppender
 log4j.appender.console.filter.filter=org.apache.log4j.varia.DenyAllFilter
 log4j.appender.console.layout=org.apache.log4j.PatternLayout
 log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
-```
-</code></pre>
-<h4 id="levelrangefilter">LevelRangeFilter</h4>
-<p>指定日志等级范围的日志才会被打印出来</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">rootLogger</span><span style="color:#f92672">=</span>DEBUG<span style="color:#f92672">,</span>console
+</code></pre></li>
+</ul>
 
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log4j</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ConsoleAppender</span>
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log4j</span><span style="color:#f92672">.</span><span style="color:#a6e22e">varia</span><span style="color:#f92672">.</span><span style="color:#a6e22e">LevelRangeFilter</span>
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">levelMin</span><span style="color:#f92672">=</span>INFO
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">levelMax</span><span style="color:#f92672">=</span>ERROR
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log4j</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PatternLayout</span>
-log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">console</span><span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">conversionPattern</span><span style="color:#f92672">=%</span>d<span style="color:#f92672">{</span>yyyy<span style="color:#f92672">-</span>MM<span style="color:#f92672">-</span>dd HH<span style="color:#f92672">:</span>mm<span style="color:#f92672">:</span>ss<span style="color:#f92672">}</span> <span style="color:#f92672">[%</span>p<span style="color:#f92672">]</span> <span style="color:#f92672">%</span>m<span style="color:#f92672">%</span>n
-</code></pre></div><h4 id="其他filter">其他Filter</h4>
+<h4 id="levelrangefilter">LevelRangeFilter</h4>
+
+<p>指定日志等级范围的日志才会被打印出来</p>
+
+<pre><code class="language-java">log4j.rootLogger=DEBUG,console
+
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.filter.filter=org.apache.log4j.varia.LevelRangeFilter
+log4j.appender.console.filter.filter.levelMin=INFO
+log4j.appender.console.filter.filter.levelMax=ERROR
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+</code></pre>
+
+<h4 id="其他filter">其他Filter</h4>
+
 <p>除了以上常用的Filter，还有LevelMatchFilter、StringMatchFilter等Filter。</p>
+
 <h3 id="layout">Layout</h3>
+
 <h4 id="patternlayout">PatternLayout</h4>
+
 <blockquote>
 <p>如果想生成基于模式的特定格式的日志信息，那么可以使用PatternLayout格式化日志信息</p>
 </blockquote>
+
 <ul>
-<li>模式转换字符</li>
-</ul>
-<pre><code>| 转换字符 | 表示的意思                                                                         |
-|------|-------------------------------------------------------------------------------|
-| c    | 用于输出的记录事件的类别。例如，对于类别名称&quot;a.b.c&quot; 模式  %c{2} 会输出 &quot;b.c&quot;       |
-| C    | 用于输出呼叫者发出日志请求的完全限定类名。例如，对于类名 &quot;org.apache.xyz.SomeClass&quot;, 模式 %C{1} 会输出 &quot;SomeClass&quot;. |
-| d    | 用于输出的记录事件的日期。例如， %d{HH:mm:ss,SSS} 或 %d{dd MMM yyyy HH:mm:ss,SSS}. |
-| F    | 用于输出被发出日志记录请求，其中的文件名                                           |
-| l    | 用于将产生的日志事件调用者输出位置信息                                             |
-| L    | 用于输出从被发出日志记录请求的行号                                                 |
-| m    | 用于输出使用日志事件相关联的应用程序提供的消息                                     |
-| M    | 用于输出发出日志请求所在的方法名称                                                 |
-| n    | 输出平台相关的行分隔符或文字                                                       |
-| p    | 用于输出的记录事件的优先级                                                         |
-| r    | 用于输出毫秒从布局的结构经过直到创建日志记录事件的数目                             |
-| t    | 用于输出生成的日志记录事件的线程的名称                                             |
-| x    | 用于与产生该日志事件的线程相关联输出的NDC（嵌套诊断上下文）                        |
-| X    | 在X转换字符后面是键为的MDC。例如  X{clientIP} 将打印存储在MDC对键clientIP的信息    |
-| %    | 文字百分号 %%将打印％标志                                                          |
-</code></pre>
-<ul>
-<li>示例</li>
-</ul>
-<pre><code>```java
-log4j.rootLogger=DEBUG,console
+<li><p>模式转换字符</p>
+
+<table>
+<thead>
+<tr>
+<th>转换字符</th>
+<th>表示的意思</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>c</td>
+<td>用于输出的记录事件的类别。例如，对于类别名称&rdquo;a.b.c&rdquo; 模式  %c{2} 会输出 &ldquo;b.c&rdquo;</td>
+</tr>
+
+<tr>
+<td>C</td>
+<td>用于输出呼叫者发出日志请求的完全限定类名。例如，对于类名 &ldquo;org.apache.xyz.SomeClass&rdquo;, 模式 %C{1} 会输出 &ldquo;SomeClass&rdquo;.</td>
+</tr>
+
+<tr>
+<td>d</td>
+<td>用于输出的记录事件的日期。例如， %d{HH:mm:ss,SSS} 或 %d{dd MMM yyyy HH:mm:ss,SSS}.</td>
+</tr>
+
+<tr>
+<td>F</td>
+<td>用于输出被发出日志记录请求，其中的文件名</td>
+</tr>
+
+<tr>
+<td>l</td>
+<td>用于将产生的日志事件调用者输出位置信息</td>
+</tr>
+
+<tr>
+<td>L</td>
+<td>用于输出从被发出日志记录请求的行号</td>
+</tr>
+
+<tr>
+<td>m</td>
+<td>用于输出使用日志事件相关联的应用程序提供的消息</td>
+</tr>
+
+<tr>
+<td>M</td>
+<td>用于输出发出日志请求所在的方法名称</td>
+</tr>
+
+<tr>
+<td>n</td>
+<td>输出平台相关的行分隔符或文字</td>
+</tr>
+
+<tr>
+<td>p</td>
+<td>用于输出的记录事件的优先级</td>
+</tr>
+
+<tr>
+<td>r</td>
+<td>用于输出毫秒从布局的结构经过直到创建日志记录事件的数目</td>
+</tr>
+
+<tr>
+<td>t</td>
+<td>用于输出生成的日志记录事件的线程的名称</td>
+</tr>
+
+<tr>
+<td>x</td>
+<td>用于与产生该日志事件的线程相关联输出的NDC（嵌套诊断上下文）</td>
+</tr>
+
+<tr>
+<td>X</td>
+<td>在X转换字符后面是键为的MDC。例如  X{clientIP} 将打印存储在MDC对键clientIP的信息</td>
+</tr>
+
+<tr>
+<td>%</td>
+<td>文字百分号 %%将打印％标志</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>示例</p>
+
+<pre><code class="language-java">log4j.rootLogger=DEBUG,console
 
 log4j.appender.console=org.apache.log4j.ConsoleAppender
 log4j.appender.console.layout=org.apache.log4j.PatternLayout
 log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
-```
 </code></pre>
+
 <h4 id="其他layout">其他Layout</h4>
+
 <p>除了以上Layout，还有HTMLLayout、XMLLayout等，由于不常用，不再赘述。</p>
+
 <h2 id="使用">使用</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.test<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.slf4j.Logger<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.slf4j.LoggerFactory<span style="color:#f92672">;</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyTest</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Logger LOGGER <span style="color:#f92672">=</span> LoggerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span>MyTest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	LOGGER<span style="color:#f92672">.</span><span style="color:#a6e22e">trace</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;{}&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;hello world!&#34;</span><span style="color:#f92672">);</span>
-	LOGGER<span style="color:#f92672">.</span><span style="color:#a6e22e">debug</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;{}&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;hello world!&#34;</span><span style="color:#f92672">);</span>
-	LOGGER<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;{}&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;hello world!&#34;</span><span style="color:#f92672">);</span>
-	LOGGER<span style="color:#f92672">.</span><span style="color:#a6e22e">warn</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;{}&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;hello world!&#34;</span><span style="color:#f92672">);</span>
-	LOGGER<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;{}&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;hello world!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h2 id="性能调优">性能调优</h2>
+
+<pre><code class="language-java">package com.test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+public class MyTest {
+private static final Logger LOGGER = LoggerFactory.getLogger(MyTest.class);
+public static void main(String[] args) {
+LOGGER.trace(&quot;{}&quot;, &quot;hello world!&quot;);
+LOGGER.debug(&quot;{}&quot;, &quot;hello world!&quot;);
+LOGGER.info(&quot;{}&quot;, &quot;hello world!&quot;);
+LOGGER.warn(&quot;{}&quot;, &quot;hello world!&quot;);
+LOGGER.error(&quot;{}&quot;, &quot;hello world!&quot;);
+}
+}
+</code></pre></li>
+</ul>
+
+<h2 id="性能调优">性能调优</h2>
+
 <h3 id="设置日志缓存及缓存大小">设置日志缓存及缓存大小</h3>
+
 <h3 id="设置日志输出方式为异步方式-如使用asyncappender">设置日志输出方式为异步方式，如使用AsyncAppender</h3>
+
 <h3 id="避免打印location日志-如-c-class-f-file-l-location-l-line-m或-method">避免打印Location日志，如%C、$class、%F、%file、%l、%location、%L、%line、%M或%method</h3>
 
     </div>
@@ -814,7 +968,7 @@ log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p] %m%
 
 
 
-<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
 
 
 

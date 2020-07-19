@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lucene on Jason&#39;s Blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 12 Jul 2017 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/lucene-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
-      <description>写索引，使用多个索引文件 package com.web.service; import com.web.common.Page; import com.web.config.Config; import com.web.entity.WebPageEntity; import com.web.lucene.Indexer; import com.web.lucene.SearchResult; import com.web.lucene.Searcher; import com.web.util.ConverseUtil; import org.apache.lucene.document.*; import org.apache.lucene.index.Term; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.stereotype.Service; /** * @author jason 2015-07-22-14:59 * @since v1.0 */ @Service(&amp;#34;LuceneServiceImpl&amp;#34;) public class LuceneServiceImpl implements LuceneService { @Autowired private Indexer indexer; @Autowired private Config config; @Autowired private Searcher searcher; @Override public void saveOrUpdate(WebPageEntity entity) {</description>
+      <description>写索引，使用多个索引文件 package com.web.service; import com.web.common.Page; import com.web.config.Config; import com.web.entity.WebPageEntity; import com.web.lucene.Indexer; import com.web.lucene.SearchResult; import com.web.lucene.Searcher; import com.web.util.ConverseUtil; import org.apache.lucene.document.*; import org.apache.lucene.index.Term; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.stereotype.Service; /** * @author jason 2015-07-22-14:59 * @since v1.0 */ @Service(&amp;quot;LuceneServiceImpl&amp;quot;) public class LuceneServiceImpl implements LuceneService { @Autowired private Indexer indexer; @Autowired private Config config; @Autowired private Searcher searcher; @Override public void saveOrUpdate(WebPageEntity entity) {</description>
     </item>
     
   </channel>

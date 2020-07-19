@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.73.0" />
+<meta name="generator" content="Hugo 0.55.6" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/plantuml-mode%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
@@ -63,17 +63,21 @@
 <meta property="og:description" content="搭建运行环境 安装JAVA 安装Graphviz 下载地址 安装PlantUML 下载plantuml.jar到本地即可，如下载到C:\Users\J" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/plantuml-mode%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
-<meta property="article:published_time" content="2017-07-14T00:00:00+08:00" />
-<meta property="article:modified_time" content="2017-07-14T00:00:00+08:00" />
+<meta property="article:published_time" content="2017-07-14T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2017-07-14T00:00:00&#43;08:00"/>
+
 <meta itemprop="name" content="PlantUML mode使用指南">
 <meta itemprop="description" content="搭建运行环境 安装JAVA 安装Graphviz 下载地址 安装PlantUML 下载plantuml.jar到本地即可，如下载到C:\Users\J">
+
+
 <meta itemprop="datePublished" content="2017-07-14T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-07-14T00:00:00&#43;08:00" />
 <meta itemprop="wordCount" content="266">
 
 
 
-<meta itemprop="keywords" content="Emacs," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Emacs," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PlantUML mode使用指南"/>
 <meta name="twitter:description" content="搭建运行环境 安装JAVA 安装Graphviz 下载地址 安装PlantUML 下载plantuml.jar到本地即可，如下载到C:\Users\J"/>
 
@@ -362,56 +366,74 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#搭建运行环境">搭建运行环境</a>
-      <ul>
-        <li><a href="#安装java">安装JAVA</a></li>
-        <li><a href="#安装graphviz">安装Graphviz</a></li>
-        <li><a href="#安装plantuml">安装PlantUML</a></li>
-      </ul>
-    </li>
-    <li><a href="#修改-dot-emacs配置文件">修改.emacs配置文件</a></li>
-    <li><a href="#在org-mode中编写plantuml">在org mode中编写plantuml</a>
-      <ul>
-        <li><a href="#编码">编码</a></li>
-        <li><a href="#编译">编译</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#搭建运行环境">搭建运行环境</a>
+<ul>
+<li><a href="#安装java">安装JAVA</a></li>
+<li><a href="#安装graphviz">安装Graphviz</a></li>
+<li><a href="#安装plantuml">安装PlantUML</a></li>
+</ul></li>
+<li><a href="#修改-dot-emacs配置文件">修改.emacs配置文件</a></li>
+<li><a href="#在org-mode中编写plantuml">在org mode中编写plantuml</a>
+<ul>
+<li><a href="#编码">编码</a></li>
+<li><a href="#编译">编译</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h2 id="搭建运行环境">搭建运行环境</h2>
-<h3 id="安装java">安装JAVA</h3>
-<h3 id="安装graphviz">安装Graphviz</h3>
-<p><a href="http://www.graphviz.org/Download..php">下载地址</a></p>
-<h3 id="安装plantuml">安装PlantUML</h3>
-<p>下载plantuml.jar到本地即可，如下载到C:\Users\Jason\AppData\Roaming，<a href="http://plantuml.com/download">下载地址</a></p>
-<h2 id="修改-dot-emacs配置文件">修改.emacs配置文件</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;使org mode的代码块能支持plantuml语言</span>
-(add-to-list
-  <span style="color:#e6db74">&#39;org-src-lang-modes</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;plantuml&#34;</span> <span style="color:#f92672">.</span> plantuml))
+      
 
-<span style="color:#75715e">;指定plantuml.jar文件的位置</span>
-(<span style="color:#66d9ef">setq</span> org-plantuml-jar-path
-      (expand-file-name <span style="color:#e6db74">&#34;C:\\Users\\Jason\\AppData\\Roaming\\plantuml.jar&#34;</span>))
-<span style="color:#75715e">;使org mode代码块中能够编译plantuml生成图片</span>
+<h2 id="搭建运行环境">搭建运行环境</h2>
+
+<h3 id="安装java">安装JAVA</h3>
+
+<h3 id="安装graphviz">安装Graphviz</h3>
+
+<p><a href="http://www.graphviz.org/Download..php">下载地址</a></p>
+
+<h3 id="安装plantuml">安装PlantUML</h3>
+
+<p>下载plantuml.jar到本地即可，如下载到C:\Users\Jason\AppData\Roaming，<a href="http://plantuml.com/download">下载地址</a></p>
+
+<h2 id="修改-dot-emacs配置文件">修改.emacs配置文件</h2>
+
+<pre><code class="language-lisp">;使org mode的代码块能支持plantuml语言
+(add-to-list
+  'org-src-lang-modes '(&quot;plantuml&quot; . plantuml))
+
+;指定plantuml.jar文件的位置
+(setq org-plantuml-jar-path
+      (expand-file-name &quot;C:\\Users\\Jason\\AppData\\Roaming\\plantuml.jar&quot;))
+;使org mode代码块中能够编译plantuml生成图片
 (org-babel-do-load-languages
-  <span style="color:#e6db74">&#39;org-babel-load-languages</span>
-  <span style="color:#f92672">&#39;</span>(
-    (plantuml <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+  'org-babel-load-languages
+  '(
+    (plantuml . t)
     ))
-</code></pre></div><h2 id="在org-mode中编写plantuml">在org mode中编写plantuml</h2>
+</code></pre>
+
+<h2 id="在org-mode中编写plantuml">在org mode中编写plantuml</h2>
+
 <h3 id="编码">编码</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">Jim <span style="color:#f92672">--&gt;</span> Lucy:How are you<span style="color:#f92672">?</span>
-Lucy <span style="color:#f92672">--&gt;</span> Jim:I am fine.
-Jim <span style="color:#f92672">--&gt;</span> Bob:Hello.
-</code></pre></div><h3 id="编译">编译</h3>
+
+<pre><code class="language-c">Jim --&gt; Lucy:How are you?
+Lucy --&gt; Jim:I am fine.
+Jim --&gt; Bob:Hello.
+</code></pre>
+
+<h3 id="编译">编译</h3>
+
 <p>把光标移至代码块中按C-c C-c
 此时可以看到在img目录下生成了图片</p>
+
 
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box">
@@ -603,7 +625,7 @@ Jim <span style="color:#f92672">--&gt;</span> Bob:Hello.
 
 
 
-<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
 
 
 

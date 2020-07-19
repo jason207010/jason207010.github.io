@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Jason&#39;s Blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 20 Nov 2019 00:00:00 +0800</pubDate>
       
       <guid>http://jason207010.github.io/post/docker-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</guid>
-      <description>安装 Docker Ubuntu 14.04/16.04 # step 1: 安装必要的一些系统工具 sudo apt-get update sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common # step 2: 安装GPG证书 curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add - # Step 3: 写入软件源信息 sudo add-apt-repository &amp;#34;deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs)stable&amp;#34; # Step 4: 更新</description>
+      <description>安装 Docker Ubuntu 14.04/16.04 # step 1: 安装必要的一些系统工具 sudo apt-get update sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common # step 2: 安装GPG证书 curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add - # Step 3: 写入软件源信息 sudo add-apt-repository &amp;quot;deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&amp;quot; # Step 4: 更</description>
     </item>
     
   </channel>

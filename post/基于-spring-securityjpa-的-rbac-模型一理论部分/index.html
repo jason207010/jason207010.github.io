@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.73.0" />
+<meta name="generator" content="Hugo 0.55.6" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/%E5%9F%BA%E4%BA%8E-spring-securityjpa-%E7%9A%84-rbac-%E6%A8%A1%E5%9E%8B%E4%B8%80%E7%90%86%E8%AE%BA%E9%83%A8%E5%88%86/" />
@@ -63,17 +63,21 @@
 <meta property="og:description" content="RBAC 以角色为基础的访问控制（英语：Role-based access control, RBAC），是资讯安全领域中，一种较新且广为使用的访问控制机制，其不同于强制访问控制" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/%E5%9F%BA%E4%BA%8E-spring-securityjpa-%E7%9A%84-rbac-%E6%A8%A1%E5%9E%8B%E4%B8%80%E7%90%86%E8%AE%BA%E9%83%A8%E5%88%86/" />
-<meta property="article:published_time" content="2017-07-12T00:00:00+08:00" />
-<meta property="article:modified_time" content="2017-07-12T00:00:00+08:00" />
+<meta property="article:published_time" content="2017-07-12T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2017-07-12T00:00:00&#43;08:00"/>
+
 <meta itemprop="name" content="基于 Spring Security、JPA 的 RBAC 模型（一）理论部分">
 <meta itemprop="description" content="RBAC 以角色为基础的访问控制（英语：Role-based access control, RBAC），是资讯安全领域中，一种较新且广为使用的访问控制机制，其不同于强制访问控制">
+
+
 <meta itemprop="datePublished" content="2017-07-12T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-07-12T00:00:00&#43;08:00" />
 <meta itemprop="wordCount" content="585">
 
 
 
-<meta itemprop="keywords" content="JavaWeb,Spring," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="JavaWeb,Spring," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="基于 Spring Security、JPA 的 RBAC 模型（一）理论部分"/>
 <meta name="twitter:description" content="RBAC 以角色为基础的访问控制（英语：Role-based access control, RBAC），是资讯安全领域中，一种较新且广为使用的访问控制机制，其不同于强制访问控制"/>
 
@@ -363,30 +367,44 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#rbac">RBAC</a></li>
-    <li><a href="#spring-security">Spring Security</a></li>
-    <li><a href="#资源访问流程图">资源访问流程图</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#rbac">RBAC</a></li>
+<li><a href="#spring-security">Spring Security</a></li>
+<li><a href="#资源访问流程图">资源访问流程图</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h2 id="rbac">RBAC</h2>
+      
+
+<h2 id="rbac">RBAC</h2>
+
 <blockquote>
 <p>以角色为基础的访问控制（英语：Role-based access control, RBAC），是资讯安全领域中，一种较新且广为使用的访问控制机制，其不同于强制访问控制以及自由选定访问控制直接赋予使用者权限，而是将权限赋予角色。</p>
+
 <p>在一个组织中，会因为不同的作业功能产生不同的角色，执行某项操作的权限会被赋予特定的角色。组织成员或者工作人员（抑或其它系统用户）则被赋予不同的角色，这些用户通过被赋予角色来取得执行某项计算机系统功能的权限。</p>
 </blockquote>
+
 <p>基于这个理论，可以设计一个用户User类，一个角色Role类，一个资源Resource类，一个User可以拥有多个Role，一个Role拥有多个Resource表示角色的权限。</p>
+
 <h2 id="spring-security">Spring Security</h2>
+
 <blockquote>
 <p>Spring Security提供了一套Web应用安全性的完整解决方案。一般来说，Web 应用的安全性包括：</p>
+
 <p>一、用户认证（Authentication）用户认证指的是验证某个用户是否为系统中的合法主体，也就是说用户能否访问该系统。用户认证一般要求用户提供用户名和密码。系统通过校验用户名和密码来完成认证过程。</p>
+
 <p>二、用户授权（Authorization）用户授权指的是验证某个用户是否有权限执行某个操作。在一个系统中，不同用户所具有的权限是不同的。比如对一个文件来说，有的用户只能进行读取，而有的用户可以进行修改。一般来说，系统会为不同的用户分配不同的角色，而每个角色则对应一系列的权限。</p>
 </blockquote>
+
 <h2 id="资源访问流程图">资源访问流程图</h2>
+
 
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box">
@@ -579,7 +597,7 @@ if (!doNotTrack) {
 
 
 
-<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
 
 
 

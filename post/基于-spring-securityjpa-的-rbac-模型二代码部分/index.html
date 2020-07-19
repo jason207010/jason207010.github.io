@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Jason Chan" />
-  <meta name="description" content="JPA实体设计 用户实体 @Entity @Table(name = &amp;#34;`user`&amp;#34;) public class User implements Serializable , UserDetails { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = &amp;#34;`id`&amp;#34;) private Long id; @Column(name = &amp;#34;`name`&amp;#34;) private String name; @Column(name = &amp;#34;`password`&amp;#34;) private String password; @Column(name = &amp;#34;`enable`&amp;#34;) private Boolean enable; @Column(name = &amp;#34;`img_path`&amp;#34;) private String imgPath; @ManyToMany(fetch = FetchType.EAGER) @JoinTable(name = &amp;#34;`user_role`&amp;#34; , joinColumns = @JoinColumn(name = &amp;#34;`user_id`&amp;#34;) ," />
+  <meta name="description" content="JPA实体设计 用户实体 @Entity @Table(name = &amp;quot;`user`&amp;quot;) public class User implements Serializable , UserDetails { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = &amp;quot;`id`&amp;quot;) private Long id; @Column(name = &amp;quot;`name`&amp;quot;) private String name; @Column(name = &amp;quot;`password`&amp;quot;) private String password; @Column(name = &amp;quot;`enable`&amp;quot;) private Boolean enable; @Column(name = &amp;quot;`img_path`&amp;quot;) private String imgPath; @ManyToMany(fetch = FetchType.EAGER) @JoinTable(name = &amp;quot;`user_role`&amp;quot; , joinColumns = @JoinColumn(name = &amp;quot;`user_id`&amp;quot;) ," />
 
   <meta name="keywords" content="Jason, Blog, Java" />
 
@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.73.0" />
+<meta name="generator" content="Hugo 0.55.6" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/%E5%9F%BA%E4%BA%8E-spring-securityjpa-%E7%9A%84-rbac-%E6%A8%A1%E5%9E%8B%E4%BA%8C%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/" />
@@ -60,22 +60,26 @@
 
 
 <meta property="og:title" content="基于 Spring Security、JPA的RBAC模型（二）代码部分" />
-<meta property="og:description" content="JPA实体设计 用户实体 @Entity @Table(name = &#34;`user`&#34;) public class User implements Serializable , UserDetails { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = &#34;`id`&#34;) private Long id; @Column(name = &#34;`name`&#34;) private String name; @Column(name = &#34;`password`&#34;) private String password; @Column(name = &#34;`enable`&#34;) private Boolean enable; @Column(name = &#34;`img_path`&#34;) private String imgPath; @ManyToMany(fetch = FetchType.EAGER) @JoinTable(name = &#34;`user_role`&#34; , joinColumns = @JoinColumn(name = &#34;`user_id`&#34;) ," />
+<meta property="og:description" content="JPA实体设计 用户实体 @Entity @Table(name = &quot;`user`&quot;) public class User implements Serializable , UserDetails { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = &quot;`id`&quot;) private Long id; @Column(name = &quot;`name`&quot;) private String name; @Column(name = &quot;`password`&quot;) private String password; @Column(name = &quot;`enable`&quot;) private Boolean enable; @Column(name = &quot;`img_path`&quot;) private String imgPath; @ManyToMany(fetch = FetchType.EAGER) @JoinTable(name = &quot;`user_role`&quot; , joinColumns = @JoinColumn(name = &quot;`user_id`&quot;) ," />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/%E5%9F%BA%E4%BA%8E-spring-securityjpa-%E7%9A%84-rbac-%E6%A8%A1%E5%9E%8B%E4%BA%8C%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/" />
-<meta property="article:published_time" content="2017-07-12T00:00:00+08:00" />
-<meta property="article:modified_time" content="2017-07-12T00:00:00+08:00" />
+<meta property="article:published_time" content="2017-07-12T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2017-07-12T00:00:00&#43;08:00"/>
+
 <meta itemprop="name" content="基于 Spring Security、JPA的RBAC模型（二）代码部分">
-<meta itemprop="description" content="JPA实体设计 用户实体 @Entity @Table(name = &#34;`user`&#34;) public class User implements Serializable , UserDetails { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = &#34;`id`&#34;) private Long id; @Column(name = &#34;`name`&#34;) private String name; @Column(name = &#34;`password`&#34;) private String password; @Column(name = &#34;`enable`&#34;) private Boolean enable; @Column(name = &#34;`img_path`&#34;) private String imgPath; @ManyToMany(fetch = FetchType.EAGER) @JoinTable(name = &#34;`user_role`&#34; , joinColumns = @JoinColumn(name = &#34;`user_id`&#34;) ,">
+<meta itemprop="description" content="JPA实体设计 用户实体 @Entity @Table(name = &quot;`user`&quot;) public class User implements Serializable , UserDetails { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = &quot;`id`&quot;) private Long id; @Column(name = &quot;`name`&quot;) private String name; @Column(name = &quot;`password`&quot;) private String password; @Column(name = &quot;`enable`&quot;) private Boolean enable; @Column(name = &quot;`img_path`&quot;) private String imgPath; @ManyToMany(fetch = FetchType.EAGER) @JoinTable(name = &quot;`user_role`&quot; , joinColumns = @JoinColumn(name = &quot;`user_id`&quot;) ,">
+
+
 <meta itemprop="datePublished" content="2017-07-12T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-07-12T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1890">
+<meta itemprop="wordCount" content="1902">
 
 
 
-<meta itemprop="keywords" content="JavaWeb,Spring," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="JavaWeb,Spring," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="基于 Spring Security、JPA的RBAC模型（二）代码部分"/>
-<meta name="twitter:description" content="JPA实体设计 用户实体 @Entity @Table(name = &#34;`user`&#34;) public class User implements Serializable , UserDetails { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = &#34;`id`&#34;) private Long id; @Column(name = &#34;`name`&#34;) private String name; @Column(name = &#34;`password`&#34;) private String password; @Column(name = &#34;`enable`&#34;) private Boolean enable; @Column(name = &#34;`img_path`&#34;) private String imgPath; @ManyToMany(fetch = FetchType.EAGER) @JoinTable(name = &#34;`user_role`&#34; , joinColumns = @JoinColumn(name = &#34;`user_id`&#34;) ,"/>
+<meta name="twitter:description" content="JPA实体设计 用户实体 @Entity @Table(name = &quot;`user`&quot;) public class User implements Serializable , UserDetails { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = &quot;`id`&quot;) private Long id; @Column(name = &quot;`name`&quot;) private String name; @Column(name = &quot;`password`&quot;) private String password; @Column(name = &quot;`enable`&quot;) private Boolean enable; @Column(name = &quot;`img_path`&quot;) private String imgPath; @ManyToMany(fetch = FetchType.EAGER) @JoinTable(name = &quot;`user_role`&quot; , joinColumns = @JoinColumn(name = &quot;`user_id`&quot;) ,"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -346,7 +350,7 @@ if (!doNotTrack) {
             <a href="http://jason207010.github.io/categories/spring/"> Spring </a>
             
           </div>
-        <span class="more-meta"> 约 1890 字 </span>
+        <span class="more-meta"> 约 1902 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
 
         
@@ -363,340 +367,377 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#jpa实体设计">JPA实体设计</a>
-      <ul>
-        <li><a href="#用户实体">用户实体</a></li>
-        <li><a href="#角色实体">角色实体</a></li>
-        <li><a href="#资源实体">资源实体</a></li>
-      </ul>
-    </li>
-    <li><a href="#servlet-filter配置">Servlet、Filter配置</a>
-      <ul>
-        <li><a href="#spring相关servlet配置">Spring相关Servlet配置</a></li>
-        <li><a href="#spring-security相关servlet配置">Spring Security相关Servlet配置</a></li>
-      </ul>
-    </li>
-    <li><a href="#配置文件">配置文件</a></li>
-    <li><a href="#spring-spring-mvc-spring-security-spring-data-jpa配置">Spring、Spring MVC、Spring Security、Spring Data JPA配置</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#jpa实体设计">JPA实体设计</a>
+<ul>
+<li><a href="#用户实体">用户实体</a></li>
+<li><a href="#角色实体">角色实体</a></li>
+<li><a href="#资源实体">资源实体</a></li>
+</ul></li>
+<li><a href="#servlet-filter配置">Servlet、Filter配置</a>
+<ul>
+<li><a href="#spring相关servlet配置">Spring相关Servlet配置</a></li>
+<li><a href="#spring-security相关servlet配置">Spring Security相关Servlet配置</a></li>
+</ul></li>
+<li><a href="#配置文件">配置文件</a></li>
+<li><a href="#spring-spring-mvc-spring-security-spring-data-jpa配置">Spring、Spring MVC、Spring Security、Spring Data JPA配置</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h2 id="jpa实体设计">JPA实体设计</h2>
+      
+
+<h2 id="jpa实体设计">JPA实体设计</h2>
+
 <h3 id="用户实体">用户实体</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
-<span style="color:#a6e22e">@Table</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`user`&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">implements</span> Serializable <span style="color:#f92672">,</span> UserDetails <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@Id</span>
-    <span style="color:#a6e22e">@GeneratedValue</span><span style="color:#f92672">(</span>strategy <span style="color:#f92672">=</span> GenerationType<span style="color:#f92672">.</span><span style="color:#a6e22e">IDENTITY</span><span style="color:#f92672">)</span>
-    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`id`&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> Long id<span style="color:#f92672">;</span>
-    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`name`&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
-    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`password`&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> String password<span style="color:#f92672">;</span>
-    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`enable`&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> Boolean enable<span style="color:#f92672">;</span>
-    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`img_path`&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> String imgPath<span style="color:#f92672">;</span>
 
-    <span style="color:#a6e22e">@ManyToMany</span><span style="color:#f92672">(</span>fetch <span style="color:#f92672">=</span> FetchType<span style="color:#f92672">.</span><span style="color:#a6e22e">EAGER</span><span style="color:#f92672">)</span>
-    <span style="color:#a6e22e">@JoinTable</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`user_role`&#34;</span> <span style="color:#f92672">,</span> joinColumns <span style="color:#f92672">=</span> <span style="color:#a6e22e">@JoinColumn</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`user_id`&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">,</span> inverseJoinColumns <span style="color:#f92672">=</span> <span style="color:#a6e22e">@JoinColumn</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`role_id`&#34;</span><span style="color:#f92672">))</span>
-    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Role<span style="color:#f92672">&gt;</span> roles<span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="角色实体">角色实体</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
-<span style="color:#a6e22e">@Table</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`role`&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Role</span> <span style="color:#66d9ef">implements</span> GrantedAuthority <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@Id</span>
-    <span style="color:#a6e22e">@GeneratedValue</span><span style="color:#f92672">(</span>strategy <span style="color:#f92672">=</span> GenerationType<span style="color:#f92672">.</span><span style="color:#a6e22e">IDENTITY</span><span style="color:#f92672">)</span>
-    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`id`&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> Long id<span style="color:#f92672">;</span>
-    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`name`&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="资源实体">资源实体</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
-<span style="color:#a6e22e">@Table</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`resource`&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Resource</span> <span style="color:#66d9ef">implements</span> Serializable <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@Id</span>
-    <span style="color:#a6e22e">@GeneratedValue</span><span style="color:#f92672">(</span>strategy <span style="color:#f92672">=</span> GenerationType<span style="color:#f92672">.</span><span style="color:#a6e22e">IDENTITY</span><span style="color:#f92672">)</span>
-    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`id`&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> Long id<span style="color:#f92672">;</span>
-    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`name`&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
-    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`url`&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> String url<span style="color:#f92672">;</span>
-    <span style="color:#a6e22e">@ManyToMany</span><span style="color:#f92672">(</span>fetch <span style="color:#f92672">=</span> FetchType<span style="color:#f92672">.</span><span style="color:#a6e22e">EAGER</span><span style="color:#f92672">)</span>
-    <span style="color:#a6e22e">@JoinTable</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`role_resource`&#34;</span> <span style="color:#f92672">,</span> joinColumns <span style="color:#f92672">=</span> <span style="color:#a6e22e">@JoinColumn</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`resource_id`&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">,</span> inverseJoinColumns <span style="color:#f92672">=</span> <span style="color:#a6e22e">@JoinColumn</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`role_id`&#34;</span><span style="color:#f92672">))</span>
-    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Role<span style="color:#f92672">&gt;</span> roles<span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h2 id="servlet-filter配置">Servlet、Filter配置</h2>
+<pre><code class="language-java">@Entity
+@Table(name = &quot;`user`&quot;)
+public class User implements Serializable , UserDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;`id`&quot;)
+    private Long id;
+    @Column(name = &quot;`name`&quot;)
+    private String name;
+    @Column(name = &quot;`password`&quot;)
+    private String password;
+    @Column(name = &quot;`enable`&quot;)
+    private Boolean enable;
+    @Column(name = &quot;`img_path`&quot;)
+    private String imgPath;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = &quot;`user_role`&quot; , joinColumns = @JoinColumn(name = &quot;`user_id`&quot;) , inverseJoinColumns = @JoinColumn(name = &quot;`role_id`&quot;))
+    private List&lt;Role&gt; roles;
+}
+</code></pre>
+
+<h3 id="角色实体">角色实体</h3>
+
+<pre><code class="language-java">@Entity
+@Table(name = &quot;`role`&quot;)
+public class Role implements GrantedAuthority {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;`id`&quot;)
+    private Long id;
+    @Column(name = &quot;`name`&quot;)
+    private String name;
+}
+</code></pre>
+
+<h3 id="资源实体">资源实体</h3>
+
+<pre><code class="language-java">@Entity
+@Table(name = &quot;`resource`&quot;)
+public class Resource implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;`id`&quot;)
+    private Long id;
+    @Column(name = &quot;`name`&quot;)
+    private String name;
+    @Column(name = &quot;`url`&quot;)
+    private String url;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = &quot;`role_resource`&quot; , joinColumns = @JoinColumn(name = &quot;`resource_id`&quot;) , inverseJoinColumns = @JoinColumn(name = &quot;`role_id`&quot;))
+    private List&lt;Role&gt; roles;
+}
+</code></pre>
+
+<h2 id="servlet-filter配置">Servlet、Filter配置</h2>
+
 <h3 id="spring相关servlet配置">Spring相关Servlet配置</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DispatcherServlet</span> <span style="color:#66d9ef">extends</span> AbstractAnnotationConfigDispatcherServletInitializer <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">protected</span> Class<span style="color:#f92672">&lt;?&gt;[]</span> getRootConfigClasses<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Class<span style="color:#f92672">[]{</span>SpringConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">};</span>
-    <span style="color:#f92672">}</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">protected</span> Class<span style="color:#f92672">&lt;?&gt;[]</span> getServletConfigClasses<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Class<span style="color:#f92672">&lt;?&gt;[</span>0<span style="color:#f92672">];</span>
-    <span style="color:#f92672">}</span>
+<pre><code class="language-java">public class DispatcherServlet extends AbstractAnnotationConfigDispatcherServletInitializer {
+    @Override
+    protected Class&lt;?&gt;[] getRootConfigClasses() {
+    return new Class[]{SpringConfig.class};
+    }
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">protected</span> String<span style="color:#f92672">[]</span> <span style="color:#a6e22e">getServletMappings</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	<span style="color:#75715e">//只拦截.do请求，即Spring MVC的控制器只对应.do后缀的请求
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]{</span><span style="color:#e6db74">&#34;*.do&#34;</span><span style="color:#f92672">};</span>
-    <span style="color:#f92672">}</span>
+    @Override
+    protected Class&lt;?&gt;[] getServletConfigClasses() {
+    return new Class&lt;?&gt;[0];
+    }
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onStartup</span><span style="color:#f92672">(</span>ServletContext servletContext<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onStartup</span><span style="color:#f92672">(</span>servletContext<span style="color:#f92672">);</span>
-	<span style="color:#75715e">//字符集过滤器，设置编码为UTF-8，防止出现代码
-</span><span style="color:#75715e"></span>	CharacterEncodingFilter characterEncodingFilter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CharacterEncodingFilter<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
-	servletContext<span style="color:#f92672">.</span><span style="color:#a6e22e">addFilter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;characterEncodingFilter&#34;</span><span style="color:#f92672">,</span> characterEncodingFilter<span style="color:#f92672">).</span><span style="color:#a6e22e">addMappingForUrlPatterns</span><span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/*&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="spring-security相关servlet配置">Spring Security相关Servlet配置</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecurityWebInitializer</span> <span style="color:#66d9ef">extends</span> AbstractSecurityWebApplicationInitializer <span style="color:#f92672">{}</span>
-</code></pre></div><h2 id="配置文件">配置文件</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">DriverClass<span style="color:#f92672">=</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">mysql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jdbc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Driver</span>
-User<span style="color:#f92672">=</span>root
-Password<span style="color:#f92672">=</span>root
-JdbcUrl<span style="color:#f92672">=</span>jdbc<span style="color:#f92672">:</span>mysql<span style="color:#f92672">:</span><span style="color:#75715e">//127.0.0.1:3306/management_system_demo
-</span><span style="color:#75715e"></span>Prefix<span style="color:#f92672">=/</span>WEB<span style="color:#f92672">-</span>INF<span style="color:#f92672">/</span>
-Suffix<span style="color:#f92672">=.</span><span style="color:#a6e22e">jsp</span>
-</code></pre></div><h2 id="spring-spring-mvc-spring-security-spring-data-jpa配置">Spring、Spring MVC、Spring Security、Spring Data JPA配置</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
-<span style="color:#a6e22e">@ComponentScan</span><span style="color:#f92672">(</span>basePackages <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;com.ms&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringConfig</span> <span style="color:#f92672">{</span>
+    @Override
+    protected String[] getServletMappings() {
+    //只拦截.do请求，即Spring MVC的控制器只对应.do后缀的请求
+    return new String[]{&quot;*.do&quot;};
+    }
 
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
-<span style="color:#a6e22e">@EnableWebMvc</span>
-<span style="color:#a6e22e">@PropertySource</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;classpath:config.properties&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringMvcConfig</span> <span style="color:#66d9ef">extends</span> WebMvcConfigurerAdapter <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@Bean</span>
-    <span style="color:#66d9ef">public</span> ViewResolver <span style="color:#a6e22e">viewResolver</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${Prefix}&#34;</span><span style="color:#f92672">)</span> String prefix <span style="color:#f92672">,</span> <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${Suffix}&#34;</span><span style="color:#f92672">)</span> String suffix<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	InternalResourceViewResolver vr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> InternalResourceViewResolver<span style="color:#f92672">();</span>
-	vr<span style="color:#f92672">.</span><span style="color:#a6e22e">setPrefix</span><span style="color:#f92672">(</span>prefix<span style="color:#f92672">);</span>
-	vr<span style="color:#f92672">.</span><span style="color:#a6e22e">setSuffix</span><span style="color:#f92672">(</span>suffix<span style="color:#f92672">);</span>
-	<span style="color:#66d9ef">return</span> vr<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
-<span style="color:#a6e22e">@EnableJpaRepositories</span><span style="color:#f92672">(</span>basePackages <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;com.ms.dao&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#a6e22e">@PropertySource</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;classpath:config.properties&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringDataJpaConfig</span> <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@Bean</span>
-    <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">dataSource</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${DriverClass}&#34;</span><span style="color:#f92672">)</span> String driverClass <span style="color:#f92672">,</span> <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${User}&#34;</span><span style="color:#f92672">)</span> String user <span style="color:#f92672">,</span> <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${Password}&#34;</span><span style="color:#f92672">)</span> String password <span style="color:#f92672">,</span> <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${JdbcUrl}&#34;</span><span style="color:#f92672">)</span> String jdbcUrl<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> PropertyVetoException <span style="color:#f92672">{</span>
-	ComboPooledDataSource ds <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ComboPooledDataSource<span style="color:#f92672">();</span>
-	ds<span style="color:#f92672">.</span><span style="color:#a6e22e">setDriverClass</span><span style="color:#f92672">(</span>driverClass<span style="color:#f92672">);</span>
-	ds<span style="color:#f92672">.</span><span style="color:#a6e22e">setUser</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
-	ds<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span>password<span style="color:#f92672">);</span>
-	ds<span style="color:#f92672">.</span><span style="color:#a6e22e">setJdbcUrl</span><span style="color:#f92672">(</span>jdbcUrl<span style="color:#f92672">);</span>
-	<span style="color:#66d9ef">return</span> ds<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+    super.onStartup(servletContext);
+    //字符集过滤器，设置编码为UTF-8，防止出现代码
+    CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter(&quot;UTF-8&quot;);
+    servletContext.addFilter(&quot;characterEncodingFilter&quot;, characterEncodingFilter).addMappingForUrlPatterns(null, false, &quot;/*&quot;);
+    }
+}
+</code></pre>
 
-    <span style="color:#a6e22e">@Bean</span>
-    <span style="color:#66d9ef">public</span> JpaVendorAdapter <span style="color:#a6e22e">jpaVendorAdapter</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	HibernateJpaVendorAdapter hjva <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HibernateJpaVendorAdapter<span style="color:#f92672">();</span>
-	hjva<span style="color:#f92672">.</span><span style="color:#a6e22e">setGenerateDdl</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
-	hjva<span style="color:#f92672">.</span><span style="color:#a6e22e">setDatabase</span><span style="color:#f92672">(</span>Database<span style="color:#f92672">.</span><span style="color:#a6e22e">MYSQL</span><span style="color:#f92672">);</span>
-	hjva<span style="color:#f92672">.</span><span style="color:#a6e22e">setShowSql</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
-	<span style="color:#66d9ef">return</span> hjva<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
+<h3 id="spring-security相关servlet配置">Spring Security相关Servlet配置</h3>
 
-    <span style="color:#a6e22e">@Bean</span>
-    <span style="color:#66d9ef">public</span> LocalContainerEntityManagerFactoryBean <span style="color:#a6e22e">entityManagerFactory</span><span style="color:#f92672">(</span>DataSource dataSource <span style="color:#f92672">,</span> JpaVendorAdapter jpaVendorAdapter<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	LocalContainerEntityManagerFactoryBean emf <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LocalContainerEntityManagerFactoryBean<span style="color:#f92672">();</span>
-	emf<span style="color:#f92672">.</span><span style="color:#a6e22e">setDataSource</span><span style="color:#f92672">(</span>dataSource<span style="color:#f92672">);</span>
-	emf<span style="color:#f92672">.</span><span style="color:#a6e22e">setJpaVendorAdapter</span><span style="color:#f92672">(</span>jpaVendorAdapter<span style="color:#f92672">);</span>
-	emf<span style="color:#f92672">.</span><span style="color:#a6e22e">setPackagesToScan</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.ms.entity&#34;</span><span style="color:#f92672">);</span>
-	<span style="color:#66d9ef">return</span> emf<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
+<pre><code class="language-java">public class SecurityWebInitializer extends AbstractSecurityWebApplicationInitializer {}
+</code></pre>
 
-    <span style="color:#a6e22e">@Bean</span>
-    <span style="color:#66d9ef">public</span> JpaTransactionManager <span style="color:#a6e22e">transactionManager</span><span style="color:#f92672">(</span>EntityManagerFactory entityManagerFactory<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	JpaTransactionManager jtm <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JpaTransactionManager<span style="color:#f92672">();</span>
-	jtm<span style="color:#f92672">.</span><span style="color:#a6e22e">setEntityManagerFactory</span><span style="color:#f92672">(</span>entityManagerFactory<span style="color:#f92672">);</span>
-	<span style="color:#66d9ef">return</span> jtm<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
-<span style="color:#a6e22e">@EnableWebSecurity</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringSecurityConfig</span> <span style="color:#66d9ef">extends</span> WebSecurityConfigurerAdapter <span style="color:#f92672">{</span>
+<h2 id="配置文件">配置文件</h2>
 
-    <span style="color:#a6e22e">@Autowired</span>
-    <span style="color:#66d9ef">private</span> FilterSecurityInterceptor filterSecurityInterceptor<span style="color:#f92672">;</span>
+<pre><code class="language-java">DriverClass=com.mysql.jdbc.Driver
+User=root
+Password=root
+JdbcUrl=jdbc:mysql://127.0.0.1:3306/management_system_demo
+Prefix=/WEB-INF/
+Suffix=.jsp
+</code></pre>
 
-    <span style="color:#a6e22e">@Autowired</span>
-    <span style="color:#66d9ef">private</span> UserDetailsService userDetailsService<span style="color:#f92672">;</span>
+<h2 id="spring-spring-mvc-spring-security-spring-data-jpa配置">Spring、Spring MVC、Spring Security、Spring Data JPA配置</h2>
 
-    <span style="color:#a6e22e">@Bean</span>
-    <span style="color:#66d9ef">public</span> FilterSecurityInterceptor <span style="color:#a6e22e">filterSecurityInterceptor</span><span style="color:#f92672">(</span>AccessDecisionManager adm <span style="color:#f92672">,</span> FilterInvocationSecurityMetadataSource fisms<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	FilterSecurityInterceptor fsi <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FilterSecurityInterceptor<span style="color:#f92672">();</span>
-	fsi<span style="color:#f92672">.</span><span style="color:#a6e22e">setSecurityMetadataSource</span><span style="color:#f92672">(</span>fisms<span style="color:#f92672">);</span>
-	fsi<span style="color:#f92672">.</span><span style="color:#a6e22e">setAccessDecisionManager</span><span style="color:#f92672">(</span>adm<span style="color:#f92672">);</span>
-	<span style="color:#66d9ef">return</span> fsi<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
+<pre><code class="language-java">@Configuration
+@ComponentScan(basePackages = &quot;com.ms&quot;)
+public class SpringConfig {
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configure</span><span style="color:#f92672">(</span>WebSecurity web<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
-	<span style="color:#75715e">//js、css、jsp、图片等资源不拦截
-</span><span style="color:#75715e"></span>	web
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">ignoring</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">antMatchers</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/**.js&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/**.css&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/**.jpg&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/**.png&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/**.ico&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/**.jsp&#34;</span><span style="color:#f92672">)</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
-		<span style="color:#75715e">//配置FilterSecurityInterceptor拦截器，
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">// 这个拦截器注入了我们自己实现的CustomSecurityMetadataSource和CustomAccessDecisionManager
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//CustomSecurityMetadataSource会根据当前访问的url从数据库中找出访问这个url所需要的用户角色，
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//而CustomAccessDecisionManager则会根据当前登陆的用户所拥有的角色判断这个用户能不能访问这个url
-</span><span style="color:#75715e"></span>		<span style="color:#f92672">.</span><span style="color:#a6e22e">securityInterceptor</span><span style="color:#f92672">(</span>filterSecurityInterceptor<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+}
+</code></pre>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configure</span><span style="color:#f92672">(</span>AuthenticationManagerBuilder auth<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
-	<span style="color:#75715e">/**
-</span><span style="color:#75715e">	 * 这里配置自己实现的UserDetailsService，
-</span><span style="color:#75715e">	 * 在登陆时spring security会根据用户名、密码从这个UserDetailsService中获取UserDetails，
-</span><span style="color:#75715e">	 * 有就登陆成功，没有就登陆失败
-</span><span style="color:#75715e">	 */</span>
-	auth<span style="color:#f92672">.</span><span style="color:#a6e22e">userDetailsService</span><span style="color:#f92672">(</span>userDetailsService<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+<pre><code class="language-java">@Configuration
+@EnableWebMvc
+@PropertySource(&quot;classpath:config.properties&quot;)
+public class SpringMvcConfig extends WebMvcConfigurerAdapter {
+    @Bean
+    public ViewResolver viewResolver(@Value(&quot;${Prefix}&quot;) String prefix , @Value(&quot;${Suffix}&quot;) String suffix) {
+    InternalResourceViewResolver vr = new InternalResourceViewResolver();
+    vr.setPrefix(prefix);
+    vr.setSuffix(suffix);
+    return vr;
+    }
+}
+</code></pre>
 
+<pre><code class="language-java">@Configuration
+@EnableJpaRepositories(basePackages = &quot;com.ms.dao&quot;)
+@PropertySource(&quot;classpath:config.properties&quot;)
+public class SpringDataJpaConfig {
+    @Bean
+    public DataSource dataSource(@Value(&quot;${DriverClass}&quot;) String driverClass , @Value(&quot;${User}&quot;) String user , @Value(&quot;${Password}&quot;) String password , @Value(&quot;${JdbcUrl}&quot;) String jdbcUrl) throws PropertyVetoException {
+    ComboPooledDataSource ds = new ComboPooledDataSource();
+    ds.setDriverClass(driverClass);
+    ds.setUser(user);
+    ds.setPassword(password);
+    ds.setJdbcUrl(jdbcUrl);
+    return ds;
+    }
 
+    @Bean
+    public JpaVendorAdapter jpaVendorAdapter() {
+    HibernateJpaVendorAdapter hjva = new HibernateJpaVendorAdapter();
+    hjva.setGenerateDdl(true);
+    hjva.setDatabase(Database.MYSQL);
+    hjva.setShowSql(true);
+    return hjva;
+    }
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configure</span><span style="color:#f92672">(</span>HttpSecurity http<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
-	http
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">authorizeRequests</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">antMatchers</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/user/loginInit.do&#34;</span><span style="color:#f92672">)</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">anonymous</span><span style="color:#f92672">()</span><span style="color:#75715e">//登陆页面可以匿名访问
-</span><span style="color:#75715e"></span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">authorizeRequests</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">anyRequest</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">authenticated</span><span style="color:#f92672">()</span><span style="color:#75715e">//所有访问请求都必须经过用户认证才能访问
-</span><span style="color:#75715e"></span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">formLogin</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">loginPage</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/user/loginInit.do&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">//登陆页面
-</span><span style="color:#75715e"></span>		<span style="color:#f92672">.</span><span style="color:#a6e22e">loginProcessingUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/user/login.do&#34;</span><span style="color:#f92672">)</span><span style="color:#75715e">//登陆处理，只需配置一个路径，逻辑不用写，由spring security自动处理
-</span><span style="color:#75715e"></span>		<span style="color:#f92672">.</span><span style="color:#a6e22e">usernameParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">)</span><span style="color:#75715e">//登陆名参数名
-</span><span style="color:#75715e"></span>		<span style="color:#f92672">.</span><span style="color:#a6e22e">passwordParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">)</span><span style="color:#75715e">//密码参数名
-</span><span style="color:#75715e"></span>		<span style="color:#f92672">.</span><span style="color:#a6e22e">successForwardUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/index.do&#34;</span><span style="color:#f92672">)</span><span style="color:#75715e">//登陆成功后返回页面
-</span><span style="color:#75715e"></span>		<span style="color:#f92672">.</span><span style="color:#a6e22e">failureForwardUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/404.jsp&#34;</span><span style="color:#f92672">)</span><span style="color:#75715e">//登陆失败后返回页面
-</span><span style="color:#75715e"></span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">logout</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">logoutUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/user/logout.do&#34;</span><span style="color:#f92672">)</span><span style="color:#75715e">//退出处理，只需要配置一个路径，逻辑不用写，由spring security自动处理
-</span><span style="color:#75715e"></span>		<span style="color:#f92672">.</span><span style="color:#a6e22e">logoutSuccessUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/user/loginInit.do&#34;</span><span style="color:#f92672">)</span><span style="color:#75715e">//退出成功返回登陆页面
-</span><span style="color:#75715e"></span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">sessionManagement</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">invalidSessionUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/user/loginInit.do&#34;</span><span style="color:#f92672">)</span><span style="color:#75715e">//session过期时返回登陆页面，要求重新登陆
-</span><span style="color:#75715e"></span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
-		<span style="color:#f92672">.</span><span style="color:#a6e22e">rememberMe</span><span style="color:#f92672">();</span><span style="color:#75715e">//记住密码功能，登陆表单jsp需要加入&lt;input type=&#34;checkbox&#34; name=&#34;remember-me&#34;&gt;
-</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserDetailsServiceImpl</span> <span style="color:#66d9ef">implements</span> UserDetailsService <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@Autowired</span>
-    <span style="color:#66d9ef">private</span> UserDao userDao<span style="color:#f92672">;</span>
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource , JpaVendorAdapter jpaVendorAdapter) {
+    LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+    emf.setDataSource(dataSource);
+    emf.setJpaVendorAdapter(jpaVendorAdapter);
+    emf.setPackagesToScan(&quot;com.ms.entity&quot;);
+    return emf;
+    }
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> UserDetails <span style="color:#a6e22e">loadUserByUsername</span><span style="color:#f92672">(</span>String s<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> UsernameNotFoundException <span style="color:#f92672">{</span>
-	User user <span style="color:#f92672">=</span> userDao<span style="color:#f92672">.</span><span style="color:#a6e22e">findByName</span><span style="color:#f92672">(</span>s<span style="color:#f92672">);</span>
-	<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>user <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
-	    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UsernameNotFoundException<span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;没有&#39;%s&#39;这个用户！&#34;</span> <span style="color:#f92672">,</span> s<span style="color:#f92672">));</span>
-	<span style="color:#66d9ef">return</span> user<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Component</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomSecurityMetadataSource</span> <span style="color:#66d9ef">implements</span> FilterInvocationSecurityMetadataSource <span style="color:#f92672">{</span>
+    @Bean
+    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+    JpaTransactionManager jtm = new JpaTransactionManager();
+    jtm.setEntityManagerFactory(entityManagerFactory);
+    return jtm;
+    }
+}
+</code></pre>
 
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Logger LOGGER <span style="color:#f92672">=</span> LoggerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span>CustomSecurityMetadataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+<pre><code class="language-java">@Configuration
+@EnableWebSecurity
+public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    <span style="color:#a6e22e">@Autowired</span>
-    <span style="color:#66d9ef">private</span> ResourceDao resourceDao<span style="color:#f92672">;</span>
+    @Autowired
+    private FilterSecurityInterceptor filterSecurityInterceptor;
 
-    <span style="color:#a6e22e">@Autowired</span>
-    <span style="color:#66d9ef">private</span> RoleDao roleDao<span style="color:#f92672">;</span>
+    @Autowired
+    private UserDetailsService userDetailsService;
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> Collection<span style="color:#f92672">&lt;</span>ConfigAttribute<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAttributes</span><span style="color:#f92672">(</span>Object o<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IllegalArgumentException <span style="color:#f92672">{</span>
-	FilterInvocation fi <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>FilterInvocation<span style="color:#f92672">)</span>o<span style="color:#f92672">;</span>
-	String url <span style="color:#f92672">=</span> fi<span style="color:#f92672">.</span><span style="color:#a6e22e">getRequestUrl</span><span style="color:#f92672">();</span>
+    @Bean
+    public FilterSecurityInterceptor filterSecurityInterceptor(AccessDecisionManager adm , FilterInvocationSecurityMetadataSource fisms) {
+    FilterSecurityInterceptor fsi = new FilterSecurityInterceptor();
+    fsi.setSecurityMetadataSource(fisms);
+    fsi.setAccessDecisionManager(adm);
+    return fsi;
+    }
 
-	List<span style="color:#f92672">&lt;</span>ConfigAttribute<span style="color:#f92672">&gt;</span> attributes <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+    //js、css、jsp、图片等资源不拦截
+    web
+        .ignoring()
+        .antMatchers(&quot;/**.js&quot;, &quot;/**.css&quot;, &quot;/**.jpg&quot;, &quot;/**.png&quot;, &quot;/**.ico&quot;, &quot;/**.jsp&quot;)
+        .and()
+        //配置FilterSecurityInterceptor拦截器，
+        // 这个拦截器注入了我们自己实现的CustomSecurityMetadataSource和CustomAccessDecisionManager
+        //CustomSecurityMetadataSource会根据当前访问的url从数据库中找出访问这个url所需要的用户角色，
+        //而CustomAccessDecisionManager则会根据当前登陆的用户所拥有的角色判断这个用户能不能访问这个url
+        .securityInterceptor(filterSecurityInterceptor);
+    }
 
-	Resource r <span style="color:#f92672">=</span> resourceDao<span style="color:#f92672">.</span><span style="color:#a6e22e">findByUrl</span><span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
-
-	<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>r <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	    <span style="color:#66d9ef">return</span> attributes<span style="color:#f92672">;</span>
-	<span style="color:#f92672">}</span>
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    /**
+     * 这里配置自己实现的UserDetailsService，
+     * 在登陆时spring security会根据用户名、密码从这个UserDetailsService中获取UserDetails，
+     * 有就登陆成功，没有就登陆失败
+     */
+    auth.userDetailsService(userDetailsService);
+    }
 
 
-	List<span style="color:#f92672">&lt;</span>Role<span style="color:#f92672">&gt;</span> roles <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span><span style="color:#a6e22e">getRoles</span><span style="color:#f92672">();</span>
-	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Role role <span style="color:#f92672">:</span> roles<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	    attributes<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> SecurityConfig<span style="color:#f92672">(</span>role<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()));</span>
-	<span style="color:#f92672">}</span>
-	<span style="color:#66d9ef">return</span> attributes<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> Collection<span style="color:#f92672">&lt;</span>ConfigAttribute<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllConfigAttributes</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+    http
+        .authorizeRequests()
+        .antMatchers(&quot;/user/loginInit.do&quot;)
+        .anonymous()//登陆页面可以匿名访问
 
-	List<span style="color:#f92672">&lt;</span>Role<span style="color:#f92672">&gt;</span> roles <span style="color:#f92672">=</span> roleDao<span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
-	List<span style="color:#f92672">&lt;</span>ConfigAttribute<span style="color:#f92672">&gt;</span> attributes <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
-	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Role role <span style="color:#f92672">:</span> roles<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	    attributes<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> SecurityConfig<span style="color:#f92672">(</span>role<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()));</span>
-	<span style="color:#f92672">}</span>
-	<span style="color:#66d9ef">return</span> attributes<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
+        .and()
+        .authorizeRequests()
+        .anyRequest()
+        .authenticated()//所有访问请求都必须经过用户认证才能访问
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span>Class<span style="color:#f92672">&lt;?&gt;</span> aClass<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Component</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomAccessDecisionManager</span> <span style="color:#66d9ef">implements</span> AccessDecisionManager <span style="color:#f92672">{</span>
+        .and()
+        .formLogin()
+        .loginPage(&quot;/user/loginInit.do&quot;) //登陆页面
+        .loginProcessingUrl(&quot;/user/login.do&quot;)//登陆处理，只需配置一个路径，逻辑不用写，由spring security自动处理
+        .usernameParameter(&quot;name&quot;)//登陆名参数名
+        .passwordParameter(&quot;password&quot;)//密码参数名
+        .successForwardUrl(&quot;/index.do&quot;)//登陆成功后返回页面
+        .failureForwardUrl(&quot;/404.jsp&quot;)//登陆失败后返回页面
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">decide</span><span style="color:#f92672">(</span>Authentication authentication<span style="color:#f92672">,</span> Object o<span style="color:#f92672">,</span> Collection<span style="color:#f92672">&lt;</span>ConfigAttribute<span style="color:#f92672">&gt;</span> collection<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> AccessDeniedException<span style="color:#f92672">,</span> InsufficientAuthenticationException <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>collection<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span>
-	    <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+        .and()
+        .logout()
+        .logoutUrl(&quot;/user/logout.do&quot;)//退出处理，只需要配置一个路径，逻辑不用写，由spring security自动处理
+        .logoutSuccessUrl(&quot;/user/loginInit.do&quot;)//退出成功返回登陆页面
 
-	Collection<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> GrantedAuthority<span style="color:#f92672">&gt;</span> authorities <span style="color:#f92672">=</span> authentication<span style="color:#f92672">.</span><span style="color:#a6e22e">getAuthorities</span><span style="color:#f92672">();</span>
-	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>ConfigAttribute ca <span style="color:#f92672">:</span> collection<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>GrantedAuthority ga <span style="color:#f92672">:</span> authorities<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>StringUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>ca<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">()</span> <span style="color:#f92672">,</span> ga<span style="color:#f92672">.</span><span style="color:#a6e22e">getAuthority</span><span style="color:#f92672">()))</span>
-		    <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
-	    <span style="color:#f92672">}</span>
-	<span style="color:#f92672">}</span>
+        .and()
+        .sessionManagement()
+        .invalidSessionUrl(&quot;/user/loginInit.do&quot;)//session过期时返回登陆页面，要求重新登陆
 
-	<span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> AccessDeniedException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;没有访问权限！&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+        .and()
+        .rememberMe();//记住密码功能，登陆表单jsp需要加入&lt;input type=&quot;checkbox&quot; name=&quot;remember-me&quot;&gt;
+    }
+}
+</code></pre>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span>ConfigAttribute configAttribute<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
+<pre><code class="language-java">@Service
+public class UserDetailsServiceImpl implements UserDetailsService {
+    @Autowired
+    private UserDao userDao;
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span>Class<span style="color:#f92672">&lt;?&gt;</span> aClass<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div>
+    @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+    User user = userDao.findByName(s);
+    if(user == null)
+        throw new UsernameNotFoundException(String.format(&quot;没有'%s'这个用户！&quot; , s));
+    return user;
+    }
+}
+</code></pre>
+
+<pre><code class="language-java">@Component
+public class CustomSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomSecurityMetadataSource.class);
+
+    @Autowired
+    private ResourceDao resourceDao;
+
+    @Autowired
+    private RoleDao roleDao;
+
+    @Override
+    public Collection&lt;ConfigAttribute&gt; getAttributes(Object o) throws IllegalArgumentException {
+    FilterInvocation fi = (FilterInvocation)o;
+    String url = fi.getRequestUrl();
+
+    List&lt;ConfigAttribute&gt; attributes = new ArrayList&lt;&gt;();
+
+    Resource r = resourceDao.findByUrl(url);
+
+    if(r == null) {
+        return attributes;
+    }
+
+
+    List&lt;Role&gt; roles = r.getRoles();
+    for(Role role : roles) {
+        attributes.add(new SecurityConfig(role.getName()));
+    }
+    return attributes;
+    }
+
+    @Override
+    public Collection&lt;ConfigAttribute&gt; getAllConfigAttributes() {
+
+    List&lt;Role&gt; roles = roleDao.findAll();
+    List&lt;ConfigAttribute&gt; attributes = new ArrayList&lt;&gt;();
+    for(Role role : roles) {
+        attributes.add(new SecurityConfig(role.getName()));
+    }
+    return attributes;
+    }
+
+    @Override
+    public boolean supports(Class&lt;?&gt; aClass) {
+    return true;
+    }
+}
+</code></pre>
+
+<pre><code class="language-java">@Component
+public class CustomAccessDecisionManager implements AccessDecisionManager {
+
+    @Override
+    public void decide(Authentication authentication, Object o, Collection&lt;ConfigAttribute&gt; collection) throws AccessDeniedException, InsufficientAuthenticationException {
+    if(collection.isEmpty())
+        return;
+
+    Collection&lt;? extends GrantedAuthority&gt; authorities = authentication.getAuthorities();
+    for(ConfigAttribute ca : collection) {
+        for(GrantedAuthority ga : authorities) {
+        if(StringUtils.equals(ca.getAttribute() , ga.getAuthority()))
+            return;
+        }
+    }
+
+    throw new AccessDeniedException(&quot;没有访问权限！&quot;);
+    }
+
+    @Override
+    public boolean supports(ConfigAttribute configAttribute) {
+    return true;
+    }
+
+    @Override
+    public boolean supports(Class&lt;?&gt; aClass) {
+    return true;
+    }
+}
+</code></pre>
+
     </div>
 
     
@@ -876,7 +917,7 @@ Suffix<span style="color:#f92672">=.</span><span style="color:#a6e22e">jsp</span
 
 
 
-<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
 
 
 

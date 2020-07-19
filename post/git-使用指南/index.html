@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.73.0" />
+<meta name="generator" content="Hugo 0.55.6" />
 
 
 <link rel="canonical" href="http://jason207010.github.io/post/git-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
@@ -63,17 +63,21 @@
 <meta property="og:description" content="简介 Git是分布式版本控制软件 命令 git init git init [directory] 释义 创建一个空 Git 仓库或者重新初始化一个已存在的仓库 示例 git init my-project git clone git clone [--verbose | -v] [--progress] [--origin | -o &lt;origin&gt;] [--branch | -b &lt;branch&gt;] [--depth &lt;depth&gt;]" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jason207010.github.io/post/git-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
-<meta property="article:published_time" content="2018-11-28T00:00:00+08:00" />
-<meta property="article:modified_time" content="2018-11-28T00:00:00+08:00" />
+<meta property="article:published_time" content="2018-11-28T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2018-11-28T00:00:00&#43;08:00"/>
+
 <meta itemprop="name" content="Git 使用指南">
 <meta itemprop="description" content="简介 Git是分布式版本控制软件 命令 git init git init [directory] 释义 创建一个空 Git 仓库或者重新初始化一个已存在的仓库 示例 git init my-project git clone git clone [--verbose | -v] [--progress] [--origin | -o &lt;origin&gt;] [--branch | -b &lt;branch&gt;] [--depth &lt;depth&gt;]">
+
+
 <meta itemprop="datePublished" content="2018-11-28T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-11-28T00:00:00&#43;08:00" />
 <meta itemprop="wordCount" content="2380">
 
 
 
-<meta itemprop="keywords" content="Git," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Git," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git 使用指南"/>
 <meta name="twitter:description" content="简介 Git是分布式版本控制软件 命令 git init git init [directory] 释义 创建一个空 Git 仓库或者重新初始化一个已存在的仓库 示例 git init my-project git clone git clone [--verbose | -v] [--progress] [--origin | -o &lt;origin&gt;] [--branch | -b &lt;branch&gt;] [--depth &lt;depth&gt;]"/>
 
@@ -362,47 +366,159 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#简介">简介</a></li>
-    <li><a href="#命令">命令</a>
-      <ul>
-        <li><a href="#git-init">git init</a></li>
-        <li><a href="#git-clone">git clone</a></li>
-        <li><a href="#git-config-name-value">git config <!-- raw HTML omitted --> <!-- raw HTML omitted --></a></li>
-        <li><a href="#git-config-l">git config -l</a></li>
-        <li><a href="#git-config-e">git config -e</a></li>
-        <li><a href="#git-add">git add</a></li>
-        <li><a href="#git-rm">git rm</a></li>
-        <li><a href="#git-mv">git mv</a></li>
-        <li><a href="#git-commit">git commit</a></li>
-        <li><a href="#git-status">git status</a></li>
-        <li><a href="#git-show">git show</a></li>
-        <li><a href="#git-pull">git pull</a></li>
-        <li><a href="#git-fetch">git fetch</a></li>
-        <li><a href="#git-push">git push</a></li>
-        <li><a href="#git-branch">git branch</a></li>
-        <li><a href="#git-checkout">git checkout</a></li>
-        <li><a href="#git-merge">git merge</a></li>
-        <li><a href="#git-cherry-pick">git cherry-pick</a></li>
-        <li><a href="#git-tag">git tag</a></li>
-        <li><a href="#git-log">git log</a></li>
-        <li><a href="#git-diff">git diff</a></li>
-        <li><a href="#git-remote">git remote</a></li>
-        <li><a href="#git-reset">git reset</a></li>
-        <li><a href="#git-stash">git stash</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#命令">命令</a>
+<ul>
+<li><a href="#git-init">git init</a>
+<ul>
+<li><a href="#释义">释义</a></li>
+<li><a href="#示例">示例</a></li>
+</ul></li>
+<li><a href="#git-clone">git clone</a>
+<ul>
+<li><a href="#释义-1">释义</a></li>
+<li><a href="#参数">参数</a></li>
+<li><a href="#示例-1">示例</a></li>
+</ul></li>
+<li><a href="#git-config-name-value">git config <name> <value></a>
+<ul>
+<li><a href="#释义-2">释义</a></li>
+<li><a href="#参数-1">参数</a></li>
+<li><a href="#常用配置参数名">常用配置参数名</a></li>
+<li><a href="#示例-2">示例</a></li>
+</ul></li>
+<li><a href="#git-config-l">git config -l</a>
+<ul>
+<li><a href="#释义-3">释义</a></li>
+</ul></li>
+<li><a href="#git-config-e">git config -e</a>
+<ul>
+<li><a href="#释义-4">释义</a></li>
+<li><a href="#参数-2">参数</a></li>
+</ul></li>
+<li><a href="#git-add">git add</a>
+<ul>
+<li><a href="#释义-5">释义</a></li>
+<li><a href="#参数-3">参数</a></li>
+<li><a href="#示例-3">示例</a></li>
+</ul></li>
+<li><a href="#git-rm">git rm</a>
+<ul>
+<li><a href="#释义-6">释义</a></li>
+<li><a href="#参数-4">参数</a></li>
+<li><a href="#示例-4">示例</a></li>
+</ul></li>
+<li><a href="#git-mv">git mv</a>
+<ul>
+<li><a href="#释义-7">释义</a></li>
+<li><a href="#参数-5">参数</a></li>
+<li><a href="#示例-5">示例</a></li>
+</ul></li>
+<li><a href="#git-commit">git commit</a>
+<ul>
+<li><a href="#释义-8">释义</a></li>
+<li><a href="#参数-6">参数</a></li>
+<li><a href="#示例-6">示例</a></li>
+</ul></li>
+<li><a href="#git-status">git status</a>
+<ul>
+<li><a href="#释义-9">释义</a></li>
+</ul></li>
+<li><a href="#git-show">git show</a>
+<ul>
+<li><a href="#释义-10">释义</a></li>
+<li><a href="#示例-7">示例</a></li>
+</ul></li>
+<li><a href="#git-pull">git pull</a>
+<ul>
+<li><a href="#释义-11">释义</a></li>
+</ul></li>
+<li><a href="#git-fetch">git fetch</a>
+<ul>
+<li><a href="#释义-12">释义</a></li>
+</ul></li>
+<li><a href="#git-push">git push</a>
+<ul>
+<li><a href="#释义-13">释义</a></li>
+<li><a href="#参数-7">参数</a></li>
+<li><a href="#示例-8">示例</a></li>
+</ul></li>
+<li><a href="#git-branch">git branch</a>
+<ul>
+<li><a href="#释义-14">释义</a></li>
+<li><a href="#参数-8">参数</a></li>
+<li><a href="#示例-9">示例</a></li>
+</ul></li>
+<li><a href="#git-checkout">git checkout</a>
+<ul>
+<li><a href="#释义-15">释义</a></li>
+<li><a href="#示例-10">示例</a></li>
+<li><a href="#参数-9">参数</a></li>
+<li><a href="#示例-11">示例</a></li>
+</ul></li>
+<li><a href="#git-merge">git merge</a>
+<ul>
+<li><a href="#释义-16">释义</a></li>
+<li><a href="#示例-12">示例</a></li>
+</ul></li>
+<li><a href="#git-cherry-pick">git cherry-pick</a>
+<ul>
+<li><a href="#释义-17">释义</a></li>
+<li><a href="#示例-13">示例</a></li>
+</ul></li>
+<li><a href="#git-tag">git tag</a>
+<ul>
+<li><a href="#释义-18">释义</a></li>
+<li><a href="#参数-10">参数</a></li>
+<li><a href="#示例-14">示例</a></li>
+</ul></li>
+<li><a href="#git-log">git log</a>
+<ul>
+<li><a href="#释义-19">释义</a></li>
+<li><a href="#参数-11">参数</a></li>
+</ul></li>
+<li><a href="#git-diff">git diff</a>
+<ul>
+<li><a href="#释义-20">释义</a></li>
+<li><a href="#示例-15">示例</a></li>
+</ul></li>
+<li><a href="#git-remote">git remote</a>
+<ul>
+<li><a href="#释义-21">释义</a></li>
+<li><a href="#参数-12">参数</a></li>
+<li><a href="#示例-16">示例</a></li>
+</ul></li>
+<li><a href="#git-reset">git reset</a>
+<ul>
+<li><a href="#释义-22">释义</a></li>
+<li><a href="#参数-13">参数</a></li>
+<li><a href="#示例-17">示例</a></li>
+</ul></li>
+<li><a href="#git-stash">git stash</a>
+<ul>
+<li><a href="#释义-23">释义</a></li>
+<li><a href="#示例-18">示例</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h2 id="简介">简介</h2>
+      
+
+<h2 id="简介">简介</h2>
+
 <blockquote>
 <p>Git是分布式版本控制软件</p>
 </blockquote>
+
 
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box">
@@ -415,18 +531,34 @@ if (!doNotTrack) {
   </figure>
 </div>
 
+
 <h2 id="命令">命令</h2>
+
 <h3 id="git-init">git init</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git init <span style="color:#f92672">[</span>directory<span style="color:#f92672">]</span>
-</code></pre></div><h4 id="释义">释义</h4>
+
+<pre><code class="language-sh">git init [directory]
+</code></pre>
+
+<h4 id="释义">释义</h4>
+
 <p>创建一个空 Git 仓库或者重新初始化一个已存在的仓库</p>
+
 <h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git init my-project
-</code></pre></div><h3 id="git-clone">git clone</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone <span style="color:#f92672">[</span>--verbose | -v<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--progress<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--origin | -o &lt;origin&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--branch | -b &lt;branch&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--depth &lt;depth&gt;<span style="color:#f92672">]</span> &lt;repository&gt; <span style="color:#f92672">[</span>&lt;directory&gt;<span style="color:#f92672">]</span>
-</code></pre></div><h4 id="释义">释义</h4>
+
+<pre><code class="language-sh">git init my-project
+</code></pre>
+
+<h3 id="git-clone">git clone</h3>
+
+<pre><code class="language-sh">git clone [--verbose | -v] [--progress] [--origin | -o &lt;origin&gt;] [--branch | -b &lt;branch&gt;] [--depth &lt;depth&gt;] &lt;repository&gt; [&lt;directory&gt;]
+</code></pre>
+
+<h4 id="释义-1">释义</h4>
+
 <p>创建一个空 Git 仓库或者重新初始化一个已存在的仓库</p>
+
 <h4 id="参数">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -434,38 +566,53 @@ if (!doNotTrack) {
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>verbose</td>
 <td>显示详情</td>
 </tr>
+
 <tr>
 <td>progress</td>
 <td>显示进度</td>
 </tr>
+
 <tr>
 <td>origin</td>
 <td>使用指定的名称追踪远程仓库，而不是使用默认的名称origin</td>
 </tr>
+
 <tr>
 <td>branch</td>
 <td>指定要克隆的分支</td>
 </tr>
+
 <tr>
 <td>depth</td>
 <td>指定commit的历史记录数量</td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone -v --progress --origin origin --branch master --depth <span style="color:#ae81ff">1</span> git@github.com:jason207010/git-test.git
-</code></pre></div><h3 id="git-config-name-value">git config <!-- raw HTML omitted --> <!-- raw HTML omitted --></h3>
-<h4 id="释义">释义</h4>
+
+<h4 id="示例-1">示例</h4>
+
+<pre><code class="language-sh">git clone -v --progress --origin origin --branch master --depth 1 git@github.com:jason207010/git-test.git
+</code></pre>
+
+<h3 id="git-config-name-value">git config <name> <value></h3>
+
+<h4 id="释义-2">释义</h4>
+
 <p>设置配置参数，默认是当前仓库的配置参数</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-1">参数</h4>
+
 <p>&ndash;global 编辑全局配置参数
 &ndash;system 编辑系统参数</p>
+
 <h4 id="常用配置参数名">常用配置参数名</h4>
+
 <table>
 <thead>
 <tr>
@@ -473,34 +620,54 @@ if (!doNotTrack) {
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>user.name</td>
 <td>用户名</td>
 </tr>
+
 <tr>
 <td>user.email</td>
 <td>邮箱</td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git config user.name <span style="color:#e6db74">&#34;jason&#34;</span>
-git config --global user.email <span style="color:#e6db74">&#34;jason@mail.com&#34;</span>
-</code></pre></div><h3 id="git-config-l">git config -l</h3>
-<h4 id="释义">释义</h4>
+
+<h4 id="示例-2">示例</h4>
+
+<pre><code class="language-sh">git config user.name &quot;jason&quot;
+git config --global user.email &quot;jason@mail.com&quot;
+</code></pre>
+
+<h3 id="git-config-l">git config -l</h3>
+
+<h4 id="释义-3">释义</h4>
+
 <p>列出所有配置参数</p>
+
 <h3 id="git-config-e">git config -e</h3>
-<h4 id="释义">释义</h4>
+
+<h4 id="释义-4">释义</h4>
+
 <p>打开一个 vi 编辑器来编辑配置参数，默认打开的是当前仓库的配置</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-2">参数</h4>
+
 <p>&ndash;global 编辑全局配置参数
 &ndash;system 编辑系统参数</p>
+
 <h3 id="git-add">git add</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add <span style="color:#f92672">[</span>--verbose | -v<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--force | -f<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;pathspec&gt;...<span style="color:#f92672">]</span>
-</code></pre></div><h4 id="释义">释义</h4>
+
+<pre><code class="language-sh">git add [--verbose | -v] [--force | -f] [&lt;pathspec&gt;...]
+</code></pre>
+
+<h4 id="释义-5">释义</h4>
+
 <p>把工作区指定文件或目录添加到暂存区</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-3">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -508,24 +675,36 @@ git config --global user.email <span style="color:#e6db74">&#34;jason@mail.com&#
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>verbose</td>
 <td>显示详情</td>
 </tr>
+
 <tr>
 <td>force</td>
 <td>强制添加，把.gitignore文件中定义的忽略文件也添加到暂存区</td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add .
-</code></pre></div><h3 id="git-rm">git rm</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git rm <span style="color:#f92672">[</span>-f | --force<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-r<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--cached<span style="color:#f92672">]</span> &lt;file&gt;...
-</code></pre></div><h4 id="释义">释义</h4>
+
+<h4 id="示例-3">示例</h4>
+
+<pre><code class="language-sh">git add .
+</code></pre>
+
+<h3 id="git-rm">git rm</h3>
+
+<pre><code class="language-sh">git rm [-f | --force] [-r] [--cached] &lt;file&gt;...
+</code></pre>
+
+<h4 id="释义-6">释义</h4>
+
 <p>从工作区，或工作区和暂存区删除文件</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-4">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -533,28 +712,41 @@ git config --global user.email <span style="color:#e6db74">&#34;jason@mail.com&#
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>force</td>
 <td>强制删除，覆盖 up-to-date 检查</td>
 </tr>
+
 <tr>
 <td>r</td>
 <td>递归删除，在删除文件夹的时候使用递归删除</td>
 </tr>
+
 <tr>
 <td>cached</td>
 <td>从暂存区删除文件，但保留工作区的</td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git rm --cache test.txt
-</code></pre></div><h3 id="git-mv">git mv</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git mv <span style="color:#f92672">[</span>-v | --verbose<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-f | --force<span style="color:#f92672">]</span> &lt;source&gt; &lt;destination&gt;
-</code></pre></div><h4 id="释义">释义</h4>
+
+<h4 id="示例-4">示例</h4>
+
+<pre><code class="language-sh">git rm --cache test.txt
+</code></pre>
+
+<h3 id="git-mv">git mv</h3>
+
+<pre><code class="language-sh">git mv [-v | --verbose] [-f | --force] &lt;source&gt; &lt;destination&gt;
+</code></pre>
+
+<h4 id="释义-7">释义</h4>
+
 <p>移动或重命名文件、目录或链接</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-5">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -562,24 +754,36 @@ git config --global user.email <span style="color:#e6db74">&#34;jason@mail.com&#
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>verbose</td>
 <td>显示详情</td>
 </tr>
+
 <tr>
 <td>force</td>
 <td>强制移动或重命名，如果目标文件已存在，则替换这个文件</td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git mv test.txt test1.txt
-</code></pre></div><h3 id="git-commit">git commit</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git commit <span style="color:#f92672">[</span>-m &lt;msg&gt; | --message<span style="color:#f92672">=</span>&lt;message&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-v | --verbose<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;file&gt;...<span style="color:#f92672">]</span>
-</code></pre></div><h4 id="释义">释义</h4>
+
+<h4 id="示例-5">示例</h4>
+
+<pre><code class="language-sh">git mv test.txt test1.txt
+</code></pre>
+
+<h3 id="git-commit">git commit</h3>
+
+<pre><code class="language-sh">git commit [-m &lt;msg&gt; | --message=&lt;message&gt;] [-v | --verbose] [&lt;file&gt;...]
+</code></pre>
+
+<h4 id="释义-8">释义</h4>
+
 <p>把暂存区有改动的文件提交到仓库中</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-6">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -587,43 +791,70 @@ git config --global user.email <span style="color:#e6db74">&#34;jason@mail.com&#
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>message</td>
 <td>本次提交的信息</td>
 </tr>
+
 <tr>
 <td>verbose</td>
 <td>显示详情</td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git commit -m <span style="color:#e6db74">&#39;test message&#39;</span>
-</code></pre></div><h3 id="git-status">git status</h3>
-<h4 id="释义">释义</h4>
+
+<h4 id="示例-6">示例</h4>
+
+<pre><code class="language-sh">git commit -m 'test message'
+</code></pre>
+
+<h3 id="git-status">git status</h3>
+
+<h4 id="释义-9">释义</h4>
+
 <p>显示工作区和暂存区的状态</p>
+
 <h3 id="git-show">git show</h3>
-<h4 id="释义">释义</h4>
+
+<h4 id="释义-10">释义</h4>
+
 <p>显示 tag/commit/branch 的信息</p>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 显示分支信息</span>
+
+<h4 id="示例-7">示例</h4>
+
+<pre><code class="language-sh"># 显示分支信息
 git show master
-<span style="color:#75715e"># 显示标签信息</span>
+# 显示标签信息
 git show mytag
-<span style="color:#75715e"># 显示 commit 信息</span>
+# 显示 commit 信息
 git show 4743b5660b3853b2641f654268049977f09f2da7
-</code></pre></div><h3 id="git-pull">git pull</h3>
-<h4 id="释义">释义</h4>
+</code></pre>
+
+<h3 id="git-pull">git pull</h3>
+
+<h4 id="释义-11">释义</h4>
+
 <p>把远程仓库下载到本地并合并，git pull = git fetch + git merge</p>
+
 <h3 id="git-fetch">git fetch</h3>
-<h4 id="释义">释义</h4>
+
+<h4 id="释义-12">释义</h4>
+
 <p>把远程仓库下载到远程仓库本地副本，后续可通过 git merge 合并到本地仓库</p>
+
 <h3 id="git-push">git push</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git push <span style="color:#f92672">[</span>--all | --mirror | --tags<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-v | --verbose<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-d | --delete<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-u | --set-upstream<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;repository&gt; <span style="color:#f92672">[</span>&lt;refspec&gt;...<span style="color:#f92672">]]</span>
-</code></pre></div><h4 id="释义">释义</h4>
+
+<pre><code class="language-sh">git push [--all | --mirror | --tags] [-v | --verbose] [-d | --delete] [-u | --set-upstream] [&lt;repository&gt; [&lt;refspec&gt;...]]
+</code></pre>
+
+<h4 id="释义-13">释义</h4>
+
 <p>把本地仓库推送到远程</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-7">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -631,55 +862,70 @@ git show 4743b5660b3853b2641f654268049977f09f2da7
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>all</td>
 <td>推送所有分支到远程，不包括分支</td>
 </tr>
+
 <tr>
 <td>tags</td>
 <td>推送所有标签到远程</td>
 </tr>
+
 <tr>
 <td>verbose</td>
 <td>显示详情</td>
 </tr>
+
 <tr>
 <td>delete</td>
 <td>删除远程分支/标签</td>
 </tr>
+
 <tr>
 <td>set-upstream</td>
 <td>设置远程仓库与本地关联</td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 推送 tag 到远程</span>
+
+<h4 id="示例-8">示例</h4>
+
+<pre><code class="language-sh"># 推送 tag 到远程
 git push --tags
-<span style="color:#75715e"># 在远程仓库创建分支，并把当前分支推送到远程这个分支上</span>
+# 在远程仓库创建分支，并把当前分支推送到远程这个分支上
 git push --set-upstream origin test
-<span style="color:#75715e"># 推送分支到远程</span>
+# 推送分支到远程
 git push origin test
-<span style="color:#75715e"># 推送指定 tag 到远程</span>
+# 推送指定 tag 到远程
 git push origin mytag
-<span style="color:#75715e"># 删除远程分支</span>
+# 删除远程分支
 git push --delete origin test
-<span style="color:#75715e"># 删除远程标签</span>
+# 删除远程标签
 git push --delete origin mytag
-</code></pre></div><h3 id="git-branch">git branch</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git branch <span style="color:#f92672">[</span>-r | --remotes<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-a | --all<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--list<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-v | -vv | --verbose<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;pattern&gt;...<span style="color:#f92672">]</span>
+</code></pre>
 
-git branch <span style="color:#f92672">[</span>--set-upstream-to<span style="color:#f92672">=</span>&lt;remote/branchname&gt; | -u &lt;remote/branchname&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;branchname&gt;<span style="color:#f92672">]</span>
+<h3 id="git-branch">git branch</h3>
 
-git branch --unset-upstream <span style="color:#f92672">[</span>&lt;branchname&gt;<span style="color:#f92672">]</span>
+<pre><code class="language-sh">git branch [-r | --remotes] [-a | --all] [--list] [-v | -vv | --verbose] [&lt;pattern&gt;...]
 
-git branch <span style="color:#f92672">[</span>-m | --move<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-f | --force<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;oldbranch&gt;<span style="color:#f92672">]</span> &lt;newbranch&gt;
+git branch [--set-upstream-to=&lt;remote/branchname&gt; | -u &lt;remote/branchname&gt;] [&lt;branchname&gt;]
 
-git branch <span style="color:#f92672">[</span>-d | --delete<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-f | --force<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-r | --remotes<span style="color:#f92672">]</span> &lt;branchname&gt;...
-</code></pre></div><h4 id="释义">释义</h4>
+git branch --unset-upstream [&lt;branchname&gt;]
+
+git branch [-m | --move] [-f | --force] [&lt;oldbranch&gt;] &lt;newbranch&gt;
+
+git branch [-d | --delete] [-f | --force] [-r | --remotes] &lt;branchname&gt;...
+</code></pre>
+
+<h4 id="释义-14">释义</h4>
+
 <p>分支操作</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-8">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -687,73 +933,96 @@ git branch <span style="color:#f92672">[</span>-d | --delete<span style="color:#
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>list</td>
-<td>列出分支，可以与正则表达式配合使用，如：git branch &ndash;list &lsquo;maint-*&rsquo;</td>
+<td>列出分支，可以与正则表达式配合使用，如：git branch &ndash;list &lsquo;maint-*&lsquo;</td>
 </tr>
+
 <tr>
 <td>all</td>
 <td>列出所有分支，包括远程分支和本地分支</td>
 </tr>
+
 <tr>
 <td>verbose</td>
 <td>显示详情</td>
 </tr>
+
 <tr>
 <td>set-upstream-to</td>
 <td>关联远程分支与本地分支</td>
 </tr>
+
 <tr>
 <td>unset-upstream</td>
 <td>取消远程分支与本地分支关联</td>
 </tr>
+
 <tr>
 <td>move</td>
 <td>移动/重命名分支</td>
 </tr>
+
 <tr>
 <td>delete</td>
 <td>删除分支</td>
 </tr>
+
 <tr>
 <td>force</td>
 <td>强制重命名/删除分支</td>
 </tr>
+
 <tr>
 <td>remotes</td>
 <td>远程分支操作，列出/删除远程分支</td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 新建分支</span>
-git branch test
-<span style="color:#75715e"># 把本地分支推送到远程仓库</span>
-git push --set-upstream origin test
-<span style="color:#75715e"># 删除本地分支</span>
-git branch --delete test
-<span style="color:#75715e"># 删除远程分支</span>
-git branch --delete --remotes origin/test
-</code></pre></div><h3 id="git-checkout">git checkout</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git checkout <span style="color:#f92672">[</span>-f | --force<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-m | --merge<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-b<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;branch&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;start_point&gt;<span style="color:#f92672">]</span>
 
-git checkout <span style="color:#f92672">[</span>&lt;tree-ish&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;pathspec&gt;...<span style="color:#f92672">]</span>
-</code></pre></div><h4 id="释义">释义</h4>
+<h4 id="示例-9">示例</h4>
+
+<pre><code class="language-sh"># 新建分支
+git branch test
+# 把本地分支推送到远程仓库
+git push --set-upstream origin test
+# 删除本地分支
+git branch --delete test
+# 删除远程分支
+git branch --delete --remotes origin/test
+</code></pre>
+
+<h3 id="git-checkout">git checkout</h3>
+
+<pre><code class="language-sh">git checkout [-f | --force] [-m | --merge] [-b] [&lt;branch&gt;] [&lt;start_point&gt;]
+
+git checkout [&lt;tree-ish&gt;] [&lt;pathspec&gt;...]
+</code></pre>
+
+<h4 id="释义-15">释义</h4>
+
 <ol>
 <li>切换分支</li>
 </ol>
+
 <p>2.从暂存区/commit/tag/HEAD 恢复工作区文件</p>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 从 暂存区 或 HEAD 重置文件</span>
+
+<h4 id="示例-10">示例</h4>
+
+<pre><code class="language-sh"># 从 暂存区 或 HEAD 重置文件
 git checkout test.txt
-<span style="color:#75715e"># 从 HEAD 重置文件</span>
+# 从 HEAD 重置文件
 git checkout HEAD test.txt
-<span style="color:#75715e"># 从 tag 重置文件</span>
+# 从 tag 重置文件
 git checkout mytag test.txt
-<span style="color:#75715e"># 从 commit 重置文件</span>
+# 从 commit 重置文件
 git checkout 4743b5660b3853b2641f654268049977f09f2da7 test.txt
-</code></pre></div><h4 id="参数">参数</h4>
+</code></pre>
+
+<h4 id="参数-9">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -761,53 +1030,82 @@ git checkout 4743b5660b3853b2641f654268049977f09f2da7 test.txt
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>force</td>
 <td>当有未 commit 的文件时，强制切换分支，这会导致未 commit 的文件内容丢失</td>
 </tr>
+
 <tr>
 <td>merge</td>
 <td>切换分支的时候，把当前分支合并到目标分支</td>
 </tr>
+
 <tr>
 <td>b</td>
 <td>新建一个分支，同时切换到该分支</td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 切换到指定分支</span>
-git checkout test
-<span style="color:#75715e"># 基于指定 commit 新建分支，并切换到该分支</span>
-git checkout -b test 4743b5660b3853b2641f654268049977f09f2da7
-<span style="color:#75715e"># 基于指定 tag 新建分支，并切换到该分支</span>
-git checkout -b test mytag
-</code></pre></div><h3 id="git-merge">git merge</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git merge <span style="color:#f92672">[</span>&lt;commit&gt;...<span style="color:#f92672">]</span>
-git merge <span style="color:#f92672">[</span>&lt;branch&gt;<span style="color:#f92672">]</span>
-</code></pre></div><h4 id="释义">释义</h4>
-<p>合并指定的 commit 或分支到当前分支</p>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 合并指定 commit 到当前分支</span>
-git merge f50f0f3939cb6054b7b5ee5d1a13f398d478296c
-<span style="color:#75715e"># 合并指定分支到当前分支</span>
-git merge master
-</code></pre></div><h3 id="git-cherry-pick">git cherry-pick</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git cherry-pick &lt;commit&gt;...
-</code></pre></div><h4 id="释义">释义</h4>
-<p>合并指定的 commit 到当前分支的工作区，与 git merge 不同的是，git cherry-pick 会把指定 commit 到当前分支工作区，需要手动 git add，git commit</p>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git cherry-pick 01fa2af3e1ca6235bad32ca6ef8303c75a2a347a
-</code></pre></div><h3 id="git-tag">git tag</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git tag <span style="color:#f92672">[</span>-l | --list<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;pattern&gt;...<span style="color:#f92672">]</span>
 
-git tag <span style="color:#f92672">[</span>-f | --force<span style="color:#f92672">]</span> &lt;tagname&gt; <span style="color:#f92672">[</span>&lt;commit&gt; | &lt;object&gt;<span style="color:#f92672">]</span>
+<h4 id="示例-11">示例</h4>
+
+<pre><code class="language-sh"># 切换到指定分支
+git checkout test
+# 基于指定 commit 新建分支，并切换到该分支
+git checkout -b test 4743b5660b3853b2641f654268049977f09f2da7
+# 基于指定 tag 新建分支，并切换到该分支
+git checkout -b test mytag
+</code></pre>
+
+<h3 id="git-merge">git merge</h3>
+
+<pre><code class="language-sh">git merge [&lt;commit&gt;...]
+git merge [&lt;branch&gt;]
+</code></pre>
+
+<h4 id="释义-16">释义</h4>
+
+<p>合并指定的 commit 或分支到当前分支</p>
+
+<h4 id="示例-12">示例</h4>
+
+<pre><code class="language-sh"># 合并指定 commit 到当前分支
+git merge f50f0f3939cb6054b7b5ee5d1a13f398d478296c
+# 合并指定分支到当前分支
+git merge master
+</code></pre>
+
+<h3 id="git-cherry-pick">git cherry-pick</h3>
+
+<pre><code class="language-sh">git cherry-pick &lt;commit&gt;...
+</code></pre>
+
+<h4 id="释义-17">释义</h4>
+
+<p>合并指定的 commit 到当前分支的工作区，与 git merge 不同的是，git cherry-pick 会把指定 commit 到当前分支工作区，需要手动 git add，git commit</p>
+
+<h4 id="示例-13">示例</h4>
+
+<pre><code class="language-sh">git cherry-pick 01fa2af3e1ca6235bad32ca6ef8303c75a2a347a
+</code></pre>
+
+<h3 id="git-tag">git tag</h3>
+
+<pre><code class="language-sh">git tag [-l | --list] [&lt;pattern&gt;...]
+
+git tag [-f | --force] &lt;tagname&gt; [&lt;commit&gt; | &lt;object&gt;]
 
 git tag -d | --delete &lt;tagname&gt;...
-</code></pre></div><h4 id="释义">释义</h4>
+</code></pre>
+
+<h4 id="释义-18">释义</h4>
+
 <p>标签操作</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-10">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -815,33 +1113,46 @@ git tag -d | --delete &lt;tagname&gt;...
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>list</td>
 <td>列出所有 tag</td>
 </tr>
+
 <tr>
 <td>force</td>
 <td>强制创建 tag，这会覆盖原有的同名 tag</td>
 </tr>
+
 <tr>
 <td>delete</td>
 <td>删除 tag</td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 在指定 commit 创建 tag</span>
+
+<h4 id="示例-14">示例</h4>
+
+<pre><code class="language-sh"># 在指定 commit 创建 tag
 git tag mytag 4743b5660b3853b2641f654268049977f09f2da7
-<span style="color:#75715e"># 列出所有 tag</span>
+# 列出所有 tag
 git tag
-<span style="color:#75715e"># 查看 tag 信息</span>
+# 查看 tag 信息
 git show mytag
-</code></pre></div><h3 id="git-log">git log</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git log <span style="color:#f92672">[</span>--stat<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-S&lt;string&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-G&lt;regex&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--grep<span style="color:#f92672">=</span>&lt;pattern&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--merges<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--no-merges<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;path&gt;...<span style="color:#f92672">]</span>
-</code></pre></div><h4 id="释义">释义</h4>
+</code></pre>
+
+<h3 id="git-log">git log</h3>
+
+<pre><code class="language-sh">git log [--stat] [-S&lt;string&gt;] [-G&lt;regex&gt;] [--grep=&lt;pattern&gt;] [--merges] [--no-merges] [&lt;path&gt;...]
+</code></pre>
+
+<h4 id="释义-19">释义</h4>
+
 <p>日志</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-11">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -849,50 +1160,66 @@ git show mytag
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>stat</td>
 <td>显示文件变化统计</td>
 </tr>
+
 <tr>
 <td>S</td>
 <td>搜索指定关键字</td>
 </tr>
+
 <tr>
 <td>G</td>
 <td>匹配指定的正则表达式</td>
 </tr>
+
 <tr>
 <td>grep</td>
 <td>匹配指定模式</td>
 </tr>
+
 <tr>
 <td>merges</td>
 <td>显示合并相关的日志</td>
 </tr>
+
 <tr>
 <td>no-merges</td>
 <td>不显示合并相关的日志</td>
 </tr>
 </tbody>
 </table>
-<h3 id="git-diff">git diff</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git diff <span style="color:#f92672">[</span>&lt;commit&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;path&gt;...<span style="color:#f92672">]</span>
 
-git diff --cached <span style="color:#f92672">[</span>&lt;commit&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;path&gt;...<span style="color:#f92672">]</span>
-</code></pre></div><h4 id="释义">释义</h4>
+<h3 id="git-diff">git diff</h3>
+
+<pre><code class="language-sh">git diff [&lt;commit&gt;] [&lt;path&gt;...]
+
+git diff --cached [&lt;commit&gt;] [&lt;path&gt;...]
+</code></pre>
+
+<h4 id="释义-20">释义</h4>
+
 <p>文件变化比较</p>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 显示工作区和暂存区的文件变化</span>
+
+<h4 id="示例-15">示例</h4>
+
+<pre><code class="language-sh"># 显示工作区和暂存区的文件变化
 git diff
-<span style="color:#75715e"># 显示暂存区和上一个 commit 的文件变化</span>
+# 显示暂存区和上一个 commit 的文件变化
 git diff --cached
-<span style="color:#75715e"># 显示指定文件工作区和指定 commit 的文件变化</span>
+# 显示指定文件工作区和指定 commit 的文件变化
 git diff 01fa2af3e1ca6235bad32ca6ef8303c75a2a347a test.txt
-<span style="color:#75715e"># 显示指定分支的文件变化</span>
+# 显示指定分支的文件变化
 git diff master test
-</code></pre></div><h3 id="git-remote">git remote</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git remote <span style="color:#f92672">[</span>-v | --verbose<span style="color:#f92672">]</span>
+</code></pre>
+
+<h3 id="git-remote">git remote</h3>
+
+<pre><code class="language-sh">git remote [-v | --verbose]
 
 git remote add &lt;name&gt; &lt;url&gt;
 
@@ -900,10 +1227,15 @@ git remote rename &lt;old&gt; &lt;new&gt;
 
 git remote remove &lt;name&gt;
 
-git remote <span style="color:#f92672">[</span>-v | --verbose<span style="color:#f92672">]</span> show &lt;name&gt;...
-</code></pre></div><h4 id="释义">释义</h4>
+git remote [-v | --verbose] show &lt;name&gt;...
+</code></pre>
+
+<h4 id="释义-21">释义</h4>
+
 <p>远程仓库管理</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-12">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -911,6 +1243,7 @@ git remote <span style="color:#f92672">[</span>-v | --verbose<span style="color:
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>verbose</td>
@@ -918,23 +1251,33 @@ git remote <span style="color:#f92672">[</span>-v | --verbose<span style="color:
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 添加远程仓库</span>
-git remote add origin git@github.com:jason207010/git-test.git
-<span style="color:#75715e"># 重命名远程仓库</span>
-git remote rename origin myorigin
-<span style="color:#75715e"># 显示远程仓库详情</span>
-git remote -v show myorigin
-<span style="color:#75715e"># 删除远程仓库</span>
-git remote remove myorigin
-</code></pre></div><h3 id="git-reset">git reset</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git reset <span style="color:#f92672">[</span>&lt;tree-ish&gt;<span style="color:#f92672">]</span> &lt;paths&gt;...
 
-git reset <span style="color:#f92672">[</span>--soft | --mixed <span style="color:#f92672">[</span>-N<span style="color:#f92672">]</span> | --hard | --merge | --keep<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;com
-mit&gt;<span style="color:#f92672">]</span>
-</code></pre></div><h4 id="释义">释义</h4>
+<h4 id="示例-16">示例</h4>
+
+<pre><code class="language-sh"># 添加远程仓库
+git remote add origin git@github.com:jason207010/git-test.git
+# 重命名远程仓库
+git remote rename origin myorigin
+# 显示远程仓库详情
+git remote -v show myorigin
+# 删除远程仓库
+git remote remove myorigin
+</code></pre>
+
+<h3 id="git-reset">git reset</h3>
+
+<pre><code class="language-sh">git reset [&lt;tree-ish&gt;] &lt;paths&gt;...
+
+git reset [--soft | --mixed [-N] | --hard | --merge | --keep] [&lt;com
+mit&gt;]
+</code></pre>
+
+<h4 id="释义-22">释义</h4>
+
 <p>重置操作</p>
-<h4 id="参数">参数</h4>
+
+<h4 id="参数-13">参数</h4>
+
 <table>
 <thead>
 <tr>
@@ -942,61 +1285,77 @@ mit&gt;<span style="color:#f92672">]</span>
 <th>释义</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>soft</td>
 <td>重置本地仓库 HEAD 指针到指定 commit，但工作区、暂存区保持不变</td>
 </tr>
+
 <tr>
 <td>hard</td>
 <td>重置本地仓库 HEAD 指针、工作区、暂存区到指定 commit</td>
 </tr>
+
 <tr>
 <td>mixed</td>
 <td>reset 命令的默认参数，重置本地仓库 HEAD 指针、暂存区到指定 commit，但工作区保持不变</td>
 </tr>
+
 <tr>
 <td>keep</td>
 <td>如果工作区有未 add 到暂存区的文件，重置本地仓库 HEAD指针、暂存区到指定commit，但工作区保持不变</td>
 </tr>
+
 <tr>
 <td></td>
 <td>否则重置本地仓库 HEAD 指针、暂存区、工作区到指定 commit</td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 如果工作区有修改，重置暂存区指定文件与仓库 HEAD 一致，工作区保持不变</span>
-<span style="color:#75715e"># 如果工作区没有修改，重置暂存区、工作区与仓库 HEAD 一致</span>
+
+<h4 id="示例-17">示例</h4>
+
+<pre><code class="language-sh"># 如果工作区有修改，重置暂存区指定文件与仓库 HEAD 一致，工作区保持不变
+# 如果工作区没有修改，重置暂存区、工作区与仓库 HEAD 一致
 git reset test.txt
-<span style="color:#75715e"># 如果工作区有修改，重置暂存区指定文件与指定 tag 一致，工作区保持不变</span>
-<span style="color:#75715e"># 如果工作区没有修改，重置暂存区、工作区与指定 tag 一致</span>
+# 如果工作区有修改，重置暂存区指定文件与指定 tag 一致，工作区保持不变
+# 如果工作区没有修改，重置暂存区、工作区与指定 tag 一致
 git reset mytag test.txt
-<span style="color:#75715e"># 如果工作区有修改，重置暂存区指定文件与指定 commit 一致，工作区保持不变</span>
-<span style="color:#75715e"># 如果工作区没有修改，重置暂存区、工作区与指定 commit 一致</span>
+# 如果工作区有修改，重置暂存区指定文件与指定 commit 一致，工作区保持不变
+# 如果工作区没有修改，重置暂存区、工作区与指定 commit 一致
 git reset fdac8342a1ac278b17ec13772e10056a41c4e745 test.txt
-</code></pre></div><h3 id="git-stash">git stash</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git stash list
+</code></pre>
 
-git stash show <span style="color:#f92672">[</span>&lt;stash&gt;<span style="color:#f92672">]</span>
+<h3 id="git-stash">git stash</h3>
 
-git stash drop <span style="color:#f92672">[</span>&lt;stash&gt;<span style="color:#f92672">]</span>
+<pre><code class="language-sh">git stash list
 
-git stash <span style="color:#f92672">(</span> pop | apply <span style="color:#f92672">)</span> <span style="color:#f92672">[</span>&lt;stash&gt;<span style="color:#f92672">]</span>
+git stash show [&lt;stash&gt;]
+
+git stash drop [&lt;stash&gt;]
+
+git stash ( pop | apply ) [&lt;stash&gt;]
 
 git stash clear
-</code></pre></div><h4 id="释义">释义</h4>
+</code></pre>
+
+<h4 id="释义-23">释义</h4>
+
 <p>把工作区、暂存区的变化暂时储存起来，使工作区、暂存区与 HEAD 指针保持一致</p>
-<h4 id="示例">示例</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 把工作区、暂存区的变化储存起来</span>
+
+<h4 id="示例-18">示例</h4>
+
+<pre><code class="language-sh"># 把工作区、暂存区的变化储存起来
 git stash
-<span style="color:#75715e"># 显示所有 stash</span>
+# 显示所有 stash
 git stash list
-<span style="color:#75715e"># 把 stash 的文件变化应用到工作区</span>
+# 把 stash 的文件变化应用到工作区
 git stash pop
-<span style="color:#75715e"># 清空所有 stash</span>
+# 清空所有 stash
 git stash clear
-</code></pre></div>
+</code></pre>
+
     </div>
 
     
@@ -1175,7 +1534,7 @@ git stash clear
 
 
 
-<script type="text/javascript" src="/js/main.dee43230127a73d039a734510fa896c89c3c7ce0cf0be0c7a7433f8fd69b76dc.js" integrity="sha256-3uQyMBJ6c9A5pzRRD6iWyJw8fODPC&#43;DHp0M/j9abdtw=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
 
 
 
