@@ -9,38 +9,38 @@
 </code></pre></div><h2 id=在-github-配置密钥>在 Github 配置密钥</h2><h3 id=在-blog-仓库配置私钥>在 Blog 仓库配置私钥</h3><p>Setting -> Secrets -> New Secret</p><p>Name 文本框输入 ACTIONS_DEPLOY_KEY
 Value 文本框输入私钥</p><h3 id=在-jason207010-dot-github-dot-io-仓库配置公钥>在 jason207010.github.io 仓库配置公钥</h3><p>Setting -> Deploy Keys -> Add deploy key</p><p>Title 文本框输入PUBLIC_KEY_OF_ACTIONS_DEPLOY_KEY
 Key 文本框输入 公钥</p><h2 id=在-blog-仓库配置-github-action>在 Blog 仓库配置 Github Action</h2><p>Actions -> New workflow -> set up a workflow yourself
-在文本框输入：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>name: github pages
+在文本框输入：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>name: github pages
 
 on:
-  push<span style=color:#f92672>:</span>
-    branches<span style=color:#f92672>:</span>
-      <span style=color:#f92672>-</span> master    <span style=color:#960050;background-color:#1e0010>#</span> master 分支 push 的时候触发
+  push:
+    branches:
+      - master    # master 分支 push 的时候触发
 
 jobs:
-  deploy<span style=color:#f92672>:</span>
-    runs<span style=color:#f92672>-</span>on<span style=color:#f92672>:</span> ubuntu<span style=color:#f92672>-</span>18<span style=color:#f92672>.</span><span style=color:#a6e22e>04</span>
-    steps<span style=color:#f92672>:</span>
-      <span style=color:#f92672>-</span> uses<span style=color:#f92672>:</span> actions<span style=color:#f92672>/</span>checkout<span style=color:#a6e22e>@v2</span>
-	with<span style=color:#f92672>:</span>
-	  submodules<span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>  <span style=color:#960050;background-color:#1e0010>#</span> Fetch Hugo <span style=color:#a6e22e>themes</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>true</span> OR recursive<span style=color:#f92672>)</span>
-	  fetch<span style=color:#f92672>-</span>depth<span style=color:#f92672>:</span> 0    <span style=color:#960050;background-color:#1e0010>#</span> Fetch all history <span style=color:#66d9ef>for</span> <span style=color:#f92672>.</span><span style=color:#a6e22e>GitInfo</span> and <span style=color:#f92672>.</span><span style=color:#a6e22e>Lastmod</span>
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+	with:
+	  submodules: true  # Fetch Hugo themes (true OR recursive)
+	  fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-      <span style=color:#f92672>-</span> name<span style=color:#f92672>:</span> Setup Hugo
-	uses<span style=color:#f92672>:</span> peaceiris<span style=color:#f92672>/</span>actions<span style=color:#f92672>-</span>hugo<span style=color:#a6e22e>@v2</span>
-	with<span style=color:#f92672>:</span>
-	  hugo<span style=color:#f92672>-</span>version<span style=color:#f92672>:</span> <span style=color:#960050;background-color:#1e0010>&#39;</span>0<span style=color:#f92672>.</span><span style=color:#a6e22e>74</span><span style=color:#f92672>.</span><span style=color:#a6e22e>2</span><span style=color:#960050;background-color:#1e0010>&#39;</span>
-	  <span style=color:#960050;background-color:#1e0010>#</span> extended<span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>
+      - name: Setup Hugo
+	uses: peaceiris/actions-hugo@v2
+	with:
+	  hugo-version: &#39;0.74.2&#39;
+	  # extended: true
 
-      <span style=color:#f92672>-</span> name<span style=color:#f92672>:</span> Build
-	run<span style=color:#f92672>:</span> hugo <span style=color:#f92672>--</span>minify
+      - name: Build
+	run: hugo --minify
 
-      <span style=color:#f92672>-</span> name<span style=color:#f92672>:</span> Deploy
-	uses<span style=color:#f92672>:</span> peaceiris<span style=color:#f92672>/</span>actions<span style=color:#f92672>-</span>gh<span style=color:#f92672>-</span>pages<span style=color:#a6e22e>@v3</span>
-	with<span style=color:#f92672>:</span>
-	  deploy_key<span style=color:#f92672>:</span> $<span style=color:#f92672>{{</span> secrets<span style=color:#f92672>.</span><span style=color:#a6e22e>ACTIONS_DEPLOY_KEY</span> <span style=color:#f92672>}}</span>             <span style=color:#960050;background-color:#1e0010>#</span> Blog 仓库配置的私钥
-	  publish_dir<span style=color:#f92672>:</span> <span style=color:#f92672>./</span><span style=color:#66d9ef>public</span>                                     <span style=color:#960050;background-color:#1e0010>#</span> Hugo 构建发布目录
-	  EXTERNAL_REPOSITORY<span style=color:#f92672>:</span> jason207010<span style=color:#f92672>/</span>jason207010<span style=color:#f92672>.</span><span style=color:#a6e22e>github</span><span style=color:#f92672>.</span><span style=color:#a6e22e>io</span>    <span style=color:#960050;background-color:#1e0010>#</span> Github Pages 仓库
-	  PUBLISH_BRANCH<span style=color:#f92672>:</span> master                                    <span style=color:#960050;background-color:#1e0010>#</span> 发布分支
+      - name: Deploy
+	uses: peaceiris/actions-gh-pages@v3
+	with:
+	  deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}             # Blog 仓库配置的私钥
+	  publish_dir: ./public                                     # Hugo 构建发布目录
+	  EXTERNAL_REPOSITORY: jason207010/jason207010.github.io    # Github Pages 仓库
+	  PUBLISH_BRANCH: master                                    # 发布分支
 </code></pre></div><h2 id=自动构建发布>自动构建发布</h2><p>在 Blog 仓库使用 Hugo 新建文章，并 push 到远程仓库，Github Action 会自动触发并构建发布到 jason207010.github.io 仓库</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content><a href=http://jason207010.github.io/post/github-action-%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2-github-pages-%E6%8C%87%E5%8D%97/>Jason Chan</a></span></p><p class=copyright-item><span class=item-title>上次更新</span>
 <span class=item-content>2020-07-20</span></p><p class=copyright-item><span class=item-title>许可协议</span>
