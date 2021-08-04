@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Elasticsearch on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/tags/elasticsearch/</link>
+    <description>Recent content in Elasticsearch on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 30 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://jason207010.github.io/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elasticsearch 开发指南</title>
+      <link>http://jason207010.github.io/post/Elasticsearch%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.html</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/Elasticsearch%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.html</guid>
+      <description>基础概念 准实时（Near Realtime） Elasticsearch 是一个准实时搜索平台，一个文档从索引到可搜索有一定的延时，通常是 1 秒</description>
+    </item>
+    
+  </channel>
+</rss>

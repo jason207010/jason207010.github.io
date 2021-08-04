@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://jason207010.github.io/sitemap.xml

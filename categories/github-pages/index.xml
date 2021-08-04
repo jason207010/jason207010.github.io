@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github Pages on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/categories/github-pages/</link>
+    <description>Recent content in Github Pages on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 20 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jason207010.github.io/categories/github-pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github Action 自动部署 Github Pages 指南</title>
+      <link>http://jason207010.github.io/post/Github%20Action%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%20Github%20Pages%20%E6%8C%87%E5%8D%97.html</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/Github%20Action%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%20Github%20Pages%20%E6%8C%87%E5%8D%97.html</guid>
+      <description>Git 仓库准备 仓库地址 用途 git@github.com:jason207010/Blog.git Hugo 源文件仓库 git@github.com:jason207010/jason207010.github.io.git Github Pages 仓库 准备 SSH 密钥 1 ssh-keygen -t rsa -C jason@mail.com -f hugo -N &amp;#34;&amp;#34; -q 在 Github 配置密钥 在 Blog 仓库配置私钥 Setting -&amp;gt; Secrets -&amp;gt; New Secret Name 文本框输入 ACTIONS_DEPLOY_KEY Value 文本框</description>
+    </item>
+    
+  </channel>
+</rss>

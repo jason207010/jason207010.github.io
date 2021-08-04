@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emacs on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/tags/emacs/</link>
+    <description>Recent content in Emacs on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://jason207010.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs Hugo搭建博客</title>
+      <link>http://jason207010.github.io/post/Emacs%20Hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/Emacs%20Hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html</guid>
+      <description>安装hugo hugo 官网 Hugo是由Go语言实现的静态网站生成器 1 brew install hugo Emacs 安装 ox-hugo 插件 ox-hugo 官网 ox-hugo 是 org mode 转换为 hugo markdown 源文件的导出工具 安装 1 2 3 4 5 M-x package-install Ret ox-hugo</description>
+    </item>
+    
+    <item>
+      <title>Emacs 使用指南</title>
+      <link>http://jason207010.github.io/post/Emacs%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/Emacs%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html</guid>
+      <description>文件操作 快捷键 释义 C-x C-f 打开文件 C-x C-s 保存文件 C-x C-w 存为新文件 C-x C-c 退出Emacs 窗口操作 快捷键 释义 C-x 0 关闭本窗口 C-x 1 只留下一个窗口 C-x 2 垂直均分窗口</description>
+    </item>
+    
+    <item>
+      <title>PlantUML mode使用指南</title>
+      <link>http://jason207010.github.io/post/PlantUML%20mode%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html</link>
+      <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/PlantUML%20mode%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html</guid>
+      <description>搭建运行环境 安装JAVA 安装Graphviz 下载地址 安装PlantUML 下载plantuml.jar到本地即可，如下载到C:\Users\J</description>
+    </item>
+    
+  </channel>
+</rss>

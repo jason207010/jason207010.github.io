@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jenkins on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/categories/jenkins/</link>
+    <description>Recent content in Jenkins on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://jason207010.github.io/categories/jenkins/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jenkins 使用指南</title>
+      <link>http://jason207010.github.io/post/Jenkins%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html</link>
+      <pubDate>Sat, 30 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/Jenkins%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html</guid>
+      <description>安装运行 使用 Docker 安装运行 1 docker run -p 8080:8080 -p 50000:50000 -d -v ~/Docker/jenkins/jenkins_home:/var/jenkins_home --name jenkins jenkins 配置 Jenkins 解锁 Jenkins 查看管理员默认密码 1 cat ~/Docker/jenkins/jenkins_home/secrets/initialAdminPassword 安装插件 Jenkins 官方插件源很慢，即使换镜像源依然很慢，因为镜像</description>
+    </item>
+    
+  </channel>
+</rss>

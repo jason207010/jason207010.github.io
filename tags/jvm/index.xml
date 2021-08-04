@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JVM on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/tags/jvm/</link>
+    <description>Recent content in JVM on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 11 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="http://jason207010.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《深入理解 Java 虚拟机》笔记</title>
+      <link>http://jason207010.github.io/post/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B%E7%AC%94%E8%AE%B0.html</link>
+      <pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B%E7%AC%94%E8%AE%B0.html</guid>
+      <description>Java内存区域与内存溢出异常 运行时内存区域 程序计数器 程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟</description>
+    </item>
+    
+  </channel>
+</rss>

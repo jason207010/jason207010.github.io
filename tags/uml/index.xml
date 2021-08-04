@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UML on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/tags/uml/</link>
+    <description>Recent content in UML on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 28 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://jason207010.github.io/tags/uml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UML 开发指南</title>
+      <link>http://jason207010.github.io/post/UML%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.html</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/UML%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.html</guid>
+      <description>统一建模语言 统一建模语言（英语：Unified Modeling Language，缩写 UML）是非专利的第三代建模和规约语言。UML是一种开放的方法，用于说</description>
+    </item>
+    
+  </channel>
+</rss>

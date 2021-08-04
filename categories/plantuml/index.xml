@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PlantUML on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/categories/plantuml/</link>
+    <description>Recent content in PlantUML on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 14 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="http://jason207010.github.io/categories/plantuml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PlantUML mode使用指南</title>
+      <link>http://jason207010.github.io/post/PlantUML%20mode%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html</link>
+      <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/PlantUML%20mode%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html</guid>
+      <description>搭建运行环境 安装JAVA 安装Graphviz 下载地址 安装PlantUML 下载plantuml.jar到本地即可，如下载到C:\Users\J</description>
+    </item>
+    
+  </channel>
+</rss>

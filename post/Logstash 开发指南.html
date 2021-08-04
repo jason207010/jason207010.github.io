@@ -1,0 +1,2965 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Logstash 开发指南 - Jason&#39;s Blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#F2F2F2" />
+<meta name="msapplication-navbutton-color" content="#F2F2F2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#F2F2F2">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Jason" />
+  <meta name="description" content="关于Logstash Logstash 是开源的服务器端数据处理管道，能够同时从多个来源采集数据、转换数据，然后将数据发送到您最喜欢的 “存储库” 中。 Logst" />
+
+  <meta name="keywords" content="Jason&#39;s Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.85.0" />
+
+
+<link rel="canonical" href="http://jason207010.github.io/post/Logstash%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.html" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.6a5536f5d1353a14ec7d9bc106930d2305e46da3a91b609054582a4a82594cf8.css" integrity="sha256-alU29dE1OhTsfZvBBpMNIwXkbaOpG2CQVFgqSoJZTPg=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="Logstash 开发指南" />
+<meta property="og:description" content="关于Logstash Logstash 是开源的服务器端数据处理管道，能够同时从多个来源采集数据、转换数据，然后将数据发送到您最喜欢的 “存储库” 中。 Logst" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jason207010.github.io/post/Logstash%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.html" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-07-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-07-19T00:00:00+00:00" />
+
+<meta itemprop="name" content="Logstash 开发指南">
+<meta itemprop="description" content="关于Logstash Logstash 是开源的服务器端数据处理管道，能够同时从多个来源采集数据、转换数据，然后将数据发送到您最喜欢的 “存储库” 中。 Logst"><meta itemprop="datePublished" content="2018-07-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-07-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5738">
+<meta itemprop="keywords" content="Logstash," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Logstash 开发指南"/>
+<meta name="twitter:description" content="关于Logstash Logstash 是开源的服务器端数据处理管道，能够同时从多个来源采集数据、转换数据，然后将数据发送到您最喜欢的 “存储库” 中。 Logst"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+<link rel="stylesheet"
+      href="/lib/highlight/default.min.css">
+<script src="/lib/highlight/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Jason's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/categories/">Categories</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous">
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Jason's Blog
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://jason207010.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Logstash 开发指南</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-07-19" class="post-time">
+          2018-07-19
+        </time>
+        <div class="post-category">
+            <a href="http://jason207010.github.io/categories/logstash/"> Logstash </a>
+            
+          </div>
+        <span class="more-meta"> 约 5738 字 </span>
+          <span class="more-meta"> 预计阅读 12 分钟 </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数据输入input">数据输入（input)</a></li>
+    <li><a href="#数据解析转换filter">数据解析转换（filter）</a></li>
+    <li><a href="#数据输出output">数据输出（output）</a></li>
+    <li><a href="#编码解码器codec">编码解码器（codec）</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#安装jdk-18并配置好java_home环境变量">安装JDK 1.8并配置好JAVA_HOME环境变量</a></li>
+    <li><a href="#下载并解压logstash-631targz">下载并解压logstash-6.3.1.tar.gz</a></li>
+    <li><a href="#新建配置文件logstashconf">新建配置文件logstash.conf</a></li>
+    <li><a href="#运行">运行</a>
+      <ul>
+        <li><a href="#指定配置文件直接运行">指定配置文件直接运行</a></li>
+        <li><a href="#校验配置文件是否正确">校验配置文件是否正确</a></li>
+        <li><a href="#指定配置文件直接运行并在配置文件被修改时自动重新加载">指定配置文件直接运行，并在配置文件被修改时自动重新加载</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#logstashyml">logstash.yml</a></li>
+    <li><a href="#pipelinesyml">pipelines.yml</a></li>
+    <li><a href="#jvmoptions">jvm.options</a></li>
+    <li><a href="#log4j2properties">log4j2.properties</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#所有-input-插件都通用的设置项">所有 input 插件都通用的设置项</a></li>
+    <li><a href="#stdin-input-插件">stdin input 插件</a>
+      <ul>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#示例">示例</a></li>
+      </ul>
+    </li>
+    <li><a href="#beats-input-插件">beats input 插件</a>
+      <ul>
+        <li><a href="#简介-1">简介</a></li>
+        <li><a href="#示例-1">示例：</a></li>
+        <li><a href="#配置">配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#jdbc-input-插件">jdbc input 插件</a>
+      <ul>
+        <li><a href="#简介-2">简介</a></li>
+        <li><a href="#示例-2">示例</a></li>
+        <li><a href="#配置-1">配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#redis-input-插件">redis input 插件</a>
+      <ul>
+        <li><a href="#简介-3">简介</a></li>
+        <li><a href="#配置-2">配置</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#所有-output-插件都通用的设置项">所有 output 插件都通用的设置项</a></li>
+    <li><a href="#stdout-output-插件">stdout output 插件</a>
+      <ul>
+        <li><a href="#简介-4">简介</a></li>
+        <li><a href="#示例-3">示例</a></li>
+      </ul>
+    </li>
+    <li><a href="#elasticsearch-output-插件">elasticsearch output 插件</a>
+      <ul>
+        <li><a href="#简介-5">简介</a></li>
+        <li><a href="#示例-4">示例</a></li>
+        <li><a href="#配置-3">配置</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#所有-filter-插件都通用的设置项">所有 filter 插件都通用的设置项</a></li>
+    <li><a href="#geoip-filter-插件">geoip filter 插件</a>
+      <ul>
+        <li><a href="#简介-6">简介</a></li>
+        <li><a href="#配置-4">配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#grok-filter-插件">grok filter 插件</a>
+      <ul>
+        <li><a href="#简介-7">简介</a></li>
+        <li><a href="#示例-5">示例</a></li>
+        <li><a href="#配置-5">配置</a></li>
+        <li><a href="#match-详解">match 详解</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#json_lines-codec-插件">json_lines codec 插件</a>
+      <ul>
+        <li><a href="#简介-8">简介</a></li>
+        <li><a href="#配置-6">配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#json-codec-插件">json codec 插件</a>
+      <ul>
+        <li><a href="#简介-9">简介</a></li>
+        <li><a href="#配置-7">配置</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#jvm-调优">jvm 调优</a></li>
+    <li><a href="#使用多个-pipeline-分别接收不同来源的-event">使用多个 pipeline 分别接收不同来源的 event</a></li>
+    <li><a href="#调整-worker-线程批处理数量">调整 worker 线程批处理数量</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h1 id="关于logstash">关于Logstash</h1>
+<p>Logstash 是开源的服务器端数据处理管道，能够同时从多个来源采集数据、转换数据，然后将数据发送到您最喜欢的 “存储库” 中。</p>
+<p>Logstash工作流程：</p>
+<p><img src="images/Logstash%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97-1.png" alt="Logstash%20开发指南-1"></p>
+<h2 id="数据输入input">数据输入（input)</h2>
+<p>数据往往以各种各样的形式，或分散或集中地存在于很多系统中。Logstash 支持几十种输入选择（如beats、JDBC、file、redis等） ，可以在同一时间从众多常用来源捕捉事件。</p>
+<h2 id="数据解析转换filter">数据解析转换（filter）</h2>
+<p>Logstash通常使用filter对输入的数据进行解析转换，内置几十种filter（如grok、geoip、json、kv等），数据从源传输到存储库的过程中，Logstash 过滤器能够解析各个事件，识别已命名的字段以构建结构，并将它们转换成通用格式。Logstash 能够动态地转换和解析数据，不受格式或复杂度的影响。</p>
+<h2 id="数据输出output">数据输出（output）</h2>
+<p>Logstash 提供几十种输出选择（如email、file、redis、elasticsearch等），您可以将数据发送到您要指定的地方，并且能够灵活地解锁众多下游用例。</p>
+<h2 id="编码解码器codec">编码解码器（codec）</h2>
+<p>codec能对输入数据进行解码，对输出数据进行编码，Logstash内置二十多种编码解码器（如json、json_lines、rubydebug等）。</p>
+<h1 id="安装logstash-631">安装（Logstash 6.3.1)</h1>
+<h2 id="安装jdk-18并配置好java_home环境变量">安装JDK 1.8并配置好JAVA_HOME环境变量</h2>
+<h2 id="下载并解压logstash-631targz">下载并解压logstash-6.3.1.tar.gz</h2>
+<h2 id="新建配置文件logstashconf">新建配置文件logstash.conf</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">input</span> <span class="p">{</span>
+    <span class="nx">stdin</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">output</span> <span class="p">{</span>
+    <span class="nx">stdout</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="运行">运行</h2>
+<h3 id="指定配置文件直接运行">指定配置文件直接运行</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">  logstash -f logstash.conf
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="校验配置文件是否正确">校验配置文件是否正确</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">  logstash -f logstash.conf --config.test_and_exit
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="指定配置文件直接运行并在配置文件被修改时自动重新加载">指定配置文件直接运行，并在配置文件被修改时自动重新加载</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">  logstash -f logstash.conf --config.reload.automatic
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="配置文件">配置文件</h1>
+<h2 id="logstashyml">logstash.yml</h2>
+<p>logstash.yml用来配置logstash运行参数，logstash大部分命令行启动参数都可以在该文件中配置</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">释义</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">node.name</td>
+<td style="text-align:center">A descriptive name for the node.</td>
+<td style="text-align:center">Machine’s hostname</td>
+</tr>
+<tr>
+<td style="text-align:center">path.data</td>
+<td style="text-align:center">The directory that Logstash and its plugins use for any persistent needs.</td>
+<td style="text-align:center">LOGSTASH_HOME/data</td>
+</tr>
+<tr>
+<td style="text-align:center">pipeline.id</td>
+<td style="text-align:center">The ID of the pipeline.</td>
+<td style="text-align:center">main</td>
+</tr>
+<tr>
+<td style="text-align:center">pipeline.workers</td>
+<td style="text-align:center">The number of workers that will, in parallel, execute the filter and output stages</td>
+<td style="text-align:center">Number of the</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">of the pipeline. If you find that events are backing up, or that the CPU is not</td>
+<td style="text-align:center">host’s CPU cores</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">saturated, consider increasing this number to better utilize machine processing power.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">pipeline.batch.size</td>
+<td style="text-align:center">The maximum number of events an individual worker thread will collect from inputs</td>
+<td style="text-align:center">125</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">before attempting to execute its filters and outputs. Larger batch sizes are generally</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">more efficient, but come at the cost of increased memory overhead. You may need</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">to increase JVM heap space in the jvm.options config file. See Logstash Configuration</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Files for more info.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">pipeline.batch.delay</td>
+<td style="text-align:center">When creating pipeline event batches, how long in milliseconds to wait for each</td>
+<td style="text-align:center">50</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">event before dispatching an undersized batch to pipeline workers.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">pipeline.unsafe_shutdown</td>
+<td style="text-align:center">When set to true, forces Logstash to exit during shutdown even if there are still</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">inflight events in memory. By default, Logstash will refuse to quit until all received</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">events have been pushed to the outputs. Enabling this option can lead to data</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">loss during shutdown.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">path.config</td>
+<td style="text-align:center">The path to the Logstash config for the main pipeline. If you specify a directory</td>
+<td style="text-align:center">Platform-specific. See</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">or wildcard, config files are read from the directory in alphabetical order.</td>
+<td style="text-align:center">Logstash Directory Layout.</td>
+</tr>
+<tr>
+<td style="text-align:center">config.string</td>
+<td style="text-align:center">A string that contains the pipeline configuration to use for the main pipeline.</td>
+<td style="text-align:center">None</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Use the same syntax as the config file.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">config.test_and_exit</td>
+<td style="text-align:center">When set to true, checks that the configuration is valid and then exits. Note that</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">grok patterns are not checked for correctness with this setting. Logstash can</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">read multiple config files from a directory. If you combine this setting with log.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">level: debug, Logstash will log the combined config file, annotating each config</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">block with the source file it came from.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">config.reload.automatic</td>
+<td style="text-align:center">When set to true, periodically checks if the configuration has changed and reloads</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">the configuration whenever it is changed. This can also be triggered manually</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">through the SIGHUP signal.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">config.reload.interval</td>
+<td style="text-align:center">How often in seconds Logstash checks the config files for changes.</td>
+<td style="text-align:center">3s</td>
+</tr>
+<tr>
+<td style="text-align:center">config.debug</td>
+<td style="text-align:center">When set to true, shows the fully compiled configuration as a debug log message.</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">You must also set log.level: debug. WARNING: The log message will include any</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">password options passed to plugin configs as plaintext, and may result in plaintext</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">passwords appearing in your logs!</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">config.support_escapes</td>
+<td style="text-align:center">When set to true, quoted strings will process the following escape</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">sequences: \n becomes a literal newline (ASCII 10). \r becomes a literal carriage</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">return (ASCII 13). \t becomes a literal tab (ASCII 9). \ becomes a literal</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">backslash . &quot; becomes a literal double quotation mark. ' becomes a literal</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">quotation mark.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">modules</td>
+<td style="text-align:center">When configured, modules must be in the nested YAML structure described above</td>
+<td style="text-align:center">None</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">this table.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">queue.type</td>
+<td style="text-align:center">The internal queuing model to use for event buffering. Specify memory for</td>
+<td style="text-align:center">memory</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">legacy in-memory based queuing, or persisted for disk-based ACKed queueing</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">(persistent queues).</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">path.queue</td>
+<td style="text-align:center">The directory path where the data files will be stored when persistent queues are</td>
+<td style="text-align:center">path.data/queue</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">enabled (queue.type: persisted).</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">queue.page_capacity</td>
+<td style="text-align:center">The size of the page data files used when persistent queues are enabled</td>
+<td style="text-align:center">64mb</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">(queue.type: persisted). The queue data consists of append-only data files separated</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">into pages.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">queue.max_events</td>
+<td style="text-align:center">The maximum number of unread events in the queue when persistent queues are</td>
+<td style="text-align:center">0 (unlimited)</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">enabled (queue.type: persisted).</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">queue.max_bytes</td>
+<td style="text-align:center">The total capacity of the queue in number of bytes. Make sure the capacity of your</td>
+<td style="text-align:center">1024mb (1g)</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">disk drive is greater than the value you specify here. If both queue.max_events and</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">queue.max_bytes are specified, Logstash uses whichever criteria is reached first.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">queue.checkpoint.acks</td>
+<td style="text-align:center">The maximum number of ACKed events before forcing a checkpoint when persistent queues</td>
+<td style="text-align:center">1024</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">are enabled (queue.type: persisted). Specify queue.checkpoint.acks: 0 to set this</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">value to unlimited.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">queue.checkpoint.writes</td>
+<td style="text-align:center">The maximum number of written events before forcing a checkpoint when persistent</td>
+<td style="text-align:center">1024</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">queues are enabled (queue.type: persisted). Specify queue.checkpoint.writes: 0 to set</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">this value to unlimited.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">queue.drain</td>
+<td style="text-align:center">When enabled, Logstash waits until the persistent queue is drained before</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">shutting down.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">dead_letter_queue.enable</td>
+<td style="text-align:center">Flag to instruct Logstash to enable the DLQ feature supported by plugins.</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">dead_letter_queue.max_bytes</td>
+<td style="text-align:center">The maximum size of each dead letter queue. Entries will be dropped if they would</td>
+<td style="text-align:center">1024mb</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">increase the size of the dead letter queue beyond this setting.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">path.dead_letter_queue</td>
+<td style="text-align:center">The directory path where the data files will be stored for the dead-letter queue.</td>
+<td style="text-align:center">path.data/dead_letter_queue</td>
+</tr>
+<tr>
+<td style="text-align:center">http.host</td>
+<td style="text-align:center">The bind address for the metrics REST endpoint.</td>
+<td style="text-align:center">&ldquo;127.0.0.1&rdquo;</td>
+</tr>
+<tr>
+<td style="text-align:center">http.port</td>
+<td style="text-align:center">The bind port for the metrics REST endpoint.</td>
+<td style="text-align:center">9600</td>
+</tr>
+<tr>
+<td style="text-align:center">log.level</td>
+<td style="text-align:center">The log level. Valid options are:</td>
+<td style="text-align:center">fatal</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">error</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">warn</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">info</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">debug</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">trace</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">info</td>
+</tr>
+<tr>
+<td style="text-align:center">log.format</td>
+<td style="text-align:center">The log format. Set to json to log in JSON format, or plain to use Object#.inspect.</td>
+<td style="text-align:center">plain</td>
+</tr>
+<tr>
+<td style="text-align:center">path.logs</td>
+<td style="text-align:center">The directory where Logstash will write its log to.</td>
+<td style="text-align:center">LOGSTASH_HOME/logs</td>
+</tr>
+<tr>
+<td style="text-align:center">path.plugins</td>
+<td style="text-align:center">Where to find custom plugins. You can specify this setting multiple times to</td>
+<td style="text-align:center">Platform-specific.</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">include multiple paths. Plugins are expected to be in a specific directory</td>
+<td style="text-align:center">See Logstash Directory</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">hierarchy: PATH/logstash/TYPE/NAME.rb where TYPE is inputs, filters, outputs, or</td>
+<td style="text-align:center">Layout.</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">codecs, and NAME is the name of the plugin.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="pipelinesyml">pipelines.yml</h2>
+<p>通过该配置，可以在一个logstash实例中运行多个管道</p>
+<p>多管道配置示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">-</span> <span class="n">pipeline</span><span class="o">.</span><span class="na">id</span><span class="o">:</span> <span class="n">my</span><span class="o">-</span><span class="n">pipeline_1</span>
+  <span class="n">path</span><span class="o">.</span><span class="na">config</span><span class="o">:</span> <span class="s">&#34;/etc/path/to/p1.yml&#34;</span>
+<span class="o">-</span> <span class="n">pipeline</span><span class="o">.</span><span class="na">id</span><span class="o">:</span> <span class="n">my</span><span class="o">-</span><span class="n">other</span><span class="o">-</span><span class="n">pipeline</span>
+  <span class="n">path</span><span class="o">.</span><span class="na">config</span><span class="o">:</span> <span class="s">&#34;/etc/different/path/p2.yml&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="jvmoptions">jvm.options</h2>
+<p>JVM参数</p>
+<h2 id="log4j2properties">log4j2.properties</h2>
+<p>包含log4j2运行库的默认参数</p>
+<h1 id="input">input</h1>
+<h2 id="所有-input-插件都通用的设置项">所有 input 插件都通用的设置项</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">输入类型</th>
+<th style="text-align:center">是否必需</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">add_field</td>
+<td style="text-align:center">hash</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">{}</td>
+<td style="text-align:center">添加一个 field 到 event 中</td>
+</tr>
+<tr>
+<td style="text-align:center">codec</td>
+<td style="text-align:center">codec</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;plain&rdquo;</td>
+<td style="text-align:center">编码解码器，在数据进入 input 前对数据进行解码</td>
+</tr>
+<tr>
+<td style="text-align:center">enable_metric</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">开启或关闭 metric 日志</td>
+</tr>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">为 input 插件添加一个唯一 ID ，推荐设置一个 ID</td>
+</tr>
+<tr>
+<td style="text-align:center">tags</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">为 event 添加一个标签</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">添加一个 type 字段到 event 中，主要用于 filter 激活</td>
+</tr>
+</tbody>
+</table>
+<h2 id="stdin-input-插件">stdin input 插件</h2>
+<h3 id="简介">简介</h3>
+<h3 id="示例">示例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">input</span> <span class="p">{</span>
+  <span class="nx">stdin</span> <span class="p">{</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>从标准输入读取 event，默认情况下，每个 event 都是一行，如果要让多行作为一个 event，需要用到 multiline 编码解码器</p>
+<h2 id="beats-input-插件">beats input 插件</h2>
+<h3 id="简介-1">简介</h3>
+<p>这个 input 插件允许Logstash从 Elastic Beats 框架中接收事件。</p>
+<h3 id="示例-1">示例：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">input</span> <span class="p">{</span>
+  <span class="nx">beats</span> <span class="p">{</span>
+    <span class="nx">port</span> <span class="p">=&gt;</span> <span class="mi">5044</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置">配置</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">输入类型</th>
+<th style="text-align:center">是否必需</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">cipher_suites</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">client_inactivity_timeout</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">在X秒后关闭不活动的空闲客户端</td>
+</tr>
+<tr>
+<td style="text-align:center">host</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;0.0.0.0&rdquo;</td>
+<td style="text-align:center">要监听的IP地址</td>
+</tr>
+<tr>
+<td style="text-align:center">include_codec_tag</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">port</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">要监听的端口</td>
+</tr>
+<tr>
+<td style="text-align:center">ssl</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">使用SSL</td>
+</tr>
+<tr>
+<td style="text-align:center">ssl_certificate</td>
+<td style="text-align:center">a valid filesystem path</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">SSL证书所在目录</td>
+</tr>
+<tr>
+<td style="text-align:center">ssl_certificate_authorities</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[ ]</td>
+<td style="text-align:center">可以配置证书的路径或者所在目录，用来校验客户端的证书的</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">合法性，通过ssl_verifi_mode设置项来开启校验。</td>
+</tr>
+<tr>
+<td style="text-align:center">ssl_handshake_timeout</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">10000</td>
+<td style="text-align:center">一次ssl连接握手超时毫秒数</td>
+</tr>
+<tr>
+<td style="text-align:center">ssl_key</td>
+<td style="text-align:center">a valid filesystem path</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">SSL秘钥，必须是PKCS8格式</td>
+</tr>
+<tr>
+<td style="text-align:center">ssl_key_passphrase</td>
+<td style="text-align:center">password</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">SSL秘钥密码</td>
+</tr>
+<tr>
+<td style="text-align:center">ssl_verify_mode</td>
+<td style="text-align:center">string, one of</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;none&rdquo;</td>
+<td style="text-align:center">peer会让服务器要求客户端提供证书。如果客户端提供证</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">[&ldquo;none&rdquo;, &ldquo;peer&rdquo;, &ldquo;force_peer&rdquo;]</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">书，则将对其进行验证。force_peer将使服务器要求客户</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">端提供证书。如果客户端未提供证书，则将关闭连接。</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">此选项需要与ssl_certificate_authorities和已定义的</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">CA列表一起使用。</td>
+</tr>
+<tr>
+<td style="text-align:center">tls_max_version</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">1.2</td>
+<td style="text-align:center">用于加密连接的TLS的最高版本</td>
+</tr>
+<tr>
+<td style="text-align:center">tls_min_version</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">用于加密连接的TLS的最小版本</td>
+</tr>
+</tbody>
+</table>
+<h2 id="jdbc-input-插件">jdbc input 插件</h2>
+<h3 id="简介-2">简介</h3>
+<p>这个 input 插件可以从任何支持 JDBC 接口的数据库中提取数据到 Logstash中</p>
+<h3 id="示例-2">示例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">input</span> <span class="p">{</span>
+  <span class="nx">jdbc</span> <span class="p">{</span>
+    <span class="nx">jdbc_driver_library</span> <span class="p">=&gt;</span> <span class="s2">&#34;mysql-connector-java-5.1.36-bin.jar&#34;</span>
+    <span class="nx">jdbc_driver_class</span> <span class="p">=&gt;</span> <span class="s2">&#34;com.mysql.jdbc.Driver&#34;</span>
+    <span class="nx">jdbc_connection_string</span> <span class="p">=&gt;</span> <span class="s2">&#34;jdbc:mysql://localhost:3306/mydb&#34;</span>
+    <span class="nx">jdbc_user</span> <span class="p">=&gt;</span> <span class="s2">&#34;mysql&#34;</span>
+    <span class="nx">parameters</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="s2">&#34;favorite_artist&#34;</span> <span class="p">=&gt;</span> <span class="s2">&#34;Beethoven&#34;</span> <span class="p">}</span>
+    <span class="nx">schedule</span> <span class="p">=&gt;</span> <span class="s2">&#34;* * * * *&#34;</span>
+    <span class="nx">statement</span> <span class="p">=&gt;</span> <span class="s2">&#34;SELECT * from songs where artist = :favorite_artist&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置-1">配置</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">输入类型</th>
+<th style="text-align:center">是否必需</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">clean_run</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">以上一次运行状态继续运行</td>
+</tr>
+<tr>
+<td style="text-align:center">columns_charset</td>
+<td style="text-align:center">hash</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">{}</td>
+<td style="text-align:center">指定某些列的字符集</td>
+</tr>
+<tr>
+<td style="text-align:center">connection_retry_attempts</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">尝试连接数据库的最大次数</td>
+</tr>
+<tr>
+<td style="text-align:center">connection_retry_attempts_wait_time</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">0.5</td>
+<td style="text-align:center">尝试连接数据库的时间间隔，单位秒</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_connection_string</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">JDBC 连接URL</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_default_timezone</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">时区转换，例：America/Denver</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_driver_class</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">JDBC 驱动类</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_driver_library</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">JDBC 驱动</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_fetch_size</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">JDBC 获取大小</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_page_size</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">100000</td>
+<td style="text-align:center">JDBC 分页大小</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_paging_enabled</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">是否允许将查询 SQL 拆分成分页模式</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_password</td>
+<td style="text-align:center">password</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">数据库密码</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_password_filepath</td>
+<td style="text-align:center">a valid filesystem path</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">数据库密码文件</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_pool_timeout</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">从数据库连接池获取一个连接的超时时间，单位秒</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_user</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">数据库用户名</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_validate_connection</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">使用前校验数据库连接</td>
+</tr>
+<tr>
+<td style="text-align:center">jdbc_validation_timeout</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">3600</td>
+<td style="text-align:center">校验数据库连接的时间间隔，单位秒</td>
+</tr>
+<tr>
+<td style="text-align:center">last_run_metadata_path</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">记录最近一次运行状态的文件</td>
+</tr>
+<tr>
+<td style="text-align:center">lowercase_column_names</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">是否将列名转换为小写字母</td>
+</tr>
+<tr>
+<td style="text-align:center">record_last_run</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">是否记录最近一次运行状态</td>
+</tr>
+<tr>
+<td style="text-align:center">schedule</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">时间调度，cron表达式</td>
+</tr>
+<tr>
+<td style="text-align:center">sequel_opts</td>
+<td style="text-align:center">hash</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">{}</td>
+<td style="text-align:center">sequel参数</td>
+</tr>
+<tr>
+<td style="text-align:center">sql_log_level</td>
+<td style="text-align:center">string, one of</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">info</td>
+<td style="text-align:center">记录 SQL 查询日志的等级</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">&ldquo;warn&rdquo;, &ldquo;info&rdquo;, &ldquo;debug&rdquo;]</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">parameters</td>
+<td style="text-align:center">hash</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">{}</td>
+<td style="text-align:center">SQL 参数</td>
+</tr>
+<tr>
+<td style="text-align:center">statement</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">要执行的 SQL ，与 parameters 设置项配合使用，</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">例：&ldquo;SELECT * FROM MYTABLE WHERE id = :target_id&rdquo;</td>
+</tr>
+<tr>
+<td style="text-align:center">statement_filepath</td>
+<td style="text-align:center">a valid filesystem path</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">包含要执行的 SQL 的文件</td>
+</tr>
+<tr>
+<td style="text-align:center">tracking_column</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">The column whose value is to be tracked if</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">use_column_value is set to true</td>
+</tr>
+<tr>
+<td style="text-align:center">tracking_column_type</td>
+<td style="text-align:center">string, one of</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;numeric&rdquo;</td>
+<td style="text-align:center">Type of tracking column.</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">[&ldquo;numeric&rdquo;, &ldquo;timestamp&rdquo;]</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">use_column_value</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">When set to true, uses the defined</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">tracking_column value as the :sql_last_value.</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">When set to false, :sql_last_value reflects</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">the last time the query was executed.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="redis-input-插件">redis input 插件</h2>
+<h3 id="简介-3">简介</h3>
+<p>这个插件从 redis 中读取 event，支持 redis channel 和 list，建议使用 redis 2.6.0 以上版本</p>
+<h3 id="配置-2">配置</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">输入类型</th>
+<th style="text-align:center">是否必需</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">batch_count</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">125</td>
+<td style="text-align:center">使用 EVAL 从 redis 返回的 event 数</td>
+</tr>
+<tr>
+<td style="text-align:center">data_type</td>
+<td style="text-align:center">string, one of</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">数据类型</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">&ldquo;pattern_channel&rdquo;]</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">db</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">redis 数据库编号</td>
+</tr>
+<tr>
+<td style="text-align:center">host</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">127.0.0.1</td>
+<td style="text-align:center">redis 服务器主机地址</td>
+</tr>
+<tr>
+<td style="text-align:center">path</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">The unix socket path of your Redis server.</td>
+</tr>
+<tr>
+<td style="text-align:center">key</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">redis list 或 channel 的 key</td>
+</tr>
+<tr>
+<td style="text-align:center">password</td>
+<td style="text-align:center">password</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">认证密码，默认不需要认证</td>
+</tr>
+<tr>
+<td style="text-align:center">port</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">6379</td>
+<td style="text-align:center">redis 服务器端口</td>
+</tr>
+<tr>
+<td style="text-align:center">ssl</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">是否启用 ssl</td>
+</tr>
+<tr>
+<td style="text-align:center">threads</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">线程数</td>
+</tr>
+<tr>
+<td style="text-align:center">timeout</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">连接超时时间，单位秒</td>
+</tr>
+</tbody>
+</table>
+<h1 id="output">output</h1>
+<h2 id="所有-output-插件都通用的设置项">所有 output 插件都通用的设置项</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">输入类型</th>
+<th style="text-align:center">是否必需</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">codec</td>
+<td style="text-align:center">codec</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;plain&rdquo;</td>
+<td style="text-align:center">编码解码器</td>
+</tr>
+<tr>
+<td style="text-align:center">enable_metric</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">Disable or enable metric logging for this specific plugin instance. By default we</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">record all the metrics we can, but you can disable metrics collection for a specific plugin.</td>
+</tr>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">为 output 插件设置一个唯一 ID，推荐设置一个</td>
+</tr>
+</tbody>
+</table>
+<h2 id="stdout-output-插件">stdout output 插件</h2>
+<h3 id="简介-4">简介</h3>
+<p>将 event 数据输出到运行 Logstash 的 shell 的 标准输出中</p>
+<h3 id="示例-3">示例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">output</span> <span class="p">{</span>
+  <span class="nx">stdout</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="elasticsearch-output-插件">elasticsearch output 插件</h2>
+<h3 id="简介-5">简介</h3>
+<p>将日志存储到 elasticsearch 中，如果要用到 kibana，就会用到这个 output 插件。仅支持 HTTP 协议。</p>
+<h3 id="示例-4">示例</h3>
+<h3 id="配置-3">配置</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">输入类型</th>
+<th style="text-align:center">是否必需</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">action</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;index&rdquo;</td>
+<td style="text-align:center">有效的 action 是：</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">index：索引文档</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">delete：按 id 删除文档</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">create：按 id 新建索引</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">update：按 id 更新索引</td>
+</tr>
+<tr>
+<td style="text-align:center">bulk_path</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">HTTP Path to perform the bulk requests to</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">this defaults to a concatenation of the</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">path parameter and &ldquo;_bulk&rdquo;</td>
+</tr>
+<tr>
+<td style="text-align:center">cacert</td>
+<td style="text-align:center">a valid filesystem path</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">用于校验服务器证书的 .cer 或 .pem 文件</td>
+</tr>
+<tr>
+<td style="text-align:center">custom_headers</td>
+<td style="text-align:center">hash</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">自定义 HTTP 头信息，会被 http_compression</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">设置覆盖</td>
+</tr>
+<tr>
+<td style="text-align:center">doc_as_upsert</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">是否开启 insert or update 模式，设置为</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">true时，如果 document_id 指定的索引不存在，</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">则新建一个索引</td>
+</tr>
+<tr>
+<td style="text-align:center">document_id</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">索引 ID</td>
+</tr>
+<tr>
+<td style="text-align:center">document_type</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">elasticsearch 的 type，这个配置已废弃，</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">因为 type 将在 elasticsearch 7.0.0 版本中</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">彻底移除</td>
+</tr>
+<tr>
+<td style="text-align:center">failure_type_logging_whitelist</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[ ]</td>
+<td style="text-align:center">Set the Elasticsearch errors in the</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">whitelist that you don&rsquo;t want to log. A</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">useful example is when you want to skip</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">all 409 errors which are</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">document_already_exists_exception.</td>
+</tr>
+<tr>
+<td style="text-align:center">healthcheck_path</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">HTTP Path where a HEAD request is sent when</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a backend is marked down the request is</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">sent in the background to see if it has</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">come back again before it is once again</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">eligible to service requests. If you</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">have custom firewall rules you may need to</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">change this</td>
+</tr>
+<tr>
+<td style="text-align:center">hosts</td>
+<td style="text-align:center">uri</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[//127.0.0.1]</td>
+<td style="text-align:center">elasticsearch 主机地址，如果给出2个以上</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">主机地址，将会在主机间作负载均衡。例：</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">[&ldquo;127.0.0.1:9200&rdquo;,&ldquo;127.0.0.2:9200&rdquo;]</td>
+</tr>
+<tr>
+<td style="text-align:center">http_compression</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">对请求启用gzip压缩，Elasticsearch v5.0以上版本，默认启用响应压缩</td>
+</tr>
+<tr>
+<td style="text-align:center">index</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;logstash-%{+YYYY.MM.dd}&rdquo;</td>
+<td style="text-align:center">索引名称，支持 Joda 格式</td>
+</tr>
+<tr>
+<td style="text-align:center">keystore</td>
+<td style="text-align:center">a valid filesystem path</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">用于向服务器提供证书的密钥库，可以是 .jks 或p12 文件</td>
+</tr>
+<tr>
+<td style="text-align:center">keystore_password</td>
+<td style="text-align:center">password</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">密钥库密码</td>
+</tr>
+<tr>
+<td style="text-align:center">manage_template</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">parameters</td>
+<td style="text-align:center">hash</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">传递一组键值对作为 url 的请求参数</td>
+</tr>
+<tr>
+<td style="text-align:center">parent</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">nil</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">password</td>
+<td style="text-align:center">password</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">向 elasticsearch 集群进行认证的密码</td>
+</tr>
+<tr>
+<td style="text-align:center">path</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">elasticsearch 服务器所在的 HTTP 路径</td>
+</tr>
+<tr>
+<td style="text-align:center">pipeline</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">nil</td>
+<td style="text-align:center">处理 event 的管道</td>
+</tr>
+<tr>
+<td style="text-align:center">pool_max</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">1000</td>
+<td style="text-align:center">连接池的大小</td>
+</tr>
+<tr>
+<td style="text-align:center">pool_max_per_route</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">endpoint 的大小</td>
+</tr>
+<tr>
+<td style="text-align:center">proxy</td>
+<td style="text-align:center">uri</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">转发 HTTP 代理的地址</td>
+</tr>
+<tr>
+<td style="text-align:center">resurrect_delay</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">复活尝试的时间间隔，单位秒</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_initial_interval</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">重试间隔，单位秒</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_max_interval</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">最大重试间隔，单位秒</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_on_conflict</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">冲突时重试次数</td>
+</tr>
+<tr>
+<td style="text-align:center">routing</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">A routing override to be applied to</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">all processed events.</td>
+</tr>
+<tr>
+<td style="text-align:center">script</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&quot;&quot;</td>
+<td style="text-align:center">更新模式下的运行脚本</td>
+</tr>
+<tr>
+<td style="text-align:center">script_lang</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;painless&rdquo;</td>
+<td style="text-align:center">脚本语言</td>
+</tr>
+<tr>
+<td style="text-align:center">script_type</td>
+<td style="text-align:center">string, one of</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[&ldquo;inline&rdquo;]</td>
+<td style="text-align:center">脚本类型</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">&ldquo;file&rdquo;]</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">script_var_name</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;event&rdquo;</td>
+<td style="text-align:center">传递给脚本的变量名</td>
+</tr>
+<tr>
+<td style="text-align:center">scripted_upsert</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">if enabled, script is in charge of creating</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">non-existent document (scripted update)</td>
+</tr>
+<tr>
+<td style="text-align:center">sniffing</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">此设置要求Elasticsearch提供所有群集节点的列表，</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">并将它们添加到主机列表中。</td>
+</tr>
+<tr>
+<td style="text-align:center">sniffing_delay</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">sniffing 时间间隔，单位秒</td>
+</tr>
+<tr>
+<td style="text-align:center">sniffing_path</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">sniffing 的 HTTP 路径</td>
+</tr>
+<tr>
+<td style="text-align:center">ssl</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">开启 SSL/TLS 安全连接到 elasticsearch 集群</td>
+</tr>
+<tr>
+<td style="text-align:center">ssl_certificate_verification</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">校验服务器的证书</td>
+</tr>
+<tr>
+<td style="text-align:center">template</td>
+<td style="text-align:center">a valid filesystem path</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">模板文件路径</td>
+</tr>
+<tr>
+<td style="text-align:center">template_name</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;logstash&rdquo;</td>
+<td style="text-align:center">模板名称</td>
+</tr>
+<tr>
+<td style="text-align:center">template_overwrite</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">覆盖模板</td>
+</tr>
+<tr>
+<td style="text-align:center">timeout</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">发送到 elasticsearch 的网络操作和请求的超时时间</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">如果超时，将会重试，单位秒</td>
+</tr>
+<tr>
+<td style="text-align:center">truststore</td>
+<td style="text-align:center">a valid filesystem path</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">The JKS truststore to validate the server’s</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">certificate.</td>
+</tr>
+<tr>
+<td style="text-align:center">truststore_password</td>
+<td style="text-align:center">password</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">Set the truststore password</td>
+</tr>
+<tr>
+<td style="text-align:center">upsert</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&quot;&quot;</td>
+<td style="text-align:center">Set upsert content for update mode. Create</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a new document with this parameter as json</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">string if document_id doesn’t exists</td>
+</tr>
+<tr>
+<td style="text-align:center">user</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">elasticsearch 集群认证用户名</td>
+</tr>
+<tr>
+<td style="text-align:center">validate_after_inactivity</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">10000</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">version</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">version_type</td>
+<td style="text-align:center">string, one of [&ldquo;internal&rdquo;,&ldquo;external&rdquo;,&ldquo;external_gt&rdquo;,&ldquo;external_gte&rdquo;,&ldquo;force&rdquo;]</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h1 id="filter">filter</h1>
+<h2 id="所有-filter-插件都通用的设置项">所有 filter 插件都通用的设置项</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">输入类型</th>
+<th style="text-align:center">是否必需</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">add_field</td>
+<td style="text-align:center">hash</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">{}</td>
+<td style="text-align:center">添加 field 到 event 中，可以使用 %{field} 动态添加 field</td>
+</tr>
+<tr>
+<td style="text-align:center">add_tag</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[]</td>
+<td style="text-align:center">添加 tag 到 event 中，可以使用 %{field} 动态添加 tag</td>
+</tr>
+<tr>
+<td style="text-align:center">enable_metric</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">开启或关闭 metric 日志</td>
+</tr>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">为 filter 插件添加一个唯一 ID，推荐设置一个</td>
+</tr>
+<tr>
+<td style="text-align:center">periodic_flush</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">定期调用 filter 的 flush 方法</td>
+</tr>
+<tr>
+<td style="text-align:center">remove_field</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[]</td>
+<td style="text-align:center">删除 field，可以使用 %{field} 动态删除，例：</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">remove_field =&gt; [ &ldquo;foo_%{somefield}&rdquo; ]</td>
+</tr>
+<tr>
+<td style="text-align:center">remove_tag</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[]</td>
+<td style="text-align:center">删除 tag，可以使用 %{field} 动态删除，例：</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">remove_tag =&gt; [ &ldquo;foo_%{somefield}&rdquo; ]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="geoip-filter-插件">geoip filter 插件</h2>
+<h3 id="简介-6">简介</h3>
+<p>geoip filter 插件可以添加 IP 地址的地理位置信息，基于 Maxmind GeoLite2 数据库</p>
+<h3 id="配置-4">配置</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">输入类型</th>
+<th style="text-align:center">是否必需</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">cache_size</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">缓存大小</td>
+<td style="text-align:center">GeoIP 查询是非常消耗资源的，设置缓存开销很小，</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">速度增益很大</td>
+</tr>
+<tr>
+<td style="text-align:center">database</td>
+<td style="text-align:center">a valid filesystem path</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">Maxmind 数据库文件路径，默认使用 GeoLite2 City数据库</td>
+</tr>
+<tr>
+<td style="text-align:center">default_database_type</td>
+<td style="text-align:center">City or ASN</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">City</td>
+<td style="text-align:center">可用类型为 City 和 ASN</td>
+</tr>
+<tr>
+<td style="text-align:center">fields</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">可用字段为city_name, continent_code, country_code2,</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">country_code3, country_name, dma_code, ip, latitude,</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">longitude, postal_code, region_name and timezone.</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">默认包含所有字段。</td>
+</tr>
+<tr>
+<td style="text-align:center">source</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">可以被 geoip 映射的、包含 IP 或主机名的字段</td>
+</tr>
+<tr>
+<td style="text-align:center">tag_on_failure</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[&quot;_geoip_lookup_failure&quot;]</td>
+<td style="text-align:center">Tags the event on failure to look up geo information.</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">This can be used in later analysis.</td>
+</tr>
+<tr>
+<td style="text-align:center">target</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;geoip&rdquo;</td>
+<td style="text-align:center">用于存储 geoip 数据的字段名</td>
+</tr>
+</tbody>
+</table>
+<h2 id="grok-filter-插件">grok filter 插件</h2>
+<h3 id="简介-7">简介</h3>
+<p>grok 可以将非结构化的数据解析为结构化、可查询的数据。
+Logstash 默认提供 120 种模式，见<a href="https://github.com/logstash-plugins/logstash-patterns-core/tree/master/patterns">https://github.com/logstash-plugins/logstash-patterns-core/tree/master/patterns</a>
+也可以通过 patterns_dir 设置项添加自定义的模式。
+<a href="http://grokdebug.herokuapp.com">http://grokdebug.herokuapp.com</a>可以用来构建表达式以匹配日志。</p>
+<h3 id="示例-5">示例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">input</span> <span class="p">{</span>
+  <span class="nx">file</span> <span class="p">{</span>
+    <span class="nx">path</span> <span class="p">=&gt;</span> <span class="s2">&#34;/var/log/http.log&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">filter</span> <span class="p">{</span>
+  <span class="nx">grok</span> <span class="p">{</span>
+    <span class="nx">match</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="s2">&#34;message&#34;</span> <span class="p">=&gt;</span> <span class="s2">&#34;%{IP:client} %{WORD:method} %{URIPATHPARAM:request} %{NUMBER:bytes} %{NUMBER:duration}&#34;</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置-5">配置</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">输入类型</th>
+<th style="text-align:center">是否必需</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">break_on_match</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">模式匹配后就跳出，不再匹配后面的模式</td>
+</tr>
+<tr>
+<td style="text-align:center">keep_empty_captures</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">If true, keep empty captures as event fields.</td>
+</tr>
+<tr>
+<td style="text-align:center">match</td>
+<td style="text-align:center">hash</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">{}</td>
+<td style="text-align:center">对 field 进行匹配解析的模式表达式</td>
+</tr>
+<tr>
+<td style="text-align:center">named_captures_only</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">If true, only store named captures from grok.</td>
+</tr>
+<tr>
+<td style="text-align:center">overwrite</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[]</td>
+<td style="text-align:center">覆盖一个已存在的 field</td>
+</tr>
+<tr>
+<td style="text-align:center">pattern_definitions</td>
+<td style="text-align:center">hash</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">{}</td>
+<td style="text-align:center">A hash of pattern-name and pattern tuples defining custom patterns to be used</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">by the current filter. Patterns matching existing names will override the</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">pre-existing definition. Think of this as inline patterns available just for</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">this definition of grok</td>
+</tr>
+<tr>
+<td style="text-align:center">patterns_dir</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[]</td>
+<td style="text-align:center">自定义模式文件所在路径，文件内容示例：</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">NUMBER \d+</td>
+</tr>
+<tr>
+<td style="text-align:center">patterns_files_glob</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;*&rdquo;</td>
+<td style="text-align:center">Glob pattern, used to select the pattern files in the directories specified</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">by patterns_dir</td>
+</tr>
+<tr>
+<td style="text-align:center">tag_on_failure</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[&quot;_grokparsefailure&quot;]</td>
+<td style="text-align:center">Append values to the tags field when there has been no successful match</td>
+</tr>
+<tr>
+<td style="text-align:center">tag_on_timeout</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;_groktimeout&rdquo;</td>
+<td style="text-align:center">Tag to apply if a grok regexp times out.</td>
+</tr>
+<tr>
+<td style="text-align:center">timeout_millis</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">30000</td>
+<td style="text-align:center">模式匹配超时，单位毫秒</td>
+</tr>
+</tbody>
+</table>
+<h3 id="match-详解">match 详解</h3>
+<h4 id="使用-logstash-内置模式">使用 Logstash 内置模式</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">%</span><span class="p">{</span><span class="nx">模式</span><span class="o">:</span><span class="nx">字段名</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">%</span><span class="p">{</span><span class="nx">IP</span><span class="o">:</span><span class="nx">client</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="使用正则表达式">使用正则表达式</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">(</span><span class="o">?&lt;</span><span class="nx">字段名</span><span class="o">&gt;</span><span class="nx">正则表达式</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">(</span><span class="o">?&lt;</span><span class="nx">num</span><span class="o">&gt;</span><span class="err">\</span><span class="nx">d</span><span class="o">+</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="多行匹配">多行匹配</h4>
+<p>在和 codec/multiline 搭配使用的时候，需要注意一个问题，grok 正则和普通正则一样，默认是不支持匹配回车换行的。就像你需要 =~ //m 一样也需要单独指定，具体写法是在表达式开始位置加 (?m) 标记。如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">match</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="s2">&#34;message&#34;</span> <span class="p">=&gt;</span> <span class="s2">&#34;(?m)\s+(?&lt;request_time&gt;\d+(?:\.\d+)?)\s+&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="多项选择">多项选择</h4>
+<p>有时候我们会碰上一个日志有多种可能格式的情况。这时候要写成单一正则就比较困难，或者全用 | 隔开又比较丑陋。这时候，logstash 的语法提供给我们一个有趣的解决方式。
+文档中，都说明 logstash/filters/grok 插件的 match 参数应该接受的是一个 Hash 值。但是因为早期的 logstash 语法中 Hash 值也是用 [] 这种方式书写的，所以其实现在传递 Array 值给 match 参数也完全没问题。所以，我们这里其实可以传递多个正则来匹配同一个字段：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">match</span> <span class="p">=&gt;</span> <span class="p">[</span>
+    <span class="s2">&#34;message&#34;</span><span class="p">,</span> <span class="s2">&#34;(?&lt;request_time&gt;\d+(?:\.\d+)?)&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;message&#34;</span><span class="p">,</span> <span class="s2">&#34;%{SYSLOGBASE} %{DATA:message}&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;message&#34;</span><span class="p">,</span> <span class="s2">&#34;(?m)%{WORD}&#34;</span>
+<span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>logstash 会按照这个定义次序依次尝试匹配，到匹配成功为止。虽说效果跟用 | 分割写个大大的正则是一样的，但是可阅读性好了很多。</p>
+<h4 id="指定字段类型">指定字段类型</h4>
+<p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">match</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="s2">&#34;message&#34;</span> <span class="p">=&gt;</span> <span class="s2">&#34;%{WORD} %{NUMBER:request_time:float} %{WORD}&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这里把 request_time 字段指定为 float 类型，目前只支持 int 和 float 两种类型。</p>
+<h1 id="codec">codec</h1>
+<h2 id="json_lines-codec-插件">json_lines codec 插件</h2>
+<h3 id="简介-8">简介</h3>
+<p>适合于解码有换行的 json，编码结果为没有换行的 json</p>
+<h3 id="配置-6">配置</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">输入类型</th>
+<th style="text-align:center">是否必需</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">charset</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">&ldquo;UTF-8&rdquo;</td>
+<td style="text-align:center">字符集</td>
+</tr>
+<tr>
+<td style="text-align:center">delimiter</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">&ldquo;\n&rdquo;</td>
+<td style="text-align:center">分隔符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="json-codec-插件">json codec 插件</h2>
+<h3 id="简介-9">简介</h3>
+<p>适合于解码没有换行的 json，编码结果为没有换行、没有缩进的 json</p>
+<h3 id="配置-7">配置</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设置项</th>
+<th style="text-align:center">输入类型</th>
+<th style="text-align:center">是否必需</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">charset</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">&ldquo;UTF-8&rdquo;</td>
+<td style="text-align:center">字符集</td>
+</tr>
+</tbody>
+</table>
+<h1 id="性能调优">性能调优</h1>
+<h2 id="jvm-调优">jvm 调优</h2>
+<p>编辑 jvm.options 文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 使用 G1 垃圾收集器</span>
+-XX:UseG1GC
+<span class="c1"># 初始堆大小</span>
+-Xms6g
+<span class="c1"># 最大堆大小</span>
+-Xmx6g
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="使用多个-pipeline-分别接收不同来源的-event">使用多个 pipeline 分别接收不同来源的 event</h2>
+<p>编辑 pipelines.yml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">-</span> <span class="n">pipeline</span><span class="o">.</span><span class="na">id</span><span class="o">:</span> <span class="n">pipeline_1</span>
+  <span class="n">path</span><span class="o">.</span><span class="na">config</span><span class="o">:</span> <span class="s">&#34;/etc/path/to/p1.yml&#34;</span>
+<span class="o">-</span> <span class="n">pipeline</span><span class="o">.</span><span class="na">id</span><span class="o">:</span> <span class="n">pipeline_2</span>
+  <span class="n">path</span><span class="o">.</span><span class="na">config</span><span class="o">:</span> <span class="s">&#34;/etc/path/to/p2.yml&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="调整-worker-线程批处理数量">调整 worker 线程批处理数量</h2>
+<p>编辑 logstash.yml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">  pipeline:
+    batch:
+size: <span class="m">512</span>
+delay: <span class="m">10</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content"><a href="http://jason207010.github.io/post/Logstash%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.html">Jason</a>
+      </span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2018-07-19
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://jason207010.github.io/tags/logstash/">Logstash</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/Elasticsearch%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.html">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Elasticsearch 开发指南</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/SLF4J%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%EF%BC%88%E5%9F%BA%E4%BA%8E%20LOG4J%201.x%EF%BC%89.html">
+            <span class="next-text nav-default">SLF4J 开发指南（基于 LOG4J 1.x）</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="https://github.com/jason207010" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://jason207010.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2015 -
+    2021
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Jason
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js" integrity="sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

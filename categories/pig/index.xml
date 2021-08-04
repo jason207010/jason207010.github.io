@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pig on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/categories/pig/</link>
+    <description>Recent content in Pig on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 11 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="http://jason207010.github.io/categories/pig/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pig 开发指南</title>
+      <link>http://jason207010.github.io/post/Pig%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.html</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/Pig%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.html</guid>
+      <description>准备数据 下载sample.txt 1 2 3 4 5 6 cat sample.txt 1950 0 1 1950 22 1 1950 -11 1 1949 111 1 1949 78 1 复制数据到HDFS 1 hadoop fs -copyFromLocal sample.txt /home/jason/ 编写Pig Lantin脚本tes</description>
+    </item>
+    
+    <item>
+      <title>Pig 开发环境配置</title>
+      <link>http://jason207010.github.io/post/Pig%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/Pig%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html</guid>
+      <description>软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 Pig 0.15.0 依赖环境 安装Pig必须先安装配置好JAVA、Hadoop 环境变量配置 编辑/etc/profile文件 1 2 3 4 5 #</description>
+    </item>
+    
+  </channel>
+</rss>

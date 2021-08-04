@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/categories/spring/</link>
+    <description>Recent content in Spring on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 14 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="http://jason207010.github.io/categories/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《Spring 实战》笔记</title>
+      <link>http://jason207010.github.io/post/%E3%80%8ASpring%20%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0.html</link>
+      <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/%E3%80%8ASpring%20%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0.html</guid>
+      <description>Bean的生命周期 Spring Bean 装配Bean 隐式自动装配 基于annotation方式 1 2 3 @Configuration @ComponentScan public class AppConfig {} 基于XML方式 1 2 3 4 5 6 7 8 9 10 11 12 13 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;beans</description>
+    </item>
+    
+    <item>
+      <title>Spring MVC 开发指南（基于 XML）</title>
+      <link>http://jason207010.github.io/post/Spring%20MVC%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%EF%BC%88%E5%9F%BA%E4%BA%8E%20XML%EF%BC%89.html</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/Spring%20MVC%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%EF%BC%88%E5%9F%BA%E4%BA%8E%20XML%EF%BC%89.html</guid>
+      <description>编辑web.xml 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;web-app version=&amp;#34;3.0&amp;#34; xmlns=&amp;#34;http://java.sun.com/xml/ns/javaee&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&amp;#34;&amp;gt; &amp;lt;!--spring mvc begin--&amp;gt; &amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt;spring&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;org.springframework.web.servlet.DispatcherServlet&amp;lt;/servlet-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;classpath:spring-mvc.xml&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt; &amp;lt;/servlet&amp;gt; &amp;lt;servlet-mapping&amp;gt; &amp;lt;servlet-name&amp;gt;spring&amp;lt;/servlet-name&amp;gt; &amp;lt;url-pattern&amp;gt;*.do&amp;lt;/url-pattern&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Spring Security 开发指南（基于 XML）</title>
+      <link>http://jason207010.github.io/post/Spring%20Security%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%EF%BC%88%E5%9F%BA%E4%BA%8E%20XML%EF%BC%89.html</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/Spring%20Security%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%EF%BC%88%E5%9F%BA%E4%BA%8E%20XML%EF%BC%89.html</guid>
+      <description>配置web.xml 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61</description>
+    </item>
+    
+    <item>
+      <title>Spring Validator 注解</title>
+      <link>http://jason207010.github.io/post/Spring%20Validator%20%E6%B3%A8%E8%A7%A3.html</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/Spring%20Validator%20%E6%B3%A8%E8%A7%A3.html</guid>
+      <description>验证注解 验证的数据类型 说明 @AssertFalse Boolean,boolean 验证注解的元素值是false @AssertTrue Boolean,boolean 验证注解的元素值是true @NotNull 任意类型 验证注解的元素值不是null @Null 任意类型 验证</description>
+    </item>
+    
+    <item>
+      <title>基于 Spring Security、JPA 的 RBAC 模型（一）理论部分</title>
+      <link>http://jason207010.github.io/post/%E5%9F%BA%E4%BA%8E%20Spring%20Security%E3%80%81JPA%20%E7%9A%84%20RBAC%20%E6%A8%A1%E5%9E%8B%EF%BC%88%E4%B8%80%EF%BC%89%E7%90%86%E8%AE%BA%E9%83%A8%E5%88%86.html</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/%E5%9F%BA%E4%BA%8E%20Spring%20Security%E3%80%81JPA%20%E7%9A%84%20RBAC%20%E6%A8%A1%E5%9E%8B%EF%BC%88%E4%B8%80%EF%BC%89%E7%90%86%E8%AE%BA%E9%83%A8%E5%88%86.html</guid>
+      <description>RBAC 以角色为基础的访问控制（英语：Role-based access control, RBAC），是资讯安全领域中，一种较新且广为使用的访问控制机制，其不同于强制访问控制</description>
+    </item>
+    
+    <item>
+      <title>基于 Spring Security、JPA 的 RBAC 模型（二）代码部分</title>
+      <link>http://jason207010.github.io/post/%E5%9F%BA%E4%BA%8E%20Spring%20Security%E3%80%81JPA%20%E7%9A%84%20RBAC%20%E6%A8%A1%E5%9E%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86.html</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/%E5%9F%BA%E4%BA%8E%20Spring%20Security%E3%80%81JPA%20%E7%9A%84%20RBAC%20%E6%A8%A1%E5%9E%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86.html</guid>
+      <description>JPA实体设计 用户实体 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 @Entity @Table(name = &amp;#34;`user`&amp;#34;) public class User implements Serializable , UserDetails { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = &amp;#34;`id`&amp;#34;) private Long id; @Column(name = &amp;#34;`name`&amp;#34;) private String name; @Column(name = &amp;#34;`password`&amp;#34;) private String password; @Column(name = &amp;#34;`enable`&amp;#34;) private Boolean</description>
+    </item>
+    
+  </channel>
+</rss>

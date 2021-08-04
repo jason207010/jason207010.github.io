@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Jason&#39;s Blog</title>
+    <link>http://jason207010.github.io/categories/git/</link>
+    <description>Recent content in Git on Jason&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 28 Nov 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://jason207010.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git 使用指南</title>
+      <link>http://jason207010.github.io/post/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://jason207010.github.io/post/Git%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html</guid>
+      <description>简介 Git是分布式版本控制软件 命令 git init 1 git init [directory] 释义 创建一个空 Git 仓库或者重新初始化一个已存在的仓库 示例 1 git init my-project git clone 1 git clone [--verbose | -v] [--progress] [--origin | -o &amp;lt;origin&amp;gt;] [--branch | -b</description>
+    </item>
+    
+  </channel>
+</rss>
