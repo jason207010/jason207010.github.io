@@ -308,14 +308,21 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#用户实体">用户实体</a></li>
-    <li><a href="#角色实体">角色实体</a></li>
-    <li><a href="#资源实体">资源实体</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#spring相关servlet配置">Spring相关Servlet配置</a></li>
-    <li><a href="#spring-security相关servlet配置">Spring Security相关Servlet配置</a></li>
+    <li><a href="#jpa实体设计">JPA实体设计</a>
+      <ul>
+        <li><a href="#用户实体">用户实体</a></li>
+        <li><a href="#角色实体">角色实体</a></li>
+        <li><a href="#资源实体">资源实体</a></li>
+      </ul>
+    </li>
+    <li><a href="#servletfilter配置">Servlet、Filter配置</a>
+      <ul>
+        <li><a href="#spring相关servlet配置">Spring相关Servlet配置</a></li>
+        <li><a href="#spring-security相关servlet配置">Spring Security相关Servlet配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置文件">配置文件</a></li>
+    <li><a href="#springspring-mvcspring-securityspring-data-jpa配置">Spring、Spring MVC、Spring Security、Spring Data JPA配置</a></li>
   </ul>
 </nav>
   </div>
@@ -323,8 +330,8 @@
 
     
     <div class="post-content">
-      <h1 id="jpa实体设计">JPA实体设计</h1>
-<h2 id="用户实体">用户实体</h2>
+      <h2 id="jpa实体设计">JPA实体设计</h2>
+<h3 id="用户实体">用户实体</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -371,7 +378,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="角色实体">角色实体</h2>
+</div><h3 id="角色实体">角色实体</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -398,7 +405,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="资源实体">资源实体</h2>
+</div><h3 id="资源实体">资源实体</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -435,8 +442,8 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="servletfilter配置">Servlet、Filter配置</h1>
-<h2 id="spring相关servlet配置">Spring相关Servlet配置</h2>
+</div><h2 id="servletfilter配置">Servlet、Filter配置</h2>
+<h3 id="spring相关servlet配置">Spring相关Servlet配置</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -493,7 +500,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="spring-security相关servlet配置">Spring Security相关Servlet配置</h2>
+</div><h3 id="spring-security相关servlet配置">Spring Security相关Servlet配置</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -502,7 +509,7 @@
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityWebInitializer</span> <span class="kd">extends</span> <span class="n">AbstractSecurityWebApplicationInitializer</span> <span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="配置文件">配置文件</h1>
+</div><h2 id="配置文件">配置文件</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -521,7 +528,7 @@
 <span class="n">Suffix</span><span class="o">=.</span><span class="na">jsp</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="springspring-mvcspring-securityspring-data-jpa配置">Spring、Spring MVC、Spring Security、Spring Data JPA配置</h1>
+</div><h2 id="springspring-mvcspring-securityspring-data-jpa配置">Spring、Spring MVC、Spring Security、Spring Data JPA配置</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1

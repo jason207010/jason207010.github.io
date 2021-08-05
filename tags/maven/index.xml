@@ -13,7 +13,7 @@
       <pubDate>Sat, 16 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>http://jason207010.github.io/post/%E3%80%8AMaven%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0.html</guid>
-      <description>继承与聚合 继承 可继承的 POM 元素 groupId：项目组ID，项目坐标的核心元素。 version：项目版本，项目坐标的核心元素。 descripti</description>
+      <description>继承 可继承的 POM 元素 groupId：项目组ID，项目坐标的核心元素。 version：项目版本，项目坐标的核心元素。 description：项目</description>
     </item>
     
   </channel>

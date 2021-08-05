@@ -308,193 +308,64 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#装配bean">装配Bean</a>
+    <li><a href="#bean的生命周期">Bean的生命周期</a></li>
+    <li><a href="#spring-bean">Spring Bean</a>
       <ul>
-        <li><a href="#隐式自动装配">隐式自动装配</a></li>
-        <li><a href="#显式装配">显式装配</a></li>
+        <li><a href="#装配bean">装配Bean</a></li>
+        <li><a href="#依赖注入">依赖注入</a></li>
+        <li><a href="#注入外部的值">注入外部的值</a></li>
+        <li><a href="#bean的作用域">Bean的作用域</a></li>
       </ul>
     </li>
-    <li><a href="#依赖注入">依赖注入</a>
+    <li><a href="#面向切面编程aop">面向切面编程（AOP）</a>
       <ul>
-        <li><a href="#基于annotation方式-2">基于annotation方式</a></li>
-        <li><a href="#基于xml方式-2">基于XML方式</a></li>
+        <li><a href="#启用aop功能">启用AOP功能</a></li>
+        <li><a href="#aop代理">AOP代理</a></li>
+        <li><a href="#切面">切面</a></li>
+        <li><a href="#切点">切点</a></li>
+        <li><a href="#通知">通知</a></li>
       </ul>
     </li>
-    <li><a href="#注入外部的值">注入外部的值</a>
+    <li><a href="#spring-mvc">Spring MVC</a>
       <ul>
-        <li><a href="#基于annotation方式-3">基于annotation方式</a></li>
-        <li><a href="#基于xml方式-3">基于XML方式</a></li>
+        <li><a href="#跟踪spring-mvc的请求">跟踪Spring MVC的请求</a></li>
+        <li><a href="#spring-mvc配置">Spring MVC配置</a></li>
+        <li><a href="#处理请求参数">处理请求参数</a></li>
+        <li><a href="#渲染web视图">渲染Web视图</a></li>
+        <li><a href="#处理multipart数据">处理multipart数据</a></li>
+        <li><a href="#处理异常">处理异常</a></li>
+        <li><a href="#跨重定向请求传递数据">跨重定向请求传递数据</a></li>
       </ul>
     </li>
-    <li><a href="#bean的作用域">Bean的作用域</a>
+    <li><a href="#spring与数据库">Spring与数据库</a>
       <ul>
-        <li><a href="#单例singleton在整个应用中只创建bean的一个实例">单例（Singleton）：在整个应用中，只创建bean的一个实例</a></li>
-        <li><a href="#原型prototype每次注入或者通过spring应用上下文获取的时候都会创建一个新的bean实例">原型（Prototype）：每次注入或者通过Spring应用上下文获取的时候，都会创建一个新的bean实例。</a></li>
-        <li><a href="#会话session在web应用中为每个会话创建一个bean实例">会话（Session）：在Web应用中，为每个会话创建一个bean实例。</a></li>
-        <li><a href="#请求rquest在web应用中为每个请求创建一个bean实例">请求（Rquest）：在Web应用中，为每个请求创建一个bean实例。</a></li>
+        <li><a href="#设计数据访问层的合理方式">设计数据访问层的合理方式</a></li>
+        <li><a href="#配置datasource">配置DataSource</a></li>
+        <li><a href="#声明式事务">声明式事务</a></li>
+        <li><a href="#spring集成hibernate">Spring集成Hibernate</a></li>
+        <li><a href="#spring集成原生jpa">Spring集成原生JPA</a></li>
+        <li><a href="#spring-data-jpa">Spring Data JPA</a></li>
+        <li><a href="#spring-data-mongodb">Spring Data MongoDB</a></li>
+        <li><a href="#spring-data-redis">Spring Data Redis</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#启用aop功能">启用AOP功能</a>
+    <li><a href="#spring缓存">Spring缓存</a>
       <ul>
-        <li><a href="#基于annotation方式-4">基于annotation方式</a></li>
-        <li><a href="#基于xml方式-4">基于XML方式</a></li>
+        <li><a href="#缓存管理器">缓存管理器</a></li>
+        <li><a href="#为方法添加注解以支持缓存">为方法添加注解以支持缓存</a></li>
+        <li><a href="#自定义缓存key">自定义缓存key</a></li>
+        <li><a href="#使用redis缓存">使用Redis缓存</a></li>
       </ul>
     </li>
-    <li><a href="#aop代理">AOP代理</a>
+    <li><a href="#spring与远程服务">Spring与远程服务</a>
       <ul>
-        <li><a href="#概念">概念</a></li>
-        <li><a href="#强制使用cglib代理基于annotation方式">强制使用CGLIB代理，基于annotation方式</a></li>
-        <li><a href="#强制使用cglib代理基于xml方式">强制使用CGLIB代理，基于XML方式</a></li>
+        <li><a href="#spring集成rmi">Spring集成RMI</a></li>
       </ul>
     </li>
-    <li><a href="#切面">切面</a>
+    <li><a href="#spring-jms">Spring JMS</a>
       <ul>
-        <li><a href="#声明切面基于annotation方式">声明切面，基于annotation方式</a></li>
-        <li><a href="#声明切面基于xml方式">声明切面，基于XML方式</a></li>
-      </ul>
-    </li>
-    <li><a href="#切点">切点</a>
-      <ul>
-        <li><a href="#声明切点基于annotation方式">声明切点，基于annotation方式</a></li>
-        <li><a href="#声明切点基于xml方式">声明切点，基于XML方式</a></li>
-        <li><a href="#切点指示器">切点指示器</a></li>
-      </ul>
-    </li>
-    <li><a href="#通知">通知</a>
-      <ul>
-        <li><a href="#声明通知基于annotation方式">声明通知，基于annotation方式</a></li>
-        <li><a href="#声明通知基于xml方式">声明通知，基于XML方式</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#跟踪spring-mvc的请求">跟踪Spring MVC的请求</a></li>
-    <li><a href="#spring-mvc配置">Spring MVC配置</a>
-      <ul>
-        <li><a href="#基于java配置方式">基于Java配置方式</a></li>
-        <li><a href="#基于xml配置方式">基于XML配置方式</a></li>
-      </ul>
-    </li>
-    <li><a href="#处理请求参数">处理请求参数</a>
-      <ul>
-        <li><a href="#处理查询参数">处理查询参数</a></li>
-        <li><a href="#处理路径参数">处理路径参数</a></li>
-        <li><a href="#处理表单参数">处理表单参数</a></li>
-      </ul>
-    </li>
-    <li><a href="#渲染web视图">渲染Web视图</a>
-      <ul>
-        <li><a href="#视图解析器">视图解析器</a></li>
-        <li><a href="#使用jsp视图解析器">使用JSP视图解析器</a></li>
-        <li><a href="#使用thymeleaf视图解析器">使用Thymeleaf视图解析器</a></li>
-        <li><a href="#spring-jsp标签库">Spring JSP标签库</a></li>
-      </ul>
-    </li>
-    <li><a href="#处理multipart数据">处理multipart数据</a>
-      <ul>
-        <li><a href="#配置multipart解析器">配置multipart解析器</a></li>
-        <li><a href="#处理multipart请求">处理multipart请求</a></li>
-      </ul>
-    </li>
-    <li><a href="#处理异常">处理异常</a>
-      <ul>
-        <li><a href="#一特定的spring异常将会自动映射为指定的http状态码">一、特定的Spring异常将会自动映射为指定的HTTP状态码；</a></li>
-        <li><a href="#二异常上可以添加responsestatus注解从而将其映射为某一个http状态码">二、异常上可以添加@ResponseStatus注解，从而将其映射为某一个HTTP状态码；</a></li>
-        <li><a href="#三在方法上可以添加exceptionhandler注解使其用来处理异常">三、在方法上可以添加@ExceptionHandler注解，使其用来处理异常。</a></li>
-      </ul>
-    </li>
-    <li><a href="#跨重定向请求传递数据">跨重定向请求传递数据</a>
-      <ul>
-        <li><a href="#通过url模板进行重定向">通过URL模板进行重定向</a></li>
-        <li><a href="#使用flash属性重定向">使用flash属性重定向</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#设计数据访问层的合理方式">设计数据访问层的合理方式</a></li>
-    <li><a href="#配置datasource">配置DataSource</a>
-      <ul>
-        <li><a href="#使用jndi-datasource基于tomcat">使用JNDI DataSource（基于Tomcat）</a></li>
-        <li><a href="#使用数据库连接池datasource基于c3p0">使用数据库连接池DataSource（基于C3P0）</a></li>
-      </ul>
-    </li>
-    <li><a href="#声明式事务">声明式事务</a>
-      <ul>
-        <li><a href="#数据库事务">数据库事务</a></li>
-        <li><a href="#java方式配置">Java方式配置</a></li>
-        <li><a href="#xml方式配置">XML方式配置</a></li>
-      </ul>
-    </li>
-    <li><a href="#spring集成hibernate">Spring集成Hibernate</a>
-      <ul>
-        <li><a href="#基于java配置方式-7">基于Java配置方式</a></li>
-        <li><a href="#基于xml配置方式-7">基于XML配置方式</a></li>
-      </ul>
-    </li>
-    <li><a href="#spring集成原生jpa">Spring集成原生JPA</a>
-      <ul>
-        <li><a href="#配置实体管理器工厂">配置实体管理器工厂</a></li>
-      </ul>
-    </li>
-    <li><a href="#spring-data-jpa">Spring Data JPA</a>
-      <ul>
-        <li><a href="#spring配置-6">Spring配置</a></li>
-        <li><a href="#根据方法名查询">根据方法名查询</a></li>
-        <li><a href="#自定义查询">自定义查询</a></li>
-      </ul>
-    </li>
-    <li><a href="#spring-data-mongodb">Spring Data MongoDB</a>
-      <ul>
-        <li><a href="#mongodb-repository">MongoDB Repository</a></li>
-        <li><a href="#使用mongotemplate">使用MongoTemplate</a></li>
-      </ul>
-    </li>
-    <li><a href="#spring-data-redis">Spring Data Redis</a>
-      <ul>
-        <li><a href="#spring配置-9">Spring配置</a></li>
-        <li><a href="#测试">测试</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#缓存管理器">缓存管理器</a></li>
-    <li><a href="#为方法添加注解以支持缓存">为方法添加注解以支持缓存</a></li>
-    <li><a href="#自定义缓存key">自定义缓存key</a></li>
-    <li><a href="#使用redis缓存">使用Redis缓存</a>
-      <ul>
-        <li><a href="#spring配置-10">Spring配置</a></li>
-        <li><a href="#在service层做缓存">在Service层做缓存</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#spring集成rmi">Spring集成RMI</a>
-      <ul>
-        <li><a href="#编写服务">编写服务</a></li>
-        <li><a href="#服务端">服务端</a></li>
-        <li><a href="#客户端">客户端</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#队列模式">队列模式</a>
-      <ul>
-        <li><a href="#发送方">发送方</a></li>
-        <li><a href="#接收方">接收方</a></li>
-      </ul>
-    </li>
-    <li><a href="#发布订阅模式">发布/订阅模式</a>
-      <ul>
-        <li><a href="#发送方-1">发送方</a></li>
-        <li><a href="#接收方-1">接收方</a></li>
+        <li><a href="#队列模式">队列模式</a></li>
+        <li><a href="#发布订阅模式">发布/订阅模式</a></li>
       </ul>
     </li>
   </ul>
@@ -504,12 +375,12 @@
 
     
     <div class="post-content">
-      <h1 id="bean的生命周期">Bean的生命周期</h1>
+      <h2 id="bean的生命周期">Bean的生命周期</h2>
 <p><img src="images/%E3%80%8ASpring%20%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0-1.png" alt="《Spring 实战》笔记-1.png"></p>
-<h1 id="spring-bean">Spring Bean</h1>
-<h2 id="装配bean">装配Bean</h2>
-<h3 id="隐式自动装配">隐式自动装配</h3>
-<h4 id="基于annotation方式">基于annotation方式</h4>
+<h2 id="spring-bean">Spring Bean</h2>
+<h3 id="装配bean">装配Bean</h3>
+<h4 id="隐式自动装配">隐式自动装配</h4>
+<h5 id="基于annotation方式">基于annotation方式</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -522,7 +393,7 @@
   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">AppConfig</span> <span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="基于xml方式">基于XML方式</h4>
+</div><h5 id="基于xml方式">基于XML方式</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -555,8 +426,8 @@
   <span class="nt">&lt;/beans&gt;</span>   
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="显式装配">显式装配</h3>
-<h4 id="基于annotation方式-1">基于annotation方式</h4>
+</div><h4 id="显式装配">显式装配</h4>
+<h5 id="基于annotation方式-1">基于annotation方式</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -577,7 +448,7 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="基于xml方式-1">基于XML方式</h4>
+</div><h5 id="基于xml方式-1">基于XML方式</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -608,9 +479,9 @@
   <span class="nt">&lt;/beans&gt;</span>   
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="依赖注入">依赖注入</h2>
-<h3 id="基于annotation方式-2">基于annotation方式</h3>
-<h4 id="构造器注入">构造器注入</h4>
+</div><h3 id="依赖注入">依赖注入</h3>
+<h4 id="基于annotation方式-2">基于annotation方式</h4>
+<h5 id="构造器注入">构造器注入</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -633,7 +504,7 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="属性注入">属性注入</h4>
+</div><h5 id="属性注入">属性注入</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -650,7 +521,7 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="set方法注入">set方法注入</h4>
+</div><h5 id="set方法注入">set方法注入</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -673,8 +544,8 @@
     <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="基于xml方式-2">基于XML方式</h3>
-<h4 id="构造器注入-1">构造器注入</h4>
+</div><h4 id="基于xml方式-2">基于XML方式</h4>
+<h5 id="构造器注入-1">构造器注入</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -689,7 +560,7 @@
   <span class="nt">&lt;/bean&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="属性注入-1">属性注入</h4>
+</div><h5 id="属性注入-1">属性注入</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -702,8 +573,8 @@
   <span class="nt">&lt;/bean&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="注入外部的值">注入外部的值</h2>
-<h3 id="基于annotation方式-3">基于annotation方式</h3>
+</div><h3 id="注入外部的值">注入外部的值</h3>
+<h4 id="基于annotation方式-3">基于annotation方式</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -732,7 +603,7 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="基于xml方式-3">基于XML方式</h3>
+</div><h4 id="基于xml方式-3">基于XML方式</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -771,9 +642,9 @@
   <span class="nt">&lt;/beans&gt;</span>   
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="bean的作用域">Bean的作用域</h2>
-<h3 id="单例singleton在整个应用中只创建bean的一个实例">单例（Singleton）：在整个应用中，只创建bean的一个实例</h3>
-<h4 id="基于annotation方式配置">基于annotation方式配置</h4>
+</div><h3 id="bean的作用域">Bean的作用域</h3>
+<h4 id="单例singleton在整个应用中只创建bean的一个实例">单例（Singleton）：在整个应用中，只创建bean的一个实例</h4>
+<h5 id="基于annotation方式配置">基于annotation方式配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -786,7 +657,7 @@
   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CDPlayer</span> <span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="基于xml方式配置">基于XML方式配置</h4>
+</div><h5 id="基于xml方式配置">基于XML方式配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -795,8 +666,8 @@
 <pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;cDPlayer&#34;</span> <span class="na">class=</span><span class="s">&#34;CDPlayer&#34;</span> <span class="na">scope=</span><span class="s">&#34;singleton&#34;</span><span class="nt">/&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="原型prototype每次注入或者通过spring应用上下文获取的时候都会创建一个新的bean实例">原型（Prototype）：每次注入或者通过Spring应用上下文获取的时候，都会创建一个新的bean实例。</h3>
-<h4 id="基于annotation方式配置-1">基于annotation方式配置</h4>
+</div><h4 id="原型prototype每次注入或者通过spring应用上下文获取的时候都会创建一个新的bean实例">原型（Prototype）：每次注入或者通过Spring应用上下文获取的时候，都会创建一个新的bean实例。</h4>
+<h5 id="基于annotation方式配置-1">基于annotation方式配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -809,7 +680,7 @@
   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CDPlayer</span> <span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="基于xml方式配置-1">基于XML方式配置</h4>
+</div><h5 id="基于xml方式配置-1">基于XML方式配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -818,8 +689,8 @@
 <pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;cDPlayer&#34;</span> <span class="na">class=</span><span class="s">&#34;CDPlayer&#34;</span> <span class="na">scope=</span><span class="s">&#34;prototype&#34;</span><span class="nt">/&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="会话session在web应用中为每个会话创建一个bean实例">会话（Session）：在Web应用中，为每个会话创建一个bean实例。</h3>
-<h4 id="基于annotation方式配置-2">基于annotation方式配置</h4>
+</div><h4 id="会话session在web应用中为每个会话创建一个bean实例">会话（Session）：在Web应用中，为每个会话创建一个bean实例。</h4>
+<h5 id="基于annotation方式配置-2">基于annotation方式配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -832,7 +703,7 @@
   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CDPlayer</span> <span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="基于xml方式配置-2">基于XML方式配置</h4>
+</div><h5 id="基于xml方式配置-2">基于XML方式配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -841,8 +712,8 @@
 <pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;cDPlayer&#34;</span> <span class="na">class=</span><span class="s">&#34;CDPlayer&#34;</span> <span class="na">scope=</span><span class="s">&#34;session&#34;</span><span class="nt">/&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="请求rquest在web应用中为每个请求创建一个bean实例">请求（Rquest）：在Web应用中，为每个请求创建一个bean实例。</h3>
-<h4 id="基于annotation方式配置-3">基于annotation方式配置</h4>
+</div><h4 id="请求rquest在web应用中为每个请求创建一个bean实例">请求（Rquest）：在Web应用中，为每个请求创建一个bean实例。</h4>
+<h5 id="基于annotation方式配置-3">基于annotation方式配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -855,7 +726,7 @@
   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CDPlayer</span> <span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="基于xml方式配置-3">基于XML方式配置</h4>
+</div><h5 id="基于xml方式配置-3">基于XML方式配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -864,9 +735,9 @@
 <pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;cDPlayer&#34;</span> <span class="na">class=</span><span class="s">&#34;CDPlayer&#34;</span> <span class="na">scope=</span><span class="s">&#34;request&#34;</span><span class="nt">/&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="面向切面编程aop">面向切面编程（AOP）</h1>
-<h2 id="启用aop功能">启用AOP功能</h2>
-<h3 id="基于annotation方式-4">基于annotation方式</h3>
+</div><h2 id="面向切面编程aop">面向切面编程（AOP）</h2>
+<h3 id="启用aop功能">启用AOP功能</h3>
+<h4 id="基于annotation方式-4">基于annotation方式</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -879,7 +750,7 @@
   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">AppConfig</span> <span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="基于xml方式-4">基于XML方式</h3>
+</div><h4 id="基于xml方式-4">基于XML方式</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -918,12 +789,12 @@
   <span class="nt">&lt;/beans&gt;</span>   
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="aop代理">AOP代理</h2>
-<h3 id="概念">概念</h3>
+</div><h3 id="aop代理">AOP代理</h3>
+<h4 id="概念">概念</h4>
 <blockquote>
 <p>Spring缺省使用J2SE动态代理来作为AOP的代理。这样任何接口（或者接口集）都可以被代理。如果一个业务对象并没有实现一个接口，默认就会使用CGLIB。作为面向接口编程的最佳实践，业务对象通常都会实现一个或多个接口。</p>
 </blockquote>
-<h3 id="强制使用cglib代理基于annotation方式">强制使用CGLIB代理，基于annotation方式</h3>
+<h4 id="强制使用cglib代理基于annotation方式">强制使用CGLIB代理，基于annotation方式</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -936,7 +807,7 @@
   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">AppConfig</span> <span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="强制使用cglib代理基于xml方式">强制使用CGLIB代理，基于XML方式</h3>
+</div><h4 id="强制使用cglib代理基于xml方式">强制使用CGLIB代理，基于XML方式</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -945,8 +816,8 @@
 <pre class="chroma"><code class="language-xml" data-lang="xml">  <span class="nt">&lt;aop:aspectj-autoproxy</span> <span class="na">proxy-target-class=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="切面">切面</h2>
-<h3 id="声明切面基于annotation方式">声明切面，基于annotation方式</h3>
+</div><h3 id="切面">切面</h3>
+<h4 id="声明切面基于annotation方式">声明切面，基于annotation方式</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -959,7 +830,7 @@
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Audience</span> <span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="声明切面基于xml方式">声明切面，基于XML方式</h3>
+</div><h4 id="声明切面基于xml方式">声明切面，基于XML方式</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -974,8 +845,8 @@
   <span class="nt">&lt;/aop:config&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="切点">切点</h2>
-<h3 id="声明切点基于annotation方式">声明切点，基于annotation方式</h3>
+</div><h3 id="切点">切点</h3>
+<h4 id="声明切点基于annotation方式">声明切点，基于annotation方式</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -986,7 +857,7 @@
   <span class="kd">private</span> <span class="kt">void</span> <span class="n">anyOldTransfer</span><span class="err">（）</span> <span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="声明切点基于xml方式">声明切点，基于XML方式</h3>
+</div><h4 id="声明切点基于xml方式">声明切点，基于XML方式</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -999,7 +870,7 @@
   <span class="nt">&lt;/aop:config&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="切点指示器">切点指示器</h3>
+</div><h4 id="切点指示器">切点指示器</h4>
 <blockquote>
 <p>Spring AOP支持在切入点表达式中使用如下的AspectJ切入点指示符：
 execution - 匹配方法执行的连接点，这是你将会用到的Spring的最主要的切入点指示符。
@@ -1012,9 +883,9 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 @within - 限定匹配特定的连接点，其中连接点所在类型已指定注解（在使用Spring AOP的时候，所执行的方法所在类型已指定注解）。
 @annotation - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行），其中连接点的主题持有指定的注解。</p>
 </blockquote>
-<h2 id="通知">通知</h2>
-<h3 id="声明通知基于annotation方式">声明通知，基于annotation方式</h3>
-<h4 id="前置通知">前置通知</h4>
+<h3 id="通知">通知</h3>
+<h4 id="声明通知基于annotation方式">声明通知，基于annotation方式</h4>
+<h5 id="前置通知">前置通知</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1027,7 +898,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="后置通知">后置通知</h4>
+</div><h5 id="后置通知">后置通知</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1040,7 +911,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="异常通知">异常通知</h4>
+</div><h5 id="异常通知">异常通知</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1053,7 +924,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="最终通知">最终通知</h4>
+</div><h5 id="最终通知">最终通知</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1066,7 +937,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="环绕通知">环绕通知</h4>
+</div><h5 id="环绕通知">环绕通知</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1085,8 +956,8 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="声明通知基于xml方式">声明通知，基于XML方式</h3>
-<h4 id="前置通知-1">前置通知</h4>
+</div><h4 id="声明通知基于xml方式">声明通知，基于XML方式</h4>
+<h5 id="前置通知-1">前置通知</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1103,7 +974,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/aop:aspect&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="后置通知-1">后置通知</h4>
+</div><h5 id="后置通知-1">后置通知</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1120,7 +991,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/aop:aspect&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="异常通知-1">异常通知</h4>
+</div><h5 id="异常通知-1">异常通知</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1139,7 +1010,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/aop:aspect&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="最终通知-1">最终通知</h4>
+</div><h5 id="最终通知-1">最终通知</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1156,7 +1027,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/aop:aspect&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="环绕通知-1">环绕通知</h4>
+</div><h5 id="环绕通知-1">环绕通知</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1173,12 +1044,12 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/aop:aspect&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="spring-mvc">Spring MVC</h1>
-<h2 id="跟踪spring-mvc的请求">跟踪Spring MVC的请求</h2>
+</div><h2 id="spring-mvc">Spring MVC</h2>
+<h3 id="跟踪spring-mvc的请求">跟踪Spring MVC的请求</h3>
 <p><img src="images/%E3%80%8ASpring%20%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0-2.png" alt="《Spring 实战》笔记-2.png"></p>
-<h2 id="spring-mvc配置">Spring MVC配置</h2>
-<h3 id="基于java配置方式">基于Java配置方式</h3>
-<h4 id="配置dispatcherservlet">配置DispatcherServlet</h4>
+<h3 id="spring-mvc配置">Spring MVC配置</h3>
+<h4 id="基于java配置方式">基于Java配置方式</h4>
+<h5 id="配置dispatcherservlet">配置DispatcherServlet</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1217,7 +1088,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 <blockquote>
 <p>在Servlet 3.0环境中，容器会在类路径中查找实现javax.servlet.ServletContainerInitializer接口的类，如果能发现的话，就会用它来配置Servlet容器。Spring提供了这个接口的实现，名为SpringServletContainerInitializer，这个类反过来又会查找实现WebApplicationInitializer的类并将配置的任务交给它们来完成。Spring 3.2引入了一个便利的WebApplicationInitializer基础实现，也就是AbstractAnnotationConfigDispatcherServletInitializer因为我们的DispatcherServlet扩展了AbstractAnnotationConfigDispatcherServlet-Initializer（同时也就实现了WebApplicationInitializer），因此当部署到Servlet 3.0容器中的时候，容器会自动发现它，并用它来配置Servlet上下文。</p>
 </blockquote>
-<h4 id="spring-mvc配置-1">Spring MVC配置</h4>
+<h5 id="spring-mvc配置-1">Spring MVC配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1273,8 +1144,8 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </div><blockquote>
 <p>SpringMvcConfig扩展了WebMvcConfigurerAdapter并重写了其configureDefaultServletHandling()方法。通过调用DefaultServletHandlerConfigurer的enable()方法，我们要求DispatcherServlet将对静态资源的请求转发到Servlet容器中默认的Servlet上，而不是使用DispatcherServlet本身来处理此类请求。</p>
 </blockquote>
-<h3 id="基于xml配置方式">基于XML配置方式</h3>
-<h4 id="配置dispatcherservlet-1">配置DispatcherServlet</h4>
+<h4 id="基于xml配置方式">基于XML配置方式</h4>
+<h5 id="配置dispatcherservlet-1">配置DispatcherServlet</h5>
 <p>web.xml</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1326,7 +1197,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/web-app&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="spring-mvc配置-2">Spring MVC配置</h4>
+</div><h5 id="spring-mvc配置-2">Spring MVC配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1379,8 +1250,8 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/beans&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="处理请求参数">处理请求参数</h2>
-<h3 id="处理查询参数">处理查询参数</h3>
+</div><h3 id="处理请求参数">处理请求参数</h3>
+<h4 id="处理查询参数">处理查询参数</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1401,7 +1272,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="处理路径参数">处理路径参数</h3>
+</div><h4 id="处理路径参数">处理路径参数</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1422,7 +1293,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="处理表单参数">处理表单参数</h3>
+</div><h4 id="处理表单参数">处理表单参数</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1536,8 +1407,8 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </tr>
 </tbody>
 </table>
-<h2 id="渲染web视图">渲染Web视图</h2>
-<h3 id="视图解析器">视图解析器</h3>
+<h3 id="渲染web视图">渲染Web视图</h3>
+<h4 id="视图解析器">视图解析器</h4>
 <p>Spring自带了13个视图解析器，能够将逻辑视图名转换为物理实现。Spring 4和Spring 3.2支持表6.1中的所有视图解析器。Spring 3.1支持除Tiles 3 TilesViewResolver之外的所有视图解析器</p>
 <table>
 <thead>
@@ -1601,8 +1472,8 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </tr>
 </tbody>
 </table>
-<h3 id="使用jsp视图解析器">使用JSP视图解析器</h3>
-<h4 id="基于java配置方式-1">基于Java配置方式</h4>
+<h4 id="使用jsp视图解析器">使用JSP视图解析器</h4>
+<h5 id="基于java配置方式-1">基于Java配置方式</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1631,7 +1502,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="基于xml配置方式-1">基于XML配置方式</h4>
+</div><h5 id="基于xml配置方式-1">基于XML配置方式</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1646,8 +1517,8 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/bean&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="使用thymeleaf视图解析器">使用Thymeleaf视图解析器</h3>
-<h4 id="基于java配置方式-2">基于Java配置方式</h4>
+</div><h4 id="使用thymeleaf视图解析器">使用Thymeleaf视图解析器</h4>
+<h5 id="基于java配置方式-2">基于Java配置方式</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1706,7 +1577,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="基于xml配置方式-2">基于XML配置方式</h4>
+</div><h5 id="基于xml配置方式-2">基于XML配置方式</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1769,8 +1640,8 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/beans&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="spring-jsp标签库">Spring JSP标签库</h3>
-<h4 id="spring表单标签库">Spring表单标签库</h4>
+</div><h4 id="spring-jsp标签库">Spring JSP标签库</h4>
+<h5 id="spring表单标签库">Spring表单标签库</h5>
 <p>&lt;%@ taglib prefix=&ldquo;sf&rdquo; uri=&ldquo;<a href="http://www.springframework.org/tags/form%22%25%3E">http://www.springframework.org/tags/form&quot;%&gt;</a></p>
 <table>
 <thead>
@@ -1838,7 +1709,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </tr>
 </tbody>
 </table>
-<h4 id="spring通用标签库">Spring通用标签库</h4>
+<h5 id="spring通用标签库">Spring通用标签库</h5>
 <p>&lt;%@ taglib prefix=&ldquo;s&rdquo; uri=&ldquo;<a href="http://www.springframework.org/security/tags%22">http://www.springframework.org/security/tags&quot;</a> %&gt;</p>
 <table>
 <thead>
@@ -1890,15 +1761,15 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </tr>
 </tbody>
 </table>
-<h2 id="处理multipart数据">处理multipart数据</h2>
-<h3 id="配置multipart解析器">配置multipart解析器</h3>
+<h3 id="处理multipart数据">处理multipart数据</h3>
+<h4 id="配置multipart解析器">配置multipart解析器</h4>
 <p>Spring内置了两个MultipartResolver的实现供我们选择：</p>
 <ul>
 <li>CommonsMultipartResolver：使用Jakarta CommonsFileUpload解析multipart请求；</li>
 <li>StandardServletMultipartResolver：依赖于Servlet 3.0对multipart请求的支持（始于Spring 3.1）。</li>
 </ul>
-<h4 id="commonsmultipartresolver">CommonsMultipartResolver</h4>
-<h5 id="基于java配置方式-3">基于Java配置方式</h5>
+<h5 id="commonsmultipartresolver">CommonsMultipartResolver</h5>
+<h6 id="基于java配置方式-3">基于Java配置方式</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1931,7 +1802,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="基于xml配置方式-3">基于XML配置方式</h5>
+</div><h6 id="基于xml配置方式-3">基于XML配置方式</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1956,8 +1827,8 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/bean&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="standardservletmultipartresolver">StandardServletMultipartResolver</h4>
-<h5 id="基于java配置方式-4">基于Java配置方式</h5>
+</div><h5 id="standardservletmultipartresolver">StandardServletMultipartResolver</h5>
+<h6 id="基于java配置方式-4">基于Java配置方式</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2022,7 +1893,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="基于xml配置方式-4">基于XML配置方式</h5>
+</div><h6 id="基于xml配置方式-4">基于XML配置方式</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2059,7 +1930,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/servlet&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="处理multipart请求">处理multipart请求</h3>
+</div><h4 id="处理multipart请求">处理multipart请求</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2082,9 +1953,9 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="处理异常">处理异常</h2>
+</div><h3 id="处理异常">处理异常</h3>
 <p>Spring提供了多种方式将异常转换为响应：</p>
-<h3 id="一特定的spring异常将会自动映射为指定的http状态码">一、特定的Spring异常将会自动映射为指定的HTTP状态码；</h3>
+<h4 id="一特定的spring异常将会自动映射为指定的http状态码">一、特定的Spring异常将会自动映射为指定的HTTP状态码；</h4>
 <table>
 <thead>
 <tr>
@@ -2143,7 +2014,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </tr>
 </tbody>
 </table>
-<h3 id="二异常上可以添加responsestatus注解从而将其映射为某一个http状态码">二、异常上可以添加@ResponseStatus注解，从而将其映射为某一个HTTP状态码；</h3>
+<h4 id="二异常上可以添加responsestatus注解从而将其映射为某一个http状态码">二、异常上可以添加@ResponseStatus注解，从而将其映射为某一个HTTP状态码；</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2156,8 +2027,8 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="三在方法上可以添加exceptionhandler注解使其用来处理异常">三、在方法上可以添加@ExceptionHandler注解，使其用来处理异常。</h3>
-<h4 id="处理同一个controller抛出的异常">处理同一个Controller抛出的异常</h4>
+</div><h4 id="三在方法上可以添加exceptionhandler注解使其用来处理异常">三、在方法上可以添加@ExceptionHandler注解，使其用来处理异常。</h4>
+<h5 id="处理同一个controller抛出的异常">处理同一个Controller抛出的异常</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -2188,7 +2059,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="处理所有controller抛出的异常">处理所有Controller抛出的异常</h4>
+</div><h5 id="处理所有controller抛出的异常">处理所有Controller抛出的异常</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2209,8 +2080,8 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="跨重定向请求传递数据">跨重定向请求传递数据</h2>
-<h3 id="通过url模板进行重定向">通过URL模板进行重定向</h3>
+</div><h3 id="跨重定向请求传递数据">跨重定向请求传递数据</h3>
+<h4 id="通过url模板进行重定向">通过URL模板进行重定向</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2237,7 +2108,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </div>
 </div><p>userId作为占位符填充到了URL模板上，userName虽然没有匹配到占位符，但它会自动以查询参数的形式附加到重定向的URL中，结果得到的URL为：
 /result/123?userName=userName</p>
-<h3 id="使用flash属性重定向">使用flash属性重定向</h3>
+<h4 id="使用flash属性重定向">使用flash属性重定向</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2266,10 +2137,10 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 <p>在重定向执行之前，所有的flash属性都会复制到会话中。在重定向后，存在会话中的flash属性会被取出，并从会话转移到模型之中。处理重定向的方法就能从模型中访问Spitter对象了，就像获取其他的模型对象一样。</p>
 </blockquote>
 <p><img src="images/%E3%80%8ASpring%20%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0-3.png" alt="《Spring 实战》笔记-3.puml"></p>
-<h1 id="spring与数据库">Spring与数据库</h1>
-<h2 id="设计数据访问层的合理方式">设计数据访问层的合理方式</h2>
+<h2 id="spring与数据库">Spring与数据库</h2>
+<h3 id="设计数据访问层的合理方式">设计数据访问层的合理方式</h3>
 <p><img src="images/%E3%80%8ASpring%20%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0-4.png" alt="《Spring 实战》笔记-4.puml"></p>
-<h2 id="配置datasource">配置DataSource</h2>
+<h3 id="配置datasource">配置DataSource</h3>
 <p>首先创建数据库</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2279,9 +2150,9 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="w">  </span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">spring_in_action</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
-</div><h3 id="使用jndi-datasource基于tomcat">使用JNDI DataSource（基于Tomcat）</h3>
-<h4 id="tomcat配置">Tomcat配置</h4>
-<h5 id="编辑tomcat的conf目录下的serverxml文件">编辑Tomcat的conf目录下的server.xml文件</h5>
+</div><h4 id="使用jndi-datasource基于tomcat">使用JNDI DataSource（基于Tomcat）</h4>
+<h5 id="tomcat配置">Tomcat配置</h5>
+<h6 id="编辑tomcat的conf目录下的serverxml文件">编辑Tomcat的conf目录下的server.xml文件</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -2314,7 +2185,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/GlobalNamingResources&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="编辑tomcat的conf目录的contextxml文件">编辑Tomcat的conf目录的context.xml文件</h5>
+</div><h6 id="编辑tomcat的conf目录的contextxml文件">编辑Tomcat的conf目录的context.xml文件</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2323,9 +2194,9 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 <pre class="chroma"><code class="language-xml" data-lang="xml">  <span class="nt">&lt;ResourceLink</span> <span class="na">name=</span><span class="s">&#34;jdbc/spring_in_action&#34;</span> <span class="na">global=</span><span class="s">&#34;jdbc/spring_in_action&#34;</span> <span class="na">type=</span><span class="s">&#34;javax.sql.DataSource&#34;</span><span class="nt">/&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="向tomcat的lib目录下添加mysql驱动文件mysql-connector-java-5136jar">向Tomcat的lib目录下添加MySQL驱动文件mysql-connector-java-5.1.36.jar</h5>
-<h4 id="spring配置">Spring配置</h4>
-<h5 id="基于java配置方式-5">基于Java配置方式</h5>
+</div><h6 id="向tomcat的lib目录下添加mysql驱动文件mysql-connector-java-5136jar">向Tomcat的lib目录下添加MySQL驱动文件mysql-connector-java-5.1.36.jar</h6>
+<h5 id="spring配置">Spring配置</h5>
+<h6 id="基于java配置方式-5">基于Java配置方式</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2348,7 +2219,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="基于xml配置方式-5">基于XML配置方式</h5>
+</div><h6 id="基于xml配置方式-5">基于XML配置方式</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2365,8 +2236,8 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/bean&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="使用数据库连接池datasource基于c3p0">使用数据库连接池DataSource（基于C3P0）</h3>
-<h4 id="基于java配置方式-6">基于Java配置方式</h4>
+</div><h4 id="使用数据库连接池datasource基于c3p0">使用数据库连接池DataSource（基于C3P0）</h4>
+<h5 id="基于java配置方式-6">基于Java配置方式</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -2395,7 +2266,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="基于xml配置方式-6">基于XML配置方式</h4>
+</div><h5 id="基于xml配置方式-6">基于XML配置方式</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2418,9 +2289,9 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
   <span class="nt">&lt;/bean&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="声明式事务">声明式事务</h2>
-<h3 id="数据库事务">数据库事务</h3>
-<h4 id="数据库事务的概念">数据库事务的概念</h4>
+</div><h3 id="声明式事务">声明式事务</h3>
+<h4 id="数据库事务">数据库事务</h4>
+<h5 id="数据库事务的概念">数据库事务的概念</h5>
 <blockquote>
 <p>数据库事务(Database Transaction) ，是指作为单个逻辑工作单元执行的一系列操作，要么完全地执行，要么完全地不执行。
 数据库事务有严格的定义，它必须同时满足4个特性：原子性（ Atomic )、一致性( Consistency )、隔离性（ Isolation ) 和 持 久 性 （ Durabiliy )，简称为 ACID 。下面是对每个特性的说明。
@@ -2429,11 +2300,11 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 隔离性：在并发数据操作时，不同的事务拥有各自的数据空间，它们的操作不会对对方产生干扰。准确地说，并非要求做到完全无干扰。数据库规定了多种事务隔离级别，不同的隔离级别对应不同的干扰程度，隔离级别越高，数据一致性越好，但并发性越弱。
 持久性：一旦事务提交成功后，事务中所有的数据操作都必须被持久化到数据库中。即使在提交事务后，数据库马上崩溃，在数据库重启时，也必须保证能够通过某种机制恢复数据。</p>
 </blockquote>
-<h4 id="数据并发问题">数据并发问题</h4>
+<h5 id="数据并发问题">数据并发问题</h5>
 <blockquote>
 <p>一个数据库可能拥有多个访问客户端，这些客户端都可用并发的方式访问数据库。数据库中的相同数据可能同时被多个事务访问，如果没有采取必要的隔离措施，就会导致各种并发问题，破坏数据的完整性。这些问题可以归结为5类，包括3类数据读问题(脏读、不可重复读和幻象读）及2类数据更新问题（第一类丢失更新和第二类丢失更新)。</p>
 </blockquote>
-<h5 id="脏读-dirty-read">脏读 （dirty read)</h5>
+<h6 id="脏读-dirty-read">脏读 （dirty read)</h6>
 <p>A事务读取B事务尚未提交的更改数据，并在这个数据的基础上进行操作。如果恰巧B事务回滚，那么A事务读到的数据根本是不被承认的。来看取款事务和转账事务并发时引发的脏读场景。</p>
 <table>
 <thead>
@@ -2487,7 +2358,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </tbody>
 </table>
 <p>在这个场景中，B希望取款500元，而后又撤销了动作，而A往相同的账户中转账100元，就因为A事务读取了 B事务尚未提交的数据，因而造成账户白白丢失了 500元。在Oracle数据库中，不会发生脏读的情况。</p>
-<h5 id="不可重复读-unrepeatable-read">不可重复读 （unrepeatable read)</h5>
+<h6 id="不可重复读-unrepeatable-read">不可重复读 （unrepeatable read)</h6>
 <p>不可重复读是指A事务读取了 B事务己经提交的更改数据。假设A在取款事务的过程中，B往该账户转账100元，A两次读取账户的余额发生不一致。</p>
 <table>
 <thead>
@@ -2536,7 +2407,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </tbody>
 </table>
 <p>在同一事务中，T4时间点和T7时间点读取的账户存款余额不一致</p>
-<h5 id="幻象读-phantom-read">幻象读 （phantom read)</h5>
+<h6 id="幻象读-phantom-read">幻象读 （phantom read)</h6>
 <p>A事务读取B事务提交的新增数据，这时A事务将出现幻象读的问题。幻象读一般发生在计算统计数据的事务中。举个例子，假设银行系统在同一个事务中两次统计存款账户的总金额，在两次统计过程中，刚好新增了一个存款账户，并存入100元，这时,两次统计的总金额将不一致。</p>
 <table>
 <thead>
@@ -2580,7 +2451,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </tbody>
 </table>
 <p>如果新增数据刚好满足事务的查询条件，那么这个新数据就进入了事务的视野，因而产生了两次统计结果不一致的情况。幻象读和木可重复读是两个容易混淆的概念，前者是指读到了其他己经提交事务的新增数据，而后者是指读到了己经提交事务的更改数据（更改或删除）。为了避免这两种情况，采取的对策是不同的：防止读到更改数据，只需对操作的数据添加行级锁，阻止操作中的数据发生变化；而防止读到新增数据，则往往需要添加表级锁——将整张表锁定，防止新增数据（ Oracle 使用多版本数据的方式实现）。</p>
-<h5 id="第一类丢失更新">第一类丢失更新</h5>
+<h6 id="第一类丢失更新">第一类丢失更新</h6>
 <p>A事务撤销时，把己经提交的B事务的更新数据覆盖了。这种错误可能造成很严重的问题，通过下面的账户取款转账就可以看出来。</p>
 <table>
 <thead>
@@ -2639,7 +2510,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </tbody>
 </table>
 <p>A事务在撤销时，“不小心”将B事务己经转入账户的金额给抹去了。</p>
-<h5 id="第二类丟失更新">第二类丟失更新</h5>
+<h6 id="第二类丟失更新">第二类丟失更新</h6>
 <p>A事务覆盖B事务己经提交的数据，造成B事务所做操作丢失。</p>
 <table>
 <thead>
@@ -2698,7 +2569,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </tbody>
 </table>
 <p>在上面的例子中，由于支票转账事务覆盖了取款事务对存款余额所做的更新，导致银行最后损失了 100元。相反，如果转账事务先提交，那么用户账户将损失100元。</p>
-<h4 id="事务隔离级别">事务隔离级别</h4>
+<h5 id="事务隔离级别">事务隔离级别</h5>
 <p>尽管数据库为用户提供了锁的 DML 操作方式，但直接使用锁管理是非常麻烦的，因此数据库为用户提供了自动锁机制。只要用户指定会话的事务隔离级别，数据库就会分析事务中的 SQL 语句，然后自动为事务操作的数据资源添加适合的锁。此外，数据库还会维护这些锁，当一个资源上的锁数目太多时，自动进行锁升级以提高系统的运行性能，而这一过程对用户来说完全是透明的。ANSI/ISO SQL 92标准定义了 4个等级的事务隔离级别，在相同的数据环境下，使用相同的输入，执行相同的工作，根据不同的隔离级别，可能导致不同的结果。不同的事务隔离级别能够解决的数据并发问题的能力是不同的。</p>
 <table>
 <thead>
@@ -2748,7 +2619,7 @@ args - 限定匹配特定的连接点（使用Spring AOP的时候方法的执行
 </table>
 <p>事务的隔离级别和数据库并发性是对立的 。一 般来说，使用 READUNCOMMITED隔离级别的数据库拥有最高的并发性和吞吐量，而使用 SERIALIZABLE 隔离级别的数据库并发性最低。
 SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracle 虽然也支持 READ UNC 0 MM 1 TED ,但它不支持脏读；因为 Oracle 使用多版本机制彻底解决了 在 非 阻 塞 读 时 读 到 脏 数 据 的 问 题 并 保 证 读 的 一 致 性 ， 所 以 ， Oracle 的 READCOMMITTED 隔离级别就己经满足了 SQL 92标准的 REPEATABLE READ 隔离级别。SQL 92推荐使用 REPEATABLE READ 以保证数据的读一致性，不过用户可以根据应用的需要选择适合的隔离等级。</p>
-<h4 id="事务传播行为">事务传播行为</h4>
+<h5 id="事务传播行为">事务传播行为</h5>
 <p>Spring规定了7种类型的事务传播行为，它们规定了事务方法和事务方法发生嵌套调用时事务如何进行传播。</p>
 <table>
 <thead>
@@ -2789,8 +2660,8 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
 </tbody>
 </table>
 <p>在使用 PROPAGATION_NESTED时，底层的数据源必须基于 JDBC3.0 , 并且实现者需要支持保存点事务机制。</p>
-<h3 id="java方式配置">Java方式配置</h3>
-<h4 id="spring配置-1">Spring配置</h4>
+<h4 id="java方式配置">Java方式配置</h4>
+<h5 id="spring配置-1">Spring配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -2869,7 +2740,7 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="service层">Service层</h4>
+</div><h5 id="service层">Service层</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -2920,7 +2791,7 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="dao层">DAO层</h4>
+</div><h5 id="dao层">DAO层</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -2975,8 +2846,8 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="xml方式配置">XML方式配置</h3>
-<h4 id="spring配置-2">Spring配置</h4>
+</div><h4 id="xml方式配置">XML方式配置</h4>
+<h5 id="spring配置-2">Spring配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3107,7 +2978,7 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
   <span class="nt">&lt;/beans&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="service层-1">Service层</h4>
+</div><h5 id="service层-1">Service层</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3162,7 +3033,7 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
 
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="dao层-1">DAO层</h4>
+</div><h5 id="dao层-1">DAO层</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3223,9 +3094,9 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
 
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="spring集成hibernate">Spring集成Hibernate</h2>
-<h3 id="基于java配置方式-7">基于Java配置方式</h3>
-<h4 id="spring配置-3">Spring配置</h4>
+</div><h3 id="spring集成hibernate">Spring集成Hibernate</h3>
+<h4 id="基于java配置方式-7">基于Java配置方式</h4>
+<h5 id="spring配置-3">Spring配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3304,7 +3175,7 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="编辑service">编辑Service</h4>
+</div><h5 id="编辑service">编辑Service</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3357,7 +3228,7 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
 
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="编辑dao">编辑DAO</h4>
+</div><h5 id="编辑dao">编辑DAO</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3414,8 +3285,8 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="基于xml配置方式-7">基于XML配置方式</h3>
-<h4 id="spring配置-4">Spring配置</h4>
+</div><h4 id="基于xml配置方式-7">基于XML配置方式</h4>
+<h5 id="spring配置-4">Spring配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3546,7 +3417,7 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
   <span class="nt">&lt;/beans&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="编写service">编写Service</h4>
+</div><h5 id="编写service">编写Service</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3599,7 +3470,7 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="编写dao">编写DAO</h4>
+</div><h5 id="编写dao">编写DAO</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3658,8 +3529,8 @@ SQL 92定义 READ UNCOMMITED 主要是为了提供非阻塞读的能力。 Oracl
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="spring集成原生jpa">Spring集成原生JPA</h2>
-<h3 id="配置实体管理器工厂">配置实体管理器工厂</h3>
+</div><h3 id="spring集成原生jpa">Spring集成原生JPA</h3>
+<h4 id="配置实体管理器工厂">配置实体管理器工厂</h4>
 <blockquote>
 <p>JPA定义了两种类型的实体管理器：
 应用程序管理类型（Application-managed）：当应用程序向实体管理器工厂直接请求实体管理器时，工厂会创建一个实体管理器。在这种模式下，程序要负责打开或关闭实体管理器并在事务中对其进行控制。这种方式的实体管理器适合于不运行在JavaEE容器中的独立应用程序。
@@ -3669,7 +3540,7 @@ LocalEntityManagerFactoryBean生成应用程序管理类型的EntityManager-Fact
 LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerFactory。
 推荐使用LocalContainerEntityManagerFactoryBean，因为LocalEntityManagerFactoryBean需要把配置信息填写在META-INF目录下的persistence.xml文件中，而LocalContainerEntityManagerFactoryBean可以不需要persistence.xml文件</p>
 </blockquote>
-<h4 id="spring配置-5">Spring配置</h4>
+<h5 id="spring配置-5">Spring配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3758,7 +3629,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="编写service-1">编写Service</h4>
+</div><h5 id="编写service-1">编写Service</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3811,7 +3682,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
 
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="编写dao-1">编写DAO</h4>
+</div><h5 id="编写dao-1">编写DAO</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3860,8 +3731,8 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="spring-data-jpa">Spring Data JPA</h2>
-<h3 id="spring配置-6">Spring配置</h3>
+</div><h3 id="spring-data-jpa">Spring Data JPA</h3>
+<h4 id="spring配置-6">Spring配置</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -3952,7 +3823,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="根据方法名查询">根据方法名查询</h3>
+</div><h4 id="根据方法名查询">根据方法名查询</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -3965,7 +3836,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="自定义查询">自定义查询</h3>
+</div><h4 id="自定义查询">自定义查询</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -3980,9 +3851,9 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="spring-data-mongodb">Spring Data MongoDB</h2>
-<h3 id="mongodb-repository">MongoDB Repository</h3>
-<h4 id="spring配置-7">Spring配置</h4>
+</div><h3 id="spring-data-mongodb">Spring Data MongoDB</h3>
+<h4 id="mongodb-repository">MongoDB Repository</h4>
+<h5 id="spring配置-7">Spring配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -4027,7 +3898,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="编写dao-2">编写DAO</h4>
+</div><h5 id="编写dao-2">编写DAO</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -4046,8 +3917,8 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="使用mongotemplate">使用MongoTemplate</h3>
-<h4 id="spring配置-8">Spring配置</h4>
+</div><h4 id="使用mongotemplate">使用MongoTemplate</h4>
+<h5 id="spring配置-8">Spring配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -4088,7 +3959,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="编写dao-3">编写DAO</h4>
+</div><h5 id="编写dao-3">编写DAO</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -4115,8 +3986,8 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="spring-data-redis">Spring Data Redis</h2>
-<h3 id="spring配置-9">Spring配置</h3>
+</div><h3 id="spring-data-redis">Spring Data Redis</h3>
+<h4 id="spring配置-9">Spring配置</h4>
 <p><strong>使用JdkSerializationRedisSerializer时，存储在Redis里的对象必须实现Serializable接口</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -4168,7 +4039,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="测试">测试</h3>
+</div><h4 id="测试">测试</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -4191,8 +4062,8 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="spring缓存">Spring缓存</h1>
-<h2 id="缓存管理器">缓存管理器</h2>
+</div><h2 id="spring缓存">Spring缓存</h2>
+<h3 id="缓存管理器">缓存管理器</h3>
 <p>Spring 3.1内置了五个缓存管理器实现，如下所示：</p>
 <ol>
 <li>SimpleCacheManager</li>
@@ -4206,7 +4077,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
 <li>RedisCacheManager（来自于Spring Data Redis项目）</li>
 <li>GemfireCacheManager（来自于Spring Data GemFire项目）</li>
 </ol>
-<h2 id="为方法添加注解以支持缓存">为方法添加注解以支持缓存</h2>
+<h3 id="为方法添加注解以支持缓存">为方法添加注解以支持缓存</h3>
 <p>Spring提供了四个注解来声明缓存规则</p>
 <table>
 <thead>
@@ -4303,7 +4174,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
 </tr>
 </tbody>
 </table>
-<h2 id="自定义缓存key">自定义缓存key</h2>
+<h3 id="自定义缓存key">自定义缓存key</h3>
 <p>Spring提供了多个用来定义缓存规则的SpEL扩展</p>
 <table>
 <thead>
@@ -4347,8 +4218,8 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
 </tr>
 </tbody>
 </table>
-<h2 id="使用redis缓存">使用Redis缓存</h2>
-<h3 id="spring配置-10">Spring配置</h3>
+<h3 id="使用redis缓存">使用Redis缓存</h3>
+<h4 id="spring配置-10">Spring配置</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -4411,7 +4282,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="在service层做缓存">在Service层做缓存</h3>
+</div><h4 id="在service层做缓存">在Service层做缓存</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -4442,9 +4313,9 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="spring与远程服务">Spring与远程服务</h1>
-<h2 id="spring集成rmi">Spring集成RMI</h2>
-<h3 id="编写服务">编写服务</h3>
+</div><h2 id="spring与远程服务">Spring与远程服务</h2>
+<h3 id="spring集成rmi">Spring集成RMI</h3>
+<h4 id="编写服务">编写服务</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -4475,8 +4346,8 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="服务端">服务端</h3>
-<h4 id="spring配置-11">Spring配置</h4>
+</div><h4 id="服务端">服务端</h4>
+<h5 id="spring配置-11">Spring配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -4507,7 +4378,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="测试代码">测试代码</h4>
+</div><h5 id="测试代码">测试代码</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -4524,8 +4395,8 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="客户端">客户端</h3>
-<h4 id="spring配置-12">Spring配置</h4>
+</div><h4 id="客户端">客户端</h4>
+<h5 id="spring配置-12">Spring配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -4554,7 +4425,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="测试代码-1">测试代码</h4>
+</div><h5 id="测试代码-1">测试代码</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -4575,11 +4446,11 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="spring-jms">Spring JMS</h1>
+</div><h2 id="spring-jms">Spring JMS</h2>
 <p>发送消息时，Spring JMS通过 JmsTemplate 来发送；接收消息时，有两种方式：一是通过JmsTemplate接收。二是通过消息驱动的Bean来接收</p>
-<h2 id="队列模式">队列模式</h2>
-<h3 id="发送方">发送方</h3>
-<h4 id="spring配置-13">Spring配置</h4>
+<h3 id="队列模式">队列模式</h3>
+<h4 id="发送方">发送方</h4>
+<h5 id="spring配置-13">Spring配置</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -4642,7 +4513,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="测试代码-2">测试代码</h4>
+</div><h5 id="测试代码-2">测试代码</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -4669,9 +4540,9 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="接收方">接收方</h3>
-<h4 id="方式一使用jmstemplate">方式一：使用JmsTemplate</h4>
-<h5 id="spring配置-14">Spring配置</h5>
+</div><h4 id="接收方">接收方</h4>
+<h5 id="方式一使用jmstemplate">方式一：使用JmsTemplate</h5>
+<h6 id="spring配置-14">Spring配置</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -4734,7 +4605,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="测试代码-3">测试代码</h5>
+</div><h6 id="测试代码-3">测试代码</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -4757,8 +4628,8 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
 
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="方式二通过消息驱动的bean">方式二：通过消息驱动的Bean</h4>
-<h5 id="spring配置-15">Spring配置</h5>
+</div><h5 id="方式二通过消息驱动的bean">方式二：通过消息驱动的Bean</h5>
+<h6 id="spring配置-15">Spring配置</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -4821,7 +4692,7 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="service">Service</h5>
+</div><h6 id="service">Service</h6>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -4846,13 +4717,13 @@ LocalContainerEntityManagerFactoryBean生成容器管理类型的Entity-ManagerF
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="发布订阅模式">发布/订阅模式</h2>
-<h3 id="发送方-1">发送方</h3>
+</div><h3 id="发布订阅模式">发布/订阅模式</h3>
+<h4 id="发送方-1">发送方</h4>
 <p>同队列模式，只需设置jmsTemplate.setPubSubDomain(true)即可</p>
-<h3 id="接收方-1">接收方</h3>
-<h4 id="方式一使用jmstemplate-1">方式一：使用JmsTemplate</h4>
+<h4 id="接收方-1">接收方</h4>
+<h5 id="方式一使用jmstemplate-1">方式一：使用JmsTemplate</h5>
 <p>同队列模式，只需设置jmsTemplate.setPubSubDomain(true)即可</p>
-<h4 id="方式二通过消息驱动的bean-1">方式二：通过消息驱动的Bean</h4>
+<h5 id="方式二通过消息驱动的bean-1">方式二：通过消息驱动的Bean</h5>
 <p>同队列模式，只需设置DefaultJmsListenerContainerFactory.setPubSubDomain(true)即可</p>
 
     </div>
