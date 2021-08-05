@@ -69,7 +69,7 @@
 <meta itemprop="name" content="零碎知识点汇总">
 <meta itemprop="description" content="Servlet Servlet、Filter 的 url-pattern 匹配规则 精确匹配 1 2 3 @WebServlet(urlPatterns = &#34;/test&#34;) public class TestServlet extends HttpServlet { } 扩展名匹配 1 2 3 @WebServlet(urlPatterns = &#34;*.do&#34;) public class TestServlet extends HttpServlet { } 路径匹配 1 2 3 @WebServlet(urlPatterns = &#34;/test/*&#34;) public class TestServlet extends"><meta itemprop="datePublished" content="2019-09-30T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-09-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2470">
+<meta itemprop="wordCount" content="2565">
 <meta itemprop="keywords" content="Java," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="零碎知识点汇总"/>
 <meta name="twitter:description" content="Servlet Servlet、Filter 的 url-pattern 匹配规则 精确匹配 1 2 3 @WebServlet(urlPatterns = &#34;/test&#34;) public class TestServlet extends HttpServlet { } 扩展名匹配 1 2 3 @WebServlet(urlPatterns = &#34;*.do&#34;) public class TestServlet extends HttpServlet { } 路径匹配 1 2 3 @WebServlet(urlPatterns = &#34;/test/*&#34;) public class TestServlet extends"/>
@@ -289,8 +289,8 @@
             <a href="http://jason207010.github.io/categories/java/"> Java </a>
             
           </div>
-        <span class="more-meta"> 约 2470 字 </span>
-          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span class="more-meta"> 约 2565 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
 
         
         
@@ -351,6 +351,7 @@
         <li><a href="#sql_safe_updates-参数">sql_safe_updates 参数</a></li>
         <li><a href="#修改用户密码">修改用户密码</a></li>
         <li><a href="#修改最大连接数">修改最大连接数</a></li>
+        <li><a href="#查看时区">查看时区</a></li>
         <li><a href="#修改时区">修改时区</a></li>
       </ul>
     </li>
@@ -368,6 +369,7 @@
       <ul>
         <li><a href="#设置和取消代理">设置和取消代理</a></li>
         <li><a href="#git-commit-日志规范">Git commit 日志规范</a></li>
+        <li><a href="#清空-commit-记录">清空 commit 记录</a></li>
       </ul>
     </li>
     <li><a href="#vim">VIM</a>
@@ -1094,6 +1096,15 @@ cnpm install express
 <span class="nv">max_connections</span> <span class="o">=</span> <span class="m">1000</span>
 </code></pre></td></tr></table>
 </div>
+</div><h3 id="查看时区">查看时区</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s2">&#34;%time_zone%&#34;</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
 </div><h3 id="修改时区">修改时区</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1337,7 +1348,38 @@ Host github.com
 </tr>
 </tbody>
 </table>
-<h2 id="vim">VIM</h2>
+<h3 id="清空-commit-记录">清空 commit 记录</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 切换到主分支</span>
+git checkout master
+<span class="c1"># 基于主分支创建独立分支 temp</span>
+git checkout --orphan temp
+git add -A
+git commit -m <span class="s1">&#39;commit&#39;</span>
+<span class="c1"># 删除主分支</span>
+git branch -D master
+<span class="c1"># temp 分支重命名为 master</span>
+git branch -m master
+<span class="c1"># 强制推送到远程分支</span>
+git push -f origin master
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="vim">VIM</h2>
 <h3 id="vim-配置">VIM 配置</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
