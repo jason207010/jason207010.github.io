@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Pig 开发环境配置">
 <meta itemprop="description" content="软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 Pig 0.15.0 依赖环境 安装Pig必须先安装配置好JAVA、Hadoop 环境变量配置 编辑/etc/profile文件 1 2 3 4 5 #"><meta itemprop="datePublished" content="2017-07-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2017-07-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="144">
+<meta itemprop="wordCount" content="146">
 <meta itemprop="keywords" content="Pig," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Pig 开发环境配置"/>
 <meta name="twitter:description" content="软件概览 软件 版本 JAVA 1.8.0_65 Hadoop 2.6.4 Pig 0.15.0 依赖环境 安装Pig必须先安装配置好JAVA、Hadoop 环境变量配置 编辑/etc/profile文件 1 2 3 4 5 #"/>
@@ -289,7 +289,7 @@
             <a href="http://jason207010.github.io/categories/pig/"> Pig </a>
             
           </div>
-        <span class="more-meta"> 约 144 字 </span>
+        <span class="more-meta"> 约 146 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
 
         
@@ -305,13 +305,20 @@
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#软件概览">软件概览</a></li>
+    <li><a href="#依赖环境">依赖环境</a></li>
+    <li><a href="#环境变量配置">环境变量配置</a></li>
+    <li><a href="#启动pig">启动Pig</a></li>
+  </ul>
+</nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h1 id="软件概览">软件概览</h1>
+      <h2 id="软件概览">软件概览</h2>
 <table>
 <thead>
 <tr>
@@ -334,9 +341,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="依赖环境">依赖环境</h1>
+<h2 id="依赖环境">依赖环境</h2>
 <p>安装Pig必须先安装配置好JAVA、Hadoop</p>
-<h1 id="环境变量配置">环境变量配置</h1>
+<h2 id="环境变量配置">环境变量配置</h2>
 <p>编辑/etc/profile文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -347,14 +354,14 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#pig环境变量配置begin</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">##pig环境变量配置begin</span>
 <span class="nb">export</span> <span class="nv">PIG_HOME</span><span class="o">=</span>/opt/pig
 <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">PIG_HOME</span><span class="si">}</span>/bin
 <span class="nb">export</span> <span class="nv">PIG_CLASSPATH</span><span class="o">=</span><span class="si">${</span><span class="nv">HADOOP_CONF_DIR</span><span class="si">}</span>
-<span class="c1">#pig环境变量配置end</span>
+<span class="c1">##pig环境变量配置end</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="启动pig">启动Pig</h1>
+</div><h2 id="启动pig">启动Pig</h2>
 <p>注意：启动Pig前必须先启动Hadoop、historyserver</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

@@ -308,19 +308,18 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#安装">安装</a></li>
-    <li><a href="#配置">配置</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#新建博客站点">新建博客站点</a></li>
-    <li><a href="#使用-jane-主题">使用 Jane 主题</a></li>
-    <li><a href="#开始写博客文章">开始写博客文章</a>
+    <li><a href="#安装hugo">安装hugo</a></li>
+    <li><a href="#emacs-安装-ox-hugo-插件">Emacs 安装 ox-hugo 插件</a>
       <ul>
-        <li><a href="#新建-content-org-目录用来存放-org-文件">新建 content-org 目录用来存放 org 文件</a></li>
-        <li><a href="#新建-demoorg-文件写入博客内容">新建 demo.org 文件，写入博客内容</a></li>
-        <li><a href="#使用-ox-hugo-把-org-文件导出为-md-文件">使用 ox-hugo 把 org 文件导出为 md 文件</a></li>
-        <li><a href="#启动-hugo-server">启动 hugo server</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#配置">配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#开始写博客">开始写博客</a>
+      <ul>
+        <li><a href="#新建博客站点">新建博客站点</a></li>
+        <li><a href="#使用-jane-主题">使用 Jane 主题</a></li>
+        <li><a href="#开始写博客文章">开始写博客文章</a></li>
       </ul>
     </li>
   </ul>
@@ -330,7 +329,7 @@
 
     
     <div class="post-content">
-      <h1 id="安装hugo">安装hugo</h1>
+      <h2 id="安装hugo">安装hugo</h2>
 <p><a href="https://gohugo.io">hugo 官网</a></p>
 <blockquote>
 <p>Hugo是由Go语言实现的静态网站生成器</p>
@@ -343,10 +342,10 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  brew install hugo
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="emacs-安装-ox-hugo-插件">Emacs 安装 ox-hugo 插件</h1>
+</div><h2 id="emacs-安装-ox-hugo-插件">Emacs 安装 ox-hugo 插件</h2>
 <p><a href="https://ox-hugo.scripter.co">ox-hugo 官网</a></p>
 <p>ox-hugo 是 org mode 转换为 hugo markdown 源文件的导出工具</p>
-<h2 id="安装">安装</h2>
+<h3 id="安装">安装</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -363,7 +362,7 @@
   Ret
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="配置">配置</h2>
+</div><h3 id="配置">配置</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -382,8 +381,8 @@
     <span class="p">(</span><span class="nf">require</span> <span class="ss">&#39;ox-hugo</span><span class="p">))</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="开始写博客">开始写博客</h1>
-<h2 id="新建博客站点">新建博客站点</h2>
+</div><h2 id="开始写博客">开始写博客</h2>
+<h3 id="新建博客站点">新建博客站点</h3>
 <p>在 <em>~/Blog</em> 目录新建博客站点</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -393,7 +392,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  hugo new site ~/Blog
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="使用-jane-主题">使用 Jane 主题</h2>
+</div><h3 id="使用-jane-主题">使用 Jane 主题</h3>
 <p><a href="https://github.com/xianmin/hugo-theme-jane">Jane 主题官网</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -409,8 +408,8 @@
   cp themes/jane/exampleSite/config.toml ./
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="开始写博客文章">开始写博客文章</h2>
-<h3 id="新建-content-org-目录用来存放-org-文件">新建 content-org 目录用来存放 org 文件</h3>
+</div><h3 id="开始写博客文章">开始写博客文章</h3>
+<h4 id="新建-content-org-目录用来存放-org-文件">新建 content-org 目录用来存放 org 文件</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -419,7 +418,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  mkdir content-org
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="新建-demoorg-文件写入博客内容">新建 demo.org 文件，写入博客内容</h3>
+</div><h4 id="新建-demoorg-文件写入博客内容">新建 demo.org 文件，写入博客内容</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -444,12 +443,12 @@
   这是内容
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="使用-ox-hugo-把-org-文件导出为-md-文件">使用 ox-hugo 把 org 文件导出为 md 文件</h3>
-<h4 id="方式一手动导出">方式一：手动导出</h4>
+</div><h4 id="使用-ox-hugo-把-org-文件导出为-md-文件">使用 ox-hugo 把 org 文件导出为 md 文件</h4>
+<h5 id="方式一手动导出">方式一：手动导出</h5>
 <blockquote>
 <p>C-c C-e H H</p>
 </blockquote>
-<h4 id="方式二保存-org-文件时自动导出">方式二：保存 org 文件时自动导出</h4>
+<h5 id="方式二保存-org-文件时自动导出">方式二：保存 org 文件时自动导出</h5>
 <p>在站点根目录新建 dir-locals.el 文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -469,7 +468,7 @@
     <span class="o">.</span> <span class="p">((</span><span class="nv">org-mode</span> <span class="o">.</span> <span class="p">((</span><span class="nf">eval</span> <span class="o">.</span> <span class="p">(</span><span class="nv">org-hugo-auto-export-mode</span><span class="p">)))))))</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="启动-hugo-server">启动 hugo server</h3>
+</div><h4 id="启动-hugo-server">启动 hugo server</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1

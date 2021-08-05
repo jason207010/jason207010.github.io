@@ -307,26 +307,20 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#软件版本">软件版本</a></li>
-    <li><a href="#服务器列表">服务器列表</a></li>
-    <li><a href="#禁用-swap-分区">禁用 swap 分区</a></li>
-    <li><a href="#安装-kubeadm">安装 Kubeadm</a>
+    <li><a href="#使用-kubeadm-搭建-kubernetes-集群">使用 Kubeadm 搭建 Kubernetes 集群</a>
       <ul>
-        <li><a href="#ubuntu">Ubuntu</a></li>
-        <li><a href="#centos">CentOS</a></li>
+        <li><a href="#软件版本">软件版本</a></li>
+        <li><a href="#服务器列表">服务器列表</a></li>
+        <li><a href="#禁用-swap-分区">禁用 swap 分区</a></li>
+        <li><a href="#安装-kubeadm">安装 Kubeadm</a></li>
+        <li><a href="#预下载配置镜像">预下载配置镜像</a></li>
+        <li><a href="#初始化-master-节点">初始化 master 节点</a></li>
+        <li><a href="#初始化-node-节点">初始化 node 节点</a></li>
+        <li><a href="#修改环境变量">修改环境变量</a></li>
+        <li><a href="#部署-flannel-网络插件">部署 flannel 网络插件</a></li>
+        <li><a href="#查看节点状态">查看节点状态</a></li>
       </ul>
     </li>
-    <li><a href="#预下载配置镜像">预下载配置镜像</a></li>
-    <li><a href="#初始化-master-节点">初始化 master 节点</a></li>
-    <li><a href="#初始化-node-节点">初始化 node 节点</a></li>
-    <li><a href="#修改环境变量">修改环境变量</a>
-      <ul>
-        <li><a href="#master-节点">master 节点</a></li>
-        <li><a href="#node-节点">node 节点</a></li>
-      </ul>
-    </li>
-    <li><a href="#部署-flannel-网络插件">部署 flannel 网络插件</a></li>
-    <li><a href="#查看节点状态">查看节点状态</a></li>
   </ul>
 </nav>
   </div>
@@ -334,8 +328,8 @@
 
     
     <div class="post-content">
-      <h1 id="使用-kubeadm-搭建-kubernetes-集群">使用 Kubeadm 搭建 Kubernetes 集群</h1>
-<h2 id="软件版本">软件版本</h2>
+      <h2 id="使用-kubeadm-搭建-kubernetes-集群">使用 Kubeadm 搭建 Kubernetes 集群</h2>
+<h3 id="软件版本">软件版本</h3>
 <table>
 <thead>
 <tr>
@@ -358,7 +352,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="服务器列表">服务器列表</h2>
+<h3 id="服务器列表">服务器列表</h3>
 <table>
 <thead>
 <tr>
@@ -377,7 +371,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="禁用-swap-分区">禁用 swap 分区</h2>
+<h3 id="禁用-swap-分区">禁用 swap 分区</h3>
 <p>在 master 节点和 node 节点</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -398,8 +392,8 @@
   <span class="c1">#/swap.img      none    swap    sw      0       0</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="安装-kubeadm">安装 Kubeadm</h2>
-<h3 id="ubuntu">Ubuntu</h3>
+</div><h3 id="安装-kubeadm">安装 Kubeadm</h3>
+<h4 id="ubuntu">Ubuntu</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -420,7 +414,7 @@
   apt-get install -y kubelet kubeadm kubectl
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="centos">CentOS</h3>
+</div><h4 id="centos">CentOS</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -451,7 +445,7 @@
   systemctl <span class="nb">enable</span> kubelet <span class="o">&amp;&amp;</span> systemctl start kubelet
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="预下载配置镜像">预下载配置镜像</h2>
+</div><h3 id="预下载配置镜像">预下载配置镜像</h3>
 <p>国内无法访问 grc.io ，需要从国内镜像站预下载配置镜像</p>
 <p>查看 Kubeadm 配置镜像列表</p>
 <div class="highlight"><div class="chroma">
@@ -535,7 +529,7 @@
   docker rmi registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.6.5
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="初始化-master-节点">初始化 master 节点</h2>
+</div><h3 id="初始化-master-节点">初始化 master 节点</h3>
 <p>在 master 服务器执行命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -574,7 +568,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>这行命令用来初始化 node 节点</p>
-<h2 id="初始化-node-节点">初始化 node 节点</h2>
+<h3 id="初始化-node-节点">初始化 node 节点</h3>
 <p>在 node 节点执行命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -586,7 +580,7 @@
 </span><span class="se"></span>      --discovery-token-ca-cert-hash sha256:17795b4294005f36c07a3fa50a1161fea4fed67e83205ef2d5f5d1c47458e41d
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="修改环境变量">修改环境变量</h2>
+</div><h3 id="修改环境变量">修改环境变量</h3>
 <p>如果不修改环境变量，使用 kubectl 命令时会报以下异常：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -596,7 +590,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  The connection to the server localhost:8080 was refused - did you specify the right host or port?
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="master-节点">master 节点</h3>
+</div><h4 id="master-节点">master 节点</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -609,7 +603,7 @@
   <span class="nb">source</span> ~/.bashrc
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="node-节点">node 节点</h3>
+</div><h4 id="node-节点">node 节点</h4>
 <p>从 master 节点复制配置文件到 node 节点</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -631,7 +625,7 @@
   <span class="nb">source</span> ~/.bashrc
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="部署-flannel-网络插件">部署 flannel 网络插件</h2>
+</div><h3 id="部署-flannel-网络插件">部署 flannel 网络插件</h3>
 <p>此时 master 节点和 node 节点还无法正常连接，master 节点和 node 节点都是 NotReady 状态，需要安装 flannel 网络插件使两个节点能够正常连接</p>
 <p>在 master 节点执行命令：</p>
 <div class="highlight"><div class="chroma">
@@ -642,7 +636,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="查看节点状态">查看节点状态</h2>
+</div><h3 id="查看节点状态">查看节点状态</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1

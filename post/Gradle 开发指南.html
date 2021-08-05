@@ -307,49 +307,41 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#定义task">定义task</a></li>
-    <li><a href="#task依赖">task依赖</a>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#projects-和-tasks">Projects 和 tasks</a>
       <ul>
-        <li><a href="#方式一">方式一</a></li>
-        <li><a href="#方式二">方式二</a></li>
+        <li><a href="#定义task">定义task</a></li>
+        <li><a href="#task依赖">task依赖</a></li>
+        <li><a href="#执行task">执行task</a></li>
+        <li><a href="#task自定义属性">task自定义属性</a></li>
+        <li><a href="#默认task">默认task</a></li>
+        <li><a href="#多项目构建">多项目构建</a></li>
       </ul>
     </li>
-    <li><a href="#执行task">执行task</a></li>
-    <li><a href="#task自定义属性">task自定义属性</a></li>
-    <li><a href="#默认task">默认task</a></li>
-    <li><a href="#多项目构建">多项目构建</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#使用阿里云maven仓库">使用阿里云Maven仓库</a></li>
-    <li><a href="#引入依赖">引入依赖</a></li>
-    <li><a href="#依赖本地jar包">依赖本地jar包</a>
+    <li><a href="#依赖管理">依赖管理</a>
       <ul>
-        <li><a href="#依赖单独jar包">依赖单独jar包</a></li>
-        <li><a href="#依赖某个目录下的所有jar包">依赖某个目录下的所有jar包</a></li>
+        <li><a href="#使用阿里云maven仓库">使用阿里云Maven仓库</a></li>
+        <li><a href="#引入依赖">引入依赖</a></li>
+        <li><a href="#依赖本地jar包">依赖本地jar包</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#执行多个task">执行多个task</a></li>
-    <li><a href="#排除task">排除task</a></li>
-    <li><a href="#project列表">project列表</a></li>
-    <li><a href="#task列表">task列表</a></li>
-    <li><a href="#查看依赖信息">查看依赖信息</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#项目目录">项目目录</a></li>
-    <li><a href="#configgroovy">config.groovy</a></li>
-    <li><a href="#configproperties">config.properties</a></li>
-    <li><a href="#webxml">web.xml</a></li>
-    <li><a href="#buildgradle">build.gradle</a></li>
-    <li><a href="#打包">打包</a>
+    <li><a href="#gradle命令">Gradle命令</a>
       <ul>
-        <li><a href="#加载dev配置进行替换">加载dev配置进行替换</a></li>
-        <li><a href="#加载pre配置进行替换">加载pre配置进行替换</a></li>
-        <li><a href="#加载product配置进行替换">加载product配置进行替换</a></li>
+        <li><a href="#执行多个task">执行多个task</a></li>
+        <li><a href="#排除task">排除task</a></li>
+        <li><a href="#project列表">project列表</a></li>
+        <li><a href="#task列表">task列表</a></li>
+        <li><a href="#查看依赖信息">查看依赖信息</a></li>
+      </ul>
+    </li>
+    <li><a href="#打包过程中文本替换">打包过程中文本替换</a>
+      <ul>
+        <li><a href="#项目目录">项目目录</a></li>
+        <li><a href="#configgroovy">config.groovy</a></li>
+        <li><a href="#configproperties">config.properties</a></li>
+        <li><a href="#webxml">web.xml</a></li>
+        <li><a href="#buildgradle">build.gradle</a></li>
+        <li><a href="#打包">打包</a></li>
       </ul>
     </li>
   </ul>
@@ -359,7 +351,7 @@
 
     
     <div class="post-content">
-      <h1 id="概述">概述</h1>
+      <h2 id="概述">概述</h2>
 <p>Gradle 提供了:</p>
 <ul>
 <li>一个像 Ant 一样的非常灵活的通用构建工具</li>
@@ -372,7 +364,7 @@
 <li>基于 groovy 的构建脚本</li>
 <li>有丰富的领域模型来描述你的构建</li>
 </ul>
-<h1 id="projects-和-tasks">Projects 和 tasks</h1>
+<h2 id="projects-和-tasks">Projects 和 tasks</h2>
 <p>Gradle 里的任何东西都是基于这两个基础概念:</p>
 <ul>
 <li>projects</li>
@@ -380,7 +372,7 @@
 </ul>
 <p>每一个构建都是由一个或多个 projects 构成的，一个project代表要构建的东西或要做的事
 每一个 project 是由一个或多个 tasks 构成的，一个 task 代表一些更加细化的构建，可能是编译一些 classes, 创建一个 JAR, 或者生成某个目录的压缩文件.</p>
-<h2 id="定义task">定义task</h2>
+<h3 id="定义task">定义task</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -393,8 +385,8 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="task依赖">task依赖</h2>
-<h3 id="方式一">方式一</h3>
+</div><h3 id="task依赖">task依赖</h3>
+<h4 id="方式一">方式一</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -415,7 +407,7 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="方式二">方式二</h3>
+</div><h4 id="方式二">方式二</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -438,7 +430,7 @@
   <span class="n">intro</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">hello</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="执行task">执行task</h2>
+</div><h3 id="执行task">执行task</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -447,7 +439,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  gradle -q hello
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="task自定义属性">task自定义属性</h2>
+</div><h3 id="task自定义属性">task自定义属性</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -468,7 +460,7 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="默认task">默认task</h2>
+</div><h3 id="默认task">默认task</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -513,7 +505,7 @@
   Default Running!
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="多项目构建">多项目构建</h2>
+</div><h3 id="多项目构建">多项目构建</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -580,8 +572,8 @@
   <span class="n">include</span> <span class="err">&#39;</span><span class="n">web</span><span class="err">&#39;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="依赖管理">依赖管理</h1>
-<h2 id="使用阿里云maven仓库">使用阿里云Maven仓库</h2>
+</div><h2 id="依赖管理">依赖管理</h2>
+<h3 id="使用阿里云maven仓库">使用阿里云Maven仓库</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -594,7 +586,7 @@
 </span><span class="c1"></span>  <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="引入依赖">引入依赖</h2>
+</div><h3 id="引入依赖">引入依赖</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -607,8 +599,8 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="依赖本地jar包">依赖本地jar包</h2>
-<h3 id="依赖单独jar包">依赖单独jar包</h3>
+</div><h3 id="依赖本地jar包">依赖本地jar包</h3>
+<h4 id="依赖单独jar包">依赖单独jar包</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -617,7 +609,7 @@
 <pre class="chroma"><code class="language-java" data-lang="java">  <span class="n">compile</span> <span class="nf">files</span><span class="o">(</span><span class="err">&#39;</span><span class="n">lib</span><span class="o">/</span><span class="n">ojdbc</span><span class="o">-</span><span class="n">14</span><span class="o">.</span><span class="na">jar</span><span class="err">&#39;</span><span class="o">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="依赖某个目录下的所有jar包">依赖某个目录下的所有jar包</h3>
+</div><h4 id="依赖某个目录下的所有jar包">依赖某个目录下的所有jar包</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -626,8 +618,8 @@
 <pre class="chroma"><code class="language-java" data-lang="java">  <span class="n">compile</span> <span class="nf">fileTree</span><span class="o">(</span><span class="n">dir</span><span class="o">:</span><span class="err">&#39;</span><span class="n">libs</span><span class="err">&#39;</span><span class="o">,</span><span class="n">include</span><span class="o">:[</span><span class="err">&#39;</span><span class="o">*.</span><span class="na">jar</span><span class="err">&#39;</span><span class="o">])</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="gradle命令">Gradle命令</h1>
-<h2 id="执行多个task">执行多个task</h2>
+</div><h2 id="gradle命令">Gradle命令</h2>
+<h3 id="执行多个task">执行多个task</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -636,7 +628,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  gradle compile <span class="nb">test</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="排除task">排除task</h2>
+</div><h3 id="排除task">排除task</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -645,7 +637,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  gradle build -x <span class="nb">test</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="project列表">project列表</h2>
+</div><h3 id="project列表">project列表</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -654,7 +646,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  gradle -q projects
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="task列表">task列表</h2>
+</div><h3 id="task列表">task列表</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -663,7 +655,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  gradle -q tasks
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="查看依赖信息">查看依赖信息</h2>
+</div><h3 id="查看依赖信息">查看依赖信息</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -672,10 +664,10 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  gradle :web:dependencies
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="打包过程中文本替换">打包过程中文本替换</h1>
+</div><h2 id="打包过程中文本替换">打包过程中文本替换</h2>
 <p>利用filter方法进行文本替换，在processResources{}块对resources目录下的文件进行替换，在war{}块对webapp目录下的文件进行替换
 要替换的文本用@前后包进来，如@spring.profile@，build.gradle的脚本会加载config.groovy的配置，取得key为spring.profile的文本替换到该位置</p>
-<h2 id="项目目录">项目目录</h2>
+<h3 id="项目目录">项目目录</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -708,7 +700,7 @@
               └── index.jsp
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="configgroovy">config.groovy</h2>
+</div><h3 id="configgroovy">config.groovy</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -755,7 +747,7 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="configproperties">config.properties</h2>
+</div><h3 id="configproperties">config.properties</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -764,7 +756,7 @@
 <pre class="chroma"><code class="language-java" data-lang="java">  <span class="n">profile</span><span class="o">=</span><span class="nd">@spring.profile</span><span class="err">@</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="webxml">web.xml</h2>
+</div><h3 id="webxml">web.xml</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -791,7 +783,7 @@
   <span class="nt">&lt;/web-app&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="buildgradle">build.gradle</h2>
+</div><h3 id="buildgradle">build.gradle</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -864,8 +856,8 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="打包">打包</h2>
-<h3 id="加载dev配置进行替换">加载dev配置进行替换</h3>
+</div><h3 id="打包">打包</h3>
+<h4 id="加载dev配置进行替换">加载dev配置进行替换</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -874,7 +866,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  gradle -Penvironment<span class="o">=</span>dev clean war
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="加载pre配置进行替换">加载pre配置进行替换</h3>
+</div><h4 id="加载pre配置进行替换">加载pre配置进行替换</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -883,7 +875,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  gradle -Penvironment<span class="o">=</span>pre clean war
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="加载product配置进行替换">加载product配置进行替换</h3>
+</div><h4 id="加载product配置进行替换">加载product配置进行替换</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1

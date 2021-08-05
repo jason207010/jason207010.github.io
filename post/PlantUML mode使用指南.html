@@ -308,14 +308,20 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#安装java">安装JAVA</a></li>
-    <li><a href="#安装graphviz">安装Graphviz</a></li>
-    <li><a href="#安装plantuml">安装PlantUML</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#编码">编码</a></li>
-    <li><a href="#编译">编译</a></li>
+    <li><a href="#搭建运行环境">搭建运行环境</a>
+      <ul>
+        <li><a href="#安装java">安装JAVA</a></li>
+        <li><a href="#安装graphviz">安装Graphviz</a></li>
+        <li><a href="#安装plantuml">安装PlantUML</a></li>
+      </ul>
+    </li>
+    <li><a href="#修改emacs配置文件">修改.emacs配置文件</a></li>
+    <li><a href="#在org-mode中编写plantuml">在org mode中编写plantuml</a>
+      <ul>
+        <li><a href="#编码">编码</a></li>
+        <li><a href="#编译">编译</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -323,13 +329,13 @@
 
     
     <div class="post-content">
-      <h1 id="搭建运行环境">搭建运行环境</h1>
-<h2 id="安装java">安装JAVA</h2>
-<h2 id="安装graphviz">安装Graphviz</h2>
+      <h2 id="搭建运行环境">搭建运行环境</h2>
+<h3 id="安装java">安装JAVA</h3>
+<h3 id="安装graphviz">安装Graphviz</h3>
 <p><a href="http://www.graphviz.org/Download.php">下载地址</a></p>
-<h2 id="安装plantuml">安装PlantUML</h2>
+<h3 id="安装plantuml">安装PlantUML</h3>
 <p>下载plantuml.jar到本地即可，如下载到C:\Users\Jason\AppData\Roaming，<a href="http://plantuml.com/download">下载地址</a></p>
-<h1 id="修改emacs配置文件">修改.emacs配置文件</h1>
+<h2 id="修改emacs配置文件">修改.emacs配置文件</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -362,8 +368,8 @@
     <span class="p">))</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="在org-mode中编写plantuml">在org mode中编写plantuml</h1>
-<h2 id="编码">编码</h2>
+</div><h2 id="在org-mode中编写plantuml">在org mode中编写plantuml</h2>
+<h3 id="编码">编码</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -376,7 +382,7 @@
 <span class="n">Jim</span> <span class="o">--&gt;</span> <span class="nl">Bob</span><span class="p">:</span><span class="n">Hello</span><span class="p">.</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="编译">编译</h2>
+</div><h3 id="编译">编译</h3>
 <p>把光标移至代码块中按C-c C-c
 此时可以看到在img目录下生成了图片</p>
 <p><img src="images/PlantUML%20mode%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-1.png" alt="PlantUML%20mode使用指南-1"></p>

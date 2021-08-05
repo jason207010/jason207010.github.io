@@ -307,9 +307,20 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#编辑hbase-envsh">编辑hbase-env.sh</a></li>
-    <li><a href="#编辑hbase-sitexml">编辑hbase-site.xml</a></li>
-    <li><a href="#编辑regionservers">编辑regionservers</a></li>
+    <li><a href="#主机概览">主机概览</a></li>
+    <li><a href="#软件概览">软件概览</a></li>
+    <li><a href="#依赖环境">依赖环境</a></li>
+    <li><a href="#环境变量配置两台机器都要配置">环境变量配置（两台机器都要配置）</a></li>
+    <li><a href="#配置hbase配置文件">配置Hbase配置文件</a>
+      <ul>
+        <li><a href="#编辑hbase-envsh">编辑hbase-env.sh</a></li>
+        <li><a href="#编辑hbase-sitexml">编辑hbase-site.xml</a></li>
+        <li><a href="#编辑regionservers">编辑regionservers</a></li>
+      </ul>
+    </li>
+    <li><a href="#启动hbase">启动Hbase</a></li>
+    <li><a href="#进入hbase-shell">进入Hbase Shell</a></li>
+    <li><a href="#关闭hbase">关闭Hbase</a></li>
   </ul>
 </nav>
   </div>
@@ -317,7 +328,7 @@
 
     
     <div class="post-content">
-      <h1 id="主机概览">主机概览</h1>
+      <h2 id="主机概览">主机概览</h2>
 <p>注意：两台主机的用户名必须一样</p>
 <table>
 <thead>
@@ -343,7 +354,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="软件概览">软件概览</h1>
+<h2 id="软件概览">软件概览</h2>
 <table>
 <thead>
 <tr>
@@ -370,9 +381,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="依赖环境">依赖环境</h1>
+<h2 id="依赖环境">依赖环境</h2>
 <p>安装Hbase必须先安装配置好JAVA、Hadoop、Zookeeper</p>
-<h1 id="环境变量配置两台机器都要配置">环境变量配置（两台机器都要配置）</h1>
+<h2 id="环境变量配置两台机器都要配置">环境变量配置（两台机器都要配置）</h2>
 <p>编辑/etc/profile文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -388,8 +399,8 @@
   <span class="c1">#hbase环境变量end</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="配置hbase配置文件">配置Hbase配置文件</h1>
-<h2 id="编辑hbase-envsh">编辑hbase-env.sh</h2>
+</div><h2 id="配置hbase配置文件">配置Hbase配置文件</h2>
+<h3 id="编辑hbase-envsh">编辑hbase-env.sh</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -400,7 +411,7 @@
   <span class="nb">export</span> <span class="nv">HBASE_MANAGES_ZK</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="编辑hbase-sitexml">编辑hbase-site.xml</h2>
+</div><h3 id="编辑hbase-sitexml">编辑hbase-site.xml</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -443,7 +454,7 @@
   <span class="nt">&lt;/configuration&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="编辑regionservers">编辑regionservers</h2>
+</div><h3 id="编辑regionservers">编辑regionservers</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -452,7 +463,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  slave1
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="启动hbase">启动Hbase</h1>
+</div><h2 id="启动hbase">启动Hbase</h2>
 <p>注意：启动Hbase前必须先启动Hadoop、Zookeeper</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -462,7 +473,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  start-hbase.sh
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="进入hbase-shell">进入Hbase Shell</h1>
+</div><h2 id="进入hbase-shell">进入Hbase Shell</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -471,7 +482,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  hbase shell
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="关闭hbase">关闭Hbase</h1>
+</div><h2 id="关闭hbase">关闭Hbase</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1

@@ -308,8 +308,16 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#在-blog-仓库配置私钥">在 Blog 仓库配置私钥</a></li>
-    <li><a href="#在-jason207010githubio-仓库配置公钥">在 jason207010.github.io 仓库配置公钥</a></li>
+    <li><a href="#git-仓库准备">Git 仓库准备</a></li>
+    <li><a href="#准备-ssh-密钥">准备 SSH 密钥</a></li>
+    <li><a href="#在-github-配置密钥">在 Github 配置密钥</a>
+      <ul>
+        <li><a href="#在-blog-仓库配置私钥">在 Blog 仓库配置私钥</a></li>
+        <li><a href="#在-jason207010githubio-仓库配置公钥">在 jason207010.github.io 仓库配置公钥</a></li>
+      </ul>
+    </li>
+    <li><a href="#在-blog-仓库配置-github-action">在 Blog 仓库配置 Github Action</a></li>
+    <li><a href="#自动构建发布">自动构建发布</a></li>
   </ul>
 </nav>
   </div>
@@ -317,7 +325,7 @@
 
     
     <div class="post-content">
-      <h1 id="git-仓库准备">Git 仓库准备</h1>
+      <h2 id="git-仓库准备">Git 仓库准备</h2>
 <table>
 <thead>
 <tr>
@@ -336,7 +344,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="准备-ssh-密钥">准备 SSH 密钥</h1>
+<h2 id="准备-ssh-密钥">准备 SSH 密钥</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -345,16 +353,16 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  ssh-keygen -t rsa -C jason@mail.com -f hugo -N <span class="s2">&#34;&#34;</span> -q
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="在-github-配置密钥">在 Github 配置密钥</h1>
-<h2 id="在-blog-仓库配置私钥">在 Blog 仓库配置私钥</h2>
+</div><h2 id="在-github-配置密钥">在 Github 配置密钥</h2>
+<h3 id="在-blog-仓库配置私钥">在 Blog 仓库配置私钥</h3>
 <p>Setting -&gt; Secrets -&gt; New Secret</p>
 <p>Name 文本框输入 ACTIONS_DEPLOY_KEY</p>
 <p>Value 文本框输入私钥</p>
-<h2 id="在-jason207010githubio-仓库配置公钥">在 jason207010.github.io 仓库配置公钥</h2>
+<h3 id="在-jason207010githubio-仓库配置公钥">在 jason207010.github.io 仓库配置公钥</h3>
 <p>Setting -&gt; Deploy Keys -&gt; Add deploy key</p>
 <p>Title 文本框输入PUBLIC_KEY_OF_ACTIONS_DEPLOY_KEY</p>
 <p>Key 文本框输入 公钥</p>
-<h1 id="在-blog-仓库配置-github-action">在 Blog 仓库配置 Github Action</h1>
+<h2 id="在-blog-仓库配置-github-action">在 Blog 仓库配置 Github Action</h2>
 <p>Actions -&gt; New workflow -&gt; set up a workflow yourself</p>
 <p>在文本框输入：</p>
 <div class="highlight"><div class="chroma">
@@ -427,7 +435,7 @@
             PUBLISH_BRANCH: master                                    # 发布分支
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="自动构建发布">自动构建发布</h1>
+</div><h2 id="自动构建发布">自动构建发布</h2>
 <p>在 Blog 仓库使用 Hugo 新建文章，并 push 到远程仓库，Github Action 会自动触发并构建发布到 jason207010.github.io 仓库</p>
 
     </div>

@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Zookeeper 开发环境配置">
 <meta itemprop="description" content="主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Zookeeper 3.4.8 环境变量配置（所有机器都要配置） 编辑/etc"><meta itemprop="datePublished" content="2017-07-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2017-07-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="330">
+<meta itemprop="wordCount" content="332">
 <meta itemprop="keywords" content="Zookeeper," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Zookeeper 开发环境配置"/>
 <meta name="twitter:description" content="主机概览 注意：两台主机的用户名必须一样 主机名 用户名 IP 用途 master jason 10.2.2.99 namenode slave1 jason 10.2.2.178 datanode 软件概览 软件 版本 JAVA 1.8.0_65 Zookeeper 3.4.8 环境变量配置（所有机器都要配置） 编辑/etc"/>
@@ -289,7 +289,7 @@
             <a href="http://jason207010.github.io/categories/zookeeper/"> Zookeeper </a>
             
           </div>
-        <span class="more-meta"> 约 330 字 </span>
+        <span class="more-meta"> 约 332 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
 
         
@@ -307,8 +307,18 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#编辑zoocfg">编辑zoo.cfg</a></li>
-    <li><a href="#编辑homejasonotherzookeeperdatamyid">编辑/home/jason/other/zookeeper/data/myid</a></li>
+    <li><a href="#主机概览">主机概览</a></li>
+    <li><a href="#软件概览">软件概览</a></li>
+    <li><a href="#环境变量配置所有机器都要配置">环境变量配置（所有机器都要配置）</a></li>
+    <li><a href="#配置zookeeper配置文件所有机器都要配置">配置Zookeeper配置文件（所有机器都要配置）</a>
+      <ul>
+        <li><a href="#编辑zoocfg">编辑zoo.cfg</a></li>
+        <li><a href="#编辑homejasonotherzookeeperdatamyid">编辑/home/jason/other/zookeeper/data/myid</a></li>
+      </ul>
+    </li>
+    <li><a href="#启动zookeeper">启动Zookeeper</a></li>
+    <li><a href="#查看zookeeper状态">查看Zookeeper状态</a></li>
+    <li><a href="#停止zookeeper">停止Zookeeper</a></li>
   </ul>
 </nav>
   </div>
@@ -316,7 +326,7 @@
 
     
     <div class="post-content">
-      <h1 id="主机概览">主机概览</h1>
+      <h2 id="主机概览">主机概览</h2>
 <p>注意：两台主机的用户名必须一样</p>
 <table>
 <thead>
@@ -342,7 +352,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="软件概览">软件概览</h1>
+<h2 id="软件概览">软件概览</h2>
 <table>
 <thead>
 <tr>
@@ -361,7 +371,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="环境变量配置所有机器都要配置">环境变量配置（所有机器都要配置）</h1>
+<h2 id="环境变量配置所有机器都要配置">环境变量配置（所有机器都要配置）</h2>
 <p>编辑/etc/profile</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -371,14 +381,14 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#zookeeper环境变量begin</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">##zookeeper环境变量begin</span>
 <span class="nb">export</span> <span class="nv">ZOOKEEPER_HOME</span><span class="o">=</span>/opt/zookeeper
 <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">ZOOKEEPER_HOME</span><span class="si">}</span>/bin
-<span class="c1">#zookeeper环境变量end</span>
+<span class="c1">##zookeeper环境变量end</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="配置zookeeper配置文件所有机器都要配置">配置Zookeeper配置文件（所有机器都要配置）</h1>
-<h2 id="编辑zoocfg">编辑zoo.cfg</h2>
+</div><h2 id="配置zookeeper配置文件所有机器都要配置">配置Zookeeper配置文件（所有机器都要配置）</h2>
+<h3 id="编辑zoocfg">编辑zoo.cfg</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -401,7 +411,7 @@ server.1<span class="o">=</span>master:2888:3888
 server.2<span class="o">=</span>slave1:2888:3888
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="编辑homejasonotherzookeeperdatamyid">编辑/home/jason/other/zookeeper/data/myid</h2>
+</div><h3 id="编辑homejasonotherzookeeperdatamyid">编辑/home/jason/other/zookeeper/data/myid</h3>
 <ol>
 <li>master机器</li>
 </ol>
@@ -424,7 +434,7 @@ server.2<span class="o">=</span>slave1:2888:3888
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="m">2</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="启动zookeeper">启动Zookeeper</h1>
+</div><h2 id="启动zookeeper">启动Zookeeper</h2>
 <p>分别在两台机器执行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -434,7 +444,7 @@ server.2<span class="o">=</span>slave1:2888:3888
 <pre class="chroma"><code class="language-shell" data-lang="shell">zkServer.sh start
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="查看zookeeper状态">查看Zookeeper状态</h1>
+</div><h2 id="查看zookeeper状态">查看Zookeeper状态</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -473,7 +483,7 @@ Using config: /opt/zookeeper/bin/../conf/zoo.cfg
 Mode: leader
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="停止zookeeper">停止Zookeeper</h1>
+</div><h2 id="停止zookeeper">停止Zookeeper</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1

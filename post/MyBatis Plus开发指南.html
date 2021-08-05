@@ -308,8 +308,12 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#定义拦截器">定义拦截器</a></li>
-    <li><a href="#配置拦截器-bean使拦截器生效">配置拦截器 Bean，使拦截器生效</a></li>
+    <li><a href="#拦截器">拦截器</a>
+      <ul>
+        <li><a href="#定义拦截器">定义拦截器</a></li>
+        <li><a href="#配置拦截器-bean使拦截器生效">配置拦截器 Bean，使拦截器生效</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -317,7 +321,7 @@
 
     
     <div class="post-content">
-      <h1 id="拦截器">拦截器</h1>
+      <h2 id="拦截器">拦截器</h2>
 <p>MyBatis 拦截器按顺序拦截以下目标的方法，如果拦截的是相同的目标方法，可以用 @Order 注解调整拦截顺序，值越大越早执行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -339,7 +343,7 @@
 <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">ibatis</span><span class="o">.</span><span class="na">executor</span><span class="o">.</span><span class="na">resultset</span><span class="o">.</span><span class="na">ResultSetHandler</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="定义拦截器">定义拦截器</h2>
+</div><h3 id="定义拦截器">定义拦截器</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -382,7 +386,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="配置拦截器-bean使拦截器生效">配置拦截器 Bean，使拦截器生效</h2>
+</div><h3 id="配置拦截器-bean使拦截器生效">配置拦截器 Bean，使拦截器生效</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1

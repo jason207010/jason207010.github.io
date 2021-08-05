@@ -307,8 +307,14 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#使用https">使用HTTPS</a></li>
-    <li><a href="#使用ssh">使用SSH</a></li>
+    <li><a href="#生成ssh公钥和私钥">生成SSH公钥和私钥</a></li>
+    <li><a href="#将公钥保存到github">将公钥保存到Github</a></li>
+    <li><a href="#https和ssh管理github的区别">HTTPS和SSH管理Github的区别</a>
+      <ul>
+        <li><a href="#使用https">使用HTTPS</a></li>
+        <li><a href="#使用ssh">使用SSH</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -316,7 +322,7 @@
 
     
     <div class="post-content">
-      <h1 id="生成ssh公钥和私钥">生成SSH公钥和私钥</h1>
+      <h2 id="生成ssh公钥和私钥">生成SSH公钥和私钥</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -327,13 +333,13 @@
 </div>
 </div><p>提示保存位置时直接回车，使用默认保存路径即可。
 提示输入密码时直接回车，不用密码，这样做的好处是省去clone和push操作需要输入密码的麻烦。</p>
-<h1 id="将公钥保存到github">将公钥保存到Github</h1>
+<h2 id="将公钥保存到github">将公钥保存到Github</h2>
 <p>浏览器打开 <a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 将公钥中的文本内容保存到Github即可</p>
-<h1 id="https和ssh管理github的区别">HTTPS和SSH管理Github的区别</h1>
+<h2 id="https和ssh管理github的区别">HTTPS和SSH管理Github的区别</h2>
 <p>Github提供HTTPS和SSH两种方式管理Git仓库</p>
-<h2 id="使用https">使用HTTPS</h2>
+<h3 id="使用https">使用HTTPS</h3>
 <p>URL类似  <a href="https://github.com/JasonChanBest/prometheus.git">https://github.com/JasonChanBest/prometheus.git</a> 任何人都可以通过URL clone项目，但每次push都需要验证用户名和密码</p>
-<h2 id="使用ssh">使用SSH</h2>
+<h3 id="使用ssh">使用SSH</h3>
 <p>URL类似 <a href="mailto:git@github.com">git@github.com</a>:JasonChanBest/prometheus.git 只有拥有私钥的管理员才能clone项目，每次push都不需要验证用户名和密码</p>
 
     </div>

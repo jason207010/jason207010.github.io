@@ -305,13 +305,28 @@
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#主机概览">主机概览</a></li>
+    <li><a href="#软件概览">软件概览</a></li>
+    <li><a href="#环境变量配置两台机器都要配置">环境变量配置（两台机器都要配置）</a></li>
+    <li><a href="#hosts文件配置两台机器都要配置">hosts文件配置（两台机器都要配置）</a></li>
+    <li><a href="#hostname文件配置">hostname文件配置</a></li>
+    <li><a href="#配置免密码登陆">配置免密码登陆</a></li>
+    <li><a href="#配置hadoop配置文件两台机器都要配置">配置Hadoop配置文件（两台机器都要配置）</a></li>
+    <li><a href="#格式化namenode">格式化namenode</a></li>
+    <li><a href="#在master主机启动hadoop">在master主机启动Hadoop</a></li>
+    <li><a href="#查看hadoop启动情况">查看Hadoop启动情况</a></li>
+    <li><a href="#在master主机查看hadoop提供的web界面">在master主机查看Hadoop提供的web界面</a></li>
+    <li><a href="#停止hadoop">停止Hadoop</a></li>
+  </ul>
+</nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h1 id="主机概览">主机概览</h1>
+      <h2 id="主机概览">主机概览</h2>
 <p>注意：两台主机的用户名必须一样</p>
 <table>
 <thead>
@@ -337,7 +352,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="软件概览">软件概览</h1>
+<h2 id="软件概览">软件概览</h2>
 <table>
 <thead>
 <tr>
@@ -356,7 +371,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="环境变量配置两台机器都要配置">环境变量配置（两台机器都要配置）</h1>
+<h2 id="环境变量配置两台机器都要配置">环境变量配置（两台机器都要配置）</h2>
 <p>编辑/etc/profile文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -388,7 +403,7 @@
   <span class="c1">#hadoop环境变量end</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="hosts文件配置两台机器都要配置">hosts文件配置（两台机器都要配置）</h1>
+</div><h2 id="hosts文件配置两台机器都要配置">hosts文件配置（两台机器都要配置）</h2>
 <p>编辑/etc/hosts文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -400,7 +415,7 @@
   10.2.2.178      slave1
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="hostname文件配置">hostname文件配置</h1>
+</div><h2 id="hostname文件配置">hostname文件配置</h2>
 <p>master主机：
 编辑/etc/hostname文件</p>
 <div class="highlight"><div class="chroma">
@@ -421,7 +436,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  slave1
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="配置免密码登陆">配置免密码登陆</h1>
+</div><h2 id="配置免密码登陆">配置免密码登陆</h2>
 <ol>
 <li>生成密钥</li>
 </ol>
@@ -464,7 +479,7 @@
    cat id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="配置hadoop配置文件两台机器都要配置">配置Hadoop配置文件（两台机器都要配置）</h1>
+</div><h2 id="配置hadoop配置文件两台机器都要配置">配置Hadoop配置文件（两台机器都要配置）</h2>
 <ol>
 <li>编辑mapred-site.xml</li>
 </ol>
@@ -611,7 +626,7 @@
   <span class="nt">&lt;/configuration&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="格式化namenode">格式化namenode</h1>
+</div><h2 id="格式化namenode">格式化namenode</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -620,7 +635,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  hdfs namenode -format
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="在master主机启动hadoop">在master主机启动Hadoop</h1>
+</div><h2 id="在master主机启动hadoop">在master主机启动Hadoop</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -629,7 +644,7 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell">  start-all.sh
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="查看hadoop启动情况">查看Hadoop启动情况</h1>
+</div><h2 id="查看hadoop启动情况">查看Hadoop启动情况</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -667,10 +682,10 @@
   <span class="m">2284</span> NodeManager
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="在master主机查看hadoop提供的web界面">在master主机查看Hadoop提供的web界面</h1>
+</div><h2 id="在master主机查看hadoop提供的web界面">在master主机查看Hadoop提供的web界面</h2>
 <p><a href="http://master:8088">http://master:8088</a>
 <a href="http://master:50070">http://master:50070</a></p>
-<h1 id="停止hadoop">停止Hadoop</h1>
+<h2 id="停止hadoop">停止Hadoop</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1

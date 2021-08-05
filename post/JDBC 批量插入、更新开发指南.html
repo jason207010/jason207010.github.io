@@ -305,15 +305,23 @@
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#创建mysql数据库表">创建MySQL数据库表</a></li>
+    <li><a href="#构建项目基于gradle">构建项目（基于Gradle）</a></li>
+    <li><a href="#spring配置">Spring配置</a></li>
+    <li><a href="#批量插入">批量插入</a></li>
+  </ul>
+</nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h1 id="概述">概述</h1>
+      <h2 id="概述">概述</h2>
 <p>JAVA提供java.sql.Statement#executeBatch()方法帮助开发者实现批量插入、更新及删除等操作，但MySQL JDBC驱动默认情况下会无视该语句，把SQL语句逐条发送给MySQL服务器，导致批量操作无效，为了实现把SQL语句批量发送给MySQL服务器，需要把rewriteBatchedStatements参数设置为true。本项目基于Gradle、Spring、DBCP数据库连接池构建。</p>
-<h1 id="创建mysql数据库表">创建MySQL数据库表</h1>
+<h2 id="创建mysql数据库表">创建MySQL数据库表</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -334,7 +342,7 @@
 </span><span class="w">  </span><span class="p">)</span><span class="w">  </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">INNODB</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="o">=</span><span class="n">UTF8</span><span class="p">;</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
-</div><h1 id="构建项目基于gradle">构建项目（基于Gradle）</h1>
+</div><h2 id="构建项目基于gradle">构建项目（基于Gradle）</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -383,7 +391,7 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="spring配置">Spring配置</h1>
+</div><h2 id="spring配置">Spring配置</h2>
 <p><strong>关键要在MySQL连接URL中设置rewriteBatchedStatements=true</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -447,7 +455,7 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="批量插入">批量插入</h1>
+</div><h2 id="批量插入">批量插入</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1

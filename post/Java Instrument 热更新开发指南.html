@@ -307,15 +307,24 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#步骤一构建项目">步骤一、构建项目</a></li>
-    <li><a href="#步骤二编写代理类">步骤二、编写代理类</a></li>
-    <li><a href="#步骤三监控class文件并重新加载类">步骤三、监控.class文件，并重新加载类</a></li>
-    <li><a href="#步骤四定义manifestmf文件">步骤四、定义MANIFEST.MF文件</a></li>
-    <li><a href="#步骤五编写测试类">步骤五、编写测试类</a></li>
-    <li><a href="#步骤六编写启动类">步骤六、编写启动类</a></li>
-    <li><a href="#步骤七打包项目">步骤七、打包项目</a></li>
-    <li><a href="#步骤八运行项目">步骤八、运行项目</a></li>
-    <li><a href="#步骤九热更新">步骤九、热更新</a></li>
+    <li><a href="#项目源码">项目源码</a></li>
+    <li><a href="#相关参数">相关参数</a></li>
+    <li><a href="#概念">概念</a></li>
+    <li><a href="#核心api">核心API</a></li>
+    <li><a href="#项目结构">项目结构</a></li>
+    <li><a href="#开发步骤">开发步骤</a>
+      <ul>
+        <li><a href="#步骤一构建项目">步骤一、构建项目</a></li>
+        <li><a href="#步骤二编写代理类">步骤二、编写代理类</a></li>
+        <li><a href="#步骤三监控class文件并重新加载类">步骤三、监控.class文件，并重新加载类</a></li>
+        <li><a href="#步骤四定义manifestmf文件">步骤四、定义MANIFEST.MF文件</a></li>
+        <li><a href="#步骤五编写测试类">步骤五、编写测试类</a></li>
+        <li><a href="#步骤六编写启动类">步骤六、编写启动类</a></li>
+        <li><a href="#步骤七打包项目">步骤七、打包项目</a></li>
+        <li><a href="#步骤八运行项目">步骤八、运行项目</a></li>
+        <li><a href="#步骤九热更新">步骤九、热更新</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -323,9 +332,9 @@
 
     
     <div class="post-content">
-      <h1 id="项目源码">项目源码</h1>
+      <h2 id="项目源码">项目源码</h2>
 <p><a href="https://github.com/JasonChanBest/instrument">https://github.com/JasonChanBest/instrument</a></p>
-<h1 id="相关参数">相关参数</h1>
+<h2 id="相关参数">相关参数</h2>
 <table>
 <thead>
 <tr>
@@ -352,12 +361,12 @@
 </tr>
 </tbody>
 </table>
-<h1 id="概念">概念</h1>
+<h2 id="概念">概念</h2>
 <blockquote>
 <p>Instrumentation是JavaSE 5的新特性，使用Instrumentation，开发者可以构建一个独立于应用程序的代理程序（Agent），用来监测和协助运行在 JVM 上的程序，甚至能够替换和修改某些类的定义。有了这样的功能，开发者就可以实现更为灵活的运行时虚拟机监控和Java类操作了，这样的特性实际上提供了一种虚拟机级别支持的 AOP 实现方式，使得开发者无需对 JDK 做任何升级和改动，就可以实现某些 AOP 的功能了。
 在JavaSE 6里面，instrumentation包被赋予了更强大的功能：启动后的 instrument、本地代码（native code）instrument，以及动态改变 classpath 等等。这些改变，意味着 Java 具有了更强的动态控制、解释能力，它使得 Java 语言变得更加灵活多变。</p>
 </blockquote>
-<h1 id="核心api">核心API</h1>
+<h2 id="核心api">核心API</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -368,7 +377,7 @@
 <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">instrument</span><span class="o">.</span><span class="na">Instrumentation</span><span class="o">.</span><span class="na">redefineClasses</span><span class="o">();</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="项目结构">项目结构</h1>
+</div><h2 id="项目结构">项目结构</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -405,8 +414,8 @@
                     └── SimpleClassLoader.java
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="开发步骤">开发步骤</h1>
-<h2 id="步骤一构建项目">步骤一、构建项目</h2>
+</div><h2 id="开发步骤">开发步骤</h2>
+<h3 id="步骤一构建项目">步骤一、构建项目</h3>
 <p>本项目使用Gradle构建，其中引入commons-io用于读取.class文件，com.sun.tools.attach.VirtualMachine类在$JAVA_HOME/lib/tools.jar中，把这个jar文件复制到项目libs目录下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -486,7 +495,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="步骤二编写代理类">步骤二、编写代理类</h2>
+</div><h3 id="步骤二编写代理类">步骤二、编写代理类</h3>
 <p>在agentmain方法中，接收我们通过VirtualMachine传进来的.class文件路径，通过自定义的SimpleClassLoader从这个.class文件取得Class对象，进而得知要热更新的类名，
 有了类名就可以通过Class.forName获取原先已经加载在JVM中的类，然后用Instrumentation.redefineClasses热更新这个类</p>
 <div class="highlight"><div class="chroma">
@@ -559,7 +568,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="步骤三监控class文件并重新加载类">步骤三、监控.class文件，并重新加载类</h2>
+</div><h3 id="步骤三监控class文件并重新加载类">步骤三、监控.class文件，并重新加载类</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -676,7 +685,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="步骤四定义manifestmf文件">步骤四、定义MANIFEST.MF文件</h2>
+</div><h3 id="步骤四定义manifestmf文件">步骤四、定义MANIFEST.MF文件</h3>
 <p>由于项目使用Gradle构建，可以直接通过build.gradle配置生成这个MANIFEST.MF文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -702,7 +711,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="步骤五编写测试类">步骤五、编写测试类</h2>
+</div><h3 id="步骤五编写测试类">步骤五、编写测试类</h3>
 <p>每隔3秒打印1+1=3，这个结果明显是错的，所以我们稍候通过热更新的方式修复这个BUG，使之打印出1+1=2</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -758,7 +767,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="步骤六编写启动类">步骤六、编写启动类</h2>
+</div><h3 id="步骤六编写启动类">步骤六、编写启动类</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -787,7 +796,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="步骤七打包项目">步骤七、打包项目</h2>
+</div><h3 id="步骤七打包项目">步骤七、打包项目</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -813,7 +822,7 @@
 └── tools.jar
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="步骤八运行项目">步骤八、运行项目</h2>
+</div><h3 id="步骤八运行项目">步骤八、运行项目</h3>
 <p>注意这里通过*-javaagent:instrument-1.0.jar*参数指定代理jar</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -824,7 +833,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>此时控制台会不停地打印1+1=3</p>
-<h2 id="步骤九热更新">步骤九、热更新</h2>
+<h3 id="步骤九热更新">步骤九、热更新</h3>
 <p>修改Echo类</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
