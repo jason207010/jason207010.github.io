@@ -31,7 +31,7 @@
       <pubDate>Mon, 30 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>http://jason207010.github.io/post/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB.html</guid>
-      <description>Servlet Servlet、Filter 的 url-pattern 匹配规则 精确匹配 1 2 3 @WebServlet(urlPatterns = &amp;#34;/test&amp;#34;) public class TestServlet extends HttpServlet { } 扩展名匹配 1 2 3 @WebServlet(urlPatterns = &amp;#34;*.do&amp;#34;) public class TestServlet extends HttpServlet { } 路径匹配 1 2 3 @WebServlet(urlPatterns = &amp;#34;/test/*&amp;#34;) public class TestServlet extends</description>
+      <description>Servlet Servlet、Filter 的 url-pattern 匹配规则 精确匹配 扩展名匹配 路径匹配 任意url匹配 优先顺序 注意事项 Spring Spring Boot 注册 Servlet 和 Filter 通过配置 ServletRegistrationBean 注册 编写 Servlet 配置 ServletRegistrationBean</description>
     </item>
     
     <item>
